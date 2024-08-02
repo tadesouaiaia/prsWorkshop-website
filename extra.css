@@ -1,6 +1,27 @@
 
 h1 {
-      color: red;
+      color: green;
   }
 
+
+.rst-versions{
+        border-top:solid 10px purple;
+    }
+
+
+.wy-side-nav-search {
+        background: red;
+    }
+    .wy-nav-side {
+            background: green;
+        }
+        .rst-versions .rst-current-version {
+                background: yellow;
+            }
+
+.wy-nav-content {
+        max-width: 1200px !important;
+        max-width: 1300px !important;
+        max-width: 70% !important;
+    }
 

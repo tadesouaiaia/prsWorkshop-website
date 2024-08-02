@@ -8,6 +8,8 @@
     <title>Day1b.docx - prsWorkshop</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -18,7 +20,9 @@
     
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,13 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -134,24 +138,24 @@ sophisticated analyses through these PLINK tutorials.</p>
 </li>
 <li>
 <p>Navigate to the Day 1b working directory</p>
-<pre><code>    cd ~/data/Data_Day1b/
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    cd ~/data/Data_Day1b/
+</code></pre></div>
 </li>
 <li>
 <p>List all files in this directory by typing </p>
-<pre><code>    ls
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    ls
+</code></pre></div>
 </li>
 <li>
 <p>Test PLINK with no input by typing </p>
-<pre><code> plink
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> plink
+</code></pre></div>
 </li>
 <li>
 <p>Note that you can see lots of PLINK options by using the built-in
     help function: </p>
-<pre><code> plink --help
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> plink --help
+</code></pre></div>
 </li>
 </ol>
 <hr />
@@ -184,8 +188,8 @@ sophisticated analyses through these PLINK tutorials.</p>
 <ol>
 <li>
 <p>Create 'binary' format PLINK files using the recode command:</p>
-<pre><code> plink --file D1D --make-bed --out D1D
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> plink --file D1D --make-bed --out D1D
+</code></pre></div>
 </li>
 <li>
 <p>List files (<em>ls</em>) and check which new files have appeared</p>
@@ -209,8 +213,8 @@ sophisticated analyses through these PLINK tutorials.</p>
 <h2 id="recoding-alleles-as-counts">Recoding alleles as counts</h2>
 <p>Genotype data in allele count format is very useful, for example to use in regression modelling in statistical software such as R.
 Generate the D1D data in allele count format:</p>
-<pre><code>   plink --bfile D1D --recodeA --out D1D_AC
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   plink --bfile D1D --recodeA --out D1D_AC
+</code></pre></div>
 <p>📝 There are several options for recoding SNPs in different ways - more information on the PLINK website (see next section).
     Again note that a log file was created - skim the log file or screen output</p>
 <p>Look inside the .raw file. </p>
@@ -332,7 +336,7 @@ summary statistics that can be used to perform QC.</p>
 <h3 id="allele-frequencies">Allele frequencies</h3>
 <ol>
 <li>
-<p>Generate allele frequencies using the command <em>--</em>freq. Use
+<p>Generate allele frequencies using the command *--*freq. Use
     D1D_freq as the output name.</p>
 </li>
 <li>
@@ -400,8 +404,8 @@ summary statistics that can be used to perform QC.</p>
 <h2 id="perform-gwas">Perform GWAS</h2>
 <h3 id="casecontrol-gwas-no-covariates">Case/Control GWAS - no covariates</h3>
 <p>Run the following code, which performs a genetic association study using logistic regression on some case/control data:</p>
-<pre><code>    plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --out D1D_CC
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --out D1D_CC
+</code></pre></div>
 <ul>
 <li>What are the raw and Bonferroni-adjusted p-values for the top hit?</li>
 <li>What does this mean - is there a significant association?</li>
@@ -429,7 +433,7 @@ the main terms of the full Legal Code (the full licence) available at https://cr
 </li>
 </ul>
 <p>The licensor cannot revoke these freedoms as long as you follow the license terms.</p>
-<h4 id="under-the-following-terms-under-the-following-terms-unnumbered">Under the following terms: {#under-the-following-terms .unnumbered}</h4>
+<h4 class="unnumbered" id="under-the-following-terms">Under the following terms:</h4>
 <ul>
 <li>
 <p><strong>Attribution</strong> --- You must give appropriate credit, providea link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</p>
@@ -479,6 +483,8 @@ the main terms of the full Legal Code (the full licence) available at https://cr
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../javascripts/details.js"></script>
       <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {

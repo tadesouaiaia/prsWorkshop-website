@@ -8,6 +8,8 @@
     <title>Day 3a - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -18,7 +20,9 @@
     
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,13 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -217,32 +221,32 @@ Europeans (n = ~500) and Africans (n = ~650). </p>
 <h2 id="exercise-1-estimating-r2">Exercise 1 Estimating R<sup>2</sup></h2>
 <h3 id="code">Code</h3>
 <p>Open the terminal and move to the data directory for this practical:</p>
-<pre><code class="language-sh">cd /home/manager/data/Data_Day4/data
-</code></pre>
-<p>Create the output directory - "out":</p>
-<pre><code class="language-sh">mkdir out
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">cd</span><span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data
+</code></pre></div>
+<p>Create the output directory - "out":
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mkdir<span style="color: #bbbbbb"> </span>out
+</code></pre></div></p>
 <p>Look at the data files within the directory: </p>
-<pre><code class="language-sh">ls -l
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls<span style="color: #bbbbbb"> </span>-l
+</code></pre></div>
 <p>Now, calculate PRS using <strong>PRSice 2</strong></p>
 <h4 id="scenario-1-predicting-from-eur-training-to-eur-target-data">Scenario 1: Predicting from EUR training to EUR target data:</h4>
-<pre><code class="language-sh">Rscript /home/manager/PRSice_linux/PRSice.R \
---prsice /home/manager/PRSice_linux/PRSice \
---base /home/manager/data/Data_Day4/data/EUR-SBP-simulated.sumstats.prscsx \
---A1 A1 \
---pvalue P \
---no-clump \
---beta \
---snp SNP \
---score sum \
---target /home/manager/data/Data_Day4/data/EUR_1kg.hm3.only.csx \
---binary-target F \
---pheno /home/manager/data/Data_Day4/data/sbp_eur_1kg.sim_pheno \
---pheno-col pheno100 \
---thread 8 \
---out /home/manager/data/Data_Day4/data/out/SBP.eur.eur  
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice.R<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--prsice<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--base<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/EUR-SBP-simulated.sumstats.prscsx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--A1<span style="color: #bbbbbb"> </span>A1<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pvalue<span style="color: #bbbbbb"> </span>P<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--no-clump<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--beta<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--snp<span style="color: #bbbbbb"> </span>SNP<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--score<span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--target<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/EUR_1kg.hm3.only.csx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--binary-target<span style="color: #bbbbbb"> </span>F<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/sbp_eur_1kg.sim_pheno<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno-col<span style="color: #bbbbbb"> </span>pheno100<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--thread<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span><span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--out<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.eur.eur<span style="color: #bbbbbb">  </span>
+</code></pre></div>
 <h3 id="key-code-parameters">Key code parameters</h3>
 <p>The parameters listed in this table remain consistent across various scenarios, but the specific values may change based on the dataset and analysis scenario. </p>
 <p>For illustrative purposes, this table uses the first scenario, EUR base and EUR target population:</p>
@@ -358,11 +362,11 @@ Europeans (n = ~500) and Africans (n = ~650). </p>
 
 <p><strong>QUESTIONS</strong> </p>
 <p>Move to the out directory you created earlier:</p>
-<pre><code class="language-sh">cd out
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">cd</span><span style="color: #bbbbbb"> </span>out
+</code></pre></div>
 <p>Look at the files produced following your first analyis within the directory: </p>
-<pre><code class="language-sh">ls -l
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls<span style="color: #bbbbbb"> </span>-l
+</code></pre></div>
 <details>
   <summary>How many files have been generated from this code and what does each file show you?</summary>
 
@@ -382,8 +386,8 @@ Europeans (n = ~500) and Africans (n = ~650). </p>
 </details>
 
 <p>Examine the plot indicating the R<sup>2</sup> at each p-value threshold: </p>
-<pre><code class="language-sh">xdg-open SBP.eur.eur_BARPLOT_2024-06-12.png
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>xdg-open<span style="color: #bbbbbb"> </span>SBP.eur.eur_BARPLOT_2024-06-12.png
+</code></pre></div>
 <details>
   <summary>Which p-value threshold generates the "best-fit" PRS?</summary>
 
@@ -410,9 +414,9 @@ Europeans (n = ~500) and Africans (n = ~650). </p>
   SBP.eur.eur.summary
 </details>
 
-<p>View this summary output file: </p>
-<pre><code class="language-sh">cat /home/manager/data/Data_Day4/data/out/SBP.eur.eur.summary
-</code></pre>
+<p>View this summary output file: 
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.eur.eur.summary
+</code></pre></div></p>
 <details>
 <summary>How much phenotypic variation does the "best-fit" PRS explain? What does this mean in very simple terms?</summary>
 
@@ -434,27 +438,27 @@ Number of SNPs = 389.
 
 <h4 id="scenario-2-predicting-from-afr-training-to-afr-target-data">Scenario 2: Predicting from AFR training to AFR target data:</h4>
 <p>Return to the data directory:</p>
-<pre><code class="language-sh">cd /home/manager/data/Data_Day4/data
-</code></pre>
-<pre><code class="language-sh">Rscript /home/manager/PRSice_linux/PRSice.R \
---prsice /home/manager/PRSice_linux/PRSice \
---base /home/manager/data/Data_Day4/data/AFR-SBP-simulated.sumstats.prscsx \
---A1 A1 \
---pvalue P \
---no-clump \
---beta \
---snp SNP \
---score sum \
---target /home/manager/data/Data_Day4/data/AFR_1kg.hm3.only.csx \
---binary-target F \
---pheno /home/manager/data/Data_Day4/data/sbp_afr_1kg.sim_pheno \
---pheno-col pheno50 \
---thread 8 \
---out /home/manager/data/Data_Day4/data/out/SBP.afr.afr
-</code></pre>
-<p>View the output file:</p>
-<pre><code class="language-sh">cat /home/manager/data/Data_Day4/data/out/SBP.afr.afr.summary
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">cd</span><span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data
+</code></pre></div>
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice.R<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--prsice<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--base<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/AFR-SBP-simulated.sumstats.prscsx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--A1<span style="color: #bbbbbb"> </span>A1<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pvalue<span style="color: #bbbbbb"> </span>P<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--no-clump<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--beta<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--snp<span style="color: #bbbbbb"> </span>SNP<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--score<span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--target<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/AFR_1kg.hm3.only.csx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--binary-target<span style="color: #bbbbbb"> </span>F<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/sbp_afr_1kg.sim_pheno<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno-col<span style="color: #bbbbbb"> </span>pheno50<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--thread<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span><span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--out<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.afr.afr
+</code></pre></div>
+View the output file:</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.afr.afr.summary
+</code></pre></div>
 <p><strong>QUESTIONS</strong> </p>
 <details>
   <summary>Which p-value threshold generates the "best-fit" PRS?</summary>
@@ -472,25 +476,25 @@ Number of SNPs = 389.
 </details>
 
 <h4 id="scenario-3-predicting-from-eur-training-to-afr-target-data">Scenario 3: Predicting from EUR training to AFR target data</h4>
-<pre><code class="language-sh">Rscript /home/manager/PRSice_linux/PRSice.R \
---prsice /home/manager/PRSice_linux/PRSice \
---base /home/manager/data/Data_Day4/data/EUR-SBP-simulated.sumstats.prscsx \
---A1 A1 \
---pvalue P \
---no-clump \
---beta \
---snp SNP \
---score sum \
---target /home/manager/data/Data_Day4/data/AFR_1kg.hm3.only.csx \
---binary-target F \
---pheno /home/manager/data/Data_Day4/data/sbp_afr_1kg.sim_pheno \
---pheno-col pheno50 \
---thread 8 \
---out /home/manager/data/Data_Day4/data/out/SBP.eur.afr
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice.R<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--prsice<span style="color: #bbbbbb"> </span>/home/manager/PRSice_linux/PRSice<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--base<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/EUR-SBP-simulated.sumstats.prscsx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--A1<span style="color: #bbbbbb"> </span>A1<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pvalue<span style="color: #bbbbbb"> </span>P<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--no-clump<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--beta<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--snp<span style="color: #bbbbbb"> </span>SNP<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--score<span style="color: #bbbbbb"> </span>sum<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--target<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/AFR_1kg.hm3.only.csx<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--binary-target<span style="color: #bbbbbb"> </span>F<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/sbp_afr_1kg.sim_pheno<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--pheno-col<span style="color: #bbbbbb"> </span>pheno50<span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--thread<span style="color: #bbbbbb"> </span><span style="color: #666666">8</span><span style="color: #bbbbbb"> </span><span style="color: #AA5D1F; font-weight: bold">\</span>
+--out<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.eur.afr
+</code></pre></div>
 <p>View the output file: </p>
-<pre><code class="language-sh">cat /home/manager/data/Data_Day4/data/out/SBP.eur.afr.summary 
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat<span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/SBP.eur.afr.summary<span style="color: #bbbbbb"> </span>
+</code></pre></div>
 <p><strong>QUESTIONS</strong> </p>
 <details>
   <summary>Which p-value threshold generates the "best-fit" PRS?</summary>
@@ -513,54 +517,54 @@ We will use R for visualisation.</p>
 <p><strong>Open a new terminal and open R</strong></p>
 <p>Open a new tab in the terminal (<strong>plus icon in the top left corner</strong>)</p>
 <p>In this new terminal window, make sure you are in the 'out' directory:</p>
-<pre><code class="language-sh">cd /home/manager/data/Data_Day4/data/out/
-</code></pre>
-<p>Now open R: </p>
-<pre><code class="language-sh">R
-</code></pre>
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">cd</span><span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data/out/
+</code></pre></div>
+Now open R: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>R
+</code></pre></div>
 <p>Once in R, combine the summary files and visualise the performance of each PRS: </p>
-<pre><code class="language-sh"># Load necessary libraries
-library(ggplot2)
-library(RColorBrewer)
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #3D7B7B; font-style: italic"># Load necessary libraries</span>
+library<span style="color: #666666">(</span>ggplot2<span style="color: #666666">)</span>
+library<span style="color: #666666">(</span>RColorBrewer<span style="color: #666666">)</span>
 
-# Create a function to read the files and add ancestry information
-read_and_label &lt;- function(file, ancestry) {
-  data &lt;- read.table(file, header = TRUE, sep = &quot;\t&quot;)
-  data$Ancestry &lt;- ancestry
-  return(data)
-}
+<span style="color: #3D7B7B; font-style: italic"># Create a function to read the files and add ancestry information</span>
+read_and_label<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span><span style="color: #008000; font-weight: bold">function</span><span style="color: #666666">(</span>file,<span style="color: #bbbbbb"> </span>ancestry<span style="color: #666666">)</span><span style="color: #bbbbbb"> </span><span style="color: #666666">{</span>
+<span style="color: #bbbbbb">  </span>data<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>read.table<span style="color: #666666">(</span>file,<span style="color: #bbbbbb"> </span><span style="color: #19177C">header</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>TRUE,<span style="color: #bbbbbb"> </span><span style="color: #19177C">sep</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;\t&quot;</span><span style="color: #666666">)</span>
+<span style="color: #bbbbbb">  </span>data<span style="color: #19177C">$Ancestry</span><span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>ancestry
+<span style="color: #bbbbbb">  </span><span style="color: #008000; font-weight: bold">return</span><span style="color: #666666">(</span>data<span style="color: #666666">)</span>
+<span style="color: #666666">}</span>
 
-# Read each file with the corresponding ancestry information
-EUR_EUR &lt;- read_and_label(&quot;SBP.eur.eur.summary&quot;, &quot;EUR_EUR&quot;)
-AFR_AFR &lt;- read_and_label(&quot;SBP.afr.afr.summary&quot;, &quot;AFR_AFR&quot;)
-EUR_AFR &lt;- read_and_label(&quot;SBP.eur.afr.summary&quot;, &quot;EUR_AFR&quot;)
+<span style="color: #3D7B7B; font-style: italic"># Read each file with the corresponding ancestry information</span>
+EUR_EUR<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>read_and_label<span style="color: #666666">(</span><span style="color: #BA2121">&quot;SBP.eur.eur.summary&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;EUR_EUR&quot;</span><span style="color: #666666">)</span>
+AFR_AFR<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>read_and_label<span style="color: #666666">(</span><span style="color: #BA2121">&quot;SBP.afr.afr.summary&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;AFR_AFR&quot;</span><span style="color: #666666">)</span>
+EUR_AFR<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>read_and_label<span style="color: #666666">(</span><span style="color: #BA2121">&quot;SBP.eur.afr.summary&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;EUR_AFR&quot;</span><span style="color: #666666">)</span>
 
-# Combine all data into one dataframe
-all_data &lt;- rbind(EUR_EUR, AFR_AFR, EUR_AFR)
+<span style="color: #3D7B7B; font-style: italic"># Combine all data into one dataframe</span>
+all_data<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>rbind<span style="color: #666666">(</span>EUR_EUR,<span style="color: #bbbbbb"> </span>AFR_AFR,<span style="color: #bbbbbb"> </span>EUR_AFR<span style="color: #666666">)</span>
 
-# Create a bar graph with different colors for each ancestry
+<span style="color: #3D7B7B; font-style: italic"># Create a bar graph with different colors for each ancestry</span>
 
-png('/home/manager/data/Data_Day4/data/out/PRS_ancestry_analysis.png', unit='px', res=300, width=3500, height=4500)
+png<span style="color: #666666">(</span><span style="color: #BA2121">&#39;/home/manager/data/Data_Day4/data/out/PRS_ancestry_analysis.png&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">unit</span><span style="color: #666666">=</span><span style="color: #BA2121">&#39;px&#39;</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">res</span><span style="color: #666666">=300</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">width</span><span style="color: #666666">=3500</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">height</span><span style="color: #666666">=4500)</span>
 
-ancestry &lt;- ggplot(all_data, aes(x = Ancestry, y = PRS.R2, fill = Ancestry)) +
-  geom_bar(stat = &quot;identity&quot;, position = &quot;dodge&quot;) +
-  labs(title = &quot;R2 Values by Ancestry&quot;, x = &quot;Ancestry&quot;, y = &quot;R2 Value&quot;) +
-  theme_minimal() +
-  scale_fill_brewer(palette = &quot;Set3&quot;) +
-  theme(plot.title = element_text(hjust = 0.5, size = 16, face = &quot;bold&quot;),
-        axis.title.x = element_text(size = 14, face = &quot;bold&quot;),
-        axis.title.y = element_text(size = 14, face = &quot;bold&quot;),
-        axis.text.x = element_text(size = 12, angle = 45, hjust = 1),
-        axis.text.y = element_text(size = 12),
-        legend.position = &quot;none&quot;)
+ancestry<span style="color: #bbbbbb"> </span>&lt;-<span style="color: #bbbbbb"> </span>ggplot<span style="color: #666666">(</span>all_data,<span style="color: #bbbbbb"> </span>aes<span style="color: #666666">(</span><span style="color: #19177C">x</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Ancestry,<span style="color: #bbbbbb"> </span><span style="color: #19177C">y</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>PRS.R2,<span style="color: #bbbbbb"> </span><span style="color: #19177C">fill</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>Ancestry<span style="color: #666666">))</span><span style="color: #bbbbbb"> </span>+
+<span style="color: #bbbbbb">  </span>geom_bar<span style="color: #666666">(</span><span style="color: #19177C">stat</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;identity&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">position</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;dodge&quot;</span><span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>+
+<span style="color: #bbbbbb">  </span>labs<span style="color: #666666">(</span><span style="color: #19177C">title</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;R2 Values by Ancestry&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">x</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Ancestry&quot;</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">y</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;R2 Value&quot;</span><span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>+
+<span style="color: #bbbbbb">  </span>theme_minimal<span style="color: #666666">()</span><span style="color: #bbbbbb"> </span>+
+<span style="color: #bbbbbb">  </span>scale_fill_brewer<span style="color: #666666">(</span><span style="color: #19177C">palette</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;Set3&quot;</span><span style="color: #666666">)</span><span style="color: #bbbbbb"> </span>+
+<span style="color: #bbbbbb">  </span>theme<span style="color: #666666">(</span>plot.title<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>element_text<span style="color: #666666">(</span><span style="color: #19177C">hjust</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">0</span>.5,<span style="color: #bbbbbb"> </span><span style="color: #19177C">size</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">16</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">face</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;bold&quot;</span><span style="color: #666666">)</span>,
+<span style="color: #bbbbbb">        </span>axis.title.x<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>element_text<span style="color: #666666">(</span><span style="color: #19177C">size</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">14</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">face</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;bold&quot;</span><span style="color: #666666">)</span>,
+<span style="color: #bbbbbb">        </span>axis.title.y<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>element_text<span style="color: #666666">(</span><span style="color: #19177C">size</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">14</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">face</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;bold&quot;</span><span style="color: #666666">)</span>,
+<span style="color: #bbbbbb">        </span>axis.text.x<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>element_text<span style="color: #666666">(</span><span style="color: #19177C">size</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">12</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">angle</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">45</span>,<span style="color: #bbbbbb"> </span><span style="color: #19177C">hjust</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">1)</span>,
+<span style="color: #bbbbbb">        </span>axis.text.y<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span>element_text<span style="color: #666666">(</span><span style="color: #19177C">size</span><span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #666666">12)</span>,
+<span style="color: #bbbbbb">        </span>legend.position<span style="color: #bbbbbb"> </span><span style="color: #666666">=</span><span style="color: #bbbbbb"> </span><span style="color: #BA2121">&quot;none&quot;</span><span style="color: #666666">)</span>
 
-print(ancestry)
+print<span style="color: #666666">(</span>ancestry<span style="color: #666666">)</span>
 
-dev.off()
-</code></pre>
-<p>Examine the bar plot indicating the R<sup>2</sup> for each base:target ancestry pair:</p>
-<pre><code class="language-sh">xdg-open PRS_ancestry_analysis.png
-</code></pre>
+dev.off<span style="color: #666666">()</span>
+</code></pre></div>
+<p>Examine the bar plot indicating the R<sup>2</sup> for each base:target ancestry pair:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>xdg-open<span style="color: #bbbbbb"> </span>PRS_ancestry_analysis.png
+</code></pre></div></p>
 <p><strong>QUESTIONS</strong> </p>
 <details>
   <summary>Which base:target pair has the highest phenotypic variance explained?</summary>
@@ -626,6 +630,8 @@ dev.off()
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../javascripts/details.js"></script>
       <script src="../search/main.js"></script>
     <script>
         jQuery(function () {

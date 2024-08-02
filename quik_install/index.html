@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Tade Souaiaia" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Checklist - prsWorkshop</title>
+    <title>Quik install - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Checklist";
+        var mkdocs_page_name = "Quik install";
         var mkdocs_page_input_path = "quik_install.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,17 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Checklist</a>
-    <ul class="current">
-    </ul>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Checklist</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -91,8 +91,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Software</li>
-      <li class="breadcrumb-item active">Checklist</li>
+      <li class="breadcrumb-item active">Quik install</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/quik_install.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -105,19 +104,22 @@
                 <h2 id="preparation">Preparation</h2>
 <p>After <a href="https://github.com/tadesouaiaia/sibArc/archive/refs/heads/main.zip">downloading</a> and unzipping sibArc
 into a suitable directory on your machine you will observe that a folder with the following contents: </p>
-<pre><code> sibArc              &lt;--- program executable 
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> sibArc              &lt;--- program executable 
  data/                  &lt;--- input data               
  LICENSE
  README.me 
  tests/                 &lt;--- test directory
-</code></pre>
-<p>!!! tip "For Mac/Linux, using the terminal, type the following command from within the directory:" 
-    <code>chmod +x sibArc.py</code> 
-    to make sibArc executable </p>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">For Mac/Linux, using the terminal, type the following command from within the directory:</p>
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>chmod +x sibArc.py
+</code></pre></div>
+to make sibArc executable </p>
+</div>
 <h2 id="input-data">Input Data</h2>
 <p>SibArc requires two column sibling phenotype data. The columns can be separated by a comma or whitespace, a header 
 is optional: </p>
-<pre><code> Phenotype1,Phenotype2
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> Phenotype1,Phenotype2
  -2.23511,-2.33331
  -1.23041,-1.03325
  -1.55322,-0.03213
@@ -125,18 +127,17 @@ is optional: </p>
   0.53233,2.124533
   1.23345,0.936323
   2.35326,1.323531
-</code></pre>
-<p>!!! tips "Sample Sibling Data"
-    Sample Sibling Data can be found in the data folder 
-        <code>data/trait1-test.csv 
-        data/trait2-test.csv</code></p>
+</code></pre></div>
+<div class="admonition tips">
+<p class="admonition-title">Sample Sibling Data</p>
+<p>Sample Sibling Data can be found in the data folder 
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>data/trait1-test.csv 
+data/trait2-test.csv 
+</code></pre></div></p>
+</div>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="./" class="btn btn-neutral float-left" title="Checklist"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../quik_demo/" class="btn btn-neutral float-right" title="Demos">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -162,10 +163,6 @@ is optional: </p>
         </span>
     
     
-      <span><a href="./" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../quik_demo/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -173,6 +170,8 @@ is optional: </p>
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../javascripts/details.js"></script>
       <script src="../search/main.js"></script>
     <script>
         jQuery(function () {

@@ -8,6 +8,8 @@
     <title>Day2.docx - prsWorkshop</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -18,7 +20,9 @@
     
     <!--[if lt IE 9]>
       <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,13 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -105,10 +109,10 @@ height="2.8874989063867016in"}</p>
 <blockquote>
 <p><strong>Day 2: Introduction to Polygenic Risk Scores</strong></p>
 </blockquote>
-<h1 id="day-2-timetable-day-2-timetable-unnumbered">Day 2 Timetable {#day-2-timetable .unnumbered}</h1>
+<h1 class="unnumbered" id="day-2-timetable">Day 2 Timetable</h1>
 <p>+------------+--------+-------------------------+---------------------+
-| &gt; <strong>Time</strong> | &gt; <strong>T  |                         | &gt; </strong>Presenter<strong>     |
-|            | itle</strong> |                         |                     |
+| &gt; <strong>Time</strong> | &gt; <strong>T  |                         | &gt; **Presenter</strong>     |
+|            | itle** |                         |                     |
 +============+========+=========================+=====================+
 | &gt; 9:00 -   | A      |                         | &gt; -                |
 | &gt; 9:15     | rrival |                         |                     |
@@ -301,7 +305,7 @@ consortium</a></p>
 <p><a href="http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip">Download</a>
 <a href="http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip">Link</a></p>
 </blockquote>
-<h4 id="consortium_comprehensive_2015-consortium_comprehensive_2015-unnumbered">(consortium_comprehensive_2015) {#consortium_comprehensive_2015 .unnumbered}</h4>
+<h4 class="unnumbered" id="consortium_comprehensive_2015">(consortium_comprehensive_2015)</h4>
 <h2 id="data-structure">Data Structure</h2>
 <blockquote>
 <p>You will find all practical materials in the <strong>PRS_Workshop/Day_2</strong>
@@ -404,7 +408,7 @@ removing SNPs across the genome that are correlated (in high LD) with
 a nearby SNP that has a smaller association 𝑃 -value.</p>
 <p>SNPs are first sorted (i.e. ranked) by their 𝑃 -values. Then, starting
 from the most significant SNP (denoted as the <em>index SNP</em>), any SNPs
-in high LD (eg. 𝑟^2^ &gt; 0.1, with 𝑟^2^ typically calculated from
+in high LD (eg. 𝑟<sup>2</sup> &gt; 0.1, with 𝑟<sup>2</sup> typically calculated from
 𝑝ℎ𝑎𝑠𝑒𝑑 ℎ𝑎𝑝𝑙𝑜𝑡𝑦𝑝𝑒 data) with the index SNP are removed. To reduce
 computational burden, only SNPs that are within e.g. 250 kb of the
 <em>index SNP</em> are 𝑐𝑙𝑢𝑚𝑝𝑒𝑑. This process is continued until no <em>index
@@ -429,7 +433,7 @@ the terminal and type the command below at the terminal prompt:</p>
 height="0.3229166666666667in"}</p>
 <blockquote>
 <p>The command above performs clumping on the height GWAS using LD
-calculated based on the <strong>TAR</strong> genotype file. SNPs that have 𝑟^2^ &gt;
+calculated based on the <strong>TAR</strong> genotype file. SNPs that have 𝑟<sup>2</sup> &gt;
 0.1 within a 250 kb window of the index SNP are removed. This will
 generate the <strong>Height.clumped</strong> file, which contains the SNPs retained
 after clumping.</p>
@@ -482,7 +486,7 @@ phenotype is a quantitative trait and thus linear regression should be
 performed. In addi- tion, we ask PRSice not to perform high-resolution
 scoring over multiple thresholds</p>
 <p>(--fastscore), and to compute the PRS using only those SNPs with 𝑃
--value \&lt; 5<em>×</em>10^<em>−</em>8^.</p>
+-value \&lt; 5*×*10<sup>*−*8</sup>.</p>
 </blockquote>
 <p><img alt="" src="media/image6.jpeg" />{width="0.3281244531933508in"
 height="0.3281244531933508in"}</p>
@@ -647,9 +651,9 @@ the regression model as a covariate:</p>
 <p>14 --cov-col Sex</p>
 <p>15 --out Results/Height.sex</p>
 <p>When covariates were include in the analysis, PRSice will use the
-model fit of <strong>only PRS</strong> for all its output. This 𝑃 𝑅𝑆.𝑅^2^ is
+model fit of <strong>only PRS</strong> for all its output. This 𝑃 𝑅𝑆.𝑅<sup>2</sup> is
 calculated by minusing the</p>
-<p>𝑅^2^ of the null model (e.g. 𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥) from the 𝑅^2^ of the full
+<p>𝑅<sup>2</sup> of the null model (e.g. 𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥) from the 𝑅<sup>2</sup> of the full
 model (e.g.</p>
 <p><img alt="" src="media/image10.jpeg" />{width="0.34781167979002625in"
 height="0.34781167979002625in"}<img alt="" src="media/image7.jpeg" />{width="0.3541666666666667in"
@@ -865,6 +869,8 @@ height="0.3593744531933508in"}</p>
     <script>var base_url = "../../..";</script>
     <script src="../../../js/theme_extra.js"></script>
     <script src="../../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../../javascripts/details.js"></script>
       <script src="../../../search/main.js"></script>
     <script>
         jQuery(function () {

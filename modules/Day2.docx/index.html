@@ -8,6 +8,8 @@
     <title>Introduction to Polygenic Risk Scores - prsWorkshop</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -18,7 +20,9 @@
     
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,13 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -162,21 +166,29 @@
 <p>You will find all practical materials in the <strong>/home/manager/data/Day2_Target_Data/Day2_Target_Data</strong> directory. Relevant materials that you should see there at the start of the practical are as follows:</p>
 <blockquote>
 <p>First, download the Base datasets using this command - 
-<code>cd ~/Downloads
-wget https://wcs_data_transfer.cog.sanger.ac.uk/Day2_Base_Data.zip</code>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/Downloads
+wget https://wcs_data_transfer.cog.sanger.ac.uk/Day2_Base_Data.zip
+</code></pre></div>
 You may also download it via dropbox if the above fails with this
 <a href="https://www.dropbox.com/s/w7g75bo069tupuq/Day2_Base_Data.zip?dl=0">link</a>.</p>
 <p>The data will be downloaded into your "Downloads" folder. You will need to move it to right directory, using the following command.
-<code>cd ~/data/Day2_Target_Data/Day2_Target_Data</code>
-<code>mv ~/Downloads/Day2_Base_Data.zip ~/data/Day2_Target_Data/Day2_Target_Data</code>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/data/Day2_Target_Data/Day2_Target_Data
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mv ~/Downloads/Day2_Base_Data.zip ~/data/Day2_Target_Data/Day2_Target_Data
+</code></pre></div>
 Now, your Day2_Base_dat.zip has been moved to your Day2_Target_Data directory. However, the file is zipped so you will need to unzip it:
-<code>unzip Day2_Base_Data.zip</code></p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>unzip Day2_Base_Data.zip
+</code></pre></div></p>
 <p>For clarity purposes, rename your Day2_Base_data to Base_data and make a directory for your Target data called "Target_data" in which you will move all your target datasets.
-<code>mv Day2_Base_Data Base_Data</code>
-<code>mkdir Target_Data</code>
-<code>mv TAR.* Target_Data</code></p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mv Day2_Base_Data Base_Data
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mkdir Target_Data
+</code></pre></div>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mv TAR.* Target_Data
+</code></pre></div></p>
 <p>You also want to create a "Results" directory where all your results will be saved
-<code>mkdir Results</code>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mkdir Results
+</code></pre></div>
 So now in your current working directory (for Day2), you should have 3 directories (in blue) called Base_data, Target_data, and Results
 </p>
 </blockquote>
@@ -247,7 +259,8 @@ for each copy of the <em>effect allele</em>. For example, if the effect
 <details>
   <summary>Answer</summary>     </p>
 <p>In the GIANT_Height.txt, SNPs effect sizes are reported as 𝛽 coefficient and measures the effect of the 'effect allele'. So, first check identify which allele is the effect allele for the SNPs of interest
-<code>grep -E 'rs4747841|rs878177' ./Base_data/GIANT_Height.txt</code>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep -E &#39;rs4747841|rs878177&#39; ./Base_data/GIANT_Height.txt
+</code></pre></div>
 rs4747841 A G 0.551 -0.0011 0.0029 0.7 253213</p>
 <p>rs878177 T C 0.3 0.14 0.0031 8.2e-06 251271      </p>
 <p>Second, multiply the weight of each risk allele by their dosage   <br />
@@ -280,8 +293,8 @@ Individual_2: PRS=?</p>
 <h3 id="performing-clumping">Performing Clumping</h3>
 <p><em>Clumping</em> is the procedure where a SNP data set is 'thinned' by removing SNPs across the genome that are correlated (in high LD) with a nearby SNP that has a smaller association 𝑃 -value. </p>
 <p>SNPs are first sorted (i.e. ranked) by their 𝑃 -values. Then, starting from the most significant SNP (denoted as the <em>index SNP</em>), any SNPs in high LD (eg. 𝑟<sup>2</sup>&gt;0.1, with 𝑟<sup>2</sup> typically calculated from <em>phased haplotype</em> data) with the index SNP are removed. To reduce computational burden, only SNPs that are within e.g. 250 kb of the <em>index SNP</em> are 𝑐𝑙𝑢𝑚𝑝𝑒𝑑. This process is continued until no <em>index SNPs</em> remain.</p>
-<p>Use the command below to perform clumping of the Height GWAS data using PLINK(<a href="https://doi.org/10.1186/s13742-015-0047-8"><strong>Chang, C et al., 2015</strong></a>). First, you will have to navigate to the right folder where the data are stored using the terminal. Open the terminal and type the command below at the terminal prompt:</p>
-<pre><code>  plink \
+<p>Use the command below to perform clumping of the Height GWAS data using PLINK(<a href="https://doi.org/10.1186/s13742-015-0047-8"><strong>Chang, C et al., 2015</strong></a>). First, you will have to navigate to the right folder where the data are stored using the terminal. Open the terminal and type the command below at the terminal prompt:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  plink \
   --bfile Target_Data/TAR \
   --clump Base_Data/GIANT_Height.txt \
   --clump-p1 1 \
@@ -290,7 +303,7 @@ Individual_2: PRS=?</p>
   --clump-kb 250 \
   --clump-r2 0.1 \
   --out Results/Height
-</code></pre>
+</code></pre></div></p>
 <hr />
 <blockquote>
 <p>‼️You can copy &amp; paste code from this document directly to the terminal, but this can cause problems (e.g. when opened by Preview in Mac) and distort the code. Try using Adobe Reader or first copy &amp; pasting to a text editor (e.g. notepad) or use the script file provided that contains all the commands.
@@ -323,16 +336,16 @@ Individual_2: PRS=?</p>
 <h2 id="p-value-thresholding">P-Value Thresholding</h2>
 <p>Deciding which SNPs to include in the calculation of PRS is one of the major challenges in the field. A simple and popular approach is to include SNPs according to their GWAS association 𝑃-value. For example, we may choose to include only the genome-wide significant SNPs from the GWAS because those are the SNPs with significant evidence for association. In the next subsection you will compute PRS from GW-significant SNPs only, and then in the subsequent subsection you will generate multiple PRSs using different 𝑃-value thresholds.</p>
 <h3 id="height-prs-using-gw-significant-snps-only">Height PRS using GW-significant SNPs only</h3>
-<p>Use the commands below to run PRSice with GIANT Height GWAS as base data and the height phenotype as target data. PRSice will calculate Height PRS in the target data and then perform a regression of the Height PRS against the target individual's true height values. From the <strong>/home/manager/data/Day2_Target_Data/Day2_Target_Data</strong> directory, run the following command in the terminal:</p>
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --bar-levels 5e-8 --no-full --fastscore --out Results/Height.gws
-</code></pre>
-<p>This command takes the Height GWAS summary statistic file (--base), informs PRSice of the column name for the column containing the SNP ID(--snp), the effect allele (--A1), the non-effect allele (--A2), the effect size (--stat) and the 𝑃-value (--pvalue). We also inform PRSice that the effect size is a 𝛽 coefficient (--beta) instead of an OR. The --binary-target F command informs PRSice that the target phenotype is a quantitative trait and thus linear regression should be performed. In addition, we ask PRSice not to perform high-resolution scoring over multiple thresholds (--fastscore), and to compute the PRS using only those SNPs with 𝑃-value \&lt; 5<em>×</em>10<sup>−8</sup>.</p>
+<p>Use the commands below to run PRSice with GIANT Height GWAS as base data and the height phenotype as target data. PRSice will calculate Height PRS in the target data and then perform a regression of the Height PRS against the target individual's true height values. From the <strong>/home/manager/data/Day2_Target_Data/Day2_Target_Data</strong> directory, run the following command in the terminal:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --bar-levels 5e-8 --no-full --fastscore --out Results/Height.gws
+</code></pre></div></p>
+<p>This command takes the Height GWAS summary statistic file (--base), informs PRSice of the column name for the column containing the SNP ID(--snp), the effect allele (--A1), the non-effect allele (--A2), the effect size (--stat) and the 𝑃-value (--pvalue). We also inform PRSice that the effect size is a 𝛽 coefficient (--beta) instead of an OR. The --binary-target F command informs PRSice that the target phenotype is a quantitative trait and thus linear regression should be performed. In addition, we ask PRSice not to perform high-resolution scoring over multiple thresholds (--fastscore), and to compute the PRS using only those SNPs with 𝑃-value \&lt; 5*×*10<sup>−8</sup>.</p>
 <hr />
 <blockquote>
 <p>📜The default of PRSice is to perform clumping with r<sup>2</sup> threshold of 0.1 and a window size of 250kb.</p>
 <p>To see a full list of command line options available in PRSice, type: </p>
 <p><code>~/PRSice_linux/PRSice</code></p>
-<p>Take some time to have a look through some of these user options. By looking at the user options, work out which user option or options were used to ensure that the command above only calculated 1 PRS at genome-wide significance of \&lt; 5<em>×</em>10<sup>−8</sup>.
+<p>Take some time to have a look through some of these user options. By looking at the user options, work out which user option or options were used to ensure that the command above only calculated 1 PRS at genome-wide significance of \&lt; 5*×*10<sup>−8</sup>.
 </p>
 </blockquote>
 <hr />
@@ -372,9 +385,9 @@ Individual_2: PRS=?</p>
 <h3 id="height-prs-across-multiple-p-value-thresholds">Height PRS across multiple P-value thresholds</h3>
 <p>A disadvantage of using only genome-wide significant SNPs is that there are likely to be many true signals among the SNPs that did not reach genome-wide significance. However, since we do not know what 𝑃-value threshold provides the \"best\" prediction for our particular data, then we can calculate the PRS under several 𝑃-value thresholds and test their prediction accuracy to identify the \"best\" threshold (NB. See <a href="https://doi.org/10.1371/journal.pgen.1003348"><strong>Dudbridge, F 2013</strong></a> for theory on factors affecting the best-fit PRS)</p>
 <blockquote></blockquote>
-<p>This process is implemented in PRSice and can be performed automatically as follows:</p>
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --fastscore --out Results/Height.fast 
-</code></pre>
+<p>This process is implemented in PRSice and can be performed automatically as follows:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --fastscore --out Results/Height.fast 
+</code></pre></div></p>
 <p>By removing the --bar-levels and --no-full command, we ask PRSice to perform PRS calculation with a number of predefined thresholds (0.001,0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 1). The <strong>.prsice</strong> file is very similar to the <strong>.summary</strong> file, the only difference is that <strong>.prsice</strong> file reports the results of model fits for <strong>all thresholds</strong> instead of the most predictive threshold. This allow us to observe the change in model fitting across different thresholds, visualized by the BARPLOT (<a href="#top"><a href="#_Figure-1.1">Figure 1.1</a></a>) generated by PRSice</p>
 <blockquote>
 <p><strong>Figure 1.1: BARPLOT generated by PRSice</strong> <br />
@@ -397,9 +410,9 @@ Individual_2: PRS=?</p>
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Table of Contents</a></a></p>
 <h3 id="high-resolution-scoring">High Resolution Scoring</h3>
-<p>If we limit ourselves to a small number of 𝑃-value thresholds, we might \"miss\" the most predictive threshold. In order to identify this \"best\" threshold, we will need \"high-resolution scoring\", that is, to test the predictive power of PRS generated under a larger number of p-value thresholds. We can achieve that by simply removing the --fastscore command from the PRSice script:</p>
-<pre><code> Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --out Results/Height.highres
-</code></pre>
+<p>If we limit ourselves to a small number of 𝑃-value thresholds, we might \"miss\" the most predictive threshold. In order to identify this \"best\" threshold, we will need \"high-resolution scoring\", that is, to test the predictive power of PRS generated under a larger number of p-value thresholds. We can achieve that by simply removing the --fastscore command from the PRSice script:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --out Results/Height.highres
+</code></pre></div></p>
 <p>When PRSice performs high-resolution scoring, it will generate a plot (<a href="#_bookmark15">Figure 1.2.1</a>) presenting the model fit of PRS calculated at all P-value thresholds.</p>
 <blockquote>
 <p><strong>Figure 1.2.1: High resolution Plot generated by PRSice</strong>
@@ -420,7 +433,7 @@ Individual_2: PRS=?</p>
 <p>The R<sup>2</sup> using high-resolution scoring is 0.268237. In this case, there is not significant difference between the two results.        </p>
 </details>
 <p>❓How does running fastscore vs high-resolution change the most predictive threshold identified?</p>
-<p>❓The default of PRSice is to iterate the P-value threshold from \&lt; 5<em>×</em>10<sup>−8</sup> to 0.5 with a step size of 0.00005, and to inlcude the P-value threshold of 1. Can you identify the commands controlling these parameters?
+<p>❓The default of PRSice is to iterate the P-value threshold from \&lt; 5*×*10<sup>−8</sup> to 0.5 with a step size of 0.00005, and to inlcude the P-value threshold of 1. Can you identify the commands controlling these parameters?
 <details>
  <summary>Hint</summary>     </p>
 <p>./Software/PRSice_linux -h</p>
@@ -430,10 +443,10 @@ Individual_2: PRS=?</p>
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Table of Contents</a></a></p>
 <p><strong>Accounting for Covariates</strong></p>
-<p>When performing PRS, one might want to account for covariates. Based on user inputs, PRSice can automatically incorporate covariates into its model. For example, the following commands will include sex into the regression model as a covariate:</p>
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --out Results/Height.sex
-</code></pre>
-<p>When covariates are included in the analysis, PRSice will use the model fit of <strong>only PRS</strong> for all its output. This 𝑃𝑅𝑆.𝑅<sup>2</sup> is calculated by substracting the 𝑅<sup>2</sup> of the null model (e.g. 𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥) from the 𝑅<sup>2</sup> of the full model (e.g.𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥 + 𝑃𝑅𝑆)</p>
+<p>When performing PRS, one might want to account for covariates. Based on user inputs, PRSice can automatically incorporate covariates into its model. For example, the following commands will include sex into the regression model as a covariate:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --out Results/Height.sex
+</code></pre></div>
+When covariates are included in the analysis, PRSice will use the model fit of <strong>only PRS</strong> for all its output. This 𝑃𝑅𝑆.𝑅<sup>2</sup> is calculated by substracting the 𝑅<sup>2</sup> of the null model (e.g. 𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥) from the 𝑅<sup>2</sup> of the full model (e.g.𝐻𝑒𝑖𝑔ℎ𝑡 <em>∼</em> 𝑆𝑒𝑥 + 𝑃𝑅𝑆)</p>
 <hr />
 <blockquote>
 <p>ℹ️ Usually, Principal Components (PCs) are also included as covariates in the analysis to account for population structure and it can be tedious to type all 20 or 40 PCs (e.g. <em>PC1</em>, <em>PC2</em>,...,<em>PC20</em>). In PRSice, you can add @ in front of the <em>--cov-col</em> string to activate the automatic substitution of numbers. If @ is found in front of the <em>--cov-col</em> string, any numbers within <strong>[</strong> and <strong>]</strong> will be parsed. E.g. @PC[1-3] will be read as <em>PC1</em>, <em>PC2</em>, <em>PC3</em>. Discontinuous input are also supported: @cov[1.3-5] will be parsed as <em>cov1</em>, <em>cov3</em>, <em>cov4</em>, <em>cov5</em>. You can also mix it up, e.g. @PC[1-3]. Sex will be interpreted as <em>PC1</em>, <em>PC2</em>, <em>PC3</em>, <em>Sex</em> by PRSice.
@@ -459,8 +472,8 @@ Individual_2: PRS=?</p>
 </p>
 </blockquote>
 <hr />
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --plot --quantile 10 --out Results/Height.sex
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --plot --quantile 10 --out Results/Height.sex
+</code></pre></div>
 <p><strong>Figure 1.3: Example of a quantile plot generated by PRSice</strong>
 <img alt="Figure 1.3" src="/images/Day2.docxfolder/images-030.png" /></p>
 <hr />
@@ -469,9 +482,9 @@ Individual_2: PRS=?</p>
 </p>
 </blockquote>
 <hr />
-<p>A disadvantage of the quantile plot is that it only separate samples into quantiles of equal size. However, it is sometimes interesting to investigate whether a specific strata (e.g. top 5% of samples),contain a higher PRS than the reference strata. For example, (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4754625/?report=reader"><strong>Mavaddat, N et al., 2015</strong></a>) found that samples in the highest 1% of PRS distribution have a 2.81 increased OR of breast cancer when comparing to samples at the middle quantiles (40th to 60th percentile). We can mimic their table by using <em>--quant-break</em>, which represents the upper bound of each strata, and <em>--quant-ref</em>, which represents the upper bound of the reference quantile:</p>
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --plot --quantile 100 --quant-break 1,5,10,20,40,60,80,90,95,99,100 --quant-ref 60 --out Results/Height.sex
-</code></pre>
+<p>A disadvantage of the quantile plot is that it only separate samples into quantiles of equal size. However, it is sometimes interesting to investigate whether a specific strata (e.g. top 5% of samples),contain a higher PRS than the reference strata. For example, (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4754625/?report=reader"><strong>Mavaddat, N et al., 2015</strong></a>) found that samples in the highest 1% of PRS distribution have a 2.81 increased OR of breast cancer when comparing to samples at the middle quantiles (40th to 60th percentile). We can mimic their table by using <em>--quant-break</em>, which represents the upper bound of each strata, and <em>--quant-ref</em>, which represents the upper bound of the reference quantile:
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/TAR.height --binary-target F --cov Target_Data/TAR.covariate --cov-col Sex --plot --quantile 100 --quant-break 1,5,10,20,40,60,80,90,95,99,100 --quant-ref 60 --out Results/Height.sex
+</code></pre></div></p>
 <p><strong>Figure 1.4: Example of a strata plot generated by PRSice</strong>
 <img alt="Figure 1.4" src="/images/Day2.docxfolder/images-036.png" /></p>
 <hr />
@@ -495,9 +508,8 @@ Individual_2: PRS=?</p>
 </p>
 </blockquote>
 <hr />
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/cad.add.txt --target Target_Data/TAR --snp markername --A1 effect_allele --A2 noneffect_allele --chr chr --bp bp_hg19 --stat beta --beta --pvalue p_dgc --pheno Target_Data/CAD.pheno --binary-target T --out Results/CAD.highres
-</code></pre>
-<hr />
+<h2 id="rscript-prsice_linuxprsicer-prsice-prsice_linuxprsice_linux-base-base_datacadaddtxt-target-target_datatar-snp-markername-a1-effect_allele-a2-noneffect_allele-chr-chr-bp-bp_hg19-stat-beta-beta-pvalue-p_dgc-pheno-target_datacadpheno-binary-target-t-out-resultscadhighres"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/cad.add.txt --target Target_Data/TAR --snp markername --A1 effect_allele --A2 noneffect_allele --chr chr --bp bp_hg19 --stat beta --beta --pvalue p_dgc --pheno Target_Data/CAD.pheno --binary-target T --out Results/CAD.highres
+</code></pre></div></h2>
 <blockquote>
 <p>ℹ️ --chr and --bp inform PRSice the columns containing the chromosomal coordinates. This enables PRSice to check whether the SNPs in the Base and Target data have the same chromosomal coordinate.
 </p>
@@ -529,9 +541,8 @@ Individual_2: PRS=?</p>
 </p>
 </blockquote>
 <hr />
-<pre><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/CAD.pheno --binary-target T --out Results/Cross.highres
-</code></pre>
-<hr />
+<h2 id="rscript-prsice_linuxprsicer-prsice-prsice_linuxprsice_linux-base-base_datagiant_heighttxt-target-target_datatar-snp-markername-a1-allele1-a2-allele2-stat-b-beta-pvalue-p-pheno-target_datacadpheno-binary-target-t-out-resultscrosshighres"><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>Rscript ~/PRSice_linux/PRSice.R --prsice ~/PRSice_linux/PRSice_linux --base Base_Data/GIANT_Height.txt --target Target_Data/TAR --snp MarkerName --A1 Allele1 --A2 Allele2 --stat b --beta --pvalue p --pheno Target_Data/CAD.pheno --binary-target T --out Results/Cross.highres
+</code></pre></div></h2>
 <p><strong>Figure 1.6: BARPLOT generated from PRSice</strong> 
 <img alt="Figure 1.6" src="/images/Day2.docxfolder/Cross.highBARPLOT2023-06-23.png" /></p>
 <blockquote>
@@ -583,6 +594,8 @@ Individual_2: PRS=?</p>
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../javascripts/details.js"></script>
       <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {

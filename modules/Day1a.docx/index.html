@@ -8,6 +8,8 @@
     <title>Day 1a - prsWorkshop</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -18,7 +20,9 @@
     
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
-    <![endif]--> 
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -40,13 +44,13 @@
                 <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_install/">Checklist</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../quik_demo/">Demos</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../prep_terminal/">The Terminal</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
@@ -113,64 +117,64 @@
 <p>To begin our practical, please open up a \"terminal\" on your computer
  (on a Mac this is stored in Applications/Utilities/).</p>
 <p>We can change our directory using the following command:</p>
-<pre><code>   cd \&lt;Path&gt;\
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   cd \&lt;Path&gt;\
+</code></pre></div>
 <p>where *\<Path>* is the path to the target directory.</p>
 <p>Some common usage of cd includes</p>
-<pre><code>   cd ~/ # will bring you to your home directory
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   cd ~/ # will bring you to your home directory
 
    cd ../ # will bring you to the parent directory (up one level)
 
    cd XXX # will bring you to the XXX directory, so long as it is in the current directory
-</code></pre>
+</code></pre></div>
 <p>As an example, we can move to the <strong>data</strong> directory by
  typing:</p>
-<pre><code>   cd data/
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   cd data/
+</code></pre></div>
 <h2 id="looking-at-the-current-directory">Looking at the Current Directory</h2>
 <p>Next we can move into the <strong>~/data/Day1a_Data/Day1a_Data</strong> folder (from the data/ folder type: cd Day1a_Data/Day1a_Data). We can list out
  the folder content by typing: </p>
-<pre><code>    ls
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    ls
+</code></pre></div>
 <p>For ls, there are a number of additional Unix command options that you
  can append to it to get additional information, for example:</p>
-<pre><code>    ls -l  # shows files as list
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    ls -l  # shows files as list
 
     ls -lh  # shows files as a list with human readable format
 
     ls -lt  # shows the files as a list sorted by time-last-edited
 
     ls -lS  # shows the files as a list sorted by size
-</code></pre>
+</code></pre></div>
 <h2 id="counting-number-of-lines-in-file">Counting Number of Lines in File</h2>
 <p>We can also count the number of lines in a file with the following
  command (where</p>
 <p>*\<file>* is the file of interest):</p>
-<pre><code>    wc -l &lt;file&gt;
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    wc -l &lt;file&gt;
+</code></pre></div>
 <p>Often we would like to store the output of a command, which we can do
  by <em>redirecting</em> the output of the command to a file. For example, we
  can redirect the count of the <strong>GIANT_Height.txt</strong> to <strong>giant_count</strong>
  using the following command:</p>
-<pre><code> wc -l GIANT_Height.txt &gt; giant_count.txt
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> wc -l GIANT_Height.txt &gt; giant_count.txt
+</code></pre></div>
 <h2 id="search-file-content">Search File Content</h2>
 <p>Another common task is to search for specific words or characters in a
  file (e.g. does this file contain our gene of interest?). This can be
  performed using the "grep" command as follows:</p>
-<pre><code>   grep &lt;string&gt; file
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   grep &lt;string&gt; file
+</code></pre></div>
 <p>For example, to check if the Single Nucleotide Polymorphism
  (SNP) <em>rs10786427</em> is present in <strong>GIANT_Height.txt</strong>,
  we can do:</p>
-<pre><code>   grep rs10786427 GIANT_Height.txt
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   grep rs10786427 GIANT_Height.txt
+</code></pre></div>
 <p>In addition, grep allows us to check if patterns contained in one file
  can be found in another file. For example, if we want to extract a
  subset of samples from the phenotype file (e.g. extract the list of
  samples in <strong>Data/Day_1a/TAR.height</strong>), we can do:</p>
-<pre><code>    grep -f Select.sample TAR.height
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    grep -f Select.sample TAR.height
+</code></pre></div>
 <p>An extremely useful feature of the terminal is chaining multiple
  commands into one command, which we call <strong><em>piping</em></strong> .</p>
 <p>For example, we can use piping to count the number of samples in
@@ -188,17 +192,17 @@
 <p>For example, we can use awk to produce a new results file that only
  contains SNP rsIDs (column 1), allele frequencies (column 4) and <em>P</em>
  -values (column 7) as follows:</p>
-<pre><code>  awk '{ print $1,$4,$7}' GIANT_Height.txt &gt; GIANT_Height_3cols.txt
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  awk &#39;{ print $1,$4,$7}&#39; GIANT_Height.txt &gt; GIANT_Height_3cols.txt
+</code></pre></div>
 <p>We can also use a \"conditional statement\" in awk to extract all
  significant [SNPs]</p>
 <p>from the results file, using the following command:</p>
-<pre><code> awk '{if($7 &lt; 5e-8) { print } }' GIANT_Height.txt &gt; Significant_SNPs.txt
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> awk &#39;{if($7 &lt; 5e-8) { print } }&#39; GIANT_Height.txt &gt; Significant_SNPs.txt
+</code></pre></div>
 <p>Or the short form:</p>
-<pre><code> awk '$7 &lt; 5e-8{ print}' GIANT_Height.txt &gt; Significant_SNPs.txt
-</code></pre>
-<p>"if($7&lt;5e-8)" and "$7 &lt; 5e-8" tell awk to extract any rows
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> awk &#39;$7 &lt; 5e-8{ print}&#39; GIANT_Height.txt &gt; Significant_SNPs.txt
+</code></pre></div>
+<p>"if(<span class="arithmatex">\(7&lt;5e-8)" and "\)</span>7 &lt; 5e-8" tell awk to extract any rows
  with column 7 (the column containing <em>P</em> -value) with a value of
  smaller than 5e-8 and {print} means that we would like to print the
  entire row when this criterion is met.</p>
@@ -212,18 +216,18 @@ the practicals throughout the workshop.</p>
 <p>If you are not using R Studio then you can type <strong>R</strong> in your terminal
  to run <strong>R</strong> in the terminal.</p>
 <p>## Adding script to working dir</p>
-<pre><code>  cd ~/data/Day1a_Data/Day1a_Data
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  cd ~/data/Day1a_Data/Day1a_Data
   wget https://raw.githubusercontent.com/WCSCourses/prs_2023/main/scripts/nagelkerke.R
-</code></pre>
+</code></pre></div>
 <h2 id="working-directory">Working Directory</h2>
 <p>When we start <strong>R</strong>, we will be working in a specific folder called
  the <strong>working directory</strong>. We can check the current/working
  directory we are in by typing:</p>
-<pre><code>   getwd()
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   getwd()
+</code></pre></div>
 <p>And we can change our working directory to the <strong>Practical</strong> folder by</p>
-<pre><code>   setwd("~/data/Day1a_Data/Day1a_Data")
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   setwd(&quot;~/data/Day1a_Data/Day1a_Data&quot;)
+</code></pre></div>
 <h2 id="libraries">Libraries</h2>
 <p>Most functionality of <strong>R</strong> is organised in \"packages\" or
  \"libraries\". To access these functions, we will have to install and
@@ -231,70 +235,70 @@ the practicals throughout the workshop.</p>
  together with the standard installation process. You can install a new
  library using the install.packages function.</p>
 <p>For example, to install <em>ggplot2</em>, run the command:</p>
-<pre><code>    install.packages("ggplot2")
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    install.packages(&quot;ggplot2&quot;)
+</code></pre></div>
 <p>After installation, you can load the library by typing</p>
-<pre><code>    library(ggplot2)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    library(ggplot2)
+</code></pre></div>
 <p>Alternatively, we can import functions (e.g. that we have written)
  from an R script file on our computer. For example, you can load the
  Nagelkerke <em>R2</em> function by typing</p>
-<pre><code>     source("nagelkerke.R")
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>     source(&quot;nagelkerke.R&quot;)
+</code></pre></div>
 <p>And you are now able to use the Nagelkerke <em>R2</em> function (we will use
  this function at the end of this worksheet).</p>
 <h2 id="variables-in-r">Variables in R</h2>
 <p>You can assign a value or values to any variable you want using \&lt;-.
  e.g</p>
 <p>Assign a number to a</p>
-<pre><code>  a &lt;- 1
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  a &lt;- 1
+</code></pre></div>
 <p>Assign a vector containing a,b,c to v1</p>
-<pre><code>  v1 &lt;- c("a", "b","c")
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  v1 &lt;- c(&quot;a&quot;, &quot;b&quot;,&quot;c&quot;)
+</code></pre></div>
 <h2 id="functions">Functions</h2>
 <p>You can perform lots of operations in <strong>R</strong> using diﬀerent built-in R
  functions. Some examples are below:</p>
 <p>Assign number of samples</p>
-<pre><code>    nsample &lt;- 10000
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    nsample &lt;- 10000
+</code></pre></div>
 <p>Generate nsample random normal variable with mean = 0 and sd = 1</p>
-<pre><code>    normal &lt;- rnorm(nsample, mean=0,sd=1)
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    normal &lt;- rnorm(nsample, mean=0,sd=1)
 
     normal.2 &lt;- rnorm(nsample, mean=0,sd=1)
-</code></pre>
+</code></pre></div>
 <p>We can examine the first few entries of the result using head</p>
-<pre><code>  head(normal)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  head(normal)
+</code></pre></div>
 <p>And we can obtain the mean and sd using</p>
-<pre><code>  mean(normal)
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  mean(normal)
 
   sd(normal)
-</code></pre>
+</code></pre></div>
 <p>We can also calculate the correlation between two variables
  using cor</p>
-<pre><code>  cor(normal, normal.2)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  cor(normal, normal.2)
+</code></pre></div>
 <h2 id="plotting">Plotting</h2>
 <p>While <strong>R</strong> contains many powerful plotting functions in its base
  packages,customisationn can be diﬃcult (e.g. changing the colour
  scales, arranging the axes). <strong>ggplot2</strong> is a powerful visualization package that provides extensive
  flexibility and customi- sation of plots. As an example, we can do the following</p>
 <p>Load the package</p>
-<pre><code>  library(ggplot2)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  library(ggplot2)
+</code></pre></div>
 <p>Specify sample size</p>
-<pre><code>  nsample &lt;-1000
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  nsample &lt;-1000
+</code></pre></div>
 <p>Generate random grouping using sample with replacement</p>
-<pre><code> groups &lt;- sample(c("a","b"), nsample, replace=T)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> groups &lt;- sample(c(&quot;a&quot;,&quot;b&quot;), nsample, replace=T)
+</code></pre></div>
 <p>Now generate the data</p>
-<pre><code> dat &lt;- data.frame(x=rnorm(nsample), y=rnorm(nsample), groups)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> dat &lt;- data.frame(x=rnorm(nsample), y=rnorm(nsample), groups)
+</code></pre></div>
 <p>Generate a scatter plot with diﬀerent coloring based on group</p>
-<pre><code> ggplot(dat, aes(x=x,y=y,color=groups))+geom_point()
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> ggplot(dat, aes(x=x,y=y,color=groups))+geom_point()
+</code></pre></div>
 <h2 id="regression-models">Regression Models</h2>
 <p>In statistical modelling, regression analyses are a set of statistical
  techniques for estimating the relationships among variables or
@@ -302,71 +306,71 @@ the practicals throughout the workshop.</p>
 <p>Use the following code to perform linear regression on simulated
  variables "x" and "y":</p>
 <p>Simulate data</p>
-<pre><code> nsample &lt;- 10000
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> nsample &lt;- 10000
 
  x &lt;- rnorm(nsample)
 
  y &lt;- rnorm(nsample)
-</code></pre>
+</code></pre></div>
 <p>Run linear regression</p>
-<pre><code>  lm(y~x)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  lm(y~x)
+</code></pre></div>
 <p>We can store the result into a variable</p>
-<pre><code>   reg &lt;- lm(y~x)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   reg &lt;- lm(y~x)
+</code></pre></div>
 <p>And get a detailed output using summary</p>
-<pre><code>   summary(lm(y~x))
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   summary(lm(y~x))
+</code></pre></div>
 <p>We can also extract the coeﬃcient of regression using</p>
-<pre><code>   reg$coeﬃcient
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   reg$coeﬃcient
+</code></pre></div>
 <p>And we can obtain the residuals by</p>
-<pre><code>  residual &lt;- resid(reg)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  residual &lt;- resid(reg)
+</code></pre></div>
 <p>Examine the first few entries of residuals</p>
-<pre><code>   head(residual)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   head(residual)
+</code></pre></div>
 <p>We can also include covariates into the model</p>
-<pre><code>  covar &lt;- rnorm(nsample)
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  covar &lt;- rnorm(nsample)
 
   lm(y~x+covar)
-</code></pre>
+</code></pre></div>
 <p>And can even perform interaction analysis</p>
-<pre><code>  lm(y~x+covar+x*covar)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  lm(y~x+covar+x*covar)
+</code></pre></div>
 <p>Alternatively, we can use the glm function to perform the regression:</p>
-<pre><code>  glm(y~x)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  glm(y~x)
+</code></pre></div>
 <p>For binary traits (case controls studies), logistic regression can be
  performed using</p>
 <p>Simulate samples</p>
-<pre><code>  nsample &lt;- 10000
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  nsample &lt;- 10000
 
   x &lt;- rnorm(nsample)
-</code></pre>
+</code></pre></div>
 <p>Simulate binary traits (must be coded with 0 and 1)</p>
-<pre><code>  y &lt;- sample(c(0,1), size=nsample, replace=T)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  y &lt;- sample(c(0,1), size=nsample, replace=T)
+</code></pre></div>
 <p>Perform logistic regression</p>
-<pre><code>  glm(y~x, family=binomial)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  glm(y~x, family=binomial)
+</code></pre></div>
 <p>Obtain the detailed output</p>
-<pre><code>  summary(glm(y~x, family=binomial))
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>  summary(glm(y~x, family=binomial))
+</code></pre></div>
 <p>We will need the NagelkerkeR2 function</p>
 <p>to calculate the pseudo R2 for logistic model</p>
-<pre><code>   source("nagelkerke.R")
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>   source(&quot;nagelkerke.R&quot;)
 
    reg &lt;- glm(y~x, family=binomial)
-</code></pre>
+</code></pre></div>
 <p>Calculate the Nagelkerke R2 using the NagelkerkeR2 function</p>
-<pre><code>     NagelkerkeR2(reg)
-</code></pre>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>     NagelkerkeR2(reg)
+</code></pre></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../quik_demo/" class="btn btn-neutral float-left" title="Demos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../prep_terminal/" class="btn btn-neutral float-left" title="The Terminal"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../../Day1b.docx/" class="btn btn-neutral float-right" title="Day 1b">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -394,7 +398,7 @@ the practicals throughout the workshop.</p>
         </span>
     
     
-      <span><a href="../../quik_demo/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../prep_terminal/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../../Day1b.docx/" style="color: #fcfcfc">Next &raquo;</a></span>
@@ -405,6 +409,8 @@ the practicals throughout the workshop.</p>
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../javascripts/details.js"></script>
       <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
