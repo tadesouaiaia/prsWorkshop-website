@@ -18,10 +18,10 @@ This workshop requires that the following software is installed and tested befor
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
-| 1. [PRSice](https://choishingwan.github.io/PRSice/)  | Single ancestry Polygenic Risk Score software | No 
-| 2. [PRS-CS](https://github.com/getian107/PRScs)  | Single ancestry Polygenic Risk Score software | No
-| 3. [bridgePRS](www.bridgePRS.net)  | Multi-ancestry Polygenic Risk Score software | No 
-| 4. [PRS-CSx](https://github.com/getian107/PRScs)  | Multi-ancestry Polygenic Risk Score software | No
+| 1. [PRSice](https://choishingwan.github.io/PRSice/)  | Single ancestry polygenic risk score software | No 
+| 2. [PRS-CS](https://github.com/getian107/PRScs)  | Single ancestry polygenic risk score software | No
+| 3. [bridgePRS](www.bridgePRS.net)  | Multi-ancestry polygenic risk score software | No 
+| 4. [PRS-CSx](https://github.com/getian107/PRScs)  | Multi-ancestry polygenic risk score software | No
 
 
 
