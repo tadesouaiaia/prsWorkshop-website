@@ -1,0 +1,35 @@
+site_name: prsWorkshop
+repo_url: https://github.com/tadesouaiaia/prsWorkshop-website
+site_author:   Tade Souaiaia 
+nav:
+    - Home: index.md
+    
+
+    - Software: 
+      - Checklist: quik_install.md 
+      - Installation:  quik_install.md     
+      - Demos:         quik_demo.md 
+    - Program: 
+      - Day 1a: modules/Day1a.docx.md
+      - Day 1b: Day1b.docx.md
+      - Day 2:  Day2.docx.md 
+      - Day 3a: Day3a.docx.md
+      - Day 3b: Day3b.docx.md 
+      - Day 4a: Day4a.docx.md 
+      - Day 4b: Day4b.docx.md 
+      - Day5:   Day5_Projects.md 
+
+    - About:
+        - Future Work:           about_future.md 
+
+
+
+
+theme:
+    name: readthedocs 
+    palette: 
+    accent: deep orange
+    highlightjs: false
+    extra_css: [docs/css/extra.css]
+
+
