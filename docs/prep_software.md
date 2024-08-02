@@ -5,21 +5,23 @@
 ## Checklist: 
 
 ### System Requirements
-This workshop requires the following that the following software be installed and tested before the workshop: 
+This workshop requires that the following software is installed and tested before the workshop: 
 
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
 | 1. [R v4.1+](https://www.r-project.org/) | Most popular analysis program  in statistical genetics | Yes (Specific Libraries).  
-| 2. [Python 3](https://www.python.org/downloads/).  | Multipurpose Programming Language | Yes (The matplotlib library).  
+| 2. [Python 3](https://www.python.org/downloads/).  | Multi purpose Programming Language | Yes (The matplotlib library).  
 | 3. [Plink 1.9+](https://www.cog-genomics.org/software) | Popular open-source whole genome association analysis toolset | No 
 
 
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
-| 1. [PRSice](https://choishingwan.github.io/PRSice/)  | Single Ancestry Polygenic Risk Score software | No 
-| 2. [bridgePRS](www.bridgePRS.net)  | Multi Ancestry Polygenic Risk Score software | No 
+| 1. [PRSice](https://choishingwan.github.io/PRSice/)  | Single ancestry Polygenic Risk Score software | No 
+| 2. [PRS-CS](https://github.com/getian107/PRScs)  | Single ancestry Polygenic Risk Score software | No
+| 3. [bridgePRS](www.bridgePRS.net)  | Multi-ancestry Polygenic Risk Score software | No 
+| 4. [PRS-CSx](https://github.com/getian107/PRScs)  | Multi-ancestry Polygenic Risk Score software | No
 
 
 
@@ -37,17 +39,16 @@ Additionally, the following packages need to be installed from an R-terminal:  *
         ```
 
 ### 2. Python 3 
-Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
-but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to 
-make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).
+Python is a very popular multi use programming language.  Many systems come installed with Python by default, 
+but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).
+The following Python packages are required by BridgePRS and PRS-CS/PRS-CSx.....and can be installed by....
 
 
 ### 3. PLINK 1.9+
 PLINK is a free, open-source whole genome association
 analysis toolset, designed to perform a range of basic, large-scale analyses
-in a computationally efficient manner. You can directly download the
-executable from the [website](https://www.cog-genomics.org/software) and start 
-running PLINK without any additional set-up. 
+in a computationally efficient manner. PLINK executable can be downloaded
+from [website](https://www.cog-genomics.org/software).
 
 
 !!! warning "Extra MacOs Security:"
