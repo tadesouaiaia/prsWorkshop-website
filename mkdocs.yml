@@ -1,14 +1,14 @@
 site_name: prsWorkshop
-repo_url: https://github.com/tadesouaiaia/prsWorkshop-website
-site_author:   Tade Souaiaia 
+repo_url:  https://github.com/tadesouaiaia/prsWorkshop-website
+site_author: Tade Souaiaia 
 nav:
     - Home: index.md
     
-
-    - Software: 
-      - Checklist: quik_install.md 
-      - Installation:  quik_install.md     
-      - Demos:         quik_demo.md 
+    - Preparation: 
+      - Operating System: prep_os.md 
+      - Software:         prep_software.md 
+      - The Terminal:     prep_terminal.md 
+        
     - Program: 
       - Day 1a: modules/Day1a.docx.md
       - Day 1b: Day1b.docx.md
@@ -27,9 +27,27 @@ nav:
 
 theme:
     name: readthedocs 
-    palette: 
-    accent: deep orange
-    highlightjs: false
-    extra_css: [docs/css/extra.css]
+extra_css: [extra.css]
+palette: 
+accent: deep orange
+highlightjs: false
 
+markdown_extensions:
+    - admonition
+    - attr_list
+    - pymdownx.details
+    - pymdownx.tabbed
+    - pymdownx.superfences
+    - pymdownx.highlight:
+        use_pygments: true
+        noclasses: true
+    - pymdownx.arithmatex:
+        generic: True
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - javascripts/details.js
 
