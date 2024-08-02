@@ -6,12 +6,10 @@
 
 ## Introduction to Bash
 
- Most software in Bioinformatics and Statistical Genetics need to be
+ Most software in bioinformatics and statistical genetics are
  run in a Unix environment (e.g. Linux or Mac OS) and most
- high-performance computer clusters run Unix systems. Therefore,
- although there are alternatives available on Windows (command line,
- Linux subsystems or Virtual Machines), it will be highly beneficial to
- become familiar with performing research in a Unix-only environment.
+ high-performance computer clusters run Unix systems. Therefore, it will be highly beneficial to
+ become familiar with performing research in a Unix environment. For those with Windows machines see here to install a Linux emulator
 
 
 ## Moving around the File System
