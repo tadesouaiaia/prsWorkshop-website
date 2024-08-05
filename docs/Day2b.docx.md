@@ -9,8 +9,10 @@
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
      3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
-  3. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
-  4. [Additional Considerations](#considerations)
+  3. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
+     1. [Clumping in gene set PRS analyses](#clumping)
+     2. [P-value thresholding in gene set PRS analyses](#thresholding)
+     3. [Self-Contained vs Competitive Testing](#p-value-testing)
   5. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
 
 ## Key Learning Outcomes
@@ -29,9 +31,8 @@ Similar to standard genome-wide PRS analyses, summary statistics from Genome-Wid
 |**Phenotype**|**Provider**|**Description**|**Download Link**|
 |:---:|:---:|:---:|:---:|
 |Height|[GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
-|Coronary artery disease (CAD)|[CARDIoGRAMplusC4D Consortium](http://www.cardiogramplusc4d.org/)|GWAS on 60,801 CAD cases and 123,504 controls| [Link](http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip)|
 
-Additionally, to perform gene-set level analyses, information about the genomic regions (pathways, gene-sets, lists of SNPs) for which we want to calculate the PRSs are required. This information can be obtained from the following database:
+Additionally, to perform gene-set level analyses, information about the genomic regions for which we want to calculate the PRSs are required. This information can be obtained from the following database:
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -41,13 +42,15 @@ Additionally, to perform gene-set level analyses, information about the genomic 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
 ## Introduction to gene set (pathway) PRS analysis
-Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. Here we will learn how to use a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, pathway-based PRSs aggregate risk alleles across k pathways (or gene sets) separately.
+Currently, most PRS analyses have been performed on a genome-wide scale. This does not account for the substructure of the genome.
+
+Here we will learn how to run a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately.
 
 ![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
 
 Gene-set PRS analyses may account for genomic sub-structure, constitute an extension to the classic polygenic model of disease, and may better reflect disease heterogeneity. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
-In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
+In this practical, we will go through some common file formats used for gene-set PRS analysis and will then calculate some gene-set based PRS.
 
 ## Inputs required for gene-set PRS analysis
 ### Molecular Signatures Database MSigDB
@@ -71,7 +74,7 @@ The Molecular Signatures Database (MSigDB) oﬀers an excellent source of gene-s
 >
 ---
 
-As GMT format does not contain the chromosomal location for each individual gene, an additional file is required to provide the chromosoaml location such that SNPs can be map to genes.
+As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosoaml location such that SNPs can be map to genes.
 
 ### General Transfer Format file
 The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification here. One column that might be of particular interest is column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest.
@@ -81,7 +84,7 @@ You can find the description of each feature [here](http://www.sequenceontology.
 ### Other inputs for gene-set PRS using PRSet
 
 #### Browser Extensible Data BED
-Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK) is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
+Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK), is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
 
 | | | |
 |:---:|:---:|:---:|
@@ -95,19 +98,26 @@ Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK
 
 #### List of SNPs
 
+Finally, PRSet also allow SNP sets, where the user have flexibility to decide what SNPs are included. The list of SNPs can have two different formats:
+
+- SNP list format, a file containing a single column of SNP ID. Name of the set will be the file name or can be provided using ``--snp-set File:Name``
+- MSigDB format: Each row represent a single SNP set with the first column containing the name of the SNP set.
+
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-## Understand diﬀerence between self-contained and competitive gene-set analyses
-     
-When calculating gene-set based PRSs, we should consider an important aspect when calculating association in only one region of the genome
+<a href="#top">[Back to Top](#table-of-contents)</a>
+
+## Considerations when analysing and interpreting gene-set PRSs
+
+### Clumping in gene set PRS analyses
+
+### P-value thresholding in gene set PRS analyses 
 
 ### Self-Contained vs Competitive Testing
-The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
+When calculating gene-set based PRSs, we should consider an important aspect when calculating association in only one region of the genome. The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
   – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
   – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
 Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
-
-## Other consideration when analysisng and interpreting gene-set PRSs
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
@@ -148,10 +158,10 @@ Rscript ./Software/PRSice.R \
 >
 > 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
 >
-> 📍 By default, when calculating set based PRS, PRSet will not perform P -value thresholding. This is because the aim in gene-set analyses is to assess the overall signal in each gene-set, and compare which is most enriched for signal, rather than optimise predictive power as typically desirable for genome-wide PRS. Providing any of the following commands will activate P -value thresholding for set based PRS calculation: --lower, --upper, --inter, --bar-levels, --fastscore
+> 📍 By default, when calculating set based PRS, PRSet will not perform P-value thresholding. This is because the aim in gene-set analyses is to assess the overall signal in each gene-set, and compare which is most enriched for signal, rather than optimise predictive power as typically desirable for genome-wide PRS. Providing any of the following commands will activate P-value thresholding for set based PRS calculation: --lower, --upper, --inter, --bar-levels, --fastscore
 >
----
 
+---
 >
 > ❓ Can you plot the relationship between the gene-set R2 and the number of SNPs in each gene-set? What general trend can be seen?
 >
