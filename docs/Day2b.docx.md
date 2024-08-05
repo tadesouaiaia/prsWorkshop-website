@@ -17,23 +17,23 @@ In this practical, we will explore how to perform gene-set based PRS analyses. T
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating pathway based PRS
-  2. Understand diﬀerent file formats involved in gene-set analysis
+  2. Understand the additional inputs required for gene-set analysis
   3. Understand diﬀerence between self-contained and competitive gene-set analyses
-  4. Calculate pathway based PRS
+  4. Calculate gene-set (pathway) based PRS
 
 ## Resources you will be using 
-To perform gene-set PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) are required. In this workshop, the following summary statistics are used:
+To perform gene-set PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) are required. In this session, the following summary statistics are used:
 
 |**Phenotype**|**Provider**|**Description**|**Download Link**|
 |:---:|:---:|:---:|:---:|
 |Height|[GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
 |Coronary artery disease (CAD)|[CARDIoGRAMplusC4D Consortium](http://www.cardiogramplusc4d.org/)|GWAS on 60,801 CAD cases and 123,504 controls| [Link](http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip)|
 
-To perform gene-set level analyses, gene-set information and coordinates for the genic regions are required. These information can be obtained from the following database:
+To perform gene-set level analyses, gene-set information and coordinates for the genic regions are required. This information can be obtained from the following database:
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
-|Ensembl Human Genome GTF file|A file containing the coordinates for genes in the human genome. Used by PRSice to map the SNPs onto genic regions| [Link](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/) |
+|Ensembl Human Genome GTF file|A file containing the coordinates for genes in the human genome. Used by PRSet to map the SNPs onto genic regions| [Link](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/) |
 |MSigDB Gene Sets | File containing the gene-set information. *Free registration required.*| [Download here after registration](http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/6.1/h.all.v6.1.symbols.gmt)|
 
 
@@ -84,8 +84,10 @@ You will find all practical materials in the **data/Day_2_afternoon** directory.
 ---
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-## Gene Set Analysis
-Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. Udler et al. 2018 suggest that grouping Single Nucleotide Polymorphisms (SNPs) into biological functional groups can lead to PRS that are more relevant to clinical risk. In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
+## Motivation and rationale for calculating gene-sest (pathway) based PRS analysis
+Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. 
+
+In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
 
 ### Molecular Signatures Database MSigDB
 The Molecular Signatures Database (MSigDB) oﬀers an excellent source of gene-sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
