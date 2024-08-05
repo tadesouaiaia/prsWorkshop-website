@@ -9,8 +9,6 @@
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
      3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
-       3.1. [Browser Extensible Data BED](#browser-extensible-data-bed)
-       3.2. [List of SNPs](#list-of-snps)
   3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
   4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
   5. [Additional Considerations](#considerations)
