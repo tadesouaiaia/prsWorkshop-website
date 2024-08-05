@@ -7,7 +7,6 @@
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
   2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
-     2. [General Transfer Format file](#general-transfer-format-file)
      3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
   3. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
      1. [Clumping in gene set PRS analyses](#clumping)
@@ -53,9 +52,13 @@ Gene-set PRS analyses may account for genomic sub-structure, constitute an exten
 
 In this practical, we will go through some common file formats used for gene-set PRS analysis and will then calculate some gene-set based PRS.
 
+<a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
+In this tutorial, we will use as input for gene-set PRS analyses datasets from the Molecular Signatures Database (MSigDB)
+
+<a id="molecular-signatures-Database-msigdb"></a>
 ### Molecular Signatures Database MSigDB
-The Molecular Signatures Database (MSigDB) oﬀers an excellent source of gene-sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
+MSigDB oﬀers an excellent source of gene-sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
 
 | | | | | |
 |:---:|:---:|:---:|:---:|:---:|
@@ -82,6 +85,7 @@ The General Transfer Format (GTF) file contains the chromosomal coordinates for 
 
 You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
 
+<a id="other-inputs"></a>
 ### Other inputs for gene-set PRS using PRSet
 
 #### Browser Extensible Data BED
@@ -106,12 +110,16 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
+<a id="considerations"></a>
 ## Considerations when analysing and interpreting gene-set PRSs
 
+<a id="clumping"></a>
 ### Clumping in gene set PRS analyses
 
+<a id="thresholding"></a>
 ### P-value thresholding in gene set PRS analyses 
 
+<a id="p-value-testing"></a>
 ### Self-Contained vs Competitive Testing
 When calculating gene-set based PRSs, we should consider an important aspect when calculating association in only one region of the genome. The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
   – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
@@ -120,6 +128,7 @@ Therefore, a bigger gene-set will have a higher likelihood of having a significa
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
+<a id="exercise-4-gene-set-based-prs-analysis"></a>
 ## Exercise: Calculate gene-set PRS analysis
 
 We are now ready to perform gene-set association analyses using PRSet.
