@@ -121,7 +121,15 @@ To maximize signal within each gene set, clumping is perforemd for each gene set
 
 <a id="thresholding"></a>
 ### P-value thresholding in gene set PRS analyses 
-By default, PRSet do not perform p-value thresholding and will simply calculate the set based PRS at P-value threshold of 1. This is because it is unclear whether the set is associated with the phenotype when the best-threshold contained only a small portion of SNPs within the gene sets.
+PRSet default option is to no not perform p-value thresholding. It will simply calculate the set based PRS at P-value threshold of 1. 
+
+---
+>
+> ❓ Why do you think that the default option of PRSet is P-value threshold of 1?
+>
+> ❓ In what cases would you like to apply P-value thresholding? What commands would you use for that?
+>
+---
 
 <a id="p-value-testing"></a>
 ### Self-Contained vs Competitive Testing
@@ -172,8 +180,6 @@ Rscript ./Software/PRSice.R \
 >
 > 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
 >
-> 📍 By default, when calculating set based PRS, PRSet will not perform P-value thresholding. This is because the aim in gene-set analyses is to assess the overall signal in each gene-set, and compare which is most enriched for signal, rather than optimise predictive power as typically desirable for genome-wide PRS. Providing any of the following commands will activate P-value thresholding for set based PRS calculation: --lower, --upper, --inter, --bar-levels, --fastscore
->
 
 ---
 >
@@ -182,5 +188,9 @@ Rscript ./Software/PRSice.R \
 > ❓ Considering the plot, what gene-sets do you think are most interesting and why?
 >
 > ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment?
+>
+> ❓ What are the self-contained P-value of the 3 most interesting gene-sets? And what are the competitive P-values? 
+>
+> ❓ Which P-value would you use to evaluate the importance of gene-set? 
 >
 ---
