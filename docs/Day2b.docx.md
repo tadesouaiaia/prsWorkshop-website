@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-  1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis)
+  1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
   2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
@@ -41,6 +41,7 @@ Additionally, to perform gene-set level analyses, information about the genomic 
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
+<a id="gene-set-analysis-intro"></a>
 ## Introduction to gene set (pathway) PRS analysis
 Currently, most PRS analyses have been performed on a genome-wide scale. This does not account for the substructure of the genome.
 
@@ -102,8 +103,6 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 - SNP list format, a file containing a single column of SNP ID. Name of the set will be the file name or can be provided using ``--snp-set File:Name``
 - MSigDB format: Each row represent a single SNP set with the first column containing the name of the SNP set.
-
-<a href="#top">[Back to Top](#table-of-contents)</a>
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
