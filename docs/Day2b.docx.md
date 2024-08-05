@@ -5,10 +5,12 @@
 ## Table of Contents
 
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis)
-  2. [Addition inputs for gene-set PRS analysis](#additional-inputs)
+  2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
-     3. [Browser Extensible Data BED](#browser-extensible-data-bed)
+     3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
+       3.1. [Browser Extensible Data BED](#browser-extensible-data-bed)
+       3.2. [List of SNPs](#list-of-snps)
   3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
   4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
   5. [Additional Considerations](#considerations)
@@ -45,6 +47,8 @@ Currently, most PRS analyses have been performed on a genome-wide scale, disrega
 
 In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
 
+
+## Inputs required for gene-set PRS analysis
 ### Molecular Signatures Database MSigDB
 The Molecular Signatures Database (MSigDB) oﬀers an excellent source of gene-sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
 
@@ -73,6 +77,7 @@ The General Transfer Format (GTF) file contains the chromosomal coordinates for 
 
 You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
 
+### Other inputs for gene-set PRS using PRSet
 
 ### Browser Extensible Data BED
 Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK) is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
@@ -86,6 +91,9 @@ Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK
 > ❓ How should we represent the coordinate of rs2980300 (chr1:785989) in BED format?
 >
 ---
+
+### List of SNPs
+
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
