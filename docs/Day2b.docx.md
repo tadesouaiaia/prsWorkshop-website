@@ -7,7 +7,7 @@
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
   2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
-     3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
+     3. [Other inputs that can be used for gene-set PRS using PRSet](#other-inputs)
   3. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
      1. [Clumping in gene set PRS analyses](#clumping)
      2. [P-value thresholding in gene set PRS analyses](#thresholding)
@@ -54,7 +54,7 @@ In this practical, we will go through some of the additional input requirements 
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
-PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the [Molecular Signatures Database](<a id="molecular-signatures-Database-msigdb"></a>). However, PRSet also takes as input [BED and SNP files](<a id="other-inputs"></a>). 
+PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the <b Molecular Signatures Database ></b>. However, PRSet also takes as input <b BED and SNP files ></b>). 
 
 <a id="molecular-signatures-Database-msigdb"></a>
 ### Molecular Signatures Database MSigDB
@@ -86,7 +86,7 @@ The General Transfer Format (GTF) file contains the chromosomal coordinates for 
 You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
 
 <a id="other-inputs"></a>
-### Other inputs for gene-set PRS using PRSet
+### Other inputs that can be used for gene-set PRS using PRSet
 
 #### Browser Extensible Data BED
 Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK), is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
