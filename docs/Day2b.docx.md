@@ -40,14 +40,10 @@ Additionally, to perform gene-set level analyses, information about the genomic 
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-  3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
-  4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
-  5. [Additional Considerations](#considerations)
-
 ## Introduction to gene set (pathway) PRS analysis
 Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. Here we will learn how to use a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, pathway-based PRSs aggregate risk alleles across k pathways (or gene sets) separately.
 
-![pathwayPRS](/images/pathwayPRS_overview.png)
+![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
 
 Gene-set PRS analyses may account for genomic sub-structure, constitute an extension to the classic polygenic model of disease, and may better reflect disease heterogeneity. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
