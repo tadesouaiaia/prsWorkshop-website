@@ -1,90 +1,46 @@
 # Advanced Polygenic Risk Score Analyses
 
-## Day 2 - Practical: Pathway PRS Analyses
+## Day 2 - Afternoon Practical: Pathway PRS Analyses
 
 ## Table of Contents
 
-In this practical, we will explore how to perform gene-set based PRS analyses. To perform this analysis, gene-set information and coordinates for the genic regions are required. These information can be obtained from the following database:
-
-  1. [Gene Set Analysis](#gene-set-analysis)
+  1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis)
+  2. [Addition inputs for gene-set PRS analysis](#additional-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
      3. [Browser Extensible Data BED](#browser-extensible-data-bed)
-  2. [Gene Set Enrichment Analysis](#gene-set-enrichment-analysis)
-  3. [Exercise 4 Gene Set Based PRS Analysis](#exercise-4-gene-set-based-prs-analysis)
-      
+  3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
+  4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
+  5. [Additional Considerations](#considerations)
 
 ## Key Learning Outcomes
+
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating pathway based PRS
-  2. Understand the additional inputs required for gene-set analysis
-  3. Understand diﬀerence between self-contained and competitive gene-set analyses
-  4. Calculate gene-set (pathway) based PRS
+  2. Understand the additional inputs required for gene-set PRS analysis
+  3. Calculate gene-set (pathway) based PRSs
+  4. Understand diﬀerence between self-contained and competitive gene-set analyses
+  5. Other consideration when analysisng and interpreting gene-set PRSs
 
 ## Resources you will be using 
-To perform gene-set PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) are required. In this session, the following summary statistics are used:
+
+Similar to standard genome-wide PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) and individual level genotype and phenotype data are required to perform gene-set PRS analyses. In this session, the following sdatasets are used:
 
 |**Phenotype**|**Provider**|**Description**|**Download Link**|
 |:---:|:---:|:---:|:---:|
 |Height|[GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
 |Coronary artery disease (CAD)|[CARDIoGRAMplusC4D Consortium](http://www.cardiogramplusc4d.org/)|GWAS on 60,801 CAD cases and 123,504 controls| [Link](http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip)|
 
-To perform gene-set level analyses, gene-set information and coordinates for the genic regions are required. This information can be obtained from the following database:
+Additionally, to perform gene-set level analyses, information about the genomic regions (pathways, gene-sets, lists of SNPs) for which we want to calculate the PRSs are required. This information can be obtained from the following database:
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
 |Ensembl Human Genome GTF file|A file containing the coordinates for genes in the human genome. Used by PRSet to map the SNPs onto genic regions| [Link](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/) |
 |MSigDB Gene Sets | File containing the gene-set information. *Free registration required.*| [Download here after registration](http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/6.1/h.all.v6.1.symbols.gmt)|
 
-
-## Data Sets
-
-You will need to download the required files for this tutorial.       
-
-[Download Backup WeTransfer !!!!! NEEDS UPDATING FOR JAPAN !!!! ](https://we.tl/t-YO8YbDjDK7)        
-
-The data will be downloaded into your "Downloads" folder. You will need to move it to right directory, using the following commands.
-
-
-
-```
-cd data
-mv ~/Downloads/Day_2_afternoon.zip .
-unzip Day_2_afternoon.zip
-cd Day_2_afternoon
-```
-
-You will find all practical materials in the **data/Day_2_afternoon** directory. Relevant materials that you should see there at the start of the practical are as follows:
-
- 📂: Base_Data
-  - GIANT_Height.txt,
-  - cad.add.txt,
-  - cad.add.readme.
-
- 📂: Target_Data
-  - TAR.fam
-  - TAR.bim
-  - TAR.bed
-  - TAR.height
-  - TAR.cad 
-  - TAR.covariate
-    
-  📁: Reference files
-   - Homo_sapiens.GRCh38.86.gt
-   - Sets.gmt
-     
- 🛠️: Software
-  - PRSice.R 
-  - PRSice_linux
-    
----
-> 
-> ‼️ All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
-> 
----
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-## Gene Set Analysis
+## Introduction to gene set (pathway) PRS Analysis
 Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. 
 
 In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
