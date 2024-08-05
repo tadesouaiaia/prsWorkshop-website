@@ -84,7 +84,7 @@ You will find all practical materials in the **data/Day_2_afternoon** directory.
 ---
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-## Motivation and rationale for calculating gene-sest (pathway) based PRS analysis
+## Gene Set Analysis
 Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. 
 
 In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
