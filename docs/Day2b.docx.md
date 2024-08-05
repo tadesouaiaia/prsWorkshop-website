@@ -50,11 +50,11 @@ Here we will learn how to run a gene set (or pathway) based PRS analyses. The ke
 
 Gene-set PRS analyses may account for genomic sub-structure, constitute an extension to the classic polygenic model of disease, and may better reflect disease heterogeneity. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
-In this practical, we will go through some common file formats used for gene-set PRS analysis and will then calculate some gene-set based PRS.
+In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
-In this tutorial, we will use as input for gene-set PRS analyses datasets from the Molecular Signatures Database (MSigDB)
+PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the [Molecular Signatures Database](<a id="molecular-signatures-Database-msigdb"></a>). However, PRSet also takes as input [BED and SNP files](<a id="other-inputs"></a>). 
 
 <a id="molecular-signatures-Database-msigdb"></a>
 ### Molecular Signatures Database MSigDB
@@ -115,13 +115,19 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 <a id="clumping"></a>
 ### Clumping in gene set PRS analyses
+In standard clumping and P-value thresholding methods, clumping is performed to account for linkage disequilibrium between SNPs. If genome-wide clumping is performed at the gene-set level, we may remove signal as [shown in this toy example](https://choishingwan.github.io/PRSice/prset_detail/#snp-set-files).
+
+To maximize signal within each gene set, clumping is perforemd for each gene set separately.
 
 <a id="thresholding"></a>
 ### P-value thresholding in gene set PRS analyses 
+By default, PRSet do not perform p-value thresholding and will simply calculate the set based PRS at P-value threshold of 1. This is because it is unclear whether the set is associated with the phenotype when the best-threshold contained only a small portion of SNPs within the gene sets.
 
 <a id="p-value-testing"></a>
 ### Self-Contained vs Competitive Testing
-When calculating gene-set based PRSs, we should consider an important aspect when calculating association in only one region of the genome. The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
+An important aspect when calculating gene-set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
+
+The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
   – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
   – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
 Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
