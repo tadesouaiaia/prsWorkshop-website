@@ -9,22 +9,22 @@
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      2. [General Transfer Format file](#general-transfer-format-file)
      3. [Other inputs for gene-set PRS using PRSet](#other-inputs)
-  3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
-  4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
-  5. [Additional Considerations](#considerations)
+  3. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
+  4. [Additional Considerations](#considerations)
+  5. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
 
 ## Key Learning Outcomes
 
 After completing this practical, you should be able to:
-  1. Understand the motivation and rationale for calculating pathway based PRS
-  2. Understand the additional inputs required for gene-set PRS analysis
-  3. Calculate gene-set (pathway) based PRSs
-  4. Understand diﬀerence between self-contained and competitive gene-set analyses
-  5. Other consideration when analysisng and interpreting gene-set PRSs
+  1. Understand the motivation and rationale for calculating gene-set PRS.
+  2. Identify the additional inputs required for gene-set PRS analysis.
+  3. Differentiate between self-contained and competitive tests in gene-set PRS analyses.
+  4. Interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
+  5. Calculate gene-set based PRSs using PRSet.
 
 ## Resources you will be using 
 
-Similar to standard genome-wide PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) and individual level genotype and phenotype data are required to perform gene-set PRS analyses. In this session, the following sdatasets are used:
+Similar to standard genome-wide PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) and individual level genotype and phenotype data are required to perform gene-set PRS analyses. In this session, the following datasets are used:
 
 |**Phenotype**|**Provider**|**Description**|**Download Link**|
 |:---:|:---:|:---:|:---:|
@@ -40,11 +40,16 @@ Additionally, to perform gene-set level analyses, information about the genomic 
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-## Introduction to gene set (pathway) PRS Analysis
-Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. 
+  3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
+  4. [Undestanding the outcome of gene-set PRS](#gene-set-enrichment-analysis)
+  5. [Additional Considerations](#considerations)
+
+## Introduction to gene set (pathway) PRS analysis
+Currently, most PRS analyses have been performed on a genome-wide scale, disregarding the underlying biological pathways. Here we will learn how to use a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, pathway-based PRSs aggregate risk alleles across k pathways (or gene sets) separately.
+
+Gene-set PRS analyses may account for genomic sub-structure, constitute an extension to the classic polygenic model of disease, and may better reflect disease heterogeneity. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
 In this practical, we will go through some common file formats for gene-set analysis and will then calculate some gene-set (or pathway) based PRS.
-
 
 ## Inputs required for gene-set PRS analysis
 ### Molecular Signatures Database MSigDB
@@ -77,7 +82,7 @@ You can find the description of each feature [here](http://www.sequenceontology.
 
 ### Other inputs for gene-set PRS using PRSet
 
-### Browser Extensible Data BED
+#### Browser Extensible Data BED
 Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK) is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
 
 | | | |
@@ -90,16 +95,13 @@ Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK
 >
 ---
 
-### List of SNPs
-
+#### List of SNPs
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-
-## Gene Set Enrichment Analysis
-
-Now we have gone through all the files involved in gene-set analysis, we should consider one of the most important aspects of gene-set (or pathway) enrichment
-analyses, which is the diﬀerent types of testing that we can perform when doing them:
+## Understand diﬀerence between self-contained and competitive gene-set analyses
+     
+When calculating gene-set based PRSs, we should consider an important aspect when calculating association in only one region of the genome
 
 ### Self-Contained vs Competitive Testing
 The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
@@ -107,10 +109,13 @@ The null-hypothesis of self-contained and competitive test statistics is diﬀer
   – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
 Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
 
+## Other consideration when analysisng and interpreting gene-set PRSs
 
-## Exercise 4 Gene Set Based PRS Analysis
+<a href="#top">[Back to Top](#table-of-contents)</a>
 
-Having learnt about the basics of gene-set analyses, we are now ready to perform gene-set association analyses using PRSet.
+## Exercise: Calculate gene-set PRS analysis
+
+We are now ready to perform gene-set association analyses using PRSet.
 
 To perform the PRSet analysis and obtain the set based PRS and competitive P-value, simply provide the GTF file and the GMT file to PRSice and specify the number of permutation for competitive P-value calculation using the --set-perm option.
 
