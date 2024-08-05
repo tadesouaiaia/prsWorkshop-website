@@ -54,7 +54,7 @@ In this practical, we will go through some of the additional input requirements 
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
-PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the <b Molecular Signatures Database ></b>. However, PRSet also takes as input <b BED and SNP files ></b>). 
+PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
 
 <a id="molecular-signatures-Database-msigdb"></a>
 ### Molecular Signatures Database MSigDB
