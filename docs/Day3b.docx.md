@@ -157,11 +157,11 @@ xdg-open MAF_ancestry_analysis.png
 
 ## Introduction to PRS-CSx
 #### 5. Background to PRS-CSX
-PRS-CSx is a Python based command line tool that integrates GWAS summary statistics and external LD reference panels from multiple populations to improve cross-population polygenic prediction. We will be using simulated trait data pertaininng to systolic blood pressure (SBP) to explore PRS performance using 2 target populations that consist of 650 individuals of African ancestry and 500 individuals of European ancestry. Please note when running PRSice that the object of the flag "--prsice" will change according to whether plink is being called within the linux-like environment of the virtual machine (PRSice_linux) or a mac (PRSice_mac). Both executables can be found in the _/home/manager/data/Data_Day4_ directory. 
-
-
-#### 7. Running PRS-CSx
-To model the coupling of ect sizes at individual SNPs across ancestries PRS-CSx uses an MCMC (Bayesian) sampling algorithm to determine values of the global shrinkage parameter ("phi") by Maximum likelihood. For samples of mixed or admixed genetic ancestry (which ours are not) the optimal value of the shrinkage parameter is estimated autonomously from the data. Here we use the value of phi (1e-4), which is suggested by the software authors, given that our trait is simulated to have a relatively small number (N=110) causal variants, distributed genome-wide.
+PRS-CSx is a Python based command line tool that integrates GWAS
+summary statistics and LD reference data from multiple populations
+to estimate population-specific PRS. PRS-CSx applies a Bayesian model with a continuous
+shrinkage prior to SNP effects genome-wide. Sparseness of
+the genetic architecture across populations is controlled by a parameter phi. For a given value of phi, PRS-CSx uses Markov chain Monte Carlo to sample from the posterior of SNP effects from which the mean SNP effects are calculated and used in the PRS.
   
 **Step 1: Set up environment**
 ------------------------------
