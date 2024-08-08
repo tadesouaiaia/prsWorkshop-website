@@ -1,4 +1,4 @@
-
+=======
 
 # Introduction to R
 
@@ -11,53 +11,27 @@ the practicals throughout the workshop.
 
 ## Basics
 
- If you are not using R Studio then you can type **R** in your terminal
- to run **R** in the terminal.
+To being type **R** in the terminal: 
 
- ## Adding script to working dir
-
-      cd ~/data/Day1a_Data/Day1a_Data
-      wget https://raw.githubusercontent.com/WCSCourses/prs_2023/main/scripts/nagelkerke.R
-
- 
-
-## Working Directory
-
- When we start **R**, we will be working in a specific folder called
- the **working directory**. We can check the current/working
- directory we are in by typing:
-
-       getwd()
-
- And we can change our working directory to the **Practical** folder by
-
-       setwd("~/data/Day1a_Data/Day1a_Data")
+    R 
 
 ## Libraries
 
- Most functionality of **R** is organised in \"packages\" or
- \"libraries\". To access these functions, we will have to install and
- \"load\" these packages. Most commonly used packages are installed
- together with the standard installation process. You can install a new
- library using the install.packages function.
+Most functionality of **R** is organised in packages or
+libraries. To access these functions, we will have to install and
+load these packages. Most commonly used packages are installed
+together with the standard installation process. You can install a new
+library using the install.packages function.
 
- For example, to install *ggplot2*, run the command:
+For example, to install *ggplot2*, run the command:
 
-        install.packages("ggplot2")
+    install.packages("ggplot2")
 
 
- After installation, you can load the library by typing
+After installation, you can load the library by typing
 
         library(ggplot2)
 
- Alternatively, we can import functions (e.g. that we have written)
- from an R script file on our computer. For example, you can load the
- Nagelkerke *R2* function by typing
-
-         source("nagelkerke.R")
-
- And you are now able to use the Nagelkerke *R2* function (we will use
- this function at the end of this worksheet).
 
 ## Variables in R
 
@@ -206,14 +180,3 @@ Simulate binary traits (must be coded with 0 and 1)
 
       summary(glm(y~x, family=binomial))
 
- We will need the NagelkerkeR2 function
-
- to calculate the pseudo R2 for logistic model
-
-       source("nagelkerke.R")
-
-       reg <- glm(y~x, family=binomial)
-
- Calculate the Nagelkerke R2 using the NagelkerkeR2 function
-
-         NagelkerkeR2(reg)

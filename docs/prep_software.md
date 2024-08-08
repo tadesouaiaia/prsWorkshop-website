@@ -1,16 +1,19 @@
 [//]: ![Screenshot](img/sib1.jpg)
 
-## Required System Software  
+
+### Required System Software 
+This workshop requires that the following software be installed and tested before the workshop: 
+
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
 | 1. [R v4.1+](https://www.r-project.org/) | Most popular analysis program  in statistical genetics | Yes (Specific Libraries).  
-| 2. [Python 3](https://www.python.org/downloads/).  | Multipurpose Programming Language | Yes (The matplotlib library).  
-| 3. [Plink 1.9+](https://www.cog-genomics.org/software) | Popular open-source whole genome association analysis toolset | No 
+| 2. [Python 3](https://www.python.org/downloads/).  | Multi purpose Programming Language | Yes (The matplotlib library).  
 
 
-This workshop makes use of two popular computer languages, **R** and **python3** as well as the software program **Plink**.  Here we will 
-provide a guide for installation of all three software sources and their associated libraries. 
+Both popular computer languages, **R** and **python3** will be used during the workshop.  Here we will 
+provide a guide for installation of both languages and their associated libraries. 
+
 
 
 ### 1. R (and associated packages) 
@@ -36,8 +39,8 @@ and downloading **R** directly using the following terminal commands:
         install.packages(c("BEDMatrix","boot","data.table","doMC","glmnet","MASS","optparse","parallel","R.utils"))
         ```
 
-After you have finished with this section and downloaded our preworkshop materials, please consider completing our [R-tutorial](misc_R.md) to better familiarze yourself 
-with some basic analysis commands. 
+After you have finished installation and testing and downloaded our preworkshop materials, please consider 
+completing our [R-tutorial](misc_R.md) to better familiarze yourself with some basic analysis commands. 
 
 
 
@@ -45,15 +48,13 @@ with some basic analysis commands.
 ### 2. Python 3 (and matplotlib) 
 Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
 but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to 
-make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  For more detailed 
-instructions for macOs users we can the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) can be very helpful. 
+make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  For more detailed instructions, 
+macOs users can visit the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) that we find very helpful.  
 
-For macOs matplotlib can be installed using pip: 
+After installing python3, macOs users can install matplotlib using pip:  
 
     python3 -m ensurepip 
     sudo python3 -m pip install -U matplotlib 
-
-
 
 For linux we again recommend that you use the package installer to install python3 and matplotlib  
 
@@ -64,17 +65,4 @@ For linux we again recommend that you use the package installer to install pytho
 
 After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
 [Python tutorial](misc_python.md) to familiarze yourself with some basic commands.  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
