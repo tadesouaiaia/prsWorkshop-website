@@ -1,12 +1,6 @@
 [//]: ![Screenshot](img/sib1.jpg)
 
-# Preparation 
-
-## Checklist: 
-
-### System Requirements
-This workshop requires the following that the following software be installed and tested before the workshop: 
-
+## Required System Software  
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
@@ -15,80 +9,61 @@ This workshop requires the following that the following software be installed an
 | 3. [Plink 1.9+](https://www.cog-genomics.org/software) | Popular open-source whole genome association analysis toolset | No 
 
 
-
-| Name/Link | Description  | Additional Requirements 
-| -----------------|:----------:|:----------:|
-| 1. [PRSice](https://choishingwan.github.io/PRSice/)  | Single Ancestry Polygenic Risk Score software | No 
-| 2. [bridgePRS](www.bridgePRS.net)  | Multi Ancestry Polygenic Risk Score software | No 
+This workshop makes use of two popular computer languages, **R** and **python3** as well as the software program **Plink**.  Here we will 
+provide a guide for installation of all three software sources and their associated libraries. 
 
 
+### 1. R (and associated packages) 
+R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  MacOs users can download an up-to-date 
+version directly from the [R website](https://cloud.r-project.org/) and using the R installer.  If you are having trouble we recommend [this video tutorial](https://www.youtube.com/watch?v=I5WIMX4LK8M). 
+
+While Linux users can also find a suitible version on the website, we reccomend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
+and downloading **R** directly using the following terminal commands: 
+
+    sudo apt install r-base               # to install R 
+    sudo apt install build-essential      # to install the essential packages 
 
 
-### 1. R (v4.1+) 
-R is the most popular analysis program in statistical genetics, and is required by PRSice, BridgePRS, and PRESet. An up-to-date version can be downloaded from the [R website](https://www.r-project.org/).  
 
-Additionally, the following packages need to be installed from an R-terminal:  **BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils**
+!!! warning "Important: Additional R Packages Are Required"
+    This tutorial requires the following non-standard R packages: **BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils**
+    These packages can be installed by opening up an **R** session from within the terminal, by typing:  
 
-!!! tips "R Packages"
-    These packages can be installed from inside an R terminal using the command:
+        R 
+
+    And typing the following command: 
         ```
-        $ R
         install.packages(c("BEDMatrix","boot","data.table","doMC","glmnet","MASS","optparse","parallel","R.utils"))
         ```
 
-### 2. Python 3 
+After you have finished with this section and downloaded our preworkshop materials, please consider completing our [R-tutorial](misc_R.md) to better familiarze yourself 
+with some basic analysis commands. 
+
+
+
+
+### 2. Python 3 (and matplotlib) 
 Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
 but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to 
-make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).
+make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  For more detailed 
+instructions for macOs users we can the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) can be very helpful. 
 
+For macOs matplotlib can be installed using pip: 
 
-### 3. PLINK 1.9+
-PLINK is a free, open-source whole genome association
-analysis toolset, designed to perform a range of basic, large-scale analyses
-in a computationally efficient manner. You can directly download the
-executable from the [website](https://www.cog-genomics.org/software) and start 
-running PLINK without any additional set-up. 
-
-
-!!! warning "Extra MacOs Security:"
-    MacOs often block executables if they are not approved from the app store.
-    You may have to change your settings to allow Plink to be called
-    For instructions on how to do so, please click [here](req_mac.md).
-
-### 4. PRScise 
-Polygenic Risk Score software for calculating, applying, evaluat-
-ing and plotting the results of polygenic risk score analyses (www.PRSice.info).
-You can directly download the executable from here
-https://choishingwan.github.io/PRSice/ and have a go at running PRSice
-by following the instructions (see Quick Start guide) if you haven’t done
-before.
-
-
-### 5. bridgePRS
-You need this.  
+    python3 -m ensurepip 
+    sudo python3 -m pip install -U matplotlib 
 
 
 
-<!--
-### 1. R (v4.1+) 
-R is the most popular analysis program in statistical genetics, and is required by PRSice, BridgePRS, and PRESet. An up-to-date version can be downloaded from the 
-[R website](https://www.r-project.org/).  
+For linux we again recommend that you use the package installer to install python3 and matplotlib  
 
-| Operating System | Link | Notes | 
-| -----------------|:----------:|:----:| 
-| Linux  64-bit | [v1.0.2](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) | Updated 7-12-2024 |  
-| Mac  64-bit   | [v1.0.2](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) | Updated 6-27-2024 | 
-| Windows       | NA     | Not Available | 
+    sudo apt install python3             # to install python3
+    python3 --version                    # to verify that it worked
+    sudo apt-get install python3-matplotlib # to install matplotlib 
 
-# Reference Panels 
-| Source | Link | Notes | 
-| -----------------|:----------:|:----:| 
-| HapMap | [v1.0.2](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) | Updated 7-12-2024 |  
-| 1000G_   | [v1.0.2](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) | Updated 6-27-2024 | 
-| Windows       | NA     | Not Available | 
-| 1000G Ref Panel | [1000G_ref.tar.gz](https://drive.google.com/file/d/1djAEwRiQsh4veinSLHO3laGjNF95vvN9/view?usp=drive_link) | Optional (Unzip into data directory to use) |    
-| 1000G Ref Panel | [1000G_ref.tar.gz](https://drive.google.com/file/d/1djAEwRiQsh4veinSLHO3laGjNF95vvN9/view?usp=drive_link) | Optional (Unzip into data directory to use) |    
--->
+
+After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
+[Python tutorial](misc_python.md) to familiarze yourself with some basic commands.  
 
 
 
@@ -97,28 +72,9 @@ R is the most popular analysis program in statistical genetics, and is required 
 
 
 
-<!--
 
-|BridgePRS Packages |Reference Panels|
-|--|--|
-|<table> <tr><th> OS </th><th> Link </th><th> Last Update  </th></tr>  <tr><td> Linux 64-Bit </td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) </td><td> 7-12-2024 </td></tr>  </th></tr>  <tr><td> Mac 64-Bit </td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) </td><td> 6-16-2024 </td></tr> </th></tr>  <tr><td> Windows </td><td> NA </td><td> Not Available </td></tr> </table> | <table> <tr><th> Download Link  </th><th> Size </th><th> More Information </th></tr><tr><td> [HapMap Variants](https://drive.google.com/file/d/1EGFap5wjKxIT42SWHKr9MUOzVnK9CVew/view?usp=drive_link) </td><td> <1GB </td><td> [International HapMap Project](https://www.genome.gov/10001688/international-hapmap-project) </td></tr>  </th></tr>  <tr><td> [1000 Genomes Variants: MAF>5%](https://drive.google.com/file/d/1rmxKcTGF8XTYU0E7jAIkKsCeedGMNwDE/view?usp=drive_link) </td><td> 8GB </td><td> [International Genome Sample Resource](https://www.internationalgenome.org/) </td></tr> </th></tr>  </td><td> [1000 Genomes variants: MAF>1%](https://drive.google.com/file/d/1RuC8J_qJLDSLnQ4uOGuxx9uGSWg5fxKn/view?usp=drive_link) </td><td> 14GB </td><td> [International Genome Sample Resource](https://www.internationalgenome.org/) </td></tr> </table>
 
--->
 
-<!--
-|BridgePRS Package |Reference Panels|
-|--|--|
-|<table> <tr><th> OS </th><th> Link </th><th> Last Update  </th></tr>  <tr><td> Linux 64-Bit 
-</td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) 
-</td><td> 7-12-2024 </td></tr>  </th></tr>  <tr><td> Mac 64-Bit 
-</td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) 
-</td><td> 6-16-2024 
-</td></tr> </th></tr>  <tr><td> Windows </td><td> NA </td><td> Not Available </td></tr> </table>       
-| <table> <tr><th>Source</th><th>Link  </th><th> Notes </th></tr><tr><td> HapMap </td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) 
-</td><td> Cool </td></tr>  </th></tr>  <tr><td> 1k Genomes </td><td> [v1.0.3](https://github.com/clivehoggart/BridgePRS/archive/refs/heads/main.zip) 
-</td><td> Cool </td></tr> </th></tr>  <tr><td> Windows </td><td> [v1.0.03](www.google.com) 
-</td><td> Cool </td></tr> </table>     
--->
 
 
 

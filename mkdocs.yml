@@ -5,29 +5,35 @@ nav:
     - Home: index.md
     
     - Preparation: 
-      - Operating System: prep_os.md 
+      - Checklist:        prep_list.md 
+      - System:           prep_os.md 
+      - Terminal:             prep_terminal.md 
       - Software:         prep_software.md 
-      - The Terminal:     prep_terminal.md 
+      - Testing:         prep_testing.md 
         
     - Program: 
-      - Day 1a: modules/Day1a.docx.md
-      - Day 1b: Day1b.docx.md
-      - Day 2:  Day2.docx.md 
-      - Day 3a: Day3a.docx.md
-      - Day 3b: Day3b.docx.md 
-      - Day 4a: Day4a.docx.md 
-      - Day 4b: Day4b.docx.md 
-      - Day5:   Day5_Projects.md 
+      - Day 1a:  Day2.docx.md 
+      - Day 1b: Day3a.docx.md
+      - Day 2a: Day3b.docx.md 
+      - Day 2b: Day4a.docx.md 
 
-    - About:
-        - Future Work:           about_future.md 
+    - Tutorials: 
+        - Bash Tutorial:           misc_commands.md 
+        - R Tutorial:              misc_R.md 
+        - Python Tutorial:         misc_python.md 
+        - Plink Tutorial:          misc_plink.md 
+        
+    - Misc:
+        - Installing Linux:        misc_linux.md 
+        - Mac Security:            misc_plink_problem.md 
+
 
 
 
 
 theme:
     name: readthedocs 
-extra_css: [extra.css]
+extra_css: [css/extra.css]
 palette: 
 accent: deep orange
 highlightjs: false
