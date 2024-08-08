@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Tade Souaiaia" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>The Terminal - prsWorkshop</title>
+    <title>Terminal - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "The Terminal";
+        var mkdocs_page_name = "Terminal";
         var mkdocs_page_input_path = "prep_terminal.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,37 +46,46 @@
               </ul>
               <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">Operating System</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">System</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Terminal</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">The Terminal</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_testing/">Testing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../modules/Day1a.docx/">Day 1a</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 1a</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day1b.docx/">Day 1b</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 1b</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 2</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day3b.docx/">Day 2a</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 3a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3b.docx/">Day 3b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 4a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4b.docx/">Day 4b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day5_Projects/">Day5</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 2b</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">About</span></p>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../about_future/">Future Work</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_commands/">Bash Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_R/">R Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink/">Plink Tutorial</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Misc</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Installing Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink_problem/">Mac Security</a>
                   </li>
               </ul>
       </div>
@@ -94,7 +103,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Preparation</li>
-      <li class="breadcrumb-item active">The Terminal</li>
+      <li class="breadcrumb-item active">Terminal</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/prep_terminal.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -104,31 +113,103 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="introduction-to-the-terminal">Introduction to the Terminal</h2>
-<p>The terminal allows you to navigate the Unix-Based OS, a simple system made up of files and folders. For this workshop, basic familiarity is 
-required.  If you are unfamiliar please follow this guide. </p>
-<p><img alt="Screenshot" src="../images/unix_os.jpg" /></p>
-<h2 id="bash">Bash</h2>
-<p>Bash is the common name for the programming language used to navigate the terminal and manipulate files and folders.  There are 
-<a href="https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/">approximately 50 bash commands that used 95% of the time</a>.<br />
-We will go over some of the basics. </p>
-<h3 id="cd">cd</h3>
-<p>In the terminal, we can change our directory using the following command:</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd &lt;Path&gt;
+                <h1 id="introduction-to-the-terminal">Introduction to the Terminal  <img alt="Screenshot" src="../images/term.png" /></h1>
+<p>Terminal programs allow you to navigate the Unix-Based OS, a simple system made up of files and folders. For this workshop, basic familiarity is required. This guide will get you up to speed.<br />
+To begin open up a terminal window, by: </p>
+<ol>
+<li><code>macOS:</code> Opening finder, type "terminal", and clicking on the icon. </li>
+<li><code>Linux:</code> Opening the lower left hand start menu, typing "terminal" and clicking on the icon. </li>
+</ol>
+<p>A window will open up that looks something like this: </p>
+<p><img alt="Screenshot" src="../images/linux_term.jpeg" /></p>
+<h1 id="bash">Bash</h1>
+<p>Bash is a programming language commly used to navigate the terminal and manipulate files and folders.  There are 
+<a href="https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/">approximately 50 bash commands that used 95% of the time</a>.  We will go over some of the basics. 
+To ensure that we are using bash, type "bash" and hit enter in the terminal.  Now type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~
 </code></pre></div>
-<p>where <Path> is the path to the target directory.</p>
-<p>cd stands for change directory
-Some common usage of cd includes</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~ # will bring you to your home directory
-cd ../ # will bring you to the parent directory (up one level)
-cd XXX # will bring you to the XXX directory
+<p>The <strong>cd</strong> command <a href="../misc_commands/#cd">(learn more)</a> stands for change directory, and <strong>~</strong> represents a shortcut to your "home" directory.  After typing this command, you are "in" your home directory.  Now type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>pwd
 </code></pre></div>
+<p>The <strong>pwd</strong> command returns your current "path", which represents the name and location of your home directory.
+Because the name and location of the home directory differ from computer to computer, we use <strong>~</strong> or $HOME as 
+a universal shortcut to represent your home directory.  Now type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls
+</code></pre></div>
+<p>The command <strong>ls</strong> <a href="../misc_commands/#ls">(learn_more)</a>lists the files and folders in your home directory.  These files and folders in the home directory 
+will differ from computer to computer, but most filesystems will have a <strong>Desktop</strong> and <strong>Downloads</strong> folder in the 
+home directory:  </p>
+<p><img alt="Screenshot" src="../images/fs1.png" /></p>
+<p>Often the home directory of the filesystem can be quite crowded, which is why we would like to carry out this tutorial 
+in a new directory specifically for the workshop.  To create this directory, type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>mkdir prsworkshop
+</code></pre></div>
+<p>The <strong>mkdir</strong> command makes a new directory called prsworkshop that is located in your home directory: </p>
+<p><img alt="Screenshot" src="../images/fs2.png" /></p>
+<p>Next we can move to this newly created directory by typing: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd prsworkshop
+</code></pre></div>
+<p><img alt="Screenshot" src="../images/fs3.png" /></p>
+<p>To verify that we have sucessfully navigated to the <strong>prsworkshop</strong> directory we can use two 
+commands the we have previously discussed. Fist, can you recall the command to list the current path?<br />
+Can you predict what it will return? </p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">goal</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>identify<span style="color: #bbbbbb"> </span>current<span style="color: #bbbbbb"> </span>path<span style="color: #bbbbbb">                                                                                                                                                                                                               </span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">command</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>pwd<span style="color: #bbbbbb">                                                                                                                                                                                                                </span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">[Result]</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #666666">$</span>HOME<span style="color: #666666">/</span>prsworkshop<span style="color: #bbbbbb">                                                                                                                                                                                                             </span>
+</code></pre></div>
+</div>
+</div>
+<p>Next, can you recall the command to list the contents of the directory?  Can you predict what it will return?  </p>
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">goal</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>list<span style="color: #bbbbbb"> </span>directory<span style="color: #bbbbbb"> </span>contents<span style="color: #bbbbbb">                                                                                                                                                                                                               </span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">command</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls<span style="color: #bbbbbb">                                                                                                                                                                                                            </span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">[Result]</label><div class="tabbed-content">
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #bbbbbb">     </span><span style="color: #3D7B7B; font-style: italic"># nothing is returned because the new prsworkshop directory is empty </span>
+</code></pre></div>
+</div>
+</div>
+<p>Hopefully, you were able to answer correctly above and understand that you are 
+now in the empty prsworkshop directory.  Next we will create a file using the 
+program <a href="https://www.nano-editor.org/">nano</a> by typing: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>nano test.sh
+</code></pre></div>
+<p>This command will open up the nano text editor:  </p>
+<p><img alt="Screenshot" src="../images/nano.webp" /></p>
+<p>On the top line type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>echo &quot;hello world&quot;
+</code></pre></div>
+<p>Then save the file using <strong>Ctrl-O</strong> and press enter, and quit using <strong>Ctrl-X</strong>. 
+Now type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls
+</code></pre></div>
+<p>Do you see the file you just created?  To see the contents of the file you just created 
+you can type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat test.sh
+</code></pre></div>
+<p>Do you know that the file you just created can also run as program?  To execute the 
+bash code that you have created you can type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>bash test.sh
+</code></pre></div>
+<p>Congratulations, you have created navigated the filesystem and created a directory.  If you are not already familiar with shell scripting, please consider completing our 
+<a href="../misc_commands/">bash tutorial</a>.  Otherwise, proceed to the next step, where you will install all system wide software necessary for the workshop. </p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../prep_software/" class="btn btn-neutral float-left" title="Software"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../modules/Day1a.docx/" class="btn btn-neutral float-right" title="Day 1a">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../prep_os/" class="btn btn-neutral float-left" title="System"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../prep_software/" class="btn btn-neutral float-right" title="Software">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -155,10 +236,10 @@ cd XXX # will bring you to the XXX directory
         </span>
     
     
-      <span><a href="../prep_software/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../prep_os/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../modules/Day1a.docx/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../prep_software/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

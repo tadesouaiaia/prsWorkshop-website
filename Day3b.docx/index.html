@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Tade Souaiaia" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Day 3b - prsWorkshop</title>
+    <title>Day 2a - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
+        <link href="../css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Day 3b";
+        var mkdocs_page_name = "Day 2a";
         var mkdocs_page_input_path = "Day3b.docx.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,37 +46,46 @@
               </ul>
               <p class="caption"><span class="caption-text">Preparation</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">Operating System</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">System</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">Terminal</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">The Terminal</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_testing/">Testing</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../modules/Day1a.docx/">Day 1a</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 1a</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day1b.docx/">Day 1b</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 1b</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 2</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 3a</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Day 3b</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Day 2a</a>
     <ul class="current">
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 4a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4b.docx/">Day 4b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day5_Projects/">Day5</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 2b</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">About</span></p>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../about_future/">Future Work</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_commands/">Bash Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_R/">R Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink/">Plink Tutorial</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Misc</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Installing Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink_problem/">Mac Security</a>
                   </li>
               </ul>
       </div>
@@ -94,7 +103,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Program</li>
-      <li class="breadcrumb-item active">Day 3b</li>
+      <li class="breadcrumb-item active">Day 2a</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/Day3b.docx.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -218,9 +227,11 @@ xdg-open<span style="color: #bbbbbb"> </span>MAF_ancestry_analysis.png
 <h5 id="iii-what-is-the-reason-behind-these-two-features">(iii) What is the reason behind these two features?</h5>
 <h2 id="introduction-to-prs-csx">Introduction to PRS-CSx</h2>
 <h4 id="5-background-to-prs-csx">5. Background to PRS-CSX</h4>
-<p>PRS-CSx is a Python based command line tool that integrates GWAS summary statistics and external LD reference panels from multiple populations to improve cross-population polygenic prediction. We will be using simulated trait data pertaininng to systolic blood pressure (SBP) to explore PRS performance using 2 target populations that consist of 650 individuals of African ancestry and 500 individuals of European ancestry. Please note when running PRSice that the object of the flag "--prsice" will change according to whether plink is being called within the linux-like environment of the virtual machine (PRSice_linux) or a mac (PRSice_mac). Both executables can be found in the <em>/home/manager/data/Data_Day4</em> directory. </p>
-<h4 id="7-running-prs-csx">7. Running PRS-CSx</h4>
-<p>To model the coupling of ect sizes at individual SNPs across ancestries PRS-CSx uses an MCMC (Bayesian) sampling algorithm to determine values of the global shrinkage parameter ("phi") by Maximum likelihood. For samples of mixed or admixed genetic ancestry (which ours are not) the optimal value of the shrinkage parameter is estimated autonomously from the data. Here we use the value of phi (1e-4), which is suggested by the software authors, given that our trait is simulated to have a relatively small number (N=110) causal variants, distributed genome-wide.</p>
+<p>PRS-CSx is a Python based command line tool that integrates GWAS
+summary statistics and LD reference data from multiple populations
+to estimate population-specific PRS. PRS-CSx applies a Bayesian model with a continuous
+shrinkage prior to SNP effects genome-wide. Sparseness of
+the genetic architecture across populations is controlled by a parameter phi. For a given value of phi, PRS-CSx uses Markov chain Monte Carlo to sample from the posterior of SNP effects from which the mean SNP effects are calculated and used in the PRS.</p>
 <h2 id="step-1-set-up-environment"><strong>Step 1: Set up environment</strong></h2>
 <p>First change to the working directory with the data for this practical 
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code><span style="color: #008000">cd</span><span style="color: #bbbbbb"> </span>/home/manager/data/Data_Day4/data
@@ -566,8 +577,8 @@ print(paste(&quot;R2 =&quot;, R2))
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Day3a.docx/" class="btn btn-neutral float-left" title="Day 3a"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Day4a.docx/" class="btn btn-neutral float-right" title="Day 4a">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Day3a.docx/" class="btn btn-neutral float-left" title="Day 1b"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Day4a.docx/" class="btn btn-neutral float-right" title="Day 2b">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
