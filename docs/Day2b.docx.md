@@ -10,23 +10,22 @@
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      3. [Other inputs that can be used for gene-set PRS using PRSet](#other-inputs)
   3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
-  4. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
-     1. [Clumping in gene set PRS analyses](#clumping)
+  4. [Considerations when analysing and interpreting gene set PRSs](#considerations)
+     1. [Clumping for each gene set independently](#clumping)
      2. [P-value thresholding in gene set PRS analyses](#thresholding)
-     3. [Self-Contained vs Competitive Testing](#p-value-testing)
+     3. [Self-contained vs competitive testing](#p-value-testing)
 
 
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
-  1. Understand the motivation and rationale for calculating gene-set PRS.
-  2. Identify the additional inputs required for gene-set PRS analysis.
-  3. Calculate gene-set based PRSs using PRSet.
-  4. Differentiate between self-contained and competitive tests in gene-set PRS analyses.
-  5. Interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
+  1. Understand the motivation and rationale for calculating gene set PRS.
+  2. Identify the additional inputs required for gene set PRS analysis.
+  3. Calculate gene set based PRSs using PRSet.
+  5. Understand and interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
 
 
 ## Data Structure
-You will find all practical materials in the **data/Day_2b** directory. Relevant materials that you should see there at the start of the practical are as follows:
+You will find all practical materials in the **data/Day_2b** directory. Relevant materials that you should find at the start of the practical are:
 
  📂: Base_Data
   - GIANT_Height.txt,
@@ -45,11 +44,14 @@ You will find all practical materials in the **data/Day_2b** directory. Relevant
 
 <a id="gene-set-analysis-intro"></a>
 ## Introduction to gene set (pathway) PRS analysis
-Most PRS methods summarize genetic risk to a single number, based on the aggregation of an individual’s **genome-wide** risk alleles. This approach does not consider the different contributions of the various biological processes that can contribute to complex diseases and traits. 
+Most PRS methods summarize genetic risk to a single number, based on the aggregation of an individual’s **genome-wide** risk alleles. This approach does not consider the different contributions of the various biological processes that can influence complex diseases and traits. 
 
-Here we will learn how to run a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately.
+During this session, we will learn how to run a gene set (a.k.a. pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately (Figure 1).
 
 ![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
+<span style="font-size:"0.5"> 
+**Figure 1: **The pathway polygenic risk score approach. Coloured boxes represent genes, lines link genes that are within the same genomic pathway. A, Upper model: Classical polygenic model of disease, in which individuals lie on a linear spectrum from low to high risk and genome-wide PRSs are constructed as the sum of risk alleles across the genome. Disease risk depicted by the Jar model [18]. Lower model: Pathway polygenic model of disease, in which there are multiple liabilities and PRSs are constructed by aggregating risk alleles over different genomic pathways. B, GWAS results Manhattan plot illustrated as a hypothetical composite of signals, where each signal corresponds to an alternative functional route to disease. Pathways that only make a small contribution to disease risk across the population, or a contribution in a small fraction of individuals (e.g. nicotine receptor pathway in those individuals who smoke), are likely to harbour risk variants of relatively small effect
+</span>
 
 By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
@@ -159,7 +161,7 @@ gtf38_parsed = gtf38 %>%
 ---
 
 <a id="other-inputs"></a>
-### Other inputs that can be used for gene-set PRS using PRSet
+### Other inputs that can be used for gene set PRS using PRSet
 
 #### Browser Extensible Data BED
 Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK), is a file format to define genetic regions. It contains 3 required fields per line (chromosome, start coordinate and end coordinate) together with 9 additional optional field. A special property of BED is that it is a 0-based format, i.e. chromosome starts at 0, as opposed to the usual 1-based format such as the PLINK format. For example, a SNP on chr1:10000 will be represented as:
@@ -182,7 +184,7 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 <a id="exercise-4-gene-set-based-prs-analysis"></a>
-## Exercise: Calculate gene-set PRS analysis
+## Exercise: Calculate gene set PRS analysis
 
 We are now ready to perform gene-set association analyses using PRSet.
 
@@ -226,7 +228,7 @@ Rscript ./Software/PRSice.R \
 ## Considerations when analysing and interpreting gene-set PRSs
 
 <a id="clumping"></a>
-### Clumping in gene set PRS analyses
+### Clumping for each gene set independently
 In standard clumping and P-value thresholding methods, clumping is performed to account for linkage disequilibrium between SNPs. If genome-wide clumping is performed at the gene-set level, we may remove signal as [shown in this toy example](https://choishingwan.github.io/PRSice/prset_detail/#snp-set-files).
 
 To maximize signal within each gene set, clumping is performed for each gene set separately.
@@ -252,7 +254,7 @@ PRSet default option is to no not perform p-value thresholding. It will simply c
 ---
 
 <a id="p-value-testing"></a>
-### Self-Contained vs Competitive Testing
+### Self-contained vs competitive testing
 An important aspect when calculating gene-set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
 
 The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
