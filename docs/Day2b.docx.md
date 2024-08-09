@@ -1,9 +1,10 @@
 # Advanced Polygenic Risk Score Analyses
 
+
 ## Day 2 - Afternoon Practical: Pathway PRS Analyses
 
-## Table of Contents
 
+## Table of Contents
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
   2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
@@ -14,8 +15,8 @@
      3. [Self-Contained vs Competitive Testing](#p-value-testing)
   5. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
 
-## Key Learning Outcomes
 
+## Key Learning Outcomes
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating gene-set PRS.
   2. Identify the additional inputs required for gene-set PRS analysis.
@@ -23,42 +24,69 @@ After completing this practical, you should be able to:
   4. Interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
   5. Calculate gene-set based PRSs using PRSet.
 
-## Resources you will be using 
 
-Similar to standard genome-wide PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) and individual level genotype and phenotype data are required to perform gene-set PRS analyses. In this session, the following datasets are used:
+## Data Structure
+You will find all practical materials in the **data/Day_2b** directory. Relevant materials that you should see there at the start of the practical are as follows:
 
-|**Phenotype**|**Provider**|**Description**|**Download Link**|
-|:---:|:---:|:---:|:---:|
-|Height|[GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
+ 📂: Base_Data
+  - GIANT_Height.txt,
 
-Additionally, to perform gene-set level analyses, information about the genomic regions for which we want to calculate the PRSs are required. This information can be obtained from the following database:
+ 📂: Target_Data
+  - TAR.fam
+  - TAR.bim
+  - TAR.bed
+  - TAR.height
+  - TAR.covariate
+    
+  📁: Reference
+   - Homo_sapiens.GRCh38.109.gtf.gz
+   - Sets.gmt
 
-|**Data Set**|**Description**|**Download Link**|
-|:---:|:---:|:---:|
-|Ensembl Human Genome GTF file|A file containing the coordinates for genes in the human genome. Used by PRSet to map the SNPs onto genic regions| [Link](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/) |
-|MSigDB Gene Sets | File containing the gene-set information. *Free registration required.*| [Download here after registration](http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/6.1/h.all.v6.1.symbols.gmt)|
-
-<a href="#top">[Back to Top](#table-of-contents)</a>
 
 <a id="gene-set-analysis-intro"></a>
 ## Introduction to gene set (pathway) PRS analysis
-Currently, most PRS analyses have been performed on a genome-wide scale. This does not account for the substructure of the genome.
+Most PRS methods summarize genetic risk to a single number, based on the aggregation of an individual’s **genome-wide** risk alleles. This approach does not consider the different contributions of the various biological processes that can contribute to complex diseases and traits. 
 
 Here we will learn how to run a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately.
 
 ![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
 
-Gene-set PRS analyses may account for genomic sub-structure, constitute an extension to the classic polygenic model of disease, and may better reflect disease heterogeneity. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
+By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
-In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
+---
+>
+> 📌 In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis, and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
+>
+---
+
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
-PRSet is based on PRSice, but with some addtional input requirements about the gene-sets for which PRSs are calculated. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+Summary statistics from GWAS, as well as individual level genotype and phenotype data are required to perform gene-set PRS analyses. 
+
+In this session, the following Base data is used:
+
+|**Data Set**|**Description**|**Download Link**|
+|:---:|:---:|:---:|
+|Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
+
+---
+> 
+> ‼️ All Target data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
+> 
+---
+
+Additionally, to perform gene-set level analyses, information about the genomic regions for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+
+|**Data Set**|**Description**|**Download Link**|
+|:---:|:---:|:---:|
+|Ensembl Human Genome GTF file|A file containing the coordinates for genes in the human genome. Used by PRSet to map the SNPs onto genic regions| [Link to Homo_sapiens.GRCh38.109.gtf.gz](https://ftp.ensembl.org/pub/release-109/gtf/homo_sapiens/) |
+|MSigDB Gene Sets | File containing the gene-set information. *Free registration required.*| [Download link after registration](http://software.broadinstitute.org/gsea/msigdb/download_file.jsp?filePath=/resources/msigdb/6.1/h.all.v6.1.symbols.gmt)|
+
 
 <a id="molecular-signatures-Database-msigdb"></a>
-### Molecular Signatures Database MSigDB
-MSigDB oﬀers an excellent source of gene-sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
+### Molecular Signatures Database MSigDB + General Transfer Format file
+MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
 
 | | | | | |
 |:---:|:---:|:---:|:---:|:---:|
@@ -68,9 +96,9 @@ MSigDB oﬀers an excellent source of gene-sets, including the hallmark genes, g
 ---
 > ** Have a look at the Reference/Sets.gmt file. **
 >
-> ❓ How many gene-sets are there in the Reference/Sets.gmt file? 
+> ❓ How many gene sets are there in the Reference/Sets.gmt file? 
 >
-> ❓ How many genes does the largest gene-set contain?
+> ❓ How many genes does the largest gene set contain?
 >
 ---
 >
@@ -78,12 +106,62 @@ MSigDB oﬀers an excellent source of gene-sets, including the hallmark genes, g
 >
 ---
 
-As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosoaml location such that SNPs can be map to genes.
+As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be map to genes.
 
-### General Transfer Format file
-The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification here. One column that might be of particular interest is column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest.
+The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification here. 
 
-You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
+Two columns that might be of particular interest are:
+- Column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest. You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
+  
+- Column 9: **Attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times. *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
+
+``` {r}
+
+library(data.table)
+library(magrittr)
+
+# Function to extract attributes from GTF files:
+extract_attribute = function(input, attribute) {
+  strsplit(input, split = ";") %>%
+    unlist %>%
+    .[grepl(attribute, .)] %>%
+    gsub("\"", "", .) %>%
+    strsplit(., split = " ") %>%
+    unlist %>%
+    tail(n = 1) %>%
+    return
+}
+
+gtf38 = fread("./Reference/Homo_sapiens.GRCh38.109.gtf.gz")
+
+gtf38_parsed = gtf38 %>%
+  # Select genes only 
+  .[V3 == "gene"] %>%
+  # Select genes located in autosomes
+  .[`#!genebuild-last-updated 2022-11` %in% 1:22] %>%
+  # Create colummns with Gene information
+  .[, c("chr", "Gene_start", "Gene_end", "ensemblID", "Gene_Name", "Gene_biotype") := data.table(
+    `#!genebuild-last-updated 2022-11`,
+    V4,
+    V5,
+    sapply(V9, extract_attribute, "gene_id"),
+    sapply(V9, extract_attribute, "gene_name"),
+    sapply(V9, extract_attribute, "gene_biotype"))] %>%
+  # Filter the columns of interest
+  .[, c("chr", "Gene_start", "Gene_end", "ensemblID", "Gene_Name", "Gene_biotype")]
+
+```
+
+---
+> ** Have a look at the Reference/Homo_sapiens.GRCh38.109.gtf.gz file. **
+>
+> ❓ What types of features are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file?
+> 
+> ❓ How many instances of feature = "gene" can you find ? 
+>
+> ❓ How many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
+>
+---
 
 <a id="other-inputs"></a>
 ### Other inputs that can be used for gene-set PRS using PRSet
