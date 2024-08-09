@@ -52,14 +52,16 @@ During this session, we will learn how to run a gene set (a.k.a. pathway) based 
 <sub> **Figure 1:** The pathway polygenic risk score approach. Coloured boxes represent genes, lines link genes that are within the same genomic pathway. See full description [here](https://doi.org/10.1371/journal.pgen.1010624).
 </sub>
 
-By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
-
 ---
 > 📌 In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis, and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
 >
 ---
+
+By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
+
+---
 >
-> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment?
+> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment (using gene set enrichment tools such as MAGMA or partitioned LDSC)?
 >
 ---
 
@@ -72,9 +74,9 @@ In this session, the following Base and Target data is used. Base data is public
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
 | Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
-| Simulated Target Data | Individual-level phenotype and genotype files with prefix TAR | Target_Data folder |
+| Simulated Target Data | Individual-level phenotype and genotype files | Data folder |
 
-Additionally, to perform gene-set level analyses, information about the genomic regions for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+Additionally, to perform gene set PRS analyses, information about the genomic regions for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -106,13 +108,16 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
 
 As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be map to genes.
 
-The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification [here](https://useast.ensembl.org/info/website/upload/gff.html). 
+The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. You can read the full format specification [here](https://useast.ensembl.org/info/website/upload/gff.html). 
 
 Two columns in the GTF file that might be of particular interest are:
-- Column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest. You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
+- Column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest. 
   
-- Column 9: **attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times. *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
+- Column 9: **attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times.
 
+---
+> 📌 *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
+---
 ``` {r}
 
 library(data.table)
@@ -213,14 +218,22 @@ Rscript ./Software/PRSice.R \
 
 ```
 
->
-  **Figure: An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS**
->
-![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/Day2b_Height.set_MULTISET_BARPLOT.png)
+---
+> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
+---
+
+## Results and Plots specific of gene set PRS analyses
+
 ---
 >
-> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
->
+> ** Check the .summary results file, with and without running the PRSet specific options **
+> ❓ How does this fle change? What extra information is incorporated when including the PRSet specific commands?  
+---
+
+Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated, and a new figure with the results for each gene set PRS
+
+![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/Day2b_Height.set_MULTISET_BARPLOT.png)
+<sub>  ** Figure 2 **: An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS </sub>
 
 
 <a id="considerations"></a>
@@ -261,8 +274,6 @@ The null-hypothesis of self-contained and competitive test statistics is diﬀer
   – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
 Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
 
-<a href="#top">[Back to Top](#table-of-contents)</a>
-
 ---
 >
 > ❓ What are the self-contained P-value of the 3 gene-sets with the highest R2? And what are the competitive P-values? 
@@ -272,3 +283,6 @@ Therefore, a bigger gene-set will have a higher likelihood of having a significa
 > ❓ Considering the R2 vs number of SNPs plot as well as the competitive P-value results, what gene-sets do you think are most interesting and why?
 >
 ---
+
+
+<a href="#top">[Back to Top](#table-of-contents)</a>
