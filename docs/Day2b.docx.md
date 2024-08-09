@@ -9,20 +9,20 @@
   2. [Inputs required for gene-set PRS analysis](#prset-inputs)
      1. [Molecular Signatures Database MSigDB](#molecular-signatures-Database-msigdb)
      3. [Other inputs that can be used for gene-set PRS using PRSet](#other-inputs)
-  3. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
+  3. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
+  4. [Considerations when analysing and interpreting gene-set PRSs](#considerations)
      1. [Clumping in gene set PRS analyses](#clumping)
      2. [P-value thresholding in gene set PRS analyses](#thresholding)
      3. [Self-Contained vs Competitive Testing](#p-value-testing)
-  5. [Exercise: Calculate gene-set PRS analysis](#exercise-4-gene-set-based-prs-analysis)
 
 
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating gene-set PRS.
   2. Identify the additional inputs required for gene-set PRS analysis.
-  3. Differentiate between self-contained and competitive tests in gene-set PRS analyses.
-  4. Interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
-  5. Calculate gene-set based PRSs using PRSet.
+  3. Calculate gene-set based PRSs using PRSet.
+  4. Differentiate between self-contained and competitive tests in gene-set PRS analyses.
+  5. Interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
 
 
 ## Data Structure
@@ -54,27 +54,24 @@ Here we will learn how to run a gene set (or pathway) based PRS analyses. The ke
 By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication [PRSet: Pathway-based polygenic risk score analyses and software](https://doi.org/10.1371/journal.pgen.1010624). 
 
 ---
->
 > 📌 In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis, and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
 >
 ---
-
+>
+> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment?
+>
+---
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
 Summary statistics from GWAS, as well as individual level genotype and phenotype data are required to perform gene-set PRS analyses. 
 
-In this session, the following Base data is used:
+In this session, the following Base and Target data is used. Base data is publicly available. All Target data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
-|Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
-
----
-> 
-> ‼️ All Target data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
-> 
----
+| Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
+| Simulated Target Data | Individual-level phenotype and genotype files with prefix TAR | Target_Data folder |
 
 Additionally, to perform gene-set level analyses, information about the genomic regions for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
 
@@ -94,6 +91,10 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
 |Set A| Description | Gene 1 | Gene 2 | ...
 
 ---
+>
+> 💬 While you can read the GMT file using Excel, we recommend exploring these files using bash. You should be aware that Excel has a tendency to convert gene names into dates (e.g. SEPT9 to Sep-9)
+>
+---
 > ** Have a look at the Reference/Sets.gmt file. **
 >
 > ❓ How many gene sets are there in the Reference/Sets.gmt file? 
@@ -101,19 +102,15 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
 > ❓ How many genes does the largest gene set contain?
 >
 ---
->
-> 💬 While you can read the GMT file using Excel. You should be aware that Excel has a tendency to convert gene names into dates (e.g. SEPT9 to Sep-9)
->
----
 
 As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be map to genes.
 
-The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification here. 
+The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. "Empty" columns should be denoted with a ‘.’. You can read the full format specification [here](https://useast.ensembl.org/info/website/upload/gff.html). 
 
-Two columns that might be of particular interest are:
+Two columns in the GTF file that might be of particular interest are:
 - Column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest. You can find the description of each feature [here](http://www.sequenceontology.org/browser/obob.cgi).
   
-- Column 9: **Attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times. *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
+- Column 9: **attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times. *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
 
 ``` {r}
 
@@ -154,8 +151,6 @@ gtf38_parsed = gtf38 %>%
 
 ---
 > ** Have a look at the Reference/Homo_sapiens.GRCh38.109.gtf.gz file. **
->
-> ❓ What types of features are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file?
 > 
 > ❓ How many instances of feature = "gene" can you find ? 
 >
@@ -180,13 +175,52 @@ Browser Extensible Data (BED) file (diﬀerent to the binary ped file from PLINK
 ---
 
 #### List of SNPs
-
 Finally, PRSet also allow SNP sets, where the user have flexibility to decide what SNPs are included. The list of SNPs can have two different formats:
-
 - SNP list format, a file containing a single column of SNP ID. Name of the set will be the file name or can be provided using ``--snp-set File:Name``
 - MSigDB format: Each row represent a single SNP set with the first column containing the name of the SNP set.
 
+
 <a href="#top">[Back to Top](#table-of-contents)</a>
+<a id="exercise-4-gene-set-based-prs-analysis"></a>
+## Exercise: Calculate gene-set PRS analysis
+
+We are now ready to perform gene-set association analyses using PRSet.
+
+To perform the PRSet analysis and obtain the set based PRS and competitive P-value, simply provide the GTF file and the GMT file to PRSice and specify the number of permutation for competitive P-value calculation using the --set-perm option.
+
+```
+Rscript ./Software/PRSice.R \
+    --prsice Software/PRSice_linux  \
+    --base Base_Data/GIANT_Height.txt \
+    --target Target_Data/TAR \
+    --A1 Allele1 \
+    --A2 Allele2 \
+    --snp MarkerName \
+    --pvalue p \
+    --stat b \
+    --beta \
+    --binary-target F \
+    --pheno Target_Data/TAR.height \
+    --cov Target_Data/TAR.covariate \
+    --out Height.set \
+    --gtf Reference/Homo_sapiens.GRCh38.109.gtf.gz \
+    --wind-5 5kb \
+    --wind-3 1kb \
+    --msigdb Reference/Sets.gmt \
+    --multi-plot 10 \
+    --set-perm 1000
+
+```
+
+>
+  **Figure: An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS**
+>
+![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/Day2b_Height.set_MULTISET_BARPLOT.png)
+---
+>
+> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
+>
+
 
 <a id="considerations"></a>
 ## Considerations when analysing and interpreting gene-set PRSs
@@ -195,7 +229,15 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 ### Clumping in gene set PRS analyses
 In standard clumping and P-value thresholding methods, clumping is performed to account for linkage disequilibrium between SNPs. If genome-wide clumping is performed at the gene-set level, we may remove signal as [shown in this toy example](https://choishingwan.github.io/PRSice/prset_detail/#snp-set-files).
 
-To maximize signal within each gene set, clumping is perforemd for each gene set separately.
+To maximize signal within each gene set, clumping is performed for each gene set separately.
+
+---
+>
+> ❓ Check the '.summary' file. How many SNPs are included in the top 9 gene sets?
+>
+> ❓ Can you plot the relationship between the gene-set R2 and the number of SNPs in each gene-set? What general trend can be seen?
+>
+---
 
 <a id="thresholding"></a>
 ### P-value thresholding in gene set PRS analyses 
@@ -220,55 +262,12 @@ Therefore, a bigger gene-set will have a higher likelihood of having a significa
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
-<a id="exercise-4-gene-set-based-prs-analysis"></a>
-## Exercise: Calculate gene-set PRS analysis
-
-We are now ready to perform gene-set association analyses using PRSet.
-
-To perform the PRSet analysis and obtain the set based PRS and competitive P-value, simply provide the GTF file and the GMT file to PRSice and specify the number of permutation for competitive P-value calculation using the --set-perm option.
-
-```
-Rscript ./Software/PRSice.R \
-    --prsice Software/PRSice_linux  \
-    --base Base_Data/GIANT_Height.txt \
-    --target Target_Data/TAR \
-    --A1 Allele1 \
-    --A2 Allele2 \
-    --snp MarkerName \
-    --pvalue p \
-    --stat b \
-    --beta \
-    --binary-target F \
-    --pheno Target_Data/TAR.height \
-    --cov Target_Data/TAR.covariate \
-    --out Results/Height.set \
-    --gtf Reference/Homo_sapiens.GRCh38.86.gtf \
-    --wind-5 5kb \
-    --wind-3 1kb \
-    --msigdb Reference/Sets.gmt \
-    --multi-plot 10 \
-    --set-perm 1000
-```
-
->
-  **Figure 1.8: An example of the multi-set plot. Sets are sorted based on their self-contained R2 . Base is the genome wide PRS**
->
-![Figure 1.8](/images/day3/Height.set_MULTISET_BARPLOT_2023-06-30.png)
 ---
 >
-> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
+> ❓ What are the self-contained P-value of the 3 gene-sets with the highest R2? And what are the competitive P-values? 
 >
-
----
+> ❓ Which P-value would you use to evaluate the importance of gene-set?
 >
-> ❓ Can you plot the relationship between the gene-set R2 and the number of SNPs in each gene-set? What general trend can be seen?
->
-> ❓ Considering the plot, what gene-sets do you think are most interesting and why?
->
-> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment?
->
-> ❓ What are the self-contained P-value of the 3 most interesting gene-sets? And what are the competitive P-values? 
->
-> ❓ Which P-value would you use to evaluate the importance of gene-set? 
+> ❓ Considering the R2 vs number of SNPs plot as well as the competitive P-value results, what gene-sets do you think are most interesting and why?
 >
 ---
