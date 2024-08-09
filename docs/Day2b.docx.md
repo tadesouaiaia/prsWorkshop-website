@@ -232,11 +232,10 @@ Rscript ./Software/PRSice.R \
 >
 ---
 
-Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated, and a new figure with the results for each gene set PRS
+Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated. For example, a new figure with the results for each gene set PRS.
 
 ![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/Day2b_Height.set_MULTISET_BARPLOT.png)
-<sub>  ** Figure 2 **: An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS </sub>
-
+<sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
 
 <a id="considerations"></a>
 ## Considerations when analysing and interpreting gene-set PRSs
