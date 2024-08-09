@@ -48,6 +48,14 @@ Most PRS methods summarize genetic risk to a single number, based on the aggrega
 
 During this session, we will learn how to run a gene set (a.k.a. pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately (Figure 1).
 
+<figure>
+  <img src="[https://example.com/image.png](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)" alt="The pathway polygenic risk score approach">
+  <figcaption>
+    Coloured boxes represent genes, lines link genes that are within the same genomic pathway. A, Upper model: Classical polygenic model of disease, in which individuals lie on a linear spectrum from low to high risk and genome-wide PRSs are constructed as the sum of risk alleles across the genome. Disease risk depicted by the Jar model [18]. Lower model: Pathway polygenic model of disease, in which there are multiple liabilities and PRSs are constructed by aggregating risk alleles over different genomic pathways. B, GWAS results Manhattan plot illustrated as a hypothetical composite of signals, where each signal corresponds to an alternative functional route to disease. Pathways that only make a small contribution to disease risk across the population, or a contribution in a small fraction of individuals (e.g. nicotine receptor pathway in those individuals who smoke), are likely to harbour risk variants of relatively small effect
+  </figcaption>
+</figure>
+
+
 ![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
 <span style="font-size:"0.5"> 
 **Figure 1: **The pathway polygenic risk score approach. Coloured boxes represent genes, lines link genes that are within the same genomic pathway. A, Upper model: Classical polygenic model of disease, in which individuals lie on a linear spectrum from low to high risk and genome-wide PRSs are constructed as the sum of risk alleles across the genome. Disease risk depicted by the Jar model [18]. Lower model: Pathway polygenic model of disease, in which there are multiple liabilities and PRSs are constructed by aggregating risk alleles over different genomic pathways. B, GWAS results Manhattan plot illustrated as a hypothetical composite of signals, where each signal corresponds to an alternative functional route to disease. Pathways that only make a small contribution to disease risk across the population, or a contribution in a small fraction of individuals (e.g. nicotine receptor pathway in those individuals who smoke), are likely to harbour risk variants of relatively small effect
