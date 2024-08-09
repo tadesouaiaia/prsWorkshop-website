@@ -228,7 +228,7 @@ Rscript ./Software/PRSice.R \
 >
 > ** Check the .summary results file, with and without running the PRSet specific options **
 >
-> ❓ How does this fle change? What extra information is incorporated when including the PRSet specific commands?
+> ❓ How does this file change? What extra information is incorporated when including the PRSet specific commands?
 >
 ---
 
