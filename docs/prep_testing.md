@@ -98,11 +98,11 @@ To verify that bridgePRS is able to run navigate to the folder:
 
 and type the command: 
 
-    ./code/bridgePRS 
+    ./bridgePRS 
 
 You should see bridge art. If this command works, then type the following command: 
 
-    ./code/bridgePRS check requirements 
+    ./bridgePRS check requirements 
 
 
 To confirm that your system is up to date, all libraries are installed and you are ready to run bridgePRS. 

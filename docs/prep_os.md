@@ -17,8 +17,7 @@ environments and is described for users with both operating systems. Microsoft w
 1. Linux: A Debian compatible Linux based operating system (Ubuntu, Mint, etc).  
 2. macOS: A recent version (11+) of the Desktop OS. 
 
-**Microsoft Windows is not supported, but instructions to install Linux can be found [here.](misc_linux)**
-
+**Microsoft Windows is not supported, but instructions to install Linux can be found [here.](misc_linux.md)**
 
 
 

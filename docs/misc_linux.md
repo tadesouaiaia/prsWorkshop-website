@@ -22,12 +22,10 @@ step-by-step video obstructions can be found [here](https://www.youtube.com/watc
 
 ## Setup 
 
-Once Linux has been installed and you have created a new user account you can run Ubuntu using[windows terminal](https://learn.microsoft.com/en-us/windows/terminal/install) or by going to the start menu and typing "Ubuntu".  
-Additionally, you should see that **Ubuntu** has been added to your applications and that there is a **Ubuntu** Folder on your computer (alongside Desktop, Downloads, etc).  Double clicking the Ubuntu app will open up 
-the Ubuntu terminal in the Ubunt folder. 
+Once Linux has been installed and you have created a new account you can run Ubuntu using [windows terminal](https://learn.microsoft.com/en-us/windows/terminal/install) or by going to the start menu and typing "Ubuntu".  Additionally, you should see that **Ubuntu** has been added to your applications and that there is a **Ubuntu Folder** on your computer (alongside Desktop, Downloads, etc).  Double clicking the Ubuntu app will open up the Ubuntu terminal in the **Ubuntu folder**. 
 
-You should see many sub-folders within the Ubuntu folder (such as bin/, home/, etc/, etc.) .  You can view them using [terminal commands](prep_terminal.md) or by double-clicking on them. 
-If you go into the **home/** folder you should see another folder with your username.  This folder (**home/(your username)/**) is where you should store your workshop folders and run the programs during your workshop. 
+You should see many sub-folders within the Ubuntu folder (such as bin, home, etc, etc.) .  You can view them using [terminal commands](prep_terminal.md) or by double-clicking on them. 
+If you go into the **home/** folder you should see another folder with your username.  This folder (**home/(your username)/**) is where you should store your workshop folders and run programs during the workshop. 
 
 Once you have successfully installed Ubuntu, you can follow the rest of the [preworkshop tutorial](prep_list.md) using the Linux instructions. 
 
