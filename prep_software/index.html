@@ -44,7 +44,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Preparation</span></p>
+              <p class="caption"><span class="caption-text">Pre-Workshop</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
                   </li>
@@ -61,13 +61,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 1a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 1b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3b.docx/">Day 2a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 2b</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prog_comingsoon/">Information</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -78,12 +72,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink/">Plink Tutorial</a>
-                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Installing Linux</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Linux For Windows</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_plink_problem/">Mac Security</a>
                   </li>
@@ -102,7 +94,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Preparation</li>
+          <li class="breadcrumb-item">Pre-Workshop</li>
       <li class="breadcrumb-item active">Software</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/prep_software.md" class="icon icon-github"> Edit on GitHub</a>
@@ -141,14 +133,14 @@ provide a guide for installation of both languages and their associated librarie
 <h3 id="1-r-and-associated-packages">1. R (and associated packages)</h3>
 <p>R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  MacOs users can download an up-to-date 
 version directly from the <a href="https://cloud.r-project.org/">R website</a> and using the R installer.  If you are having trouble we recommend <a href="https://www.youtube.com/watch?v=I5WIMX4LK8M">this video tutorial</a>. </p>
-<p>While Linux users can also find a suitible version on the website, we reccomend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
+<p>While Linux users can also find a suitable version on the website, we recommend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
 and downloading <strong>R</strong> directly using the following terminal commands: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sudo apt install r-base               # to install R 
 sudo apt install build-essential      # to install the essential packages
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Important: Additional R Packages Are Required</p>
-<p>This tutorial requires the following non-standard R packages: <strong>BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils</strong>
+<p>This workshop requires the following non-standard R packages: <strong>BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils</strong>
 These packages can be installed by opening up an <strong>R</strong> session from within the terminal, by typing:  </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>R
 </code></pre></div>
@@ -157,23 +149,24 @@ These packages can be installed by opening up an <strong>R</strong> session from
 </code></pre></div></p>
 </div>
 <p>After you have finished installation and testing and downloaded our preworkshop materials, please consider 
-completing our <a href="../misc_R/">R-tutorial</a> to better familiarze yourself with some basic analysis commands. </p>
-<h3 id="2-python-3-and-matplotlib">2. Python 3 (and matplotlib)</h3>
-<p>Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
+completing our <a href="../misc_R/">R-tutorial</a> to better familiarize yourself with some basic analysis commands. </p>
+<h3 id="2-python3-and-matplotlib">2. Python3 (and matplotlib)</h3>
+<p>Python3 is a very popular multiuse programming language.  This workshop requires Python3, any version of Python3 is acceptable 
+but a newer version Python3.10.10+ is recommended. </p>
+<p>Many systems come installed with Python3 by default, 
 but it can be downloaded from python <a href="https://www.python.org/downloads/">website</a>.  The matplotlib package is required to 
-make plots and can be downloaded <a href="https://matplotlib.org/stable/users/installing/index.html">here</a>.  For more detailed instructions, 
-macOs users can visit the following <a href="https://www.youtube.com/watch?v=NmB1AwF3G3k">video link</a> that we find very helpful.  </p>
-<p>After installing python3, macOs users can install matplotlib using pip:  </p>
+make plots and can be downloaded <a href="https://matplotlib.org/stable/users/installing/index.html">here</a>.  </p>
+<p>Users of macOs can find detailed instructions on how to install python3 by visiting the following <a href="https://www.youtube.com/watch?v=NmB1AwF3G3k">video link</a> that we find very helpful.  After installing python3, macOs users can install matplotlib using pip:  </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>python3 -m ensurepip 
 sudo python3 -m pip install -U matplotlib
 </code></pre></div>
-<p>For linux we again recommend that you use the package installer to install python3 and matplotlib  </p>
+<p>For Linux we again recommend that you use the package installer to install python3 and matplotlib  </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sudo apt install python3             # to install python3
 python3 --version                    # to verify that it worked
 sudo apt-get install python3-matplotlib # to install matplotlib
 </code></pre></div>
 <p>After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
-<a href="../misc_python/">Python tutorial</a> to familiarze yourself with some basic commands.  </p>
+<a href="../misc_python/">Python tutorial</a> to familiarize yourself with some basic commands.  </p>
               
             </div>
           </div><footer>

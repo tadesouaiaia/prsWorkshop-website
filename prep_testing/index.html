@@ -44,7 +44,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Preparation</span></p>
+              <p class="caption"><span class="caption-text">Pre-Workshop</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
                   </li>
@@ -56,11 +56,15 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Testing</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#testing-bridgeprs">Testing bridgePRS</a>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-materials">Downloading materials</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#testing-prscise">Testing PRScise</a>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-software">Testing Software</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#testing-plink">Testing Plink</a>
+    <li class="toctree-l3"><a class="reference internal" href="#plink">Plink</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-prsice">Testing PRSice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-bridgeprs">Testing bridgePRS</a>
     </li>
         </ul>
     </li>
@@ -69,13 +73,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 1a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 1b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3b.docx/">Day 2a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 2b</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prog_comingsoon/">Information</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -86,12 +84,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink/">Plink Tutorial</a>
-                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Installing Linux</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Linux For Windows</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_plink_problem/">Mac Security</a>
                   </li>
@@ -110,7 +106,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Preparation</li>
+          <li class="breadcrumb-item">Pre-Workshop</li>
       <li class="breadcrumb-item active">Testing</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/prep_testing.md" class="icon icon-github"> Edit on GitHub</a>
@@ -122,39 +118,60 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="preworkshop-testing">Preworkshop Testing</h1>
-<p>Please download our <a href="https://drive.google.com/file/d/1jZu7HHt-Z-HTfCjsCP53xjTFMT7ya1r8/view?usp=sharing">Preworkshop Materials</a>. </p>
-<p>Please unzip the folder, move it in your home directory, or follow the following two commands after it has been downloaded: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvzf ~/Downloads/preworkshop_materials.tar.gz -C ~/
-cd ~/preworkshop_materials
+<h2 id="downloading-materials">Downloading materials</h2>
+<ol>
+<li>
+<p>For Linux: <a href="https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing">Link</a></p>
+</li>
+<li>
+<p>For macOs: <a href="https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing">Link</a> </p>
+</li>
+</ol>
+<p>By clicking the link, then the download (<strong>down-arrow</strong>) icon at the top of the screen.  If a message  comes up that 
+the file can't be scanned for viruses, please click "download anyway".  </p>
+<p>You should already have a folder in your home directory named <strong>prsworkshop</strong> that you created during the terminal 
+part of this <a href="prep_terminal">guide</a> by typing "mkdir ~/prsworkshop".  Now, move to this directory by typing: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop
 </code></pre></div>
-<h2 id="testing-bridgeprs">Testing bridgePRS</h2>
-<p>To verify that bridgePRS is able to run navigate to the folder: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd bridgePRS
+<p>Next unzip the downloaded workshop materials and move them to this directory.  This can be down by right clicking on the folder to unzip and 
+then dragging it into the <strong>prsworkshop</strong> folder, or it can be done in the terminal.  In Linux this is accomplished by typing: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvzf ~/Downloads/preworkshop_materials_linux.tar.gz -C ~/prsworkshop
+cd ~/prsworkshop/preworkshop_materials_linux
 </code></pre></div>
-<p>and type the command: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/bridgePRS
+<p>MacOs <strong>sometimes</strong> unzips downloaded files for you, so macOs users should first type the following: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls ~/Downloads/preworkshop_materials_mac.*
 </code></pre></div>
-<p>then type the following command: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/bridgePRS check requirements
+<p>If the command returns a file with a <strong>".tar"</strong> ending, then type: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop
 </code></pre></div>
-<p>If no error is observed then your system is ready to run bridgePRS. </p>
-<!--                                                                                                                                                                                                                        
-To learn more, please navigate to the tutorial directory: 
-
-    cd ~/preworkshop_materials/bridgePRS/tutorial 
-
-And follow the directions in our please see our [bridgePRS tutorial](misc_plink.md).                                                                                                                      
--->
-
-<h2 id="testing-prscise">Testing PRScise</h2>
-<p>Navigate to the correct directory: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/preworkshop_materials/PRSice
+<p>Otherwise, if the command returns a file with a <strong>".tar.gz"</strong> ending, type:  </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvzf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop
 </code></pre></div>
-<p>and then type one of the following two commands: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/PRSice_linux -h # linux users
-./code/PRSice_mac -h   # macOs users
+<p>To unzip the folder and move it to the appropriate directory.  Finally, move to the appropriate directory to begin testing: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop/preworkshop_materials_mac
 </code></pre></div>
-<p>If no error is observed then your computer is ready to run PRScise. </p>
+<h2 id="testing-software">Testing Software</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning For macOs Users:</p>
+<p><img alt="Screenshot" src="../images/mac_plink_small.png" />   <br />
+MacOs often block executables if they are not approved from the app store.  If you see an error similar to this, when trying to run plink, PRSice, or bridgePRS, <strong>DO NOT DELETE THE FILE</strong>.  You must change your system settings to allow downloaded software.  To learn how to do so, please click <a href="../misc_plink_problem/">here</a>.   </p>
+</div>
+<h3 id="plink">Plink</h3>
+<p>From the preworkshop directory, navigate into the Plink directory. </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd Plink
+</code></pre></div>
+<p>and type the following command: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/plink -h
+</code></pre></div>
+<p>If no error is observed and a list of options are displayed then your computer is ready to run plink. </p>
+<h3 id="testing-prsice">Testing PRSice</h3>
+<p>Please navigate to the correct directory: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop/preworkshop_materials_(mac/linux)/PRSice
+</code></pre></div>
+<p>and type the following command: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/PRSice -h   # macOs users
+</code></pre></div>
+<p>If no error is observed and a list of options are displayed then your computer is ready to run PRSice. </p>
 <!--                                                                                                                                                                                                                        
 To learn more, please navigate to the tutorial directory: 
 
@@ -163,30 +180,24 @@ To learn more, please navigate to the tutorial directory:
 And follow the directions in our please see our [PRSice tutorial](misc_plink.md).                                                                                                                      
 -->
 
-<h3 id="testing-plink">Testing Plink</h3>
-<p>Navigate to the correct directory: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/preworkshop_materials/Plink
+<h3 id="testing-bridgeprs">Testing bridgePRS</h3>
+<p>To verify that bridgePRS is able to run navigate to the folder: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop/preworkshop_materials_(mac/linux)/BridgePRS
+cd bridgePRS
 </code></pre></div>
-<p>and then type one of the following two commands: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/Plink_linux -h # linux users
-./code/Plink_mac -h   # macOs users
+<p>and type the command: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/bridgePRS
 </code></pre></div>
-<p>If no error is observed then your computer is ready. To learn more, please navigate to the tutorial directory: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/preworkshop_materials/Plink/tutorial
+<p>You should see bridge art. If this command works, then type the following command: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/bridgePRS check requirements
 </code></pre></div>
-<p>And follow the directions to carry out our <a href="../misc_plink/">Plink tutorial</a>.                                                                                                                      </p>
-<div class="admonition warning">
-<p class="admonition-title">Extra MacOs Security:</p>
-<p>MacOs often block executables if they are not approved from the app store.                                                                                                                                            <br />
-You may have to change your settings to allow Plink to be called                                                                                                                                                      <br />
-For instructions on how to do so, please click <a href="../misc_plink_problem/">here</a>.   </p>
-</div>
+<p>To confirm that your system is up to date, all libraries are installed and you are ready to run bridgePRS. </p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../prep_software/" class="btn btn-neutral float-left" title="Software"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Day2.docx/" class="btn btn-neutral float-right" title="Day 1a">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../prog_comingsoon/" class="btn btn-neutral float-right" title="Information">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -216,7 +227,7 @@ For instructions on how to do so, please click <a href="../misc_plink_problem/">
       <span><a href="../prep_software/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Day2.docx/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../prog_comingsoon/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Tade Souaiaia" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Foo - prsWorkshop</title>
+    <title>Information - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Foo";
-        var mkdocs_page_input_path = "foo.md";
+        var mkdocs_page_name = "Information";
+        var mkdocs_page_input_path = "prog_comingsoon.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -58,8 +58,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../prog_comingsoon/">Information</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Information</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#schedule">Schedule</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -92,9 +98,10 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Foo</li>
+          <li class="breadcrumb-item">Program</li>
+      <li class="breadcrumb-item active">Information</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/foo.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/prog_comingsoon.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -102,74 +109,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="required-system-software">Required System Software</h2>
-<table>
-<thead>
-<tr>
-<th>Name/Link</th>
-<th style="text-align: center;">Description</th>
-<th style="text-align: center;">Additional Requirements</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1. <a href="https://www.r-project.org/">R v4.1+</a></td>
-<td style="text-align: center;">Most popular analysis program  in statistical genetics</td>
-<td style="text-align: center;">Yes (Specific Libraries).</td>
-</tr>
-<tr>
-<td>2. <a href="https://www.python.org/downloads/">Python 3</a>.</td>
-<td style="text-align: center;">Multipurpose Programming Language</td>
-<td style="text-align: center;">Yes (The matplotlib library).</td>
-</tr>
-<tr>
-<td>3. <a href="https://www.cog-genomics.org/software">Plink 1.9+</a></td>
-<td style="text-align: center;">Popular open-source whole genome association analysis toolset</td>
-<td style="text-align: center;">No</td>
-</tr>
-</tbody>
-</table>
-<p>This workshop makes use of two popular computer languages, <strong>R</strong> and <strong>python3</strong> as well as the software program <strong>Plink</strong>.  Here we will 
-provide a guide for installation of all three software sources and their associated libraries. </p>
-<h3 id="1-r-and-associated-packages">1. R (and associated packages)</h3>
-<p>R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  MacOs users can download an up-to-date 
-version directly from the <a href="https://cloud.r-project.org/">R website</a> and using the R installer.  If you are having trouble we recommend <a href="https://www.youtube.com/watch?v=I5WIMX4LK8M">this video tutorial</a>. </p>
-<p>While Linux users can also find a suitible version on the website, we reccomend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
-and downloading <strong>R</strong> directly using the following terminal commands: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sudo apt install r-base               # to install R 
-sudo apt install build-essential      # to install the essential packages
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Important: Additional R Packages Are Required</p>
-<p>This tutorial requires the following non-standard R packages: <strong>BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils</strong>
-These packages can be installed by opening up an <strong>R</strong> session from within the terminal, by typing:  </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>R
-</code></pre></div>
-<p>And typing the following command: 
-    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>install.packages(c(&quot;BEDMatrix&quot;,&quot;boot&quot;,&quot;data.table&quot;,&quot;doMC&quot;,&quot;glmnet&quot;,&quot;MASS&quot;,&quot;optparse&quot;,&quot;parallel&quot;,&quot;R.utils&quot;))
-</code></pre></div></p>
-</div>
-<p>After you have finished with this section and downloaded our preworkshop materials, please consider completing our <a href="../misc_R/">R-tutorial</a> to better familiarze yourself 
-with some basic analysis commands. </p>
-<h3 id="2-python-3-and-matplotlib">2. Python 3 (and matplotlib)</h3>
-<p>Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
-but it can be downloaded from python <a href="https://www.python.org/downloads/">website</a>.  The matplotlib package is required to 
-make plots and can be downloaded <a href="https://matplotlib.org/stable/users/installing/index.html">here</a>.  For more detailed 
-instructions for macOs users we can the following <a href="https://www.youtube.com/watch?v=NmB1AwF3G3k">video link</a> can be very helpful. </p>
-<p>For macOs matplotlib can be installed using pip: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>python3 -m ensurepip 
-sudo python3 -m pip install -U matplotlib
-</code></pre></div>
-<p>For linux we again recommend that you use the package installer to install python3 and matplotlib  </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>sudo apt install python3             # to install python3
-python3 --version                    # to verify that it worked
-sudo apt-get install python3-matplotlib # to install matplotlib
-</code></pre></div>
-<p>After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
-<a href="../misc_python/">Python tutorial</a> to familiarze yourself with some basic commands.  </p>
+                <p><img alt="Screenshot" src="../images/japanGlobe.png" /></p>
+<h1 id="start-date-aug-31-2024">Start Date: Aug 31, 2024</h1>
+<h2 id="schedule">Schedule</h2>
+<p>Coming Soon.  Please see the <a href="http://www.sg.med.osaka-u.ac.jp/school_2024.html">university website</a> for more information.  </p>
+<h2 id="contact">Contact</h2>
+<p>For questions about this website, or the preliminary materials please contact <a href="tade.souaiaia@gmail.com">Dr Tade Souaiaia</a>, 
+or <a href="https://labs.icahn.mssm.edu/oreillylab/">Dr Paul O'Reilly</a>.</p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../prep_testing/" class="btn btn-neutral float-left" title="Testing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../misc_commands/" class="btn btn-neutral float-right" title="Bash Tutorial">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -195,6 +148,10 @@ sudo apt-get install python3-matplotlib # to install matplotlib
         </span>
     
     
+      <span><a href="../prep_testing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../misc_commands/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

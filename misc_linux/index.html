@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Tade Souaiaia" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Installing Linux - prsWorkshop</title>
+    <title>Linux For Windows - prsWorkshop</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,7 +13,7 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Installing Linux";
+        var mkdocs_page_name = "Linux For Windows";
         var mkdocs_page_input_path = "misc_linux.md";
         var mkdocs_page_url = null;
       </script>
@@ -44,7 +44,7 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Preparation</span></p>
+              <p class="caption"><span class="caption-text">Pre-Workshop</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
                   </li>
@@ -59,13 +59,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Program</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day2.docx/">Day 1a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3a.docx/">Day 1b</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day3b.docx/">Day 2a</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Day4a.docx/">Day 2b</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prog_comingsoon/">Information</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
@@ -76,13 +70,15 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_plink/">Plink Tutorial</a>
-                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Installing Linux</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux For Windows</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../misc_plink_problem/">Mac Security</a>
@@ -103,7 +99,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Misc</li>
-      <li class="breadcrumb-item active">Installing Linux</li>
+      <li class="breadcrumb-item active">Linux For Windows</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/tadesouaiaia/prsWorkshop-website/edit/master/docs/misc_linux.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -114,23 +110,30 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="linux-for-windows-users">Linux for Windows Users</h1>
-<p>For windows users, a single <strong>WSL</strong> command can be used to install linux.  Detailed information on WSL can be found on the <a href="https://learn.microsoft.com/en-us/windows/wsl/install">microsoft website</a>.</p>
+<p>For windows users, a single <strong>WSL</strong> command can be used to install linux.  Detailed information on WSL can be found on the <a href="https://learn.microsoft.com/en-us/windows/wsl/install">microsoft website</a> and 
+step-by-step video obstructions can be found <a href="https://www.youtube.com/watch?v=cdIQ61eCaqE">here</a>.  These steps involve: </p>
+<h2 id="installation">Installation</h2>
 <div class="admonition tips">
 <p class="admonition-title">Using Administrator Mode to Installing Linux</p>
 <p>Open PowerShell or Windows Command Prompt by right-clicking and selecting "Run as administrator", and type: 
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>wsl --install                                                                                                                    
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>wsl --install Ubuntu                                                                                                                    
 </code></pre></div>
 This command will enable the features necessary to run WSL, restart your computer, and install the Ubuntu distribution of Linux.  </p>
 <p><img alt="Screenshot" src="../images/linux_install.png" /> </p>
-<p>Once it has been installed you will need to create a new user account, to learn more about this please see <a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password">microsoft best practices</a>
-Once finished you can run linux using <a href="https://learn.microsoft.com/en-us/windows/terminal/install">windows terminal</a> or by going to the start menu and typing "Ubuntu".  This will open Linux in its own console
-window.</p>
+<p>After it has been installed you will need to create a new username and password, to learn more about this please see <a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password">microsoft best practices</a></p>
 </div>
+<h2 id="setup">Setup</h2>
+<p>Once Linux has been installed and you have created a new user account you can run Ubuntu using<a href="https://learn.microsoft.com/en-us/windows/terminal/install">windows terminal</a> or by going to the start menu and typing "Ubuntu".<br />
+Additionally, you should see that <strong>Ubuntu</strong> has been added to your applications and that there is a <strong>Ubuntu</strong> Folder on your computer (alongside Desktop, Downloads, etc).  Double clicking the Ubuntu app will open up 
+the Ubuntu terminal in the Ubunt folder. </p>
+<p>You should see many sub-folders within the Ubuntu folder (such as bin/, home/, etc/, etc.) .  You can view them using <a href="../prep_terminal/">terminal commands</a> or by double-clicking on them. 
+If you go into the <strong>home/</strong> folder you should see another folder with your username.  This folder (<strong>home/(your username)/</strong>) is where you should store your workshop folders and run the programs during your workshop. </p>
+<p>Once you have successfully installed Ubuntu, you can follow the rest of the <a href="../prep_list/">preworkshop tutorial</a> using the Linux instructions. </p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../misc_plink/" class="btn btn-neutral float-left" title="Plink Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../misc_python/" class="btn btn-neutral float-left" title="Python Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../misc_plink_problem/" class="btn btn-neutral float-right" title="Mac Security">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -158,7 +161,7 @@ window.</p>
         </span>
     
     
-      <span><a href="../misc_plink/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../misc_python/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../misc_plink_problem/" style="color: #fcfcfc">Next &raquo;</a></span>
