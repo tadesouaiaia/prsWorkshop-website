@@ -9,12 +9,12 @@
 
 
 
-# PRS Japan Workshop is Almost Here!: Aug 30, 2024 
+# PRS Japan Workshop is Almost Here!: Aug 31, 2024 
 
 **Attendees should complete the [preworkshop checklist!](prep_list.md)** 
 
 Download preworkshop materials for Linux ([Link](https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing))
-or macOs ([Link](https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing)). 
+or macOS ([Link](https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing)). 
 
 
 
