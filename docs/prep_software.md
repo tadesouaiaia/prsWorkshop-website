@@ -20,7 +20,7 @@ provide a guide for installation of both languages and their associated librarie
 R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  MacOs users can download an up-to-date 
 version directly from the [R website](https://cloud.r-project.org/) and using the R installer.  If you are having trouble we recommend [this video tutorial](https://www.youtube.com/watch?v=I5WIMX4LK8M). 
 
-While Linux users can also find a suitible version on the website, we reccomend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
+While Linux users can also find a suitable version on the website, we recommend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
 and downloading **R** directly using the following terminal commands: 
 
     sudo apt install r-base               # to install R 
@@ -29,7 +29,7 @@ and downloading **R** directly using the following terminal commands:
 
 
 !!! warning "Important: Additional R Packages Are Required"
-    This tutorial requires the following non-standard R packages: **BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils**
+    This workshop requires the following non-standard R packages: **BEDMatrix, boot, data.table, doMC, glmnet, MASS, optparse, parallel, and R.utils**
     These packages can be installed by opening up an **R** session from within the terminal, by typing:  
 
         R 
@@ -40,23 +40,25 @@ and downloading **R** directly using the following terminal commands:
         ```
 
 After you have finished installation and testing and downloaded our preworkshop materials, please consider 
-completing our [R-tutorial](misc_R.md) to better familiarze yourself with some basic analysis commands. 
+completing our [R-tutorial](misc_R.md) to better familiarize yourself with some basic analysis commands. 
 
 
 
 
-### 2. Python 3 (and matplotlib) 
-Python is a very popular multiuse programming language.  Many systems come installed with Python by default, 
+### 2. Python3 (and matplotlib) 
+Python3 is a very popular multiuse programming language.  This workshop requires Python3, any version of Python3 is acceptable 
+but a newer version Python3.10.10+ is recommended. 
+
+Many systems come installed with Python3 by default, 
 but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to 
-make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  For more detailed instructions, 
-macOs users can visit the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) that we find very helpful.  
+make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  
 
-After installing python3, macOs users can install matplotlib using pip:  
+Users of macOs can find detailed instructions on how to install python3 by visiting the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) that we find very helpful.  After installing python3, macOs users can install matplotlib using pip:  
 
     python3 -m ensurepip 
     sudo python3 -m pip install -U matplotlib 
 
-For linux we again recommend that you use the package installer to install python3 and matplotlib  
+For Linux we again recommend that you use the package installer to install python3 and matplotlib  
 
     sudo apt install python3             # to install python3
     python3 --version                    # to verify that it worked
@@ -64,5 +66,5 @@ For linux we again recommend that you use the package installer to install pytho
 
 
 After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
-[Python tutorial](misc_python.md) to familiarze yourself with some basic commands.  
+[Python tutorial](misc_python.md) to familiarize yourself with some basic commands.  
 

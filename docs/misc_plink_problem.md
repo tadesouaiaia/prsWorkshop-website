@@ -6,8 +6,8 @@
 
 If you see this error, **Do not click: Move To Trash**. 
 
-Instead click on the top right hand corner of the box, or stop running BridgePRS and follow these instructions 
-to give your system permission to call plink from BridgePRS:  
+Instead click on the top right hand corner of the box, or stop running whatever program you are using and follow these instructions 
+to give your system permission to run downloaded software. 
 
 ## 1- Default Settings
 By default macOS allows you to open apps from the official Mac App Store only, If you have this set as your default 

@@ -2,53 +2,81 @@
 
 # Preworkshop Testing
 
-Please download our [Preworkshop Materials](https://drive.google.com/file/d/1jZu7HHt-Z-HTfCjsCP53xjTFMT7ya1r8/view?usp=sharing). 
+## Downloading materials 
+
+1. For Linux: [Link](https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing)
+
+2. For macOs: [Link](https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing) 
 
 
-Please unzip the folder, move it in your home directory, or follow the following two commands after it has been downloaded: 
 
-    tar -xvzf ~/Downloads/preworkshop_materials.tar.gz -C ~/
-    cd ~/preworkshop_materials 
+By clicking the link, then the download (**down-arrow**) icon at the top of the screen.  If a message  comes up that 
+the file can't be scanned for viruses, please click "download anyway".  
 
-## Testing bridgePRS 
+You should already have a folder in your home directory named **prsworkshop** that you created during the terminal 
+part of this [guide](prep_terminal) by typing "mkdir ~/prsworkshop".  Now, move to this directory by typing: 
 
-To verify that bridgePRS is able to run navigate to the folder: 
+    cd ~/prsworkshop 
 
-    cd bridgePRS 
+Next unzip the downloaded workshop materials and move them to this directory.  This can be down by right clicking on the folder to unzip and 
+then dragging it into the **prsworkshop** folder, or it can be done in the terminal.  In Linux this is accomplished by typing: 
 
-and type the command: 
+    tar -xvzf ~/Downloads/preworkshop_materials_linux.tar.gz -C ~/prsworkshop
+    cd ~/prsworkshop/preworkshop_materials_linux 
 
-    ./code/bridgePRS 
+MacOs **sometimes** unzips downloaded files for you, so macOs users should first type the following: 
 
-then type the following command: 
+    ls ~/Downloads/preworkshop_materials_mac.* 
 
-    ./code/bridgePRS check requirements 
+If the command returns a file with a **".tar"** ending, then type: 
 
+    tar -xvf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop 
 
-If no error is observed then your system is ready to run bridgePRS. 
-
-<!--                                                                                                                                                                                                                        
-To learn more, please navigate to the tutorial directory: 
-
-    cd ~/preworkshop_materials/bridgePRS/tutorial 
-
-And follow the directions in our please see our [bridgePRS tutorial](misc_plink.md).                                                                                                                      
--->  
-
-
-## Testing PRScise 
-
-Navigate to the correct directory: 
-
-    cd ~/preworkshop_materials/PRSice
+Otherwise, if the command returns a file with a **".tar.gz"** ending, type:  
     
-and then type one of the following two commands: 
+    tar -xvzf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop 
 
-    ./code/PRSice_linux -h # linux users
-    ./code/PRSice_mac -h   # macOs users 
+To unzip the folder and move it to the appropriate directory.  Finally, move to the appropriate directory to begin testing: 
+
+    cd ~/prsworkshop/preworkshop_materials_mac 
 
 
-If no error is observed then your computer is ready to run PRScise. 
+
+## Testing Software
+
+!!! warning "Warning For macOs Users:"                                                                                                                                                                                         
+    ![Screenshot](images/mac_plink_small.png)     
+    MacOs often block executables if they are not approved from the app store.  If you see an error similar to this, when trying to run plink, PRSice, or bridgePRS, **DO NOT DELETE THE FILE**.  You must change your system settings to allow downloaded software.  To learn how to do so, please click [here](misc_plink_problem.md).   
+
+### Plink 
+                                                                                                                                                                                                            
+From the preworkshop directory, navigate into the Plink directory. 
+
+    cd Plink 
+
+and type the following command: 
+
+    ./code/plink -h 
+ 
+
+If no error is observed and a list of options are displayed then your computer is ready to run plink. 
+
+
+
+### Testing PRSice 
+
+Please navigate to the correct directory: 
+
+
+    cd ~/prsworkshop/preworkshop_materials_(mac/linux)/PRSice 
+
+    
+and type the following command: 
+
+    ./code/PRSice -h   # macOs users 
+
+
+If no error is observed and a list of options are displayed then your computer is ready to run PRSice. 
 
 <!--                                                                                                                                                                                                                        
 To learn more, please navigate to the tutorial directory: 
@@ -60,34 +88,27 @@ And follow the directions in our please see our [PRSice tutorial](misc_plink.md)
 
 
 
-### Testing Plink 
-                                                                                                                                                                                                            
-Navigate to the correct directory: 
 
-    cd ~/preworkshop_materials/Plink 
+### Testing bridgePRS 
 
-and then type one of the following two commands: 
+To verify that bridgePRS is able to run navigate to the folder: 
 
-    ./code/Plink_linux -h # linux users
-    ./code/Plink_mac -h   # macOs users 
-    
+    cd ~/prsworkshop/preworkshop_materials_(mac/linux)/BridgePRS
+    cd bridgePRS 
 
-If no error is observed then your computer is ready. To learn more, please navigate to the tutorial directory: 
+and type the command: 
 
-    cd ~/preworkshop_materials/Plink/tutorial 
+    ./code/bridgePRS 
 
-And follow the directions to carry out our [Plink tutorial](misc_plink.md).                                                                                                                      
+You should see bridge art. If this command works, then type the following command: 
+
+    ./code/bridgePRS check requirements 
+
+
+To confirm that your system is up to date, all libraries are installed and you are ready to run bridgePRS. 
+
+
+
 
 
                                                                                                                                                                                                                             
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-!!! warning "Extra MacOs Security:"                                                                                                                                                                                         
-    MacOs often block executables if they are not approved from the app store.                                                                                                                                              
-    You may have to change your settings to allow Plink to be called                                                                                                                                                        
-    For instructions on how to do so, please click [here](misc_plink_problem.md).   
-
-
-
-
-

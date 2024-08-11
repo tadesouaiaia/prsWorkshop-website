@@ -4,7 +4,7 @@ site_author: Tade Souaiaia
 nav:
     - Home: index.md
     
-    - Preparation: 
+    - Pre-Workshop: 
       - Checklist:        prep_list.md 
       - System:           prep_os.md 
       - Terminal:             prep_terminal.md 
@@ -12,7 +12,7 @@ nav:
       - Testing:         prep_testing.md 
         
     - Program: 
-       - Schedule: prog_comingsoon.md
+       - Information: prog_comingsoon.md
     #  - Day 1a:  Day2.docx.md 
     #  - Day 1b: Day3a.docx.md
     #      - Day 2ac: Day3b.docx.md 
@@ -22,10 +22,10 @@ nav:
         - Bash Tutorial:           misc_commands.md 
         - R Tutorial:              misc_R.md 
         - Python Tutorial:         misc_python.md 
-        - Plink Tutorial:          misc_plink.md 
+#        - Plink Tutorial:          misc_plink.md 
         
     - Misc:
-        - Installing Linux:        misc_linux.md 
+        - Linux For Windows:      misc_linux.md 
         - Mac Security:            misc_plink_problem.md 
 
 
