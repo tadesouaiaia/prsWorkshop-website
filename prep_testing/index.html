@@ -48,11 +48,11 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../prep_list/">Checklist</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">System</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_os/">Operating System</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">Terminal</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_terminal/">Terminal Setup</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../prep_software/">Software Installs</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Testing</a>
     <ul class="current">
@@ -71,18 +71,17 @@
     </ul>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Program</span></p>
+              <p class="caption"><span class="caption-text">Pre-Workshop Tutorials</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../prog_comingsoon/">Information</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../tut_intro/">Introduction</a>
                   </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Tutorials</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_commands/">Bash Tutorial</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../tut_bash/">Bash Tutorial</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_R/">R Tutorial</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../tut_R/">R Tutorial</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../misc_python/">Python Tutorial</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../tut_python/">Python Tutorial</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tut_plink/">Plink Tutorial</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
@@ -120,17 +119,14 @@
                 <h1 id="preworkshop-testing">Preworkshop Testing</h1>
 <h2 id="downloading-materials">Downloading materials</h2>
 <ol>
-<li>
-<p>For Linux: <a href="https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing">Link</a></p>
-</li>
-<li>
-<p>For macOs: <a href="https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing">Link</a> </p>
-</li>
+<li>For Linux:  <a href="https://drive.google.com/file/d/1STdeShfjjxBnCP3-FFpgvTLuNBj51foE/view?usp=sharing">Link.</a> </li>
+<li>For macOS: <a href="https://drive.google.com/file/d/1jCKhDzpr5LJsOAiueuz3kNC1ey9uOun0/view?usp=sharing">Link.</a></li>
 </ol>
 <p>By clicking the link, then the download (<strong>down-arrow</strong>) icon at the top of the screen.  If a message  comes up that 
 the file can't be scanned for viruses, please click "download anyway".  </p>
 <p>You should already have a folder in your home directory named <strong>prsworkshop</strong> that you created during the terminal 
-part of this <a href="prep_terminal">guide</a> by typing "mkdir ~/prsworkshop".  Now, move to this directory by typing: </p>
+part of this <a href="prep_terminal">guide</a> by typing "mkdir ~/prsworkshop".  If you haven't created this folder, please do so now. 
+Next, move to this directory by typing: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop
 </code></pre></div>
 <p>Next unzip the downloaded workshop materials and move them to this directory.  This can be down by right clicking on the folder to unzip and 
@@ -163,7 +159,8 @@ MacOs often block executables if they are not approved from the app store.  If y
 <p>and type the following command: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/plink -h
 </code></pre></div>
-<p>If no error is observed and a list of options are displayed then your computer is ready to run plink. </p>
+<p>If no error is observed and a list of options are displayed then your computer is ready to run plink.  If you are not already familiar with plink, now is a great time to use the data found in Plink/tutorials/sample_data/
+to run the <a href="../tut_plink/">PLINK tutorial</a>. </p>
 <h3 id="testing-prsice">Testing PRSice</h3>
 <p>Please navigate to the correct directory: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop/preworkshop_materials_(mac/linux)/PRSice
@@ -196,8 +193,8 @@ cd bridgePRS
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../prep_software/" class="btn btn-neutral float-left" title="Software"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../prog_comingsoon/" class="btn btn-neutral float-right" title="Information">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../prep_software/" class="btn btn-neutral float-left" title="Software Installs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tut_intro/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -227,7 +224,7 @@ cd bridgePRS
       <span><a href="../prep_software/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../prog_comingsoon/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../tut_intro/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
