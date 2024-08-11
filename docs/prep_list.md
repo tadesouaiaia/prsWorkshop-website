@@ -2,10 +2,10 @@
 
 ## Introduction
 
-Here we present a preworkshop preparation guide to get students sufficiently prepared before the workshop begins.  In this guide we help students set up the operating system (Linux or macOS), provide tutorials for Bash, R, 
+Here we present a pre-workshop preparation guide to get students sufficiently prepared before the workshop begins.  In this guide we help students set up the operating system (Linux or macOS), provide tutorials for Bash, R, 
 and Python for students who are unfamiliar or need a refresher, and help students verify that their system is capable of running the software necessary for the workshop. 
 
-!!! warning "Reminder: All students must complete preworkship testing and verification"
+!!! warning "Reminder: All students must complete pre-workship testing and verification"
     1. At the end of the students are lead through a series of [software tests](prep_testing.md)  
     2. The tests are required to verify that the laptops they will use during the workshop are properly set up. 
     3. Students unable to properly configure their laptops should email course instructor Souaiaia [here](tade.souaiaia@gmail.com).

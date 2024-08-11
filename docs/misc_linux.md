@@ -27,6 +27,6 @@ Once Linux has been installed and you have created a new account you can run Ubu
 You should see many sub-folders within the Ubuntu folder (such as bin, home, etc, etc.) .  You can view them using [terminal commands](prep_terminal.md) or by double-clicking on them. 
 If you go into the **home/** folder you should see another folder with your username.  This folder (**home/(your username)/**) is where you should store your workshop folders and run programs during the workshop. 
 
-Once you have successfully installed Ubuntu, you can follow the rest of the [preworkshop tutorial](prep_list.md) using the Linux instructions. 
+Once you have successfully installed Ubuntu, you can follow the rest of the [pre-workshop tutorial](prep_list.md) using the Linux instructions. 
 
 

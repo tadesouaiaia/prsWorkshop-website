@@ -39,8 +39,7 @@ and downloading **R** directly using the following terminal commands:
         install.packages(c("BEDMatrix","boot","data.table","doMC","glmnet","MASS","optparse","parallel","R.utils"))
         ```
 
-After you have finished installation and testing and downloaded our preworkshop materials, please consider 
-completing our [R-tutorial](tut_R.md) to better familiarize yourself with some basic analysis commands. 
+After you have finished installation and testing of R, please consider completing our [R-tutorial](tut_R.md) to better familiarize yourself with some basic analysis commands. 
 
 
 
@@ -63,6 +62,5 @@ For Linux we again recommend that you use the package installer to install pytho
     sudo apt-get install python3-matplotlib # to install matplotlib 
 
 
-After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
-[Python tutorial](tut_python.md) to familiarize yourself with some basic commands.  
+After you have finished with this section, don't forget to complete our [Python tutorial](tut_python.md) to familiarize yourself with some basic commands.  
 
