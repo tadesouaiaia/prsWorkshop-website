@@ -115,7 +115,7 @@ bash code that you have created you can type:
 
     bash test.sh 
 
-Congratulations, you have created navigated the filesystem and created a directory.  If you are not already familiar with shell scripting, please consider completing our 
+Congratulations, you have now navigated the filesystem, created a directory, created a file and executed a program!  You may feel like somewhat of an expert. However, if you still feel unfamiliar with shell scripting, please consider completing our 
 [bash tutorial](misc_commands.md).  Otherwise, proceed to the next step, where you will install all system wide software necessary for the workshop. 
 
 

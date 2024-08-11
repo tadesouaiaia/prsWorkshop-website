@@ -12,10 +12,11 @@ nav:
       - Testing:         prep_testing.md 
         
     - Program: 
-      - Day 1a:  Day2.docx.md 
-      - Day 1b: Day3a.docx.md
-      - Day 2a: Day3b.docx.md 
-      - Day 2b: Day4a.docx.md 
+       - Schedule: prog_comingsoon.md
+    #  - Day 1a:  Day2.docx.md 
+    #  - Day 1b: Day3a.docx.md
+    #      - Day 2ac: Day3b.docx.md 
+    #      - Day 2b: Day4a.docx.md 
 
     - Tutorials: 
         - Bash Tutorial:           misc_commands.md 
