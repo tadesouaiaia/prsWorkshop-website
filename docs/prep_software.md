@@ -1,5 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
-
 
 ### Required System Software 
 This workshop requires that the following software be installed and tested before the workshop: 

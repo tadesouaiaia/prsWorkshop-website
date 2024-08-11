@@ -1,4 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
 
 ## Introduction
 

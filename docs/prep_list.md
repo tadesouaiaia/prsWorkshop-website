@@ -1,4 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
 
 ## Introduction
 
@@ -8,9 +7,7 @@ and Python for students who are unfamiliar or need a refresher, and help student
 !!! warning "Reminder: All students must complete pre-workship testing and verification"
     1. At the end of the students are lead through a series of [software tests](prep_testing.md)  
     2. The tests are required to verify that the laptops they will use during the workshop are properly set up. 
-    3. Students unable to properly configure their laptops should email course instructor Souaiaia [here](tade.souaiaia@gmail.com).
-
-
+    3. Students unable to properly configure their laptops should email course instructor Souaiaia [here](mailto:tade.souaiaia@gmail.com). 
 
 
 ## Checklist 

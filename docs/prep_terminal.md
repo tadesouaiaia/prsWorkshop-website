@@ -1,4 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
 
 
 # Setting up the Terminal ![Screenshot](images/term.png) 

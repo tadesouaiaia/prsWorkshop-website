@@ -1,5 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
-
 # Operating System 
 
 This workshop is designed to help students run statistical genetic analysis.  In practice large-scale data analysis is almost always done using 

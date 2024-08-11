@@ -1,4 +1,3 @@
-[//]: ![Screenshot](img/sib1.jpg)
 
 # Preworkshop Testing
 
@@ -12,7 +11,7 @@ By clicking the link, then the download (**down-arrow**) icon at the top of the 
 the file can't be scanned for viruses, please click "download anyway".  
 
 You should already have a folder in your home directory named **prsworkshop** that you created during the terminal 
-part of this [guide](prep_terminal) by typing "mkdir ~/prsworkshop".  If you haven't created this folder, please do so now. 
+part of this [guide](prep_terminal.md) by typing "mkdir ~/prsworkshop".  If you haven't created this folder, please do so now. 
 Next, move to this directory by typing: 
 
     cd ~/prsworkshop 

@@ -39,9 +39,9 @@ nav:
 theme:
     name: readthedocs 
 extra_css: [css/extra.css]
-palette: 
-accent: deep orange
-highlightjs: false
+#palette: 
+#accent: deep orange
+#highlightjs: false
 
 markdown_extensions:
     - admonition
