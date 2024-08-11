@@ -7,7 +7,7 @@ This workshop requires that the following software be installed and tested befor
 
 | Name/Link | Description  | Additional Requirements 
 | -----------------|:----------:|:----------:|
-| 1. [R v4.1+](https://www.r-project.org/) | Most popular analysis program  in statistical genetics | Yes (Specific Libraries).  
+| 1. [R](https://www.r-project.org/) | Most popular analysis program  in statistical genetics | Yes (Specific Libraries).  
 | 2. [Python 3](https://www.python.org/downloads/).  | Multi purpose Programming Language | Yes (The matplotlib library).  
 
 
@@ -17,7 +17,7 @@ provide a guide for installation of both languages and their associated librarie
 
 
 ### 1. R (and associated packages) 
-R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  MacOs users can download an up-to-date 
+R is the most popular analysis program in statistical genetics, and required for most genetic analysis.  We recommend that MacOS users download an up-to-date (4.4.1)  
 version directly from the [R website](https://cloud.r-project.org/) and using the R installer.  If you are having trouble we recommend [this video tutorial](https://www.youtube.com/watch?v=I5WIMX4LK8M). 
 
 While Linux users can also find a suitable version on the website, we recommend using the package installer that comes with Debian based distributions (Debian, Ubuntu, Mint, etc) 
@@ -40,18 +40,16 @@ and downloading **R** directly using the following terminal commands:
         ```
 
 After you have finished installation and testing and downloaded our preworkshop materials, please consider 
-completing our [R-tutorial](misc_R.md) to better familiarize yourself with some basic analysis commands. 
+completing our [R-tutorial](tut_R.md) to better familiarize yourself with some basic analysis commands. 
 
 
 
 
 ### 2. Python3 (and matplotlib) 
-Python3 is a very popular multiuse programming language.  This workshop requires Python3, any version of Python3 is acceptable 
+Python3 is a popular multiuse programming language.  This workshop requires Python3 and the matplotlib library.  Any version of Python3 is acceptable 
 but a newer version Python3.10.10+ is recommended. 
 
-Many systems come installed with Python3 by default, 
-but it can be downloaded from python [website](https://www.python.org/downloads/).  The matplotlib package is required to 
-make plots and can be downloaded [here](https://matplotlib.org/stable/users/installing/index.html).  
+Many systems come installed with Python3 by default, but it can be downloaded from the python [website](https://www.python.org/downloads/).  The matplotlib package can be found [here](https://matplotlib.org/stable/users/installing/index.html).  
 
 Users of macOs can find detailed instructions on how to install python3 by visiting the following [video link](https://www.youtube.com/watch?v=NmB1AwF3G3k) that we find very helpful.  After installing python3, macOs users can install matplotlib using pip:  
 
@@ -66,5 +64,5 @@ For Linux we again recommend that you use the package installer to install pytho
 
 
 After you have finished with this section and downloaded our preworkshop materials, don't forget to complete our 
-[Python tutorial](misc_python.md) to familiarize yourself with some basic commands.  
+[Python tutorial](tut_python.md) to familiarize yourself with some basic commands.  
 

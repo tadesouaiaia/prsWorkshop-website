@@ -13,11 +13,8 @@
 
 **Attendees should complete the [preworkshop checklist!](prep_list.md)** 
 
-Download preworkshop materials for Linux ([Link](https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing))
-or macOS ([Link](https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing)). 
-
-
-
+Download pre-workshop materials for Linux ([Link](https://drive.google.com/file/d/1STdeShfjjxBnCP3-FFpgvTLuNBj51foE/view?usp=sharing)) or macOS
+([Link](https://drive.google.com/file/d/1jCKhDzpr5LJsOAiueuz3kNC1ey9uOun0/view?usp=sharing)).
 
 This short course will equip scientists based in Japan with tools and approaches for polygenic risk scores (PRS) analysis. The course will cover both applied and theoretical topics in PRS research, delivered across a
 variety of lectures, tutorials, computational practicals and special guest seminars from experts in the field. By the end of the workshop, attendees should have an in-depth theoretical understanding and practical skills

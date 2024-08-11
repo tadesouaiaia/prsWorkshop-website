@@ -1,23 +1,4 @@
-**Polygenic Risk Score Analyses Workshop 2024**
-# Practical 1
-## Introduction to PLINK I: basics
-
-## Key Learning Outcomes
-
-After completing this practical, you should be able to:
-
-1.  Explore and generate genetic data sets needed for GWAS
-
-2.  Recode and reorder allelic data
-
-3.  Use the PLINK website
-
-4.  Select and exclude lists of samples and SNPs
-----
-⚠️ All data used in this workshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only.
-
-----
-## Introduction
+# Introduction to PLINK  (Part I) 
 
 PLINK is the most popular software program for performing genome-wide association analyses it is extremely extensive, allowing a huge
 number of analyses to be performed. It also includes many options for reformatting your data and provides useful data summaries. Software
@@ -25,71 +6,74 @@ packages are usually best learnt by having a go at running some of their basic a
 reading the entire user manual first!) - so we begin by running some basic PLINK commands and then work steadily towards performing more
 sophisticated analyses through these PLINK tutorials.
 
-## Command line basics
+## Sample Data 
+
+This tutorial runs on the data in the pre-workshop materials downloaded [here](prep_testing.md).  If you have followed the previous directions, this data should be in: 
+
+`~/prsworkshop/preworkshop_materials_("your OS")/Plink/tutorial/sample_data`.  
+
+⚠️ All data used in this workshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only.
+After completing this practical, you should be able to:
+
+1.  Explore and generate genetic data sets needed for GWAS
+2.  Recode and reorder allelic data
+3.  Use the PLINK website
+4.  Select and exclude lists of samples and SNPs
+
+
+
+
 
 In all of the instructions below:
 - Anything in between the symbols *\<\>* needs to be changed in some way. For example, \<file_name\>
   indicates that you should replace that entire statement (including the *\<\>* symbols) with the appropriate file name. 
 - **Bold** indicates non- command-line instructions (e.g. **right-click**)
 
-### Let's begin
 
-1.  Open up a terminal
+### Exploring Data
 
-2.  Navigate to the Day 1b working directory
+To begin the tutorial please navigate to: 
     
-            cd ~/data/Data_Day1b/
-            
-3.  List all files in this directory by typing 
-   
-            ls
+    cd ~/prsworkshop/preworkshop_materials_("yourOS")/Plink/tutorial/sample_data 
 
-4.  Test PLINK with no input by typing 
+First let's make sure we can call plink from this directory: 
 
-         plink
+    ../../code/plink
 
-5.  Note that you can see lots of PLINK options by using the built-in
-    help function: 
+Next lets observe the files in the sample data directory:  
+
+    ls 
+
+We should see the following four files: **D1D.map  D1D.pcs1234  D1D.ped  D1D.pheno1**
     
-         plink --help
-         
-----    
- 📝 Calling PLINK with no output will test if PLINK is installed and available in the directory, because you should see some 
- output showing the PLINK license and some commands. If you do not see this, then please ask for help now!
- 
- ----
 
-## Exploring Data Sets
+Let's look each each file by typing the following commands and **pressing q to quit** after each one: 
 
-1.  Open an Explorer window ('Finder' on a Mac) and navigate to your PLINK working directory.
+    less D1D.map      # A map file that associates snps with chromosomal locations 
+    less D1D.pcs1234  # A PCA file that lists individuals first four prinicipal components
+    less D1D.ped      # A pedigree file that lists individuals genotypes 
+    less D1D.pheno1   # A phenotype file that lists individuals phenotypes 
 
-----
-📝 An explorer window should show the same files as the *ls* command
 
-----
-
-2.  Open the file called 'D1D.map' with a Text Editor e.g. by typing **right-click \> Open**.
-
-3.  Open the file 'D1D.ped'. Note this is a large file - if it will not open or is very slow, skip this step.
-
-4.  Go to the PLINK website http://zzz.bwh.harvard.edu/plink/download.shtml and investigate the format of the MAP/PED files 
-    (Look in the blue column on the left side)
+Next to the PLINK website http://zzz.bwh.harvard.edu/plink/download.shtml and investigate the format of the MAP/PED files (Look in the blue column on the left side).
 
 What do you observe?
 - What are the 4 columns in the map file?
 - What are the first 6 columns in a ped file?
 - What information is in the remaining columns of the ped file?
-   
-5.  Create 'binary' format PLINK files using the recode command:
 
-         plink --file D1D --make-bed --out D1D
+### Manipulating Data 
 
-6.  List files (*ls*) and check which new files have appeared
 
-7.  Open and examine files ending .bim and .fam. Do not open the .bed
-    file.
+1. Create 'binary' format PLINK files using the recode command:
 
-8.  Open and skim the '.log' file.
+         ../../codeplink --file D1D --make-bed --out D1D
+
+2.  List files (*ls*) and check which new files have appeared
+
+3.  Examine the files ending .bim and .fam. Do not open the .bed file.
+
+8.  Examine the '.log' file.
 
 What do you observe?
 
@@ -97,14 +81,14 @@ What do you observe?
 - How is it different?
 - How is the bim file similar to the map file?
 - How is it different?
-   (Use the PLINK website if necessary)
+(Use the PLINK website if necessary)
   
 ## Recoding alleles as counts
 
 Genotype data in allele count format is very useful, for example to use in regression modelling in statistical software such as R.
 Generate the D1D data in allele count format:
 
-       plink --bfile D1D --recodeA --out D1D_AC
+       ../../code/plink --bfile D1D --recodeA --out D1D_AC
 
 📝 There are several options for recoding SNPs in different ways - more information on the PLINK website (see next section).
     Again note that a log file was created - skim the log file or screen output
@@ -166,18 +150,12 @@ TO BE REVEALED LATER!!
 
 TO BE REVEALED LATER!!
        
-# Practical 2 
+# Performing QC & GWAS (Part II) 
 
-## Introduction to PLINK II: Performing QC & GWAS
-
-## Key Learning Outcomes
-
-After completing this practical, you should be able to:
+Here we will work on the following skills: 
 
 1.  Generate summaries of the data needed for QC
-
 2.  Apply QC thresholds
-
 3.  Perform GWAS
 
 ## Generate summaries to perform QC
@@ -284,7 +262,7 @@ summary statistics that can be used to perform QC.
 
 Run the following code, which performs a genetic association study using logistic regression on some case/control data:
 
-        plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --out D1D_CC
+    ../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --out D1D_CC
 
 - What are the raw and Bonferroni-adjusted p-values for the top hit?
 - What does this mean - is there a significant association?
@@ -296,35 +274,8 @@ Here we repeat the previous analysis but this time including some covariates. Th
 
 Run the analysis specifying the covariates file:
 
-  plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs.1234 --out D1D_CC_PCadj
+    ../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs.1234 --out D1D_CC_PCadj
 
 - What are the raw and Bonferroni-adjusted p-values for the top hit?
 - What does this mean - is there a significant association?
 - Suggest a reason for the different results when adjusting for the 4 PCs?
-
-# License
-
-This work is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License and the below text is a summary of
-the main terms of the full Legal Code (the full licence) available at https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
-
-#### You are free to:
-
--   **Share** --- copy and redistribute the material in any medium or format
-
--   **Adapt** --- remix, transform, and build upon the material
-
-The licensor cannot revoke these freedoms as long as you follow the license terms.
-
-#### Under the following terms: {#under-the-following-terms .unnumbered}
-
--   **Attribution** --- You must give appropriate credit, providea link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-
--   **NonCommercial** --- You may not use the material for commercial purposes.
-
--   **ShareAlike** --- If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-
-No additional restrictions --- You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-
-#### Notices:
-
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.

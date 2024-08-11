@@ -4,17 +4,16 @@
 
 ## Downloading materials 
 
-1. For Linux: [Link](https://drive.google.com/file/d/16Ah4-aSHlDd-jhkc0-LKDcN0omRai13L/view?usp=sharing)
-
-2. For macOs: [Link](https://drive.google.com/file/d/1JyXzsUaWAOId-qajwVFvb5Myp0xR7obq/view?usp=sharing) 
-
+1. For Linux:  [Link.](https://drive.google.com/file/d/1STdeShfjjxBnCP3-FFpgvTLuNBj51foE/view?usp=sharing) 
+2. For macOS: [Link.](https://drive.google.com/file/d/1jCKhDzpr5LJsOAiueuz3kNC1ey9uOun0/view?usp=sharing)
 
 
 By clicking the link, then the download (**down-arrow**) icon at the top of the screen.  If a message  comes up that 
 the file can't be scanned for viruses, please click "download anyway".  
 
 You should already have a folder in your home directory named **prsworkshop** that you created during the terminal 
-part of this [guide](prep_terminal) by typing "mkdir ~/prsworkshop".  Now, move to this directory by typing: 
+part of this [guide](prep_terminal) by typing "mkdir ~/prsworkshop".  If you haven't created this folder, please do so now. 
+Next, move to this directory by typing: 
 
     cd ~/prsworkshop 
 
@@ -59,7 +58,8 @@ and type the following command:
     ./code/plink -h 
  
 
-If no error is observed and a list of options are displayed then your computer is ready to run plink. 
+If no error is observed and a list of options are displayed then your computer is ready to run plink.  If you are not already familiar with plink, now is a great time to use the data found in Plink/tutorials/sample_data/
+to run the [PLINK tutorial](tut_plink.md). 
 
 
 

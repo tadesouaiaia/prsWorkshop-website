@@ -6,24 +6,28 @@ nav:
     
     - Pre-Workshop: 
       - Checklist:        prep_list.md 
-      - System:           prep_os.md 
-      - Terminal:             prep_terminal.md 
-      - Software:         prep_software.md 
+      - Operating System:           prep_os.md 
+      - Terminal Setup:             prep_terminal.md 
+      - Software Installs:         prep_software.md 
       - Testing:         prep_testing.md 
         
-    - Program: 
-       - Information: prog_comingsoon.md
+    - Pre-Workshop Tutorials: 
+        - Introduction:            tut_intro.md 
+        - Bash Tutorial:           tut_bash.md 
+        - R Tutorial:              tut_R.md 
+        - Python Tutorial:         tut_python.md 
+        - Plink Tutorial:         tut_plink.md 
+     
+    #- Program: 
+    #   - Information: prog_comingsoon.md
     #  - Day 1a:  Day2.docx.md 
     #  - Day 1b: Day3a.docx.md
     #      - Day 2ac: Day3b.docx.md 
     #      - Day 2b: Day4a.docx.md 
 
-    - Tutorials: 
-        - Bash Tutorial:           misc_commands.md 
-        - R Tutorial:              misc_R.md 
-        - Python Tutorial:         misc_python.md 
-#        - Plink Tutorial:          misc_plink.md 
-        
+
+
+
     - Misc:
         - Linux For Windows:      misc_linux.md 
         - Mac Security:            misc_plink_problem.md 
