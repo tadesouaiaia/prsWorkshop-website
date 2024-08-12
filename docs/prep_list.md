@@ -5,10 +5,9 @@ Here we present a pre-workshop preparation guide to get students sufficiently pr
 and Python for students who are unfamiliar or need a refresher, and help students verify that their system is capable of running the software necessary for the workshop. 
 
 !!! warning "Reminder: All students must complete pre-workship testing and verification"
-    1. At the end of this guide, students are led through a series of [software tests](prep_testing.md)  
-    2. The tests are required to verify that the laptops that are going to be used during the workshop are properly set-up. 
-    3. Students who are unable to properly configure their laptops should email course instructor Tade Souaiaia: tade.souaiaia@gmail.com  
-
+    1. At the end of this guide, students are led through a series of [software tests](prep_testing.md).
+    2. The tests are **required** to verify that student laptops are properly set-up before the workshop. 
+    3. Students unable to properly configure their laptops should email: [tade.souaiaia@downstate.edu](mailto:tade.souaiaia@downstate.edu) 
 
 ## Checklist 
 
