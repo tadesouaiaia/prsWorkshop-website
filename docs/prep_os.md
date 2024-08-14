@@ -1,13 +1,7 @@
 # Operating System 
 
-This workshop is designed to help students run statistical genetic analysis.  In practice large-scale data analysis is almost always done using 
-a server or cloud-based system running a Linux operating system.  For this reason a Linux based operating system is recommended and users 
-running MacOs ([see here](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#1-overview)) or Windows ([see here](https://learn.microsoft.com/en-us/windows/wsl/install))
-are encouraged to install Linux if possible.  However, due to the similarity between Unix based operating systems, this workshop and tutorial can be completed in Linux and macOs 
-environments and is described for users with both operating systems. Microsoft windows users are required to install Linux and as such, we provide detailed [instructions](misc_linux.md) to do so. 
-
-
-
+In this workshop, students will run multiple different statistical genetic software programs.  Large-scale genetic data analysis is almost always performed using a server or cloud-based system running a Linux operating system. Therefore, a Linux-based operating system is highly recommended for this workshop, and users running MacOS ([see here](https://ubuntu.com/tutorials/create-a-usb-stick-on-macos#1-overview)) or Windows ([see here](https://learn.microsoft.com/en-us/windows/wsl/install))
+are encouraged to install Linux on their laptop if possible. However, due to the similarity between Linux based operating systems, the workshop can be completed in Linux and MacOS environments (although there are likely to be more compatibility problems with MacOS) and is described for users with both operating systems. Microsoft Windows users are required to install Linux and, therefore, we provide detailed [instructions](misc_linux.md) to do this. 
 
 
 **This workshop is designed for either of the following operating systems:** 

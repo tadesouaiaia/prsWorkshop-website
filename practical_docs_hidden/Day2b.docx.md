@@ -21,7 +21,7 @@ After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating gene set PRS.
   2. Identify the additional inputs required for gene set PRS analysis.
   3. Calculate gene set based PRSs using PRSet.
-  5. Understand and interpret the outcomes of gene-set PRSs and how they differ from genome-wide PRS.
+  5. Understand and interpret the outcomes of gene set PRSs and how they differ from genome-wide PRS.
 
 
 ## Data Structure
@@ -46,14 +46,14 @@ You will find all practical materials in the **data/Day_2b** directory. Relevant
 ## Introduction to gene set (pathway) PRS analysis
 Most PRS methods summarize genetic risk to a single number, based on the aggregation of an individual’s **genome-wide** risk alleles. This approach does not consider the different contributions of the various biological processes that can influence complex diseases and traits. 
 
-During this session, we will learn how to run a gene set (a.k.a. pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene-set PRSs aggregate risk alleles across k gene sets separately (Figure 1).
+During this session, you will learn how to run a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene set PRSs aggregate risk alleles across as many gene sets as the user defines (Figure 1).
 
 ![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
 <sub> **Figure 1:** The pathway polygenic risk score approach. Coloured boxes represent genes, lines link genes that are within the same genomic pathway. See full description [here](https://doi.org/10.1371/journal.pgen.1010624).
 </sub>
 
 ---
-> 📌 In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene-set PRS analysis, and will then calculate some gene-set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
+> 📌 In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene set PRS analysis, and will then calculate some gene set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
 >
 ---
 
@@ -67,7 +67,7 @@ By aggregating PRS across multiple gene sets (or pathways), these PRS analyses w
 
 <a id="prset-inputs"></a>
 ## Inputs required for gene-set PRS analysis
-Summary statistics from GWAS, as well as individual level genotype and phenotype data are required to perform gene-set PRS analyses. 
+Summary statistics from GWAS, as well as individual level genotype and phenotype data are required to perform gene set PRS analyses. 
 
 In this session, the following Base and Target data is used. Base data is publicly available. All Target data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
 
@@ -76,7 +76,7 @@ In this session, the following Base and Target data is used. Base data is public
 | Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
 | Simulated Target Data | Individual-level phenotype and genotype files | Data folder |
 
-Additionally, to perform gene set PRS analyses, information about the genomic regions for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -86,7 +86,7 @@ Additionally, to perform gene set PRS analyses, information about the genomic re
 
 <a id="molecular-signatures-Database-msigdb"></a>
 ### Molecular Signatures Database MSigDB + General Transfer Format file
-MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, gene-sets of diﬀerent biological processes, gene-sets of diﬀerent oncogenic signatures etc. All gene-sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene-set, each containing at least 3 column of data:
+MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, gene sets of diﬀerent biological processes, gene sets of diﬀerent oncogenic signatures etc. All gene sets from MSigDB follows the Gene Matrix Transposed file format (GMT), which consists of one line per gene set, each containing at least 3 column of data:
 
 | | | | | |
 |:---:|:---:|:---:|:---:|:---:|
@@ -106,9 +106,9 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
 >
 ---
 
-As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be map to genes.
+As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be mapped to genes.
 
-The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all but the final field in each feature line must contain a value. You can read the full format specification [here](https://useast.ensembl.org/info/website/upload/gff.html). 
+The General Transfer Format (GTF) file contains the chromosomal coordinates for each gene. It is a **tab** separated file and all fields except the last must contain a value. You can read the full format specification [here](https://useast.ensembl.org/info/website/upload/gff.html). 
 
 Two columns in the GTF file that might be of particular interest are:
 - Column 3: **feature**, which indicates what feature that line of GTF represents. This allows us to select or ignore features that are of interest. 
@@ -116,14 +116,14 @@ Two columns in the GTF file that might be of particular interest are:
 - Column 9: **attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times.
 
 ---
-> 📌 *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following code:
+> 📌 *Tip*, to parse column 9 and split the additional information in separate columns, you can use the following R code:
 ---
 ``` {r}
 
 library(data.table)
 library(magrittr)
 
-# Function to extract attributes from GTF files:
+# Function to extract attributes from column 9 in GTF files:
 extract_attribute = function(input, attribute) {
   strsplit(input, split = ";") %>%
     unlist %>%
@@ -138,7 +138,7 @@ extract_attribute = function(input, attribute) {
 gtf38 = fread("./Reference/Homo_sapiens.GRCh38.109.gtf.gz")
 
 gtf38_parsed = gtf38 %>%
-  # Select genes only 
+  # Select genes only, based on column 3 (feature) 
   .[V3 == "gene"] %>%
   # Select genes located in autosomes
   .[`#!genebuild-last-updated 2022-11` %in% 1:22] %>%
@@ -158,9 +158,9 @@ gtf38_parsed = gtf38 %>%
 ---
 > ** Have a look at the Reference/Homo_sapiens.GRCh38.109.gtf.gz file. **
 > 
-> ❓ How many instances of feature = "gene" can you find ? 
+> ❓ Based on the column with information about the features, how many instances of feature = "gene" can you find ? 
 >
-> ❓ How many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
+> ❓ Based on the column with inforamtion about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
 >
 ---
 
@@ -196,7 +196,7 @@ To perform the PRSet analysis and obtain the set based PRS and competitive P-val
 
 ```
 Rscript ./Software/PRSice.R \
-    --prsice Software/PRSice_linux  \
+    --prsice Software/PRSice_linux  \ ----> ATTENTION, the binary file may be different depending on the operative system (linux, mac, windows)
     --base Base_Data/GIANT_Height.txt \
     --target Target_Data/TAR \
     --A1 Allele1 \
@@ -242,15 +242,17 @@ Apart from the output files, running the PRSet options will provide extra inform
 
 <a id="clumping"></a>
 ### Clumping for each gene set independently
-In standard clumping and P-value thresholding methods, clumping is performed to account for linkage disequilibrium between SNPs. If genome-wide clumping is performed at the gene-set level, we may remove signal as [shown in this toy example](https://choishingwan.github.io/PRSice/prset_detail/#snp-set-files).
+In standard clumping and P-value thresholding methods, clumping is performed to account for linkage disequilibrium between SNPs. If genome-wide clumping is performed at the gene set level, we may remove signal as [shown in this toy example](https://choishingwan.github.io/PRSice/prset_detail/#snp-set-files).
 
 To maximize signal within each gene set, clumping is performed for each gene set separately.
 
 ---
 >
-> ❓ Check the '.summary' file. How many SNPs are included in the top 9 gene sets?
+>> ** Check the .summary results file. When answering questions, do not count the Base, as this result corresponds to the genome-wide PRS **
+>> 
+> ❓ Check the '.summary' file. How many SNPs are included in the top 10 gene sets?
 >
-> ❓ Can you plot the relationship between the gene-set R2 and the number of SNPs in each gene-set? What general trend can be seen?
+> ❓ Can you plot the relationship between the gene set R2 and the number of SNPs in each gene set? What general trend can be seen?
 >
 ---
 
@@ -262,13 +264,13 @@ PRSet default option is to no not perform p-value thresholding. It will simply c
 >
 > ❓ Why do you think that the default option of PRSet is P-value threshold of 1?
 >
-> ❓ In what cases would you like to apply P-value thresholding? What commands would you use for that?
+> ❓ In what cases would you like to apply P-value thresholding?
 >
 ---
 
 <a id="p-value-testing"></a>
 ### Self-contained vs competitive testing
-An important aspect when calculating gene-set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
+An important aspect when calculating gene set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
 
 The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
   – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
@@ -277,11 +279,14 @@ Therefore, a bigger gene-set will have a higher likelihood of having a significa
 
 ---
 >
-> ❓ What are the self-contained P-value of the 3 gene-sets with the highest R2? And what are the competitive P-values? 
+> ** Check the .summary results file again **
 >
-> ❓ Which P-value would you use to evaluate the importance of gene-set?
+> ❓ What are the 3 gene-sets with the smallest competitive P-values? 
 >
-> ❓ Considering the R2 vs number of SNPs plot as well as the competitive P-value results, what gene-sets do you think are most interesting and why?
+> ❓ Why do you think that we check the competitive P-value, instead of the self contained P-value?
+>
+> ** Imagine that you are running an analysis to find the gene sets most associated with height **
+> ❓ Considering the competitive P-value results, what gene set do you think is the most interesting and why?
 >
 ---
 
