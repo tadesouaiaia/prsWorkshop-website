@@ -39,7 +39,7 @@ drwxr-xr-x  68 hoggac01  staff  2176 14 Jul 17:22 genotypes
 drwxr-xr-x   4 hoggac01  staff   128 14 Jul 17:22 phenotypes
 drwxr-xr-x  68 hoggac01  staff  2176 12 Aug 11:02 sumstats
 ```
-Look at each directory using ls. There are two sets of summary
+Look at each directory using `ls`. There are two sets of summary
 statistics in each population folder from the analysis of a simulated
 continuos phenotype. For computation speed the summary statistics are
 only have a small subset of SNPs, 19k-20k genomewide
@@ -61,7 +61,7 @@ be a bias to polymorphoic EUR SNPs. Take a look a look at the files, e.g.
 zcat data/pop_AFR/sumstats/AFR.chr19.glm.linear.gz | head 
 zcat data/pop_AFR/sumstats/AFR_half.chr19.glm.linear.gz | head 
 ```
-again use gzcat on a Mac.
+again use `gzcat` on a Mac.
 
 In the OBS_CT column you'll see can that the "_half" summary
 statistics files have half the sample size, 10,000 compared to 20,000
@@ -72,7 +72,7 @@ The phenotypes folder has two files: "test" and "validation" with IDs and the ou
 phenotype. "Test" data is used to optimise the PRS and "validation"
 data is not used to estimate the PRS, it is just to assess model performance.
 
-The genotypes folders are in plink1.9 format and split by
+The genotypes folders are in `plink1.9` format and split by
 chromosome. These folders contain the genetic data for individuals in
 the phenotypes folder.
 
@@ -84,18 +84,25 @@ for all validation samples with genotype data.
 ### Passing arguments to run BridgePRS
 Example run of BridgePRS:
 ```
-./bridgePRS easyrun go -o out/ --config_files data/eas.config data/eur.config --fst 0.11 --phenotype y --cores 4 --restart
+./bridgePRS pipeline go -o out/ --config_files data/eas.config data/eur.config --fst 0.11 --phenotype y --cores 4 --restart
 ```
-Here we see that arguments can be passed to BridgePRS on both the commandline and in
-config files. config files will be used in this practical and are a
-neat way to store these arguments. config files contain population
+Arguments can be passed to BridgePRS on both the commandline and in
+config files. config files, used above, are a neat way to store population
 specific arguments, therefore for a standard two population analysis
-two config are required. By default the first config is for the target
-population and the second is base population. A full list of arguments
+two config are required. By default the first config file is for the target
+population and the second is for the base population. The `-o` argument
+specifies the output folder. The `--fst` argument is used to specify a prior
+distribution used in the BridgePRS analysis and should be the Fst
+between the base and target populations used in the analysis. Our
+first analysis uses European base data and East Asian target data, the
+Fst between these populations is 0.11. The `--phenotype` argument
+specifies the column label of the phenotype in the test and validation
+files, e.g. `EAS_valid.dat`. The `--cores` argument specifies
+the number of cores used in the analysis.  A full list of arguments
 that can be used on the commandline can be found here....
 
 #### The \*.config files
-The Python wrapper for BridgePRS uses .config files to tell the
+.config files to tell the
 software where to find the required input files and the column headers of the
 summary statistics files, take a look, e.g.
 ```
@@ -125,8 +132,11 @@ config files. config files use the same argument names as the
 commandline arguments but in uppercase, and use "=" instead of a space
 between the argument name and the argument being passed.
 
+The `POP` argument simply labels the population used in this .config
+file for output.
+
 #### Estimating Linkage Dissequilibrium (LD)
-BridgePRS requires individual level genetic data in plink1.9 binary
+BridgePRS requires individual level genetic data in `plink1.9` binary
 format to estimate linkage dissequilibrium (LD) in the populations
 which produced the GWAS summary statistics. The genotype test and
 validation data could be used, i.e. data in these folders
@@ -142,118 +152,120 @@ required to use in brackets): East Asian (EAS), South Asian (SAS),
 European (Eur), African (AFR) and American (AMR).
 
 **For real data analyses 1000G reference data for larger subsets of SNPs can be
-downloaded here....**
-
-The POP argument simply labels the population used in this .config
-file for output. The FST argument is used to specify a prior
-distribution used in the BridgePRS analysis and should be the Fst
-between the base and target populations used in the analysis. Our
-first analysis uses European base data and East Asian target data, the
-Fst between these populations is 0.11.
+downloaded here**
 
 Can you work out what the other arguments are doing?
 
 ### BridgePRS output
-Open the output summary plot
+The main output is in the folder `out/prs-combined_EAS-EUR/`. First
+view the output summary plot
 ```
-evince  out1/prs-combined_AFR-EUR/bridge.afr-eur.prs-combined.result.pdf
+evince  out/prs-combined_AFR-EUR/bridge.afr-eur.prs-combined.result.pdf
 ```
-on a Mac simply use open instead of evince.
+on a Mac simply use `open` instead of `evince`.
 
-The main result is the barplot at the top which shows the varaince
+The barplot at the top which shows the varaince
 explained (R2) by the three PRS BridgePRS estimates and the variance
 explained by a weighted average of the three model. The weighted model
-is BridgePRS best PRS.
+is BridgePRS estimated "best" PRS
 
 This weighted combined PRS should be used. The three
 separate PRS estimated by BridgePRS are:
-M1. PRS using a prior effect-size distribution from the European Model
-   -- stage2
-M2. PRS using only the target (Non-European) dataset -- stage1
-M3. PRS using both stage1 and stage 2 results
+* PRS using a prior effect-size distribution from the European model --
+  **stage2 model**
+* PRS using only the target (Non-European) dataset, stage 1 analysis
+  -  **stage 1 model**
+* PRS using both stage 1 and stage  2 results - **stage1+2 model**
+
 Each of these 3 models are given weights corresponding to how well
 they fit the test data. These weights are then used to combine the PRS
 to give the single weighted combined PRS.
 
-The separate models M1, M2 and M3 should not be used unless users have a
+The models, stage1, stage2 and stage1+2, should not be used unless users have a
 strong prior belief that the models is better, i.e.
-Model M1 reflects the belief that the target population GWAS is only informative in conjugtion with the base population GWAS.
 
-Model M2 reflects the belief that the target population GWAS is informative and the base population GWAS gives no addition information.
+* Stage 2 model reflects the belief that the target population GWAS is only
+  informative in conjugtion with the base population GWAS.
+* Stage 1 model reflects the belief that the target population GWAS is
+  informative and the base population GWAS gives no addition
+  information.
+* Stage 1+2 model reflects the belief both the base and target population
+  GWAS contribute independent information.
 
-Model M3 reflects the belief both the base and target population GWAS contribute independent information.
+`EAS_weighted_combined_preds.dat` has PRS predictions for samples in
+the validation data using all four models: stage1, stage2, stage1+2
+and weighted. `EAS_weighted_combined_snp_weights.dat` has the SNP
+weights for the combined to allow this model to be applied to other
+samples.
 
-### Running the BridgePRS pipeline:
-
-#### Task
-- Review the contents of the output directory  out_bridge-AFR-single/prs-single_AFRICA and subfolders
-
-#### Questions
-4. What evidence can you see that the analysis was successfully executed?
-
-<br><br> 
-
-### BridgePRS Scenario 2:  Prediction into African target data using European and African summary statistics
-BridgePRS is most commonly used to combine the power of a smaller ancestry-matched GWAS with a much larger but genetically-distant GWAS population, for the purpose of maximising PRS prediction quality for under-served target populations.
-
-#### Create configuration file for base and target populations
+### Using BridgePRS without target summary statistics
+Often GWAS summary statistics are only available in one
+population. BridgePRS can use these summary statistics and optimise
+them to estimate a PRS for another target population given individual
+level from the target population. Here is an example
 ```
-bridgePRS check pops -o out_config-EUR-AFR-easyrun --pop AFR EUR --sumstats_prefix data/pop_africa/sumstats/afr.chr data/pop_europe/sumstats/eur.chr --sumstats_suffix .glm.linear.gz .glm.linear.gz --genotype_prefix data/pop_africa/genotypes/afr_genotypes --phenotype_file data/pop_africa/phenotypes/afr_pheno.dat
+./bridgePRS prs-single run -o out_single/ --config_files data/eur_eas.config --phenotype y --cores 10
 ```
-#### Question
-5. Carefully check the information given in the on-screen output: (i) How many different .config files have been produced
-   and (ii) where are they located?
+Look at `data/eur_eas.config`, the file uses EUR GWAS summary
+statistics and EAS test and validation data. Results of interest are
+written to the folder `out_single/prs-single_EAS/quantify/`. Model
+performance is shown in the file `EAS_quantify_var_explained.txt` and
+plotted in ....
 
-#### Tasks
-- Incorporate the config path information into the code template provided below (for both European and African .config files).
-- Based on your-recent understanding of genetic distances between continental populations, choose a sensible    
-  value of the --fst parameter to reflect the genetic distance between Africans and Europeans. This extra information will inform the prior   distribution from which posterior effect weights for the target population will be calculated. This needs to be done before attempting to
-  run the code given below.
-
-### Multi-ancestry BRIDGEPRS analysis:
-Add the missing peices of information to the code below, as you enter it into your terminal.
+See hpw these results compare with the previous analysis which
+included EAS GWAS summary statistics.
 ```
-bridgePRS easyrun go -o out_easyrun-EUR-AFR --config_files target.AFR.config base.EUR.config --fst --phenotype y
+cat out_single/prs-single_EAS/quantify/EAS_quantify_var_explained.txt
+cat out/prs-combined_EAS-EUR/EAS_weighted_combined_var_explained.txt
+```
+This single summary statistic analysis is equilvant to the stage 2
+analysis previously but with all the weight on the EUR prior. The
+superior performance of the previous stage 2 analysis shows how the
+EAS summary statistics have been incorporated to improve the PRS.
+
+### Further analysis with BridgePRS
+#### African analysis
+Run BridgePRS again to estimate PRS in Africans using `afr.config`.
+
+##### Qustions?
+* In addition to pointing to differnt input files what other difference is
+  there between the EAS and AFR config files?
+* How do the results for EAS and AFR compare?
+  
+#### Analyses with other GWAS summary statistics
+For each population the config files contain commented out links to GWAS summary
+statistics of the same phenotype using half the same size: 40k for EUR
+and 10k for both EAS and AFR.
+
+Edit `eas.config` to use the EAS 10k
+GWAS summary statistics. To run the analysis write results to a new
+output directory e.g. `out_half_target`. Run the similar analysis for
+African samples by editing  `afr.config`. Compare with previous results using the
+10k EAS and EAS GWAS. Compare EAS and AFR results.
+
+Check you've run the analyses using the correct GWAS summary
+statistics, e.g.
+```
+less less out_half_target/logs/bridgePRS.eas-eur.pipeline.go.log
+less less out_half_target/logs/bridgePRS.afr-eur.pipeline.go.log
+```
+or
+```
+grep Sumstats out_half_target/logs/bridgePRS.eas-eur.pipeline.go.log
+grep Sumstats out_half_target/logs/bridgePRS.afr-eur.pipeline.go.log
 ```
 
-#### Tasks
-- After running the above code, navigate to the output directory: ./out_config-EUR-AFR-easyrun to inspect the results.
-- Open either of the 2 plots that you see in the directory.
+If you have made a mistake, correct and run again using the
+`--restart` flag which deletes the previously genereated results.
 
-#### Questions
-6. In the summary plot, which set of values expresses the correlation between the weights calculated by BridgePRS and
-   the beta weights from the initial GWASs?
-8. In which output directory will you find precise values of variance explained by the prs-combined-AFR model?
-9. What is the variance explained by the prs-combined-AFR model?
+##### Qustions?
+* How has using the less well powered EAS and AFR GWAS affected the predictive
+  accuracy of the BridgePRS models?
+* How do AFR and EUR results compare?
 
-### Short Quiz
-I have GWAS data and genotype/phenotype data for a cohort consisting of >2000 samples from a small East European population. 
-The population LD structure is unique and so I would like this information to be incorporated into my PRS prediction model. I additionally have GWAS and genotype/phenotype data from the UKB biobank that I want to include. How should I formulate the relevant Config files for the BridgePRS analysis?
+##### Analyses with smaller EUR GWAS summary statistics
+Edit the config files again to run analyses using the 40k EUR GWAS
+(i.e. `EUR_half`) and the 20k EAS and AFR GWAS and write to results to
+a new directory e.g. `out_half_eur`.
 
-#### File types
-```
-ukr/sumstats/ukr.sumstats.out
-ukr/genotypes/chr1.bed,bim,fam...chr22.bed,bin,fam,
-ukr/phenotypes/ukr_test.dat, ukr/phenotypes/ukr_validation.dat
-ukb/sumstats/ukb.sumstats.gz
-ukb/genotypes/chr1.bed,bim,fam...chr22.bed,bin,fam
-ukb/phenotypes/ukb_test.dat, ukb/phenotypes/ukb_validation.dat
-```
-#### Answer
-```
-Target config:
-POP=
-LDPOP=
-SUMSTATS_PREFIX=
-GENOTYPE_PREFIX=
-PHENOTYPE_FILE=
-VALIDATION_FILE=
-
-Model config file:
-POP=
-LDPOP=
-SUMSTATS_PREFIX=
-GENOTYPE_PREFIX=
-PHENOTYPE_FILE=
-VALIDATION_FILE=
-```
+##### Qustions?
