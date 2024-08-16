@@ -165,7 +165,7 @@ less D1D.pheno1   # A phenotype file that lists individuals phenotypes
 <ol>
 <li>
 <p>Create 'binary' format PLINK files using the recode command:</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> ../../codeplink --file D1D --make-bed --out D1D
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> ../../code/plink --file D1D --make-bed --out D1D
 </code></pre></div>
 </li>
 <li>
@@ -382,7 +382,7 @@ summary statistics that can be used to perform QC.</p>
 <h3 id="casecontrol-gwas-with-covariates">Case/Control GWAS - with covariates</h3>
 <p>Here we repeat the previous analysis but this time including some covariates. The file D1D.pcs1234 contains the first 4 principal components from a PCA on the genetic data.</p>
 <p>Run the analysis specifying the covariates file:</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs.1234 --out D1D_CC_PCadj
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs1234 --out D1D_CC_PCadj
 </code></pre></div>
 <ul>
 <li>What are the raw and Bonferroni-adjusted p-values for the top hit?</li>

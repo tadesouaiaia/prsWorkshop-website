@@ -134,11 +134,11 @@ then dragging it into the <strong>prsworkshop</strong> folder, or it can be done
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvzf ~/Downloads/preworkshop_materials_linux.tar.gz -C ~/prsworkshop
 cd ~/prsworkshop/preworkshop_materials_linux
 </code></pre></div>
-<p>MacOs <strong>sometimes</strong> unzips downloaded files for you, so macOs users should first type the following: </p>
+<p>MacOs safari <strong>sometimes</strong> unzips downloaded files for you, so macOs users should first type the following: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls ~/Downloads/preworkshop_materials_mac.*
 </code></pre></div>
 <p>If the command returns a file with a <strong>".tar"</strong> ending, then type: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvf ~/Downloads/preworkshop_materials_mac.tar -C ~/prsworkshop
 </code></pre></div>
 <p>Otherwise, if the command returns a file with a <strong>".tar.gz"</strong> ending, type:  </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>tar -xvzf ~/Downloads/preworkshop_materials_mac.tar.gz -C ~/prsworkshop
@@ -180,13 +180,12 @@ And follow the directions in our please see our [PRSice tutorial](misc_plink.md)
 <h3 id="testing-bridgeprs">Testing bridgePRS</h3>
 <p>To verify that bridgePRS is able to run navigate to the folder: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cd ~/prsworkshop/preworkshop_materials_(mac/linux)/BridgePRS
-cd bridgePRS
 </code></pre></div>
 <p>and type the command: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./bridgePRS
 </code></pre></div>
 <p>You should see bridge art. If this command works, then type the following command: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./bridgePRS check requirements
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./bridgePRS tools check-requirements
 </code></pre></div>
 <p>To confirm that your system is up to date, all libraries are installed and you are ready to run bridgePRS. </p>
               

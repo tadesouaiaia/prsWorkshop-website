@@ -196,7 +196,7 @@ sally 5
 </code></pre></div>
 <h1 id="grep">grep</h1>
 <p>Can be used to search a file for content: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep &quot;noah&quot; data1.text
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep &quot;noah&quot; data1.txt
 </code></pre></div>
 <p>While return all the lines in data1.txt containing the search term "noah". </p>
 <h2 id="file-analysis">File Analysis</h2>
@@ -210,7 +210,7 @@ because typically the columns features or variables of interest.</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>awk &#39;{print $1,$2*$2}&#39; data1.txt &gt; data2.txt
 </code></pre></div>
 <p>We can also use awk to add up all the squared data values: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>awk &#39;{X+=$2} END{print $2}&#39; data2.txt
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>awk &#39;BEGIN{total=0} {total+=$2} END{print total}&#39; data2.txt
 </code></pre></div>
               
             </div>
