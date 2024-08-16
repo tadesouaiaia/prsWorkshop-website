@@ -3,8 +3,9 @@
 
 ## Downloading materials 
 
-1. For Linux:  [Link.](https://drive.google.com/file/d/1STdeShfjjxBnCP3-FFpgvTLuNBj51foE/view?usp=sharing) 
-2. For macOS: [Link.](https://drive.google.com/file/d/1jCKhDzpr5LJsOAiueuz3kNC1ey9uOun0/view?usp=sharing)
+
+1. For Linux: [Link.](https://drive.google.com/file/d/1JgrSak3-CFIs0_u0q-fQisidvEBbtLeK/view?usp=sharing) 
+2. For macOs: [Link.](https://drive.google.com/file/d/19gs9gPxad0Cb3lrMw4OuLUjkZgpRpAzS/view?usp=sharing) 
 
 
 By clicking the link, then the download (**down-arrow**) icon at the top of the screen.  If a message  comes up that 
