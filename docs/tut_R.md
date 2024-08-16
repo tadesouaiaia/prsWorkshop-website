@@ -134,7 +134,7 @@ Specify sample size
 
  We can also extract the coeﬃcient of regression using
 
-       reg$coeﬃcient
+       reg$coefficient 
 
  And we can obtain the residuals by
 
