@@ -7,7 +7,14 @@ and Python for students who are unfamiliar or need a refresher, and help student
 !!! warning "Reminder: All students must complete pre-workship testing and verification"
     1. At the end of this guide, students are led through a series of [software tests](prep_testing.md).
     2. The tests are **required** to verify that student laptops are properly set-up before the workshop. 
-    3. Students unable to properly configure laptops can find extra support at the [workshop google group](https://groups.google.com/g/prsworkshop)
+    3. Students unable to properly configure laptops should msg the [workshop google group](https://groups.google.com/g/prsworkshop) (see below.) 
+
+!!! help "How To: Join the workshop google-group (group name: prsworkshop)"
+    1. Students with a google account (any email can be) can create one here: [creating a google account](https://support.google.com/accounts/answer/27441?hl=en) 
+    2. Use this account to join the workshop group [here](https://groups.google.com/g/prsworkshop) or search "prsworkshop" the main groups [page.](https://groups.google.com/)  
+    3. Post questions/answers to configuration issues and stay tuned for important announcements. 
+
+
 
 
 ## Checklist 
