@@ -7,7 +7,8 @@ and Python for students who are unfamiliar or need a refresher, and help student
 !!! warning "Reminder: All students must complete pre-workship testing and verification"
     1. At the end of this guide, students are led through a series of [software tests](prep_testing.md).
     2. The tests are **required** to verify that student laptops are properly set-up before the workshop. 
-    3. Students unable to properly configure their laptops should email: [tade.souaiaia@downstate.edu](mailto:tade.souaiaia@downstate.edu) 
+    3. Students unable to properly configure laptops can find extra support at the [workshop google group](https://groups.google.com/g/prsworkshop)
+
 
 ## Checklist 
 
