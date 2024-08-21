@@ -29,7 +29,7 @@ drwxr-xr-x   5 hoggac01  staff      160  7 Aug 20:30 pop_EUR
 
 The pop_\* folders contain simulated genotype, phenotype and GWAS
 summary statistics representative of
-Europeans, East Asians and Africans required by BridgePRS. Each pop_\*
+Europeans, East Asians and Africans for input to BridgePRS. Each pop_\*
 folder is split into summary statistics, and
 individual level genotype and phenotype folders, e.g.
 ```
@@ -39,9 +39,10 @@ drwxr-xr-x  68 hoggac01  staff  2176 14 Jul 17:22 genotypes
 drwxr-xr-x   4 hoggac01  staff   128 14 Jul 17:22 phenotypes
 drwxr-xr-x  68 hoggac01  staff  2176 12 Aug 11:02 sumstats
 ```
-Look at each directory using `ls`. There are two sets of summary
-statistics in each population folder from the analysis of a simulated
-continuos phenotype. For computation speed the summary statistics are
+Look at each directory e.g. `ls pop_AFR/genotypes`. There are two sets of summary
+statistics in each `sumstats` folder from the analysis of the same simulated
+continuos phenotype, the "half" files were generated using half the
+sample size. For computation speed the summary statistics
 only have a small subset of SNPs, 19k-20k genomewide
 ```
 zcat data/pop_EAS/sumstats/EAS.chr* | wc -l
@@ -68,11 +69,12 @@ statistics files have half the sample size, 10,000 compared to 20,000
 for the EAS and AFR populations and 40,000 compared to 80,000 for the
 EUR population. The same SNPs are contained in each set of summary statistics.
 
-The phenotypes folder has two files: "test" and "validation" with IDs and the outcome
-phenotype. "Test" data is used to optimise the PRS and "validation"
-data is not used to estimate the PRS, it is just to assess model performance.
+The `phenotypes` folders has two files: "test" and "validation" with
+IDs, the outcome phenotype and covariates. "Test" data is used to
+optimise the PRS and "validation" data is not used to estimate the
+PRS, it is just to assess model performance.
 
-The genotypes folders are in `plink1.9` format and split by
+The `genotypes` folders are in `plink1.9` format and are split by
 chromosome. These folders contain the genetic data for individuals in
 the phenotypes folder.
 
