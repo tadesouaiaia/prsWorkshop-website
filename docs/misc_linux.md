@@ -9,10 +9,11 @@ step-by-step video obstructions can be found [here](https://www.youtube.com/watc
 
 !!! tips "Using Administrator Mode to Installing Linux"                                                                                                                                                                                     
     Open PowerShell or Windows Command Prompt by right-clicking and selecting "Run as administrator", and type: 
-    ```                                                                                                  
-    wsl --install Ubuntu                                                                                                                    
-                                                                                                                                                                                                                            
-    ```                                                                                                                                                                                                                     
+    ```
+    wsl --install -d Ubuntu    
+    ```
+
+
     This command will enable the features necessary to run WSL, restart your computer, and install the Ubuntu distribution of Linux.  
 
     ![Screenshot](images/linux_install.png) 

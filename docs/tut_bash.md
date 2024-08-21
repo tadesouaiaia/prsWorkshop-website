@@ -137,7 +137,7 @@ The word count command can be used to count the number of lines or words in a fi
 
 Can be used to search a file for content: 
 
-    grep "noah" data1.text 
+    grep "noah" data1.txt 
 
 While return all the lines in data1.txt containing the search term "noah". 
 
@@ -157,7 +157,7 @@ For example, we can use awk to produce a new file that squares the data in our p
 
 We can also use awk to add up all the squared data values: 
 
-    awk '{X+=$2} END{print $2}' data2.txt 
+    awk 'BEGIN{total=0} {total+=$2} END{print total}' data2.txt 
 
  
 

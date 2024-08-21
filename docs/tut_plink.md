@@ -67,7 +67,7 @@ What do you observe?
 
 1. Create 'binary' format PLINK files using the recode command:
 
-         ../../codeplink --file D1D --make-bed --out D1D
+         ../../code/plink --file D1D --make-bed --out D1D
 
 2.  List files (*ls*) and check which new files have appeared
 
@@ -264,6 +264,9 @@ Run the following code, which performs a genetic association study using logisti
 
     ../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --out D1D_CC
 
+
+
+
 - What are the raw and Bonferroni-adjusted p-values for the top hit?
 - What does this mean - is there a significant association?
 - Are there any other significant associations?
@@ -274,7 +277,9 @@ Here we repeat the previous analysis but this time including some covariates. Th
 
 Run the analysis specifying the covariates file:
 
-    ../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs.1234 --out D1D_CC_PCadj
+    ../../code/plink --bfile D1D_QC --logistic --adjust --pheno D1D.pheno1 --covar D1D.pcs1234 --out D1D_CC_PCadj
+
+
 
 - What are the raw and Bonferroni-adjusted p-values for the top hit?
 - What does this mean - is there a significant association?
