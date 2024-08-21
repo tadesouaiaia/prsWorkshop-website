@@ -10,7 +10,7 @@ and Python for students who are unfamiliar or need a refresher, and help student
     3. Students unable to properly configure laptops should msg the [workshop google group](https://groups.google.com/g/prsworkshop) (see below.) 
 
 !!! help "How To: Join the workshop google-group (group name: prsworkshop)"
-    1. Students with a google account (any email can be) can create one here: [creating a google account](https://support.google.com/accounts/answer/27441?hl=en) 
+    1. Students without a google account (any email can be used) can create one here: [creating a google account](https://support.google.com/accounts/answer/27441?hl=en) 
     2. Use this account to join the workshop group [here](https://groups.google.com/g/prsworkshop) or search "prsworkshop" the main groups [page.](https://groups.google.com/)  
     3. Post questions/answers to configuration issues and stay tuned for important announcements. 
 
