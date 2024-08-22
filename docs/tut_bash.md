@@ -93,9 +93,17 @@ The carrot sign `^` sends the output to a file:
 
 # cat 
 
-`cat` prints the contents of a file to the screen: 
+`cat` prints the entire contents of a file to the screen: 
 
     cat output.txt 
+
+# less 
+
+`less` can be used to view a file: 
+
+    less output.txt 
+
+to return to the terminal press `q`
 
 # cp 
 
@@ -125,9 +133,9 @@ Starting from the top line type:
                                                                                                                                                                                                                         
 And then save the file using **Ctrl-O** and press enter, and quit using **Ctrl-X**.                                                                                                                                             
 
-#wc 
+# wc 
 
-The word count command can be used to count the number of lines or words in a file: 
+The word count command `wc` can be used to count the number of lines or words in a file: 
 
         wc -l data1.txt
 
@@ -135,11 +143,11 @@ The word count command can be used to count the number of lines or words in a fi
 
 # grep 
 
-Can be used to search a file for content: 
+Can be used to search a file for a string: 
 
     grep "noah" data1.txt 
 
-While return all the lines in data1.txt containing the search term "noah". 
+will return all the lines in data1.txt containing the string "noah". 
 
 
 ## File Analysis
