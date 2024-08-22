@@ -68,7 +68,7 @@ This command to create a new directory in your home folder:
     ```
 # echo 
 
-Can be used to print to screen: 
+`echo` prints to screen: 
 
     echo "Hello" 
 
@@ -85,7 +85,7 @@ Can be used to print to screen:
 
     rm foo 
 
-# > 
+# ^ 
 
 The carrot sign `^` sends the output to a file: 
 
@@ -155,11 +155,11 @@ will return all the lines in data1.txt containing the string "noah".
 A very powerful feature of the terminal is the **awk** programming
 language, which allows us to extract subsets of a data file, filter
 data according to some criteria or perform arithmetic operations on
-the data. awk manipulates a data file by per- forming operations on
+the data. awk manipulates a data file by performing operations on
 its **columns** - this is extremely useful for scientific data sets
-because typically the columns features or variables of interest.
+because typically the columns are features or variables of interest.
 
-For example, we can use awk to produce a new file that squares the data in our previous file: 
+For example, we can use `awk` to produce a new file that squares the data in our previous file: 
 
     awk '{print $1,$2*$2}' data1.txt > data2.txt 
 
