@@ -75,31 +75,31 @@ Can be used to print to screen:
  
 # touch 
 
-Can be used to create a new (empty) file: 
+`touch` creates a new (empty) file: 
 
     touch foo  
 
 # rm 
 
-Can be used to create delete a file: 
+rm deletes a file: 
 
     rm foo 
 
 # > 
 
-The carrot sign can be used to send the output to a file: 
+The carrot sign '\^' sends the output to a file: 
 
     echo "Hello" > output.txt
 
 # cat 
 
-Can be used to print the contents of a file to the screen: 
+'cat' prints the contents of a file to the screen: 
 
     cat output.txt 
 
 # cp 
 
-Can be used to copy a a file: 
+cp copies a file: 
 
     cat output.txt output2.txt 
 
