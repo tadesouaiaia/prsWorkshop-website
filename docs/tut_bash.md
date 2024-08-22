@@ -87,26 +87,26 @@ Can be used to print to screen:
 
 # > 
 
-The carrot sign `\^` sends the output to a file: 
+The carrot sign `^` sends the output to a file: 
 
     echo "Hello" > output.txt
 
 # cat 
 
-'cat' prints the contents of a file to the screen: 
+`cat` prints the contents of a file to the screen: 
 
     cat output.txt 
 
 # cp 
 
-cp copies a file: 
+`cp` copies a file: 
 
     cat output.txt output2.txt 
 
 
 # nano 
 
-Nano can be used to edit a file, typing: 
+`nano` can be used to edit a file: 
 
     nano data1.txt 
 
