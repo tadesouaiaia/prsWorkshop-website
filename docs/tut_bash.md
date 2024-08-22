@@ -81,13 +81,13 @@ Can be used to print to screen:
 
 # rm 
 
-rm deletes a file: 
+`rm` deletes a file: 
 
     rm foo 
 
 # > 
 
-The carrot sign '\^' sends the output to a file: 
+The carrot sign `\^` sends the output to a file: 
 
     echo "Hello" > output.txt
 
