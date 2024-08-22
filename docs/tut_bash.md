@@ -3,8 +3,7 @@
 ## Bash/Shell Tutorial
 
 
-The ability to navigate the filesystem using bash is a very important skill in statistical genetics.  Bash is a programming language commonly used to navigate the terminal and manipulate files and folders.  Some terminals run "bash-like" scripting languages like "zsh".  For the purposes of this tutorial, they            
-are indistinguishable from bash. There are [approximately 50 bash commands that used 95% of the time](https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/).  Here we will review some common commands and do some simple file analysis. 
+The ability to navigate the filesystem using bash is a very important skill in statistical genetics.  Bash is a programming language commonly used to navigate the terminal and manipulate files and folders.  Some terminals run "bash-like" scripting languages like "zsh".  For the purposes of this tutorial, they are indistinguishable from bash. There are [approximately 50 bash commands that used 95% of the time](https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/).  Here we will review some common commands and do some simple file analysis. 
 
 
 ## Common Commands
