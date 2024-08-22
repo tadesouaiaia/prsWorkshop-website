@@ -1,6 +1,6 @@
 # Introduction to PLINK  (Part I) 
 
-PLINK is the most popular software program for performing genome-wide association analyses it is extremely extensive, allowing a huge
+PLINK is the most popular software program for performing genome-wide association analyses, it is extremely extensive allowing a huge
 number of analyses to be performed. It also includes many options for reformatting your data and provides useful data summaries. Software
 packages are usually best learnt by having a go at running some of their basic applications and progressing from there (rather than
 reading the entire user manual first!) - so we begin by running some basic PLINK commands and then work steadily towards performing more
@@ -101,8 +101,7 @@ Look inside the .raw file.
     
 ## PLINK website
 
-Go to http://zzz.bwh.harvard.edu/plink/download.shtml and skim through the front page to get an idea of PLINK's functionality. Note
-the list of clickable links on the left side of the website. 
+Go to the [plink website[(https://www.cog-genomics.org/plink/1.9/) and skim through the front page to get an idea of PLINK's functionality. Note the list of clickable links on the left side of the website. 
 
 Under 'Data Management' (click the heading on the left) and read the list of the diﬀerent ways you may want to recode and reorder data sets. Don't attempt to read much further as this is a very large and detailed section - a useful future resource but too much for today. 
 
