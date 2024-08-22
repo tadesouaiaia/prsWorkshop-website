@@ -105,8 +105,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="bashshell-tutorial">Bash/Shell Tutorial</h2>
-<p>The ability to navigate the filesystem using bash is a very important skill in statistical genetics.  Bash is a programming language commonly used to navigate the terminal and manipulate files and folders.  Some terminals run "bash-like" scripting languages like "zsh".  For the purposes of this tutorial, they          <br />
-are indistinguishable from bash. There are <a href="https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/">approximately 50 bash commands that used 95% of the time</a>.  Here we will review some common commands and do some simple file analysis. </p>
+<p>The ability to navigate the filesystem using bash is a very important skill in statistical genetics.  Bash is a programming language commonly used to navigate the terminal and manipulate files and folders.  Some terminals run "bash-like" scripting languages like "zsh".  For the purposes of this tutorial, they are indistinguishable from bash. There are <a href="https://www.ubuntupit.com/the-50-best-linux-commands-to-run-in-the-terminal/">approximately 50 bash commands that are used 95% of the time</a>.  Here we will review some common commands and do some simple file analysis. </p>
 <h2 id="common-commands">Common Commands</h2>
 <h1 id="cd">cd</h1>
 <p>This command is used to change our directory, in the following manner: </p>
@@ -153,31 +152,36 @@ can append to it to get additional information, for example:</p>
 </code></pre></div></p>
 </div>
 <h1 id="echo">echo</h1>
-<p>Can be used to print to screen: </p>
+<p><code>echo</code> prints to screen: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>echo &quot;Hello&quot;
 </code></pre></div>
 <h1 id="touch">touch</h1>
-<p>Can be used to create a new (empty) file: </p>
+<p><code>touch</code> creates a new (empty) file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>touch foo
 </code></pre></div>
 <h1 id="rm">rm</h1>
-<p>Can be used to create delete a file: </p>
+<p><code>rm</code> deletes a file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>rm foo
 </code></pre></div>
-<h1 id="_1">&gt;</h1>
-<p>The carrot sign can be used to send the output to a file: </p>
+<h1 id="_1">^</h1>
+<p>The carrot sign <code>^</code> sends the output to a file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>echo &quot;Hello&quot; &gt; output.txt
 </code></pre></div>
 <h1 id="cat">cat</h1>
-<p>Can be used to print the contents of a file to the screen: </p>
+<p><code>cat</code> prints the entire contents of a file to the screen: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat output.txt
 </code></pre></div>
+<h1 id="less">less</h1>
+<p><code>less</code> can be used to view a file: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>less output.txt
+</code></pre></div>
+<p>to return to the terminal press <code>q</code></p>
 <h1 id="cp">cp</h1>
-<p>Can be used to copy a a file: </p>
+<p><code>cp</code> copies a file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat output.txt output2.txt
 </code></pre></div>
 <h1 id="nano">nano</h1>
-<p>Nano can be used to edit a file, typing: </p>
+<p><code>nano</code> can be used to edit a file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>nano data1.txt
 </code></pre></div>
 <p>Will bring up an editor window: </p>
@@ -191,22 +195,22 @@ sally 5
 </code></pre></div>
 <p>And then save the file using <strong>Ctrl-O</strong> and press enter, and quit using <strong>Ctrl-X</strong>.                                                                                                                                             </p>
 <h1 id="wc">wc</h1>
-<p>The word count command can be used to count the number of lines or words in a file: </p>
+<p>The word count command <code>wc</code> can be used to count the number of lines or words in a file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>    wc -l data1.txt
 </code></pre></div>
 <h1 id="grep">grep</h1>
-<p>Can be used to search a file for content: </p>
+<p>Can be used to search a file for a string: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep &quot;noah&quot; data1.txt
 </code></pre></div>
-<p>While return all the lines in data1.txt containing the search term "noah". </p>
+<p>will return all the lines in data1.txt containing the string "noah". </p>
 <h2 id="file-analysis">File Analysis</h2>
 <p>A very powerful feature of the terminal is the <strong>awk</strong> programming
 language, which allows us to extract subsets of a data file, filter
 data according to some criteria or perform arithmetic operations on
-the data. awk manipulates a data file by per- forming operations on
+the data. awk manipulates a data file by performing operations on
 its <strong>columns</strong> - this is extremely useful for scientific data sets
-because typically the columns features or variables of interest.</p>
-<p>For example, we can use awk to produce a new file that squares the data in our previous file: </p>
+because typically the columns are features or variables of interest.</p>
+<p>For example, we can use <code>awk</code> to produce a new file that squares the data in our previous file: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>awk &#39;{print $1,$2*$2}&#39; data1.txt &gt; data2.txt
 </code></pre></div>
 <p>We can also use awk to add up all the squared data values: </p>
