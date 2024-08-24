@@ -44,7 +44,14 @@ Next lets observe the files in the sample data directory:
 
     ls 
 
-We should see the following five files: **D1D.bim, D1D.fam, D1D.bed,  D1D.pcs1234, D1D.pheno1**
+We should see the following four files: **D1D.ped, D1D.map,
+D1D.pcs1234, D1D.pheno1**. We first convert the "old" format ped/map
+files to the more memory efficient binary format using the following command:
+```
+ ../../code/plink --file D1D --make-bed --out D1D
+```
+This generates three new files, **D1D.bim, D1D.fam, D1D.bed**. Type
+`ls -l`, compare how much disk space the bim/fam/bed and ped/map files use.
     
 
 Let's look at the following files by typing the following commands and **pressing q to quit** after each one: 
