@@ -44,44 +44,23 @@ Next lets observe the files in the sample data directory:
 
     ls 
 
-We should see the following four files: **D1D.map  D1D.pcs1234  D1D.ped  D1D.pheno1**
+We should see the following five files: **D1D.bim, D1D.fam, D1D.bed,  D1D.pcs1234, D1D.pheno1**
     
 
-Let's look each each file by typing the following commands and **pressing q to quit** after each one: 
+Let's look at the following files by typing the following commands and **pressing q to quit** after each one: 
 
-    less D1D.map      # A map file that associates snps with chromosomal locations 
+    less D1D.bim      # Marker / SNP information 
+    less D1D.fam      # Individual information: IDs
     less D1D.pcs1234  # A PCA file that lists individuals first four prinicipal components
-    less D1D.ped      # A pedigree file that lists individuals genotypes 
     less D1D.pheno1   # A phenotype file that lists individuals phenotypes 
+`D1D.bed` is a binary file and stores the genotype **do not open this file**.
 
-
-Next to the PLINK website http://zzz.bwh.harvard.edu/plink/download.shtml and investigate the format of the MAP/PED files (Look in the blue column on the left side).
-
-What do you observe?
-- What are the 4 columns in the map file?
-- What are the first 6 columns in a ped file?
-- What information is in the remaining columns of the ped file?
-
-### Manipulating Data 
-
-
-1. Create 'binary' format PLINK files using the recode command:
-
-         ../../code/plink --file D1D --make-bed --out D1D
-
-2.  List files (*ls*) and check which new files have appeared
-
-3.  Examine the files ending .bim and .fam. Do not open the .bed file.
-
-8.  Examine the '.log' file.
+Investigate the format of the bim and fam files here
+https://zzz.bwh.harvard.edu/plink/data.shtml#bed, scroll up for details.
 
 What do you observe?
-
-- How is the fam file similar to the ped file?
-- How is it different?
-- How is the bim file similar to the map file?
-- How is it different?
-(Use the PLINK website if necessary)
+- What are columns 1, 2, 4, 5, 6 of the bim file?
+- What are the columns of the fam file?
   
 ## Recoding alleles as counts
 
