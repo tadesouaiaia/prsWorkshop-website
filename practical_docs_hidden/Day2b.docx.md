@@ -262,9 +262,8 @@ Therefore, to maximize signal within each gene set, we must perform clumping for
 
 ![Set Base Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/set_clump.gif)
 
-this can be a tedious process and are prone to error. 
 
-To speed up clumping, PRSice-2 adopt a "*capture the flag*" system.
+This can be a tedious process and are prone to error. To speed up clumping, PRSice-2 adopt a "*capture the flag*" system.
 
 Each SNPs contains a flag to represent their gene set membership. 
 If a SNP is a member for the set, it will have a flag of 1, otherwise it will have a flag of 0.
