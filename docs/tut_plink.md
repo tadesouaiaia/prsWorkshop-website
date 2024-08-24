@@ -169,9 +169,7 @@ used to perform QC.
 
 ### SNP Missingness
 
-1.  Use the D1D binary files to generate files containing missingness information (--missing). Use the output file name 'D1D_miss'
-
-2.  Look inside the file containing SNP missingness information: D1D_miss.lmiss.
+Look inside the file containing SNP missingness information: D1D_miss.lmiss.
 
 - What is the meaning of the value under F_MISS?
 - What does the command --test-missing do and why might it be useful?
