@@ -80,15 +80,25 @@ Look inside the .raw file.
     
 ## PLINK website
 
-Go to the [plink website](https://www.cog-genomics.org/plink/1.9/) and skim through the front page to get an idea of PLINK's functionality. Note the list of clickable links on the left side of the website. 
+Go to the [plink website](https://www.cog-genomics.org/plink/1.9/) and
+skim through the front page to get an idea of PLINK's
+functionality. Note the list of clickable links on the left side of
+the website.
 
-Under 'Data Management' (click the heading on the left) and read the list of the diﬀerent ways you may want to recode and reorder data sets. Don't attempt to read much further as this is a very large and detailed section - a useful future resource but too much for today. 
+Under 'Data Management' (click the heading on the left) and read the
+list of the diﬀerent ways you may want to recode and reorder data
+sets. Don't attempt to read much further as this is a very large and
+detailed section - a useful future resource but too much for today.
 
-Under 'Data Management', click 'Write SNP list' and read the instructions there to write SNP lists.
+Under 'Input filtering', read the different ways SNPs can be filtered.
 
 ## Write SNP list and extract SNPs
-
-You will now use the information that you found on the PLINK website to create a command to extract a list of SNPs. Below is a list of requirements - try to do this before you go to the end of this section, where the full command is given and explained.
+The `--write-snplist` writes a list of SNPs (penultimate argument in
+'Data Management). Use this command along with the information that
+you found on the PLINK website to create a command to extract a list
+of SNPs. Below is a list of requirements - try to do this before you
+go to the end of this section, where the full command is given and
+explained.
 
 1.  Set the D1D binary file as input
 
