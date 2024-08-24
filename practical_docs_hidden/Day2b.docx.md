@@ -253,9 +253,13 @@ Assume that:
 
 If we simply perform a genome wide clumping, we might remove all SNPs residing within the gene set of interest, 
 reducing the signal:
+
+
 ![Genome Wide Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/genome_wide_clump.gif)
 
 Therefore, to maximize signal within each gene set, we must perform clumping for each gene sets separately:
+
+
 ![Set Base Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/set_clump.gif)
 this can be a tedious process and are prone to error. 
 
