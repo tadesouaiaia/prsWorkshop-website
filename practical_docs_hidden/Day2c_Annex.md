@@ -185,7 +185,7 @@ Rscript ./Software/PRSice.R \
 >
   **Figure 1.3: Barplot of Height using 1000 permutations**
 >
-![Figure 1.3](/images/day3/Height.perm_BARPLOT_2023-06-30.png)
+![Figure 1.3](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2c_annex/Height.perm_BARPLOT_2023-06-30.png)
 >
 ---
 
@@ -240,7 +240,7 @@ Rscript ./Software/PRSice.R \
 --- 
 >
   **Figure 1.4: Barplot of Height validation dataset** 
-![Figure 1.4](/images/day3/Height.val_BARPLOT_2023-06-30.png)
+![Figure 1.4](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2c_annex/Height.val_BARPLOT_2023-06-30.png)
 ---
 ---
 >
@@ -258,12 +258,12 @@ Many PRS study publications include quantile plots that show an exponential incr
 >
   **Figure 1.5: An example of density plot for PRS**
 >
-![Figure 1.5](/images/day3/images020.png)
+![Figure 1.5](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2c_annex/images020.png)
 ---
 >
   **Figure 1.6: An example of a S-shaped quantile plot**
 >
-![Figure 1.6](/images/day3/images021.png)
+![Figure 1.6](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2c_annex/images021.png)
 ---
 
 This might lead us to believe that individuals with PRS values in the top quantiles have a distinctly diﬀerent genetic aetiology compared to the rest of the sample, or that there is epistasis/interactions causing there substantially higher risk. However, when we plot a normally distributed variable (e.g. a PRS) as quantiles on the X-axis then we expect to observe this exponential pattern even when the X variable only has a linear eﬀect on the Y variable. This is because the top (and bottom) quantiles are further away from each other on the absolute scale of the variable and so the diﬀerences in their eﬀects are larger than between quantiles in the middle of the distribution.
@@ -293,7 +293,7 @@ quantile_plot(info, "Results/Height", 100)
 >
   **Figure 1.7: The resulting quantile plot**
 >
-![Figure 1.7](/images/day3/Height_QUANTILES_PLOT_2023-07-05.png)
+![Figure 1.7](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2c_annex/Height_QUANTILES_PLOT_2023-07-05.png)
 ---
 
 ---
