@@ -48,7 +48,7 @@ Most PRS methods summarize genetic risk to a single number, based on the aggrega
 
 During this session, you will learn how to run a gene set (or pathway) based PRS analyses. The key difference between genome-wide PRS and gene set or pathway-based PRSs analyses is that, instead of aggregating the estimated effects of risk alleles across the entire genome, gene set PRSs aggregate risk alleles across as many gene sets as the user defines (Figure 1).
 
-![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/pathwayPRS_overview.png)
+![pathway PRS](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/pathwayPRS_overview.png)
 <sub> **Figure 1:** The pathway polygenic risk score approach. Coloured boxes represent genes, lines link genes that are within the same genomic pathway. See full description [here](https://doi.org/10.1371/journal.pgen.1010624).
 </sub>
 
