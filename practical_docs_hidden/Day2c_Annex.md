@@ -46,6 +46,12 @@ You will find all practical materials in the [following link](https://drive.goog
   - TAR.height
   - TAR.cad 
   - TAR.covariate
+
+  - VAL.bed
+  - VAL.bim
+  - VAL.fam
+  - VAL.covariate
+  - VAL.height
     
  🛠️: Scripts
   - nagelkerke.R
