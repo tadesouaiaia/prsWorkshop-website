@@ -25,7 +25,7 @@ After completing this practical, you should be able to:
 
 
 ## Data Structure
-You will find all practical materials in the **data/Day_2b** directory. Relevant materials that you should find at the start of the practical are:
+You will find all practical materials in the [following link](https://drive.google.com/drive/folders/1NNtG9_pFJZeO9pH9WOQla7wj1AU-LDon?usp=sharing). Relevant materials that you should find at the start of the practical are:
 
  📂: Base_Data
   - GIANT_Height.txt,
@@ -230,6 +230,8 @@ Rscript ./Software/PRSice.R \
 >
 > ❓ How does this file change? What extra information is incorporated when including the PRSet specific commands?
 >
+> ❓ What is the difference between the column P-value and competitive P-value? Why is it important to look at both?
+>
 ---
 
 Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated. For example, a new figure with the results for each gene set PRS.
@@ -238,7 +240,7 @@ Apart from the output files, running the PRSet options will provide extra inform
 <sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
 
 <a id="considerations"></a>
-## Considerations when analysing and interpreting gene-set PRSs
+## Considerations when analysing and interpreting gene set PRSs
 
 <a id="clumping"></a>
 ### Clumping for each gene set independently
