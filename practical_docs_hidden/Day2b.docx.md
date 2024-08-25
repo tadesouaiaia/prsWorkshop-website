@@ -160,7 +160,7 @@ gtf38_parsed = gtf38 %>%
 > 
 > ❓ Based on the column with information about the features, how many instances of feature = "gene" can you find ? 
 >
-> ❓ Based on the column with inforamtion about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
+> ❓ Based on the column with information about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
 >
 ---
 
