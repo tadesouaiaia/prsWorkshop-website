@@ -61,7 +61,9 @@ By aggregating PRS across multiple gene sets (or pathways), these PRS analyses w
 
 ---
 >
-> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment (using gene set enrichment tools such as MAGMA or partitioned LDSC)?
+> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals?
+>
+> ❓ Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment (using gene set enrichment tools such as MAGMA or partitioned LDSC)?
 >
 ---
 
@@ -76,7 +78,7 @@ In this session, the following Base and Target data is used. Base data is public
 | Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
 | Simulated Target Data | Individual-level phenotype and genotype files | Data folder |
 
-Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, Note that PRSet also takes as input **BED and SNP files**. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -192,7 +194,7 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 We are now ready to perform gene-set association analyses using PRSet.
 
-To perform the PRSet analysis and obtain the set based PRS and competitive P-value, simply provide the GTF file and the GMT file to PRSice and specify the number of permutation for competitive P-value calculation using the --set-perm option.
+To perform the PRSet analysis and obtain the set based PRS and competitive P-value, we need to provide the GTF file and the GMT file to PRSice. Additionally, we want to specify the number of permutation for competitive P-value calculation using the --set-perm option.
 
 ```
 Rscript ./Software/PRSice.R \
@@ -226,15 +228,19 @@ Rscript ./Software/PRSice.R \
 
 ---
 >
-> ** Check the .summary results file, with and without running the PRSet specific options **
+> ** Check the .summary results file after running PRSice with and without including the PRSet specific options **
 >
-> ❓ How does this file change? What extra information is incorporated when including the PRSet specific commands?
+> ❓ How does the .summary output file change? What extra information (i.e. extra columns) are incorporated when including PRSet specific commands?
 >
-> ❓ What is the difference between the column P-value and competitive P-value? Why is it important to look at both?
+> ❓ What is the difference between the column P and competitive P-value?
+>
+> ❓ What command allows the calculation of the competitive P-value calculated?
+>
+> ❓ Why is it important in gene set analyses?
 >
 ---
 
-Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated. For example, a new figure with the results for each gene set PRS.
+In addition to additional information in the output files, running the PRSet options will provide extra figures with the results for each gene set PRS.
 
 ![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/Day2b_Height.set_MULTISET_BARPLOT.png)
 <sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
@@ -260,7 +266,6 @@ reducing the signal:
 ![Genome Wide Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/genome_wide_clump.gif)
 
 Therefore, to maximize signal within each gene set, we must perform clumping for each gene sets separately:
-
 
 ![Set Base Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/set_clump.gif)
 
