@@ -44,44 +44,30 @@ Next lets observe the files in the sample data directory:
 
     ls 
 
-We should see the following four files: **D1D.map  D1D.pcs1234  D1D.ped  D1D.pheno1**
+We should see the following four files: **D1D.ped, D1D.map,
+D1D.pcs1234, D1D.pheno1**. We first convert the "old" format ped/map
+files to the more memory efficient binary format using the following command:
+```
+ ../../code/plink --file D1D --make-bed --out D1D
+```
+This generates three new files, **D1D.bim, D1D.fam, D1D.bed**. Type
+`ls -l`, compare how much disk space the bim/fam/bed and ped/map files use.
     
 
-Let's look each each file by typing the following commands and **pressing q to quit** after each one: 
+Let's look at the following files by typing the following commands and **pressing q to quit** after each one: 
 
-    less D1D.map      # A map file that associates snps with chromosomal locations 
+    less D1D.bim      # Marker / SNP information 
+    less D1D.fam      # Individual information: IDs
     less D1D.pcs1234  # A PCA file that lists individuals first four prinicipal components
-    less D1D.ped      # A pedigree file that lists individuals genotypes 
     less D1D.pheno1   # A phenotype file that lists individuals phenotypes 
+`D1D.bed` is a binary file and stores the genotype **do not open this file**.
 
-
-Next to the PLINK website http://zzz.bwh.harvard.edu/plink/download.shtml and investigate the format of the MAP/PED files (Look in the blue column on the left side).
-
-What do you observe?
-- What are the 4 columns in the map file?
-- What are the first 6 columns in a ped file?
-- What information is in the remaining columns of the ped file?
-
-### Manipulating Data 
-
-
-1. Create 'binary' format PLINK files using the recode command:
-
-         ../../code/plink --file D1D --make-bed --out D1D
-
-2.  List files (*ls*) and check which new files have appeared
-
-3.  Examine the files ending .bim and .fam. Do not open the .bed file.
-
-8.  Examine the '.log' file.
+Investigate the format of the bim and fam files here
+https://zzz.bwh.harvard.edu/plink/data.shtml#bed, scroll up for details.
 
 What do you observe?
-
-- How is the fam file similar to the ped file?
-- How is it different?
-- How is the bim file similar to the map file?
-- How is it different?
-(Use the PLINK website if necessary)
+- What are columns 1, 2, 4, 5, 6 of the bim file?
+- What are the columns of the fam file?
   
 ## Recoding alleles as counts
 
@@ -101,15 +87,25 @@ Look inside the .raw file.
     
 ## PLINK website
 
-Go to the [plink website](https://www.cog-genomics.org/plink/1.9/) and skim through the front page to get an idea of PLINK's functionality. Note the list of clickable links on the left side of the website. 
+Go to the [plink website](https://www.cog-genomics.org/plink/1.9/) and
+skim through the front page to get an idea of PLINK's
+functionality. Note the list of clickable links on the left side of
+the website.
 
-Under 'Data Management' (click the heading on the left) and read the list of the diﬀerent ways you may want to recode and reorder data sets. Don't attempt to read much further as this is a very large and detailed section - a useful future resource but too much for today. 
+Under 'Data Management' (click the heading on the left) and read the
+list of the diﬀerent ways you may want to recode and reorder data
+sets. Don't attempt to read much further as this is a very large and
+detailed section - a useful future resource but too much for today.
 
-Under 'Data Management', click 'Write SNP list' and read the instructions there to write SNP lists.
+Under 'Input filtering', read the different ways SNPs can be filtered.
 
 ## Write SNP list and extract SNPs
-
-You will now use the information that you found on the PLINK website to create a command to extract a list of SNPs. Below is a list of requirements - try to do this before you go to the end of this section, where the full command is given and explained.
+The `--write-snplist` writes a list of SNPs (penultimate argument in
+'Data Management'). Use this command along with the information that
+you found on the PLINK website to create a command to extract a list
+of SNPs. Below is a list of requirements - try to do this before you
+go to the end of this section, where the full command is given and
+explained.
 
 1.  Set the D1D binary file as input
 
@@ -159,10 +155,14 @@ Here we will work on the following skills:
 
 ## Generate summaries to perform QC
 
-There are many kinds of summaries of the data that can generated in PLINK in order to perform particular quality control (QC) steps, which
-help to make our data more reliable. Some of these involve summaries in relation to the individuals (e.g. individual missingness, sex-check) and some 
-relate to summaries of SNP data (e.g. MAF, Hardy-Weinburg Equilibrium). Over the next few sub-sections you will go through some examples of generating 
-summary statistics that can be used to perform QC.
+There are many kinds of summaries of the data that can be generated by
+PLINK in order to perform particular quality control (QC) steps, which
+help to make our data more reliable. Some of these involve summaries
+in relation to the individuals (e.g. individual missingness,
+sex-check) and some relate to summaries of SNP data (e.g. MAF,
+Hardy-Weinburg Equilibrium). Over the next few sub-sections you will
+go through some examples of generating summary statistics that can be
+used to perform QC.
 
 ### Individual missingness
 
@@ -176,9 +176,7 @@ summary statistics that can be used to perform QC.
 
 ### SNP Missingness
 
-1.  Use the D1D binary files to generate files containing missingness information (--missing). Use the output file name 'D1D_miss'
-
-2.  Look inside the file containing SNP missingness information: D1D_miss.lmiss.
+Look inside the file containing SNP missingness information: D1D_miss.lmiss.
 
 - What is the meaning of the value under F_MISS?
 - What does the command --test-missing do and why might it be useful?
