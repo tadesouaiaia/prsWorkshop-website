@@ -47,9 +47,7 @@ You will find all practical materials in the [following link](https://drive.goog
   - TAR.cad 
   - TAR.covariate
     
- 🛠️: Software
-  - PRSice.R 
-  - PRSice_linux
+ 🛠️: Scripts
   - nagelkerke.R
   - Quantile.R
     
