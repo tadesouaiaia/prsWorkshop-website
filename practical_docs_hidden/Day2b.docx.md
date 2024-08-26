@@ -233,6 +233,9 @@ The null-hypothesis of self-contained and competitive test statistics is diﬀer
 
 Importantly, in a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, competitive P-values should be calculated to account for gene set size.
 
+![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/competitiveVSself-contained.png)
+<sub> **Figure 2** : Self-contained vs Competitive tests of association. </sub>
+
 ---
 >
 > ** Check the .summary results file after running PRSice WITH and WITHOUT including the PRSet specific options **
@@ -251,7 +254,7 @@ Importantly, in a self-contained test, a bigger gene-set will have a higher like
 In addition to additional information in the output files, running the PRSet options will provide one extra figure with the results for the gene set PRS with the highest R2.
 
 ![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/Day2b_Height.set_MULTISET_BARPLOT.png)
-<sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
+<sub> **Figure 3** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
 
 <a id="considerations"></a>
 ## Other considerations when analysing and interpreting gene set PRSs
