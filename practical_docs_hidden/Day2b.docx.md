@@ -227,10 +227,11 @@ Rscript ./Software/PRSice.R \
 An important aspect when calculating gene set based PRSs is the type of test used for association. When only one region of the genome is considered, self-contained and/or competitive tests can be performed.
 
 The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
-  – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
-  – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
+- **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
+- **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene set
 
 In a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, it is important to calculate competitive P-value to account for gene set size.
+
 
 
 ## Results and Plots specific of gene set PRS analyses
