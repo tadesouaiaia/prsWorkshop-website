@@ -228,7 +228,7 @@ Rscript ./Software/PRSice.R \
 
 ---
 >
-> ** Check the .summary results file after running PRSice with and without including the PRSet specific options **
+> ** Check the .summary results file after running PRSice WITH and WITHOUT including the PRSet specific options **
 >
 > ❓ How does the .summary output file change? What extra information (i.e. extra columns) are incorporated when including PRSet specific commands?
 >
