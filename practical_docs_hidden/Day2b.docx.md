@@ -192,9 +192,7 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 <a id="exercise-4-gene-set-based-prs-analysis"></a>
 ## Exercise: Calculate gene set PRS analysis
 
-We are now ready to perform gene-set association analyses using PRSet.
-
-To perform the PRSet analysis, we need to provide the GTF file and the GMT file to PRSice. Additionally, we want to specify the number of permutation for competitive P-value calculation using the --set-perm option.
+To perform the PRSet analysis, we need to provide the GTF file and the GMT file to PRSice. Additionally, we want to specify the number of permutation to calculate competitive P-value calculation using the --set-perm option.
 
 ```
 Rscript ./Software/PRSice.R \
