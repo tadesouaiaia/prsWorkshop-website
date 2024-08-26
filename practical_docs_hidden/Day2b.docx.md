@@ -218,8 +218,10 @@ Rscript ./Software/PRSice.R \
 
 ```
 
----
-> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
+> ** Compare the code to calculate a genome-wide PRS with PRSice (e.g. looking at yesterday's practical) and today's code to run PRSet **
+
+> ❓ What extra commands are used today to run gene set specific PRSs? What do these additional commands do?
+> 
 ---
 
 ## Results and Plots specific of gene set PRS analyses
@@ -234,7 +236,7 @@ The null-hypothesis of self-contained and competitive test statistics is diﬀer
 Importantly, in a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, competitive P-values should be calculated to account for gene set size.
 
 ![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/competitiveVSself-contained.png)
-<sub> **Figure 2** : Self-contained vs Competitive tests of association. </sub>
+<sub> **Figure 2** : Examples of significant and non-significant gene sets when running competitive tests of association. </sub>
 
 ---
 >
