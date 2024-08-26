@@ -224,6 +224,17 @@ Rscript ./Software/PRSice.R \
 > 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
 ---
 
+---
+> 📌 An important aspect when calculating gene set based PRSs is the type of test used for association. When only one region of the genome is considered, self-contained and/or competitive tests can be performed.
+>
+> The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
+  – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
+  – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
+> 
+In a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, it is important to calculate competitive P-value to account for gene set size.
+
+---
+
 ## Results and Plots specific of gene set PRS analyses
 
 ---
@@ -293,20 +304,13 @@ PRSet default option is to no not perform p-value thresholding. It will simply c
 
 <a id="p-value-testing"></a>
 ### Self-contained vs competitive testing
-An important aspect when calculating gene set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
-
-The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
-  – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
-  – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
-Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
+PRSet --perm option produces competitive P-values calculated via permutation.
 
 ---
 >
 > ** Check the .summary results file again **
 >
 > ❓ What are the 3 gene-sets with the smallest competitive P-values? 
->
-> ❓ Why do you think that we check the competitive P-value, instead of the self contained P-value?
 >
 > ** Imagine that you are running an analysis to find the gene sets most associated with height **
 > ❓ Considering the competitive P-value results, what gene set do you think is the most interesting and why?
