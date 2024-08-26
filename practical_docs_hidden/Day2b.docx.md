@@ -225,20 +225,13 @@ Rscript ./Software/PRSice.R \
 ## Results and Plots specific of gene set PRS analyses
 
 ### Competitive P-value calculation
-An important aspect when calculating gene set based PRSs is the type of test used for association. When only one region of the genome is considered, self-contained and/or competitive tests can be performed.
+When only one region of the genome is used to calculate PRSs (for example a gene set or a pathway PRSs), self-contained and/or competitive tests of association can be performed.
 
 The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
-- **Self-Contained** - None of the genes within the gene-set are associated with the phenotype.
-- **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene set.
+- **Null-hypothesis for self-contained test** - None of the genes within the gene-set are associated with the phenotype.
+- **Null-hypothesis for competitive tests** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene set.
 
-In a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, competitive P-values are also calculated to account for gene set size.
-
----
-> ❓ What command allows the calculation of the competitive P-value calculated?
->
-> ❓ Why is it important to calculate these permutations in gene set analyses?
----
-
+Importantly, in a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, competitive P-values should be calculated to account for gene set size.
 
 ---
 >
@@ -246,7 +239,9 @@ In a self-contained test, a bigger gene-set will have a higher likelihood of hav
 >
 > ❓ How does the .summary output file change? What extra information (i.e. extra columns) are incorporated when including PRSet specific commands?
 >
->> ❓ What are the 3 gene-sets with the smallest competitive P-values? 
+> ❓ What are the 3 gene-sets with the smallest self contained P-values? How many SNPs are included in those sets?
+>
+> ❓ What are the 3 gene-sets with the smallest competitive P-values? 
 >
 > ** Imagine that you are running an analysis to find the gene sets most associated with height **
 > ❓ Considering both the R2 and competitive P-value results, what gene set do you think is the most interesting and why?
@@ -259,7 +254,7 @@ In addition to additional information in the output files, running the PRSet opt
 <sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
 
 <a id="considerations"></a>
-## Considerations when analysing and interpreting gene set PRSs
+## Other considerations when analysing and interpreting gene set PRSs
 
 <a id="clumping"></a>
 ### Clumping for each gene set independently
