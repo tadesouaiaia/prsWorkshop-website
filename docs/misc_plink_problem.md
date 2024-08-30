@@ -1,15 +1,32 @@
 
 
-# Plink: Developer Cannot Be Verified 
+# MacOs Permission Errors 
 
 ![Screenshot](images/mac_plink.png)
 
 If you see this error, **Do not click: Move To Trash**. 
 
-Instead click on the top right hand corner of the box, or stop running whatever program you are using and follow these instructions 
+Instead click on the top right hand corner of the box, or stop running whatever program you are using and follow the
+ instructions below to give your system permission to run downloaded software. 
 to give your system permission to run downloaded software. 
 
-## 1- Default Settings
+
+!!! warning "Shortcut: Users report that this shortcut can also be used to change program permissions:" 
+ 	1. User finder navigate to the file in question. 
+	2. Right click on the icon and select **open**. 
+	3. A warning will pop-up.  Click open and this program can be run in the future. 
+	![Screenshot](images/mac_ex.png)
+
+
+
+
+
+
+
+
+
+
+## 1- Change Default Settings
 By default macOS allows you to open apps from the official Mac App Store only, If you have this set as your default 
 you can change this if you: 
     
@@ -24,7 +41,7 @@ you can change this if you:
 
 
 
-## 2- Allowing Exceptions 
+## 2- Allow Exceptions 
 
 
 Expanding permissions to include "identified developers" is required but not sufficient.  To obtain 
@@ -40,19 +57,16 @@ further permission to run **Plink** or any other unapproved program you can:
 ![Screenshot](images/mac_plink3.jpg)
 
 
-## 3- Downstream BridgePRS Errors
+## BridgePRS specific errors 
+
+If this problem has occured when running bridgePRS and you have moved plink to the trash you will have to recover it. 
+Additionally the empty files created by a failed attempt to run Plink can cause problems if BridgePRS tries to recover your progress. 
 
 
-If you have moved plink to the trash you will have to recover it, additionally the empty 
-files created by a failed attempt to run Plink can cause problems if BridgePRS tries to recover your progress. 
-
-
-
-
-!!! tip "Restarting a bridgePRS run"
+!!! help "Restarting a bridgePRS run"
     You can avoid this problem by manually deleting your output directory and starting over, or by using the restart flag: 
         ```
-        $./bridgePRS easyrun go -o out1 --pop_configs data/afr.config data/eur.config --phenotype y --restart
+        $./bridgePRS pipeline go -o out1 --config_files data/afr.config data/eur.config --phenotype y --restart
         ```
     This will force bridgePRS to restart every subprogram from the beginning.     
 

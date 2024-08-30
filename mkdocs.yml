@@ -20,14 +20,11 @@ nav:
         - Plink Tutorial:         tut_plink.md 
      
     - Program: 
-       - Day1 (AM): practicals/workshop_practical_paul.docx.md 
+       - Day1 (AM): practicals/workshop_practical_paul1.md 
        - Day1 (PM): practicals/workshop_practical_tade.md 
-       - Day2 (AM): practicals/workshop_practical_clive.docx.md
-       - Day2 (PM): practicals/workshop_practical_paul.docx.md 
-    #  - Day 1a:  Day2.docx.md 
-    #  - Day 1b: Day3a.docx.md
-    #      - Day 2ac: Day3b.docx.md 
-    #      - Day 2b: Day4a.docx.md 
+       - Day2 (AM): practicals/workshop_practical_clive.md
+       - Day2 (PM): practicals/workshop_practical_paul2.md 
+    
     - Misc:
         - Linux For Windows:      misc_linux.md 
         - Mac Security:            misc_plink_problem.md 

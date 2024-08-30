@@ -39,17 +39,8 @@ typing:
 
     chmod +x exercise*/code/* 
 
-Additionally, if you are using macOs where there is extra security, you should do the following: 
-
-![Screenshot](images2/mac_execute.png) 
-
- 1. User finder navigate to the exercise1/code directory. 
- 2. Right click on the PRSice icon and select **open**.  
- 3. A warning will pop-up (shown below), click open. 
- 4. Repeat the process for exercise2/code/plink and exercise3/code/plink.   
-
-
-![Screenshot](images2/mac_warn.png) 
+Additionally, if you are using macOs where there is extra security, you may need to follow the additional 
+instructions to allow your computer to run software [here.](../../misc_plink_problem)  
 
 ---
 
