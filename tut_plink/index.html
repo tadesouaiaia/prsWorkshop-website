@@ -67,13 +67,11 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../tut_python/">Python Tutorial</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Plink Tutorial</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Plink Tutorial</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#sample-data">Sample Data</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#exploring-data">Exploring Data</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#manipulating-data">Manipulating Data</a>
     </li>
         </ul>
     </li>
@@ -84,6 +82,17 @@
     <li class="toctree-l2"><a class="reference internal" href="#write-snp-list-and-extract-snps">Write SNP list and extract SNPs</a>
     </li>
     </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Program</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_paul1/">Day1 (AM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_tade/">Day1 (PM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_clive/">Day2 (AM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_paul2/">Day2 (PM)</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
@@ -149,43 +158,25 @@ After completing this practical, you should be able to:</p>
 <p>Next lets observe the files in the sample data directory:  </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls
 </code></pre></div>
-<p>We should see the following four files: <strong>D1D.map  D1D.pcs1234  D1D.ped  D1D.pheno1</strong></p>
-<p>Let's look each each file by typing the following commands and <strong>pressing q to quit</strong> after each one: </p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>less D1D.map      # A map file that associates snps with chromosomal locations 
-less D1D.pcs1234  # A PCA file that lists individuals first four prinicipal components
-less D1D.ped      # A pedigree file that lists individuals genotypes 
-less D1D.pheno1   # A phenotype file that lists individuals phenotypes
-</code></pre></div>
-<p>Next to the PLINK website http://zzz.bwh.harvard.edu/plink/download.shtml and investigate the format of the MAP/PED files (Look in the blue column on the left side).</p>
-<p>What do you observe?
-- What are the 4 columns in the map file?
-- What are the first 6 columns in a ped file?
-- What information is in the remaining columns of the ped file?</p>
-<h3 id="manipulating-data">Manipulating Data</h3>
-<ol>
-<li>
-<p>Create 'binary' format PLINK files using the recode command:</p>
+<p>We should see the following four files: <strong>D1D.ped, D1D.map,
+D1D.pcs1234, D1D.pheno1</strong>. We first convert the "old" format ped/map
+files to the more memory efficient binary format using the following command:
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code> ../../code/plink --file D1D --make-bed --out D1D
 </code></pre></div>
-</li>
-<li>
-<p>List files (<em>ls</em>) and check which new files have appeared</p>
-</li>
-<li>
-<p>Examine the files ending .bim and .fam. Do not open the .bed file.</p>
-</li>
-<li>
-<p>Examine the '.log' file.</p>
-</li>
-</ol>
-<p>What do you observe?</p>
-<ul>
-<li>How is the fam file similar to the ped file?</li>
-<li>How is it different?</li>
-<li>How is the bim file similar to the map file?</li>
-<li>How is it different?
-(Use the PLINK website if necessary)</li>
-</ul>
+This generates three new files, <strong>D1D.bim, D1D.fam, D1D.bed</strong>. Type
+<code>ls -l</code>, compare how much disk space the bim/fam/bed and ped/map files use.</p>
+<p>Let's look at the following files by typing the following commands and <strong>pressing q to quit</strong> after each one: </p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>less D1D.bim      # Marker / SNP information 
+less D1D.fam      # Individual information: IDs
+less D1D.pcs1234  # A PCA file that lists individuals first four prinicipal components
+less D1D.pheno1   # A phenotype file that lists individuals phenotypes
+</code></pre></div>
+<p><code>D1D.bed</code> is a binary file and stores the genotype <strong>do not open this file</strong>.</p>
+<p>Investigate the format of the bim and fam files here
+https://zzz.bwh.harvard.edu/plink/data.shtml#bed, scroll up for details.</p>
+<p>What do you observe?
+- What are columns 1, 2, 4, 5, 6 of the bim file?
+- What are the columns of the fam file?</p>
 <h2 id="recoding-alleles-as-counts">Recoding alleles as counts</h2>
 <p>Genotype data in allele count format is very useful, for example to use in regression modelling in statistical software such as R.
 Generate the D1D data in allele count format:</p>
@@ -200,11 +191,22 @@ Generate the D1D data in allele count format:</p>
 <li>Why might this be?</li>
 </ul>
 <h2 id="plink-website">PLINK website</h2>
-<p>Go to the <a href="https://www.cog-genomics.org/plink/1.9/">plink website</a> and skim through the front page to get an idea of PLINK's functionality. Note the list of clickable links on the left side of the website. </p>
-<p>Under 'Data Management' (click the heading on the left) and read the list of the diﬀerent ways you may want to recode and reorder data sets. Don't attempt to read much further as this is a very large and detailed section - a useful future resource but too much for today. </p>
-<p>Under 'Data Management', click 'Write SNP list' and read the instructions there to write SNP lists.</p>
+<p>Go to the <a href="https://www.cog-genomics.org/plink/1.9/">plink website</a> and
+skim through the front page to get an idea of PLINK's
+functionality. Note the list of clickable links on the left side of
+the website.</p>
+<p>Under 'Data Management' (click the heading on the left) and read the
+list of the diﬀerent ways you may want to recode and reorder data
+sets. Don't attempt to read much further as this is a very large and
+detailed section - a useful future resource but too much for today.</p>
+<p>Under 'Input filtering', read the different ways SNPs can be filtered.</p>
 <h2 id="write-snp-list-and-extract-snps">Write SNP list and extract SNPs</h2>
-<p>You will now use the information that you found on the PLINK website to create a command to extract a list of SNPs. Below is a list of requirements - try to do this before you go to the end of this section, where the full command is given and explained.</p>
+<p>The <code>--write-snplist</code> writes a list of SNPs (penultimate argument in
+'Data Management'). Use this command along with the information that
+you found on the PLINK website to create a command to extract a list
+of SNPs. Below is a list of requirements - try to do this before you
+go to the end of this section, where the full command is given and
+explained.</p>
 <ol>
 <li>
 <p>Set the D1D binary file as input</p>
@@ -257,10 +259,14 @@ Sample ID lists can also be used to 'keep' or 'remove' individuals in the same '
 <li>Perform GWAS</li>
 </ol>
 <h2 id="generate-summaries-to-perform-qc">Generate summaries to perform QC</h2>
-<p>There are many kinds of summaries of the data that can generated in PLINK in order to perform particular quality control (QC) steps, which
-help to make our data more reliable. Some of these involve summaries in relation to the individuals (e.g. individual missingness, sex-check) and some 
-relate to summaries of SNP data (e.g. MAF, Hardy-Weinburg Equilibrium). Over the next few sub-sections you will go through some examples of generating 
-summary statistics that can be used to perform QC.</p>
+<p>There are many kinds of summaries of the data that can be generated by
+PLINK in order to perform particular quality control (QC) steps, which
+help to make our data more reliable. Some of these involve summaries
+in relation to the individuals (e.g. individual missingness,
+sex-check) and some relate to summaries of SNP data (e.g. MAF,
+Hardy-Weinburg Equilibrium). Over the next few sub-sections you will
+go through some examples of generating summary statistics that can be
+used to perform QC.</p>
 <h3 id="individual-missingness">Individual missingness</h3>
 <ol>
 <li>
@@ -275,18 +281,11 @@ summary statistics that can be used to perform QC.</p>
 <li>In the imiss file, what is the meaning of the data in the column headed "F_MISS"?</li>
 </ol>
 <h3 id="snp-missingness">SNP Missingness</h3>
-<ol>
-<li>
-<p>Use the D1D binary files to generate files containing missingness information (--missing). Use the output file name 'D1D_miss'</p>
-</li>
-<li>
 <p>Look inside the file containing SNP missingness information: D1D_miss.lmiss.</p>
-</li>
-<li>
-<p>What is the meaning of the value under F_MISS?</p>
-</li>
+<ul>
+<li>What is the meaning of the value under F_MISS?</li>
 <li>What does the command --test-missing do and why might it be useful?</li>
-</ol>
+</ul>
 <h3 id="hardy-weinberg-equilibrium">Hardy-Weinberg Equilibrium</h3>
 <ol>
 <li>
@@ -393,7 +392,7 @@ summary statistics that can be used to perform QC.</p>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../tut_python/" class="btn btn-neutral float-left" title="Python Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../misc_linux/" class="btn btn-neutral float-right" title="Linux For Windows">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../practicals/workshop_practical_paul1/" class="btn btn-neutral float-right" title="Day1 (AM)">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -423,7 +422,7 @@ summary statistics that can be used to perform QC.</p>
       <span><a href="../tut_python/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../misc_linux/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../practicals/workshop_practical_paul1/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

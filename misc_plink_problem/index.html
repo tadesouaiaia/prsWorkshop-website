@@ -70,17 +70,28 @@
                   <li class="toctree-l1"><a class="reference internal" href="../tut_plink/">Plink Tutorial</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">Program</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_paul1/">Day1 (AM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_tade/">Day1 (PM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_clive/">Day2 (AM)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../practicals/workshop_practical_paul2/">Day2 (PM)</a>
+                  </li>
+              </ul>
               <p class="caption"><span class="caption-text">Misc</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../misc_linux/">Linux For Windows</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Mac Security</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Mac Security</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-default-settings">1- Default Settings</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-change-default-settings">1- Change Default Settings</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2-allowing-exceptions">2- Allowing Exceptions</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-allow-exceptions">2- Allow Exceptions</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#3-downstream-bridgeprs-errors">3- Downstream BridgePRS Errors</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bridgeprs-specific-errors">BridgePRS specific errors</a>
     </li>
     </ul>
                   </li>
@@ -110,12 +121,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="plink-developer-cannot-be-verified">Plink: Developer Cannot Be Verified</h1>
+                <h1 id="macos-permission-errors">MacOs Permission Errors</h1>
 <p><img alt="Screenshot" src="../images/mac_plink.png" /></p>
 <p>If you see this error, <strong>Do not click: Move To Trash</strong>. </p>
-<p>Instead click on the top right hand corner of the box, or stop running whatever program you are using and follow these instructions 
+<p>Instead click on the top right hand corner of the box, or stop running whatever program you are using and follow the
+ instructions below to give your system permission to run downloaded software. 
 to give your system permission to run downloaded software. </p>
-<h2 id="1-default-settings">1- Default Settings</h2>
+<div class="admonition warning">
+<p class="admonition-title">Shortcut: Users report that this shortcut can also be used to change program permissions:</p>
+<ol>
+<li>User finder navigate to the file in question. </li>
+<li>Right click on the icon and select <strong>open</strong>. </li>
+<li>A warning will pop-up.  Click open and this program can be run in the future. 
+<img alt="Screenshot" src="images/mac_ex.png" /></li>
+</ol>
+</div>
+<h2 id="1-change-default-settings">1- Change Default Settings</h2>
 <p>By default macOS allows you to open apps from the official Mac App Store only, If you have this set as your default 
 you can change this if you: </p>
 <ol>
@@ -125,7 +146,7 @@ you can change this if you: </p>
 <li>Change settings to include identified developers (see below): </li>
 </ol>
 <p><img alt="Screenshot" src="../images/mac_plink2.png" /></p>
-<h2 id="2-allowing-exceptions">2- Allowing Exceptions</h2>
+<h2 id="2-allow-exceptions">2- Allow Exceptions</h2>
 <p>Expanding permissions to include "identified developers" is required but not sufficient.  To obtain 
 further permission to run <strong>Plink</strong> or any other unapproved program you can:  </p>
 <ol>
@@ -136,13 +157,13 @@ further permission to run <strong>Plink</strong> or any other unapproved program
 <li>You will be asked to once more which will create an exception allowing you to run Plink in the future. </li>
 </ol>
 <p><img alt="Screenshot" src="../images/mac_plink3.jpg" /></p>
-<h2 id="3-downstream-bridgeprs-errors">3- Downstream BridgePRS Errors</h2>
-<p>If you have moved plink to the trash you will have to recover it, additionally the empty 
-files created by a failed attempt to run Plink can cause problems if BridgePRS tries to recover your progress. </p>
-<div class="admonition tip">
+<h2 id="bridgeprs-specific-errors">BridgePRS specific errors</h2>
+<p>If this problem has occured when running bridgePRS and you have moved plink to the trash you will have to recover it. 
+Additionally the empty files created by a failed attempt to run Plink can cause problems if BridgePRS tries to recover your progress. </p>
+<div class="admonition help">
 <p class="admonition-title">Restarting a bridgePRS run</p>
 <p>You can avoid this problem by manually deleting your output directory and starting over, or by using the restart flag: 
-    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$./bridgePRS easyrun go -o out1 --pop_configs data/afr.config data/eur.config --phenotype y --restart
+    <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>$./bridgePRS pipeline go -o out1 --config_files data/afr.config data/eur.config --phenotype y --restart
 </code></pre></div>
 This will force bridgePRS to restart every subprogram from the beginning.     </p>
 </div>
