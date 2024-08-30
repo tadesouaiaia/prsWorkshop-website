@@ -1,8 +1,4 @@
-# Advanced Polygenic Risk Score Analyses
-
-
-## Day 2 - Afternoon Practical: Pathway PRS Analyses
-
+# Day 2 - Afternoon practical: Pathway PRS analyses
 
 ## Table of Contents
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
@@ -19,7 +15,7 @@
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating gene set PRS.
-  2. Identify the additional inputs required for gene set PRS analysis.
+  2. Understand the inputs required for gene set PRS analysis using PRSet. 
   3. Calculate gene set based PRSs using PRSet.
   5. Understand and interpret the outcomes of gene set PRSs and how they differ from genome-wide PRS.
 
