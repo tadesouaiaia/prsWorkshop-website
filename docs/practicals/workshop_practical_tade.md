@@ -583,15 +583,10 @@ This will generate the principal components that maximize the variance in the da
 		points(project.pca[,1], project.pca[,3], col=col, pch=20, cex=2.25)
 
 
-
-
-
 **❓QUESTIONS:**
 
 <details>
-  <summary>What is distinct about the PC projects of the AMR group relative to other populations?</summary> 
-  Greater Distance, Overlap. 
-</details>
+  <summary>What is distinct about the PC projects of the AMR group relative to other populations?</details>
 
 <details>
   <summary>Why does this occur? What does it tell us about ancestry of this group?</summary> 
