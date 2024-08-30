@@ -232,7 +232,7 @@ Next, repeat the same command for East Asian, African, South Asian and American 
 🗒️ Make note how many individuals there are from each super-population.
 
 
-<h5>Number of Genetic Variants</h5>
+### Number of genetic variants analysed
 
 1000G data contains over 80 million variants genome-wide. The 1000G data we are using
 in this practical is only a small fraction of these variants. This data gives 
@@ -254,7 +254,7 @@ See the output file plink.snplist, which contains a list of all the SNPs in the 
 
 
 
-<h5>Quantification of variable SNPs</h5>
+### Number of polymorphic markers across populations
 
 The rate at which a genetic variant occurs in a population is known as its allele
 frequency. Allele frequencies are shaped by evolutionary forces over a long period
@@ -308,7 +308,7 @@ Having compared the number of SNPs that show variation in each population, answe
 
 ---
 
-<h5>Cross Population Allele Frequency Comparisons</h5>
+### Allele frequency variation across populations
 
 Here we compare profiles of allele frequency across the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
@@ -343,9 +343,7 @@ per ancestry group (the file "plink.frq.strat"), using R:
 
 
 
-<h5>Linkage disequilibrium versus genomic distance, across populations</h5>
-
-
+### Linkage disequilibrium variation across populations
 
 We will now perform pairwise LD comparisons between genome-wide snps in order
 to show cross-populations relationships between genomic distance and LD strength.
@@ -354,9 +352,7 @@ We derive information on pairwise R2 between all SNPs:
 
     ./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --within data/pop_info.pheno --r2 --ld-window-r2 0 --ld-window 999999 --ld-window-kb 2500 --threads 30 --out chr1-22.AFR
 
-
-
-Repeat this step for all five 1000Genomes populations. Output files containing LD
+Repeat this step for all five 1000G populations. Output files containing LD
 info for all pairwise SNPs, have a ‘.ld’ suﬃx Next, create a summary file containing 
 the base-pair distance between each pair and the corresponding r2 value. The
 following example shows this for AFR and EUR populations only, as just these
