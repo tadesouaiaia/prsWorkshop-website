@@ -216,8 +216,8 @@ for each copy of the <em>effect allele</em>. For example, if the effect
  estimate of a Risk Ratio, which cannot be calculated from a
  case/control study)</p>
 <hr />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
 <p>The relationship between the <span class="arithmatex">\(\beta\)</span> coefficient from the logistic regression and the OR is: 
  $$
  OR = e ^ \beta
@@ -227,12 +227,11 @@ for each copy of the <em>effect allele</em>. For example, if the effect
  log_{e}(OR) = \beta
  $$</p>
 <p>While GWAS sometimes convert from the <span class="arithmatex">\(\beta\)</span> to the OR when reporting results, most PRS software convert OR back to <span class="arithmatex">\(\beta\)</span>'s (<span class="arithmatex">\(log_e(OR)\)</span>) to allow simple addition of <span class="arithmatex">\(log_e(OR)\)</span>'s.</p>
-<p>Column names are not standardised across reported GWAS results, thus it is important to check which column is the effect (coded) allele and which is the non-effect allele. For example, in the height GWAS conducted by the GIANT consortium, the effect allele is in the column Allele1, while Allele2 represents the non-effect allele.</p>
-<p>Let us open the Height GWAS file (<strong>GIANT_Height.txt</strong>) and inspect the SNPs at the top of the file. If we only consider SNPs <em>rs4747841</em> and <em>rs878177</em>, what will the ‘PRS’ of an individual with genotypes <strong>AA</strong> and <strong>TC</strong>, respectively, be? And what about for an individual with <strong>AG</strong> and <strong>CC</strong>, respectively? (Careful these are not easy to get correct! This shows how careful PRS algorithms/code need to be).</p>
 </div>
-<hr />
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>Column names are not standardised across reported GWAS results, thus it is important to check which column is the effect (coded) allele and which is the non-effect allele. For example, in the height GWAS conducted by the GIANT consortium, the effect allele is in the column Allele1, while Allele2 represents the non-effect allele.</p>
+<p>Let us open the Height GWAS file (<strong>day1a/Base_Data/GIANT_Height.txt</strong>) and inspect the SNPs at the top of the file. If we only consider SNPs <em>rs4747841</em> and <em>rs878177</em>, what will the ‘PRS’ of an individual with genotypes <strong>AA</strong> and <strong>TC</strong>, respectively, be? And what about for an individual with <strong>AG</strong> and <strong>CC</strong>, respectively? (Careful these are not easy to get correct! This shows how careful PRS algorithms/code need to be).</p>
 <p>What do these PRS values mean in terms of the height of those individuals?</p>
 </div>
 <hr />
@@ -264,8 +263,8 @@ First, you will have to navigate to the <code>website_practical_downloads/day1a<
      --clump-r2 0.1 \
      --out Results/Height
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>You can copy &amp; paste code from this document directly to the terminal.</p>
 </div>
 <p>The command above performs clumping on the height GWAS using LD calculated based on the <strong>TAR</strong> genotype file. SNPs that have <span class="arithmatex">\(r^2&gt;0.1\)</span> within a 250 kb window of the index SNPs are removed. This will generate the <strong>Height.clumped</strong> file, which contains the SNPs retained after clumping. </p>
@@ -300,7 +299,7 @@ From the <code>day1a/</code> directory, run the following command in the termina
      --binary-target F \
      --bar-levels 5e-8 \
      --no-full \
-     --fastscore \ 
+     --fastscore \
      --out Results/Height.gws
 </code></pre></div>
 <p>This command takes the Height GWAS summary statistic file (<code>--base</code>), informs PRSice of the column name for the column containing the SNP ID (<code>--snp</code>), the effect allele (<code>--A1</code>), the non-effect allele (<code>--A2</code>), the effect size (<code>--stat</code>) and the <span class="arithmatex">\(P\)</span>-value (<code>--pvalue</code>).
@@ -467,7 +466,7 @@ However, CARDIoGRAM plus C4D consortium provided the <span class="arithmatex">\(
      --base  Base_Data/Cardio_CAD.txt \
      --target Target_Data/TAR \
      --snp markername \
-     --A1 effect_allele \ 
+     --A1 effect_allele \
      --A2 noneffect_allele \
      --chr chr \
      --bp bp_hg19 \
@@ -501,7 +500,7 @@ However, CARDIoGRAM plus C4D consortium provided the <span class="arithmatex">\(
     --base Base_Data/Cardio_CAD.txt \
     --target Target_Data/TAR \
     --snp markername \
-    --A1 effect_allele \ 
+    --A1 effect_allele \
     --A2 noneffect_allele \
     --chr chr \
     --bp bp_hg19 \
@@ -568,7 +567,7 @@ This allows some interesting analyses such as those performed by Ruderfer et al 
      --stat b \
      --beta \
      --pvalue p \
-     --pheno Target_Data/CAD.pheno \
+     --pheno Target_Data/TAR.cad \
      --binary-target T \
      --out Results/Cross.highres
 </code></pre></div>
