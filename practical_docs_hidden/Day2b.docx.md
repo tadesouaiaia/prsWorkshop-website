@@ -1,8 +1,4 @@
-# Advanced Polygenic Risk Score Analyses
-
-
-## Day 2 - Afternoon Practical: Pathway PRS Analyses
-
+# Day 2 - Afternoon practical: Pathway PRS analyses
 
 ## Table of Contents
   1. [Introduction to gene set (pathway) PRS analysis](#gene-set-analysis-intro)
@@ -19,13 +15,13 @@
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
   1. Understand the motivation and rationale for calculating gene set PRS.
-  2. Identify the additional inputs required for gene set PRS analysis.
+  2. Understand the inputs required for gene set PRS analysis using PRSet. 
   3. Calculate gene set based PRSs using PRSet.
   5. Understand and interpret the outcomes of gene set PRSs and how they differ from genome-wide PRS.
 
 
 ## Data Structure
-You will find all practical materials in the **data/Day_2b** directory. Relevant materials that you should find at the start of the practical are:
+You will find all practical materials in the [following link](https://drive.google.com/drive/folders/1NNtG9_pFJZeO9pH9WOQla7wj1AU-LDon?usp=sharing). Relevant materials that you should find at the start of the practical are:
 
  📂: Base_Data
   - GIANT_Height.txt,
@@ -61,7 +57,9 @@ By aggregating PRS across multiple gene sets (or pathways), these PRS analyses w
 
 ---
 >
-> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals? Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment (using gene set enrichment tools such as MAGMA or partitioned LDSC)?
+> ❓ Why is it useful to have polygenic scores measured across gene-sets (or pathways) for individuals?
+>
+> ❓ Isn’t it suﬃcient to just obtain a ranking of gene-sets according to GWAS-signal enrichment (using gene set enrichment tools such as MAGMA or partitioned LDSC)?
 >
 ---
 
@@ -76,7 +74,7 @@ In this session, the following Base and Target data is used. Base data is public
 | Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
 | Simulated Target Data | Individual-level phenotype and genotype files | Data folder |
 
-Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. However, PRSet also takes as input **BED and SNP files**. 
+Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. Note that PRSet also takes as input **BED and SNP files**. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -160,7 +158,7 @@ gtf38_parsed = gtf38 %>%
 > 
 > ❓ Based on the column with information about the features, how many instances of feature = "gene" can you find ? 
 >
-> ❓ Based on the column with inforamtion about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
+> ❓ Based on the column with information about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
 >
 ---
 
@@ -188,11 +186,10 @@ Finally, PRSet also allow SNP sets, where the user have flexibility to decide wh
 
 <a href="#top">[Back to Top](#table-of-contents)</a>
 <a id="exercise-4-gene-set-based-prs-analysis"></a>
+
 ## Exercise: Calculate gene set PRS analysis
 
-We are now ready to perform gene-set association analyses using PRSet.
-
-To perform the PRSet analysis and obtain the set based PRS and competitive P-value, simply provide the GTF file and the GMT file to PRSice and specify the number of permutation for competitive P-value calculation using the --set-perm option.
+To perform the PRSet analysis, we need to provide the GTF file and the GMT file to PRSice. Additionally, we want to specify the number of permutation to calculate competitive P-value calculation using the --set-perm option.
 
 ```
 Rscript ./Software/PRSice.R \
@@ -219,26 +216,48 @@ Rscript ./Software/PRSice.R \
 ```
 
 ---
-> 📌 If the --wind-5 and --wind-3 flag is not specified, PRSet will use the exact coordinates of each gene as the boundary. By specifying eg. --wind-5 5kb and --wind-3 1kb then the boundary of each gene will be extended 5 kb towards the 5’ end and 1 kb towards the 3’ end so that regulatory elements of the gene can be included.
+> ** Compare the code to calculate a genome-wide PRS with PRSice (e.g. looking at yesterday's practical) and the code above to run PRSet **
+>
+> ❓ What extra commands are used today to run gene set specific PRSs? What do these additional commands do?
+> 
 ---
 
 ## Results and Plots specific of gene set PRS analyses
 
+### Competitive P-value calculation
+When only one region of the genome is used to calculate PRSs (for example a gene set or a pathway PRSs), self-contained and/or competitive tests of association can be performed.
+
+The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
+- **Null-hypothesis for self-contained test** - None of the genes within the gene set are associated with the phenotype.
+- **Null-hypothesis for competitive tests** - Genes within the gene set are no more associated with the phenotype than genes outside the gene set.
+
+Importantly, in a self-contained test, a bigger gene-set will have a higher likelihood of having a significant P-value from self-contained test, which is not desirable. Therefore, competitive P-values should be calculated to account for gene set size, as shown in **Figure 2**.
+
+![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/competitiveVSself-contained.png)
+<sub> **Figure 2** : Examples of significant and non-significant gene sets when running competitive tests of association. </sub>
+
 ---
 >
-> ** Check the .summary results file, with and without running the PRSet specific options **
+> ** Check the .summary results file after running PRSice WITH and WITHOUT including the PRSet specific options **
 >
-> ❓ How does this file change? What extra information is incorporated when including the PRSet specific commands?
+> ❓ How does the .summary output file change? What extra information (i.e. extra columns) are incorporated when including PRSet specific commands?
+>
+> ❓ What are the 3 gene-sets with the smallest self contained P-values?
+>
+> ❓ What are the 3 gene-sets with the smallest competitive P-values? 
+>
+> ** Imagine that you are running an analysis to find the gene sets most associated with height **
+> ❓ Considering both the competitive P-value results, what gene set do you think is the most interesting and why?
 >
 ---
 
-Apart from the output files, running the PRSet options will provide extra information about the new gene set PRSs calculated. For example, a new figure with the results for each gene set PRS.
+In addition to additional information in the output files, running the PRSet options will provide one extra figure with the results for the gene set PRS with the highest R2.
 
-![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/docs/images/Day2b_Height.set_MULTISET_BARPLOT.png)
-<sub> **Figure 2** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
+![Figure](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/Day2b_Height.set_MULTISET_BARPLOT.png)
+<sub> **Figure 3** : An example of the multi-set plot. Sets are sorted based on their self-contained R2. Base is the genome wide PRS. </sub>
 
 <a id="considerations"></a>
-## Considerations when analysing and interpreting gene-set PRSs
+## Other considerations when analysing and interpreting gene set PRSs
 
 <a id="clumping"></a>
 ### Clumping for each gene set independently
@@ -259,14 +278,11 @@ reducing the signal:
 
 Therefore, to maximize signal within each gene set, we must perform clumping for each gene sets separately:
 
-
 ![Set Base Clumping](https://github.com/tadesouaiaia/prsWorkshop-website/blob/main/practical_docs_hidden/practical_images/day2b/set_clump.gif)
 
 ---
 >
->> ** Check the .summary results file. When answering questions, do not count the Base, as this result corresponds to the genome-wide PRS **
->> 
-> ❓ Check the '.summary' file. How many SNPs are included in the top 10 gene sets?
+>> ** Check the .summary results file (Do not count the Base, as this result corresponds to the genome-wide PRS) **
 >
 > ❓ Can you plot the relationship between the gene set R2 and the number of SNPs in each gene set? What general trend can be seen?
 >
@@ -281,28 +297,6 @@ PRSet default option is to no not perform p-value thresholding. It will simply c
 > ❓ Why do you think that the default option of PRSet is P-value threshold of 1?
 >
 > ❓ In what cases would you like to apply P-value thresholding?
->
----
-
-<a id="p-value-testing"></a>
-### Self-contained vs competitive testing
-An important aspect when calculating gene set based PRSs is the type of test used for association. Since we are only considering one region of the genome, self-contained and/or competitive tests can be performed. 
-
-The null-hypothesis of self-contained and competitive test statistics is diﬀerent:
-  – **Self-Contained** - None of the genes within the gene-set are associated with the phenotype
-  – **Competitive** - Genes within the gene-set are no more associated with the phenotype than genes outside the gene-set
-Therefore, a bigger gene-set will have a higher likelihood of having a significant P -value from self-contained test, which is not desirable.
-
----
->
-> ** Check the .summary results file again **
->
-> ❓ What are the 3 gene-sets with the smallest competitive P-values? 
->
-> ❓ Why do you think that we check the competitive P-value, instead of the self contained P-value?
->
-> ** Imagine that you are running an analysis to find the gene sets most associated with height **
-> ❓ Considering the competitive P-value results, what gene set do you think is the most interesting and why?
 >
 ---
 

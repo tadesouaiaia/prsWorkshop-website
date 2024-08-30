@@ -32,7 +32,7 @@ To perform PRS analyses, summary statistics from Genome-Wide Association Studies
 You will need to download the required files for this tutorial.       
     
 
-You will find all practical materials in the **Annex** directory. Relevant materials that you should see there at the start of the practical are as follows:
+You will find all practical materials in the [following link](https://drive.google.com/drive/folders/1s41DR0TnzknnY3-I89knlwQcjJGlzudo?usp=sharing). Relevant materials that you should see there at the start of the practical are as follows:
 
  📂: Base_Data
   - GIANT_Height.txt,
@@ -46,10 +46,14 @@ You will find all practical materials in the **Annex** directory. Relevant mater
   - TAR.height
   - TAR.cad 
   - TAR.covariate
+
+  - VAL.bed
+  - VAL.bim
+  - VAL.fam
+  - VAL.covariate
+  - VAL.height
     
- 🛠️: Software
-  - PRSice.R 
-  - PRSice_linux
+ 🛠️: Scripts
   - nagelkerke.R
   - Quantile.R
     
