@@ -316,25 +316,6 @@ Having compared the number of SNPs that show variation in each population, answe
 
 ---
 
-
-<h5>Investigation Missingness</h5>
-
-Genotype missingness, caused by genotyping failure can potentially lead to biased
-allele frequency estimation. Therefore missingness needs to be excluded as a possible
-source of bias when calculating allele frequency differences.
-
-
-    ./code/plink --bfile data/chr1-22 --missing --within data/pop_info.pheno
-
-
-
-The output file plink.lmiss provides a variant-based missing data report). Use the
-following code to query the number of genotyping failures based on the missingness
-information in the NMISS column:
-
-    awk '$4 > 0' plink.lmiss | wc -l
-
-
 <h5>Cross Population Allele Frequency Comparisons</h5>
 
 Here we compare profiles of allele frequency across the five ancestral populations.
