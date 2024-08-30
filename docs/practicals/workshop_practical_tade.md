@@ -586,11 +586,13 @@ This will generate the principal components that maximize the variance in the da
 **❓QUESTIONS:**
 
 <details>
-  <summary>What is distinct about the PC projects of the AMR group relative to other populations?</details>
+  <summary>What is distinct about the PC projections of the AMR group relative to other populations?
+<!--  </summary> More disperse -->
+  </details>
 
 <details>
-  <summary>Why does this occur? What does it tell us about ancestry of this group?</summary> 
-  Suggest recent admixture? 
+  <summary>Why does this occur? What does it tell us about ancestry of this group?
+  </summary> Suggest recent admixture? 
 </details>
 
 
