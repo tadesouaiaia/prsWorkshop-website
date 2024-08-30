@@ -11,7 +11,9 @@
 
 # PRS Japan Workshop is Almost Here!: Aug 31, 2024 
 
-**Attendees should complete the [pre-workshop checklist!](prep_list.md)** 
+**Download the [workshop practical data!](https://drive.google.com/drive/folders/1izXdmftuqwJTBLYYiu8CHnwWDeLRMWRc?usp=drive_link)** 
+
+Attendees should complete the [pre-workshop checklist!](prep_list.md)
 
 Download pre-workshop materials [here.](prep_testing.md) 
 

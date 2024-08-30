@@ -183,20 +183,19 @@ View the resulting scatterplot and answer the questions below.
 
 ### 1000 Genomes Data
 
-We have observed the PRS-portability problem in practice,
+Now that you have observed the PRS-portability problem in practice
 we are going to consider some analysis that can be used to 
-provide a solution. The following exercises use the 1000 Genomes (1000g)
-data which contains individuals from 26 different source populations
-from five super-populations, Europe, East Asia, South Asian, Africa and America. 
-
-Recall from the lecture that the primary drivers of the PRS portability problem are 
-between population difference in allele frequency, linkage disequilibrium and effect sizes. 
-In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
-across population. 
-
-Population structure and population assignment is often accomplished using 
-principal components analysis (PCA). In the final exercise we learn what PCA is and how 
+provide a solution.  Recall from the lecture that population structure
+and population assignment is often accomplished using 
+principal components analysis (PCA) and that the primary population
+differences that drive the portability problem are 
+difference in allele frequency and linkage disequilibrium. 
+In the next exercise we will learn how to analyze and compare 
+data from different populations and quantify linkage disequilibrium. 
+In the final exercise we learn what PCA is and how 
 it can be used to separate population data by recent ancestry.
+Both of these exercises use the 1000 Genomes dataset which contains individuals from 26 different 
+source populations from five super-populations, Europe, East Asia, South Asian, Africa and America. 
 
 ---
 
@@ -208,8 +207,8 @@ it can be used to separate population data by recent ancestry.
 
 ## Ex 2: Population Genetics 
 
-This exercise takes place in the folder **exercise2**.  Once inside the folder you should 
-see **code** and **data** directories.  Looking in the data directory by typing the following command: 
+This exercise of this practical takes place in the folder **exercise2**.  Once inside the folder you should 
+see **code** and **data** directories.  Looking in the data directory by typing the following command will reveal: 
     
     ls data/* 
 
@@ -306,6 +305,25 @@ Having compared the number of SNPs that show variation in each population, answe
 
 
 ---
+
+
+<h5>Investigation Missingness</h5>
+
+Genotype missingness, caused by genotyping failure can potentially lead to biased
+allele frequency estimation. Therefore missingness needs to be excluded as a possible
+source of bias when calculating allele frequency differences.
+
+
+    ./code/plink --bfile data/chr1-22 --missing --within data/pop_info.pheno
+
+
+
+The output file plink.lmiss provides a variant-based missing data report). Use the
+following code to query the number of genotyping failures based on the missingness
+information in the NMISS column:
+
+    awk '$4 > 0' plink.lmiss | wc -l
+
 
 <h5>Cross Population Allele Frequency Comparisons</h5>
 
@@ -612,8 +630,7 @@ This will generate the principal components that maximize the variance in the da
 </details>
 
 <details>
-  <summary>Why does this occur? What does it tell us about ancestry of this group?</summary> 
-  Suggest recent admixture? 
+  <summary>Why does this occur? What does it tell us about ancestry of this group?
 </details>
 
 
