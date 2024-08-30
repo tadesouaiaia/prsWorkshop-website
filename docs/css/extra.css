@@ -257,3 +257,20 @@ details>summary {
     color: white !important;
     background: #FF6666 !important;
 }
+
+
+.admonition.questions {
+    padding: 12px;
+    margin: -12px -12px 0px -12px;
+    background-color: rgba(240, 154, 92, 0.1);
+}
+
+.admonition.questions .admonition-title {
+    border-bottom: .1rem solid rgba(98, 0, 234, .1);
+    background-color: #b0550f;
+}
+
+.admonition.questions .admonition-title:before {
+    content: "\f059";
+    font-family: 'FontAwesome';
+}
