@@ -65,7 +65,7 @@ for each copy of the *effect allele*. For example, if the effect
 
      While GWAS sometimes convert from the $\beta$ to the OR when reporting results, most PRS software convert OR back to $\beta$'s ($log_e(OR)$) to allow simple addition of $log_e(OR)$'s.
 
-!!! Question
+!!! Questions
      Column names are not standardised across reported GWAS results, thus it is important to check which column is the effect (coded) allele and which is the non-effect allele. For example, in the height GWAS conducted by the GIANT consortium, the effect allele is in the column Allele1, while Allele2 represents the non-effect allele.
 
 
