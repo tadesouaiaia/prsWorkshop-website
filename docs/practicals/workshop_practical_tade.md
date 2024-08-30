@@ -237,29 +237,17 @@ Next, repeat the same command for East Asian, African, South Asian and American 
 1000G data contains over 80 million variants genome-wide. The 1000G data we are using
 in this practical is only a small fraction of these variants. This data gives 
 a reliable approximation for the genomic analyses in this tutorial and importantly,
-reduces the computation
-time required to complete the tutorial. The following command derives the number
-of genetic variants on chromosomes 1 to chromosome 22 by counting the number of
-lines in the relevant (.bim) file, which contains a single variant per line.
+reduces the computation time required to complete the tutorial. The following command
+counts the number of genetic variants on chromosomes 1 to chromosome 22 used in our analyses
 
     wc -l data/chr1-22.bim
-
-
-To quantify the number of single nucleotide polymorphisms (SNPs) we can ask plink to write a
-list of SNPs: 
-
-    ./code/plink --bfile data/chr1-22 --snps-only --write-snplist
-
-See the output file plink.snplist, which contains a list of all the SNPs in the dataset. 
-
 
 
 ### Number of polymorphic markers across populations
 
 The rate at which a genetic variant occurs in a population is known as its allele
 frequency. Allele frequencies are shaped by evolutionary forces over a long period
-of time and hence can vary. This has implications for PRS research as the allele
-frequency distribution of variants typically varies between populations. The following
+of time and hence can vary between populations. This has implications for PRS research. The following
 plink command uses the population information in the file pop_info.pheno to
 generate allele frequency statistics for each SNP in the five 1000G super-populations:
 
@@ -268,9 +256,6 @@ generate allele frequency statistics for each SNP in the five 1000G super-popula
 
 
 Population-stratified allele frequency results can be found in the output file plink.frq.strat.
-For each population, print the total numbers of SNPs to screen, as follows:
-
-    grep -F "AFR" plink.frq.strat | wc -l
 
 Compare the totals against number of SNPs which have minor allele frequencies
 greater than 0 (and hence are useful for statistical analysis). Do this for all 5
