@@ -234,9 +234,10 @@ Next, repeat the same command for East Asian, African, South Asian and American 
 
 <h5>Number of Genetic Variants</h5>
 
-We do not need to use the full genome-wide data for this tutorial, only a small fraction 
-of the 80 million total available variants. This provides a reliable approximation
-for the genomic analyses in this tutorial and importantly, reduces the computation
+1000G data contains over 80 million variants genome-wide. The 1000G data we are using
+in this practical is only a small fraction of these variants. This data gives 
+a reliable approximation for the genomic analyses in this tutorial and importantly,
+reduces the computation
 time required to complete the tutorial. The following command derives the number
 of genetic variants on chromosomes 1 to chromosome 22 by counting the number of
 lines in the relevant (.bim) file, which contains a single variant per line.
