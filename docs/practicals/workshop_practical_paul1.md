@@ -53,7 +53,7 @@ for each copy of the *effect allele*. For example, if the effect
  case/control study)
 
 ---
-!!! Note
+!!! Information
      The relationship between the $\beta$ coefficient from the logistic regression and the OR is: 
      $$
      OR = e ^ \beta
@@ -65,16 +65,12 @@ for each copy of the *effect allele*. For example, if the effect
 
      While GWAS sometimes convert from the $\beta$ to the OR when reporting results, most PRS software convert OR back to $\beta$'s ($log_e(OR)$) to allow simple addition of $log_e(OR)$'s.
 
-
+!!! Question
      Column names are not standardised across reported GWAS results, thus it is important to check which column is the effect (coded) allele and which is the non-effect allele. For example, in the height GWAS conducted by the GIANT consortium, the effect allele is in the column Allele1, while Allele2 represents the non-effect allele.
 
 
-     Let us open the Height GWAS file (**GIANT_Height.txt**) and inspect the SNPs at the top of the file. If we only consider SNPs *rs4747841* and *rs878177*, what will the ‘PRS’ of an individual with genotypes **AA** and **TC**, respectively, be? And what about for an individual with **AG** and **CC**, respectively? (Careful these are not easy to get correct! This shows how careful PRS algorithms/code need to be).
+     Let us open the Height GWAS file (**day1a/Base_Data/GIANT_Height.txt**) and inspect the SNPs at the top of the file. If we only consider SNPs *rs4747841* and *rs878177*, what will the ‘PRS’ of an individual with genotypes **AA** and **TC**, respectively, be? And what about for an individual with **AG** and **CC**, respectively? (Careful these are not easy to get correct! This shows how careful PRS algorithms/code need to be).
 
-
----
-
-!!! Question
      What do these PRS values mean in terms of the height of those individuals?
 
 ---
@@ -126,7 +122,7 @@ First, you will have to navigate to the `website_practical_downloads/day1a` fold
 
 ```
 
-!!!Warning
+!!! Note
      You can copy & paste code from this document directly to the terminal.
 
 The command above performs clumping on the height GWAS using LD calculated based on the **TAR** genotype file. SNPs that have $r^2>0.1$ within a 250 kb window of the index SNPs are removed. This will generate the **Height.clumped** file, which contains the SNPs retained after clumping. 
@@ -168,7 +164,7 @@ Rscript ./Software/PRSice.R \
      --binary-target F \
      --bar-levels 5e-8 \
      --no-full \
-     --fastscore \ 
+     --fastscore \
      --out Results/Height.gws
 ```
 
@@ -373,7 +369,7 @@ Rscript ./Software/PRSice.R \
      --base  Base_Data/Cardio_CAD.txt \
      --target Target_Data/TAR \
      --snp markername \
-     --A1 effect_allele \ 
+     --A1 effect_allele \
      --A2 noneffect_allele \
      --chr chr \
      --bp bp_hg19 \
@@ -413,7 +409,7 @@ Rscript ./Software/PRSice.R \
     --base Base_Data/Cardio_CAD.txt \
     --target Target_Data/TAR \
     --snp markername \
-    --A1 effect_allele \ 
+    --A1 effect_allele \
     --A2 noneffect_allele \
     --chr chr \
     --bp bp_hg19 \
@@ -490,7 +486,7 @@ Rscript ./Software/PRSice.R \
      --stat b \
      --beta \
      --pvalue p \
-     --pheno Target_Data/CAD.pheno \
+     --pheno Target_Data/TAR.cad \
      --binary-target T \
      --out Results/Cross.highres
 ```
