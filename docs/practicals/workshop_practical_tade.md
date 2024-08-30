@@ -192,7 +192,7 @@ from five super-populations, Europe, East Asia, South Asian, Africa and America.
 Recall from the lecture that the primary drivers of the PRS portability problem are 
 between population difference in allele frequency, linkage disequilibrium and effect sizes. 
 In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
-across population. 
+across populations.
 
 Population structure and population assignment is often accomplished using 
 principal components analysis (PCA). In the final exercise we learn what PCA is and how 
