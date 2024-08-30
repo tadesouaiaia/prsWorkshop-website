@@ -192,19 +192,20 @@ View the resulting scatterplot and answer the questions below.
 
 ### 1000 Genomes Data
 
-Now that you have observed the PRS-portability problem in practice
+We have observed the PRS-portability problem in practice,
 we are going to consider some analysis that can be used to 
-provide a solution.  Recall from the lecture that population structure
-and population assignment is often accomplished using 
-principal components analysis (PCA) and that the primary population
-differences that drive the portability problem are 
-difference in allele frequency and linkage disequilibrium. 
-In the next exercise we will learn how to analyze and compare 
-data from different populations and quantify linkage disequilibrium. 
-In the final exercise we learn what PCA is and how 
+provide a solution. The following exercises use the 1000 Genomes (1000g)
+data which contains individuals from 26 different source populations
+from five super-populations, Europe, East Asia, South Asian, Africa and America. 
+
+Recall from the lecture that the primary drivers of the PRS portability problem are 
+between population difference in allele frequency, linkage disequilibrium and effect sizes. 
+In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
+across population. 
+
+Population structure and population assignment is often accomplished using 
+principal components analysis (PCA). In the final exercise we learn what PCA is and how 
 it can be used to separate population data by recent ancestry.
-Both of these exercises use the 1000 Genomes dataset which contains individuals from 26 different 
-source populations from five super-populations, Europe, East Asia, South Asian, Africa and America. 
 
 ---
 
@@ -216,8 +217,8 @@ source populations from five super-populations, Europe, East Asia, South Asian, 
 
 ## Ex 2: Population Genetics 
 
-This exercise of this practical takes place in the folder **exercise2**.  Once inside the folder you should 
-see **code** and **data** directories.  Looking in the data directory by typing the following command will reveal: 
+This exercise takes place in the folder **exercise2**.  Once inside the folder you should 
+see **code** and **data** directories.  Looking in the data directory by typing the following command: 
     
     ls data/* 
 
