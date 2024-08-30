@@ -1,52 +1,40 @@
-h1 {                                                                                                                                                                                                                        
-      color: green;                                                                                                                                                                                                         
-  }                                                                                                                                                                                                                         
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-.rst-versions{                                                                                                                                                                                                              
-        border-top:solid 10px indigo;                                                                                                                                                                                       
-    }                                                                                                                                                                                                                       
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-.wy-side-nav-search {                                                                                                                                                                                                       
-        background: red;                                                                                                                                                                                                    
-    }                                                                                                                                                                                                                       
-    .wy-nav-side {                                                                                                                                                                                                          
-            background: black;                                                                                                                                                                                              
-        }                                                                                                                                                                                                                   
-        .rst-versions .rst-current-version {                                                                                                                                                                                
-                background: red;                                                                                                                                                                                         
-            }                                                                                                                                                                                                               
-                                                                                                                                                                                                                            
-.wy-nav-content {                                                                                                                                                                                                           
-        max-width: 1200px !important;                                                                                                                                                                                       
-        max-width: 1300px !important;                                                                                                                                                                                       
-        max-width: 60% !important;                                                                                                                                                                                          
-    }        
+h1 {
+    color: green;
+}
 
+.rst-versions {
+    border-top: solid 10px indigo;
+}
 
+.wy-side-nav-search {
+    background: red;
+}
 
+.wy-nav-side {
+    background: black;
+}
 
+.rst-versions .rst-current-version {
+    background: red;
+}
 
-
-
-
-
-
-
-
-
-
+.wy-nav-content {
+    max-width: 1200px !important;
+    max-width: 1300px !important;
+    max-width: 80% !important;
+}
 
 
 .cryptedmail:after {
-  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+    content: attr(data-name) "@"attr(data-domain) "."attr(data-tld);
 }
-body{
+
+body {
     font-size: 18px;
-    font-family: Helvetica,Arial, sans-serif
+    font-family: Helvetica, Arial, sans-serif
 }
-.highlight pre{ 
+
+.highlight pre {
     white-space: pre-wrap;
     overflow: auto;
     box-sizing: border-box;
@@ -67,11 +55,7 @@ body{
     position: static
 }
 
-
-
-
-
-  .tabbed-set {
+.tabbed-set {
     display: flex;
     position: relative;
     flex-wrap: wrap;
@@ -81,8 +65,8 @@ body{
     /*border-style: solid;
     border-color: #000000;*/
     margin-bottom: 10px;
-    }
-    
+}
+
 .tabbed-set .highlight {
     background: #ddffdd;
 }
@@ -92,14 +76,15 @@ body{
     order: 99;
     width: 100%;
     margin-bottom: -14px;
-  }
+}
+
 .tabbed-set .tabbed-content {
     display: none;
     order: 99;
     width: 100%;
     margin-bottom: -15px;
 }
-    
+
 .tabbed-set label {
     width: auto;
     margin: 0 0.5em;
@@ -108,57 +93,59 @@ body{
     margin-bottom: -10px;
     cursor: pointer;
 }
-    
+
 .tabbed-set input {
     position: absolute;
     opacity: 0;
 }
-    
-  .tabbed-set input:nth-child(n+1) {
-      color: #333333;
-  }
-    
-  .tabbed-set input:nth-child(n+1):checked + label {
-        color: #FF5252;
-  }
-    
-  .tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
-        display: block;
-  }
 
-  code {
+.tabbed-set input:nth-child(n+1) {
+    color: #333333;
+}
+
+.tabbed-set input:nth-child(n+1):checked+label {
+    color: #FF5252;
+}
+
+.tabbed-set input:nth-child(n+1):checked+label+.tabbed-content {
+    display: block;
+}
+
+code {
     font-size: 18px !important;
-    line-height: 100%;
+    line-height: normal !important;
 }
 
 
 img[src*='#left'] {
     float: left;
 }
+
 img[src*='#right'] {
     float: right;
 }
+
 img[src*='#center'] {
     display: block;
     margin: auto;
 }
 
 
-.admonition.announcement{
+.admonition.announcement {
     padding: 12px;
     margin: -12px -12px 0px -12px;
     background-color: rgba(98, 0, 234, .1);
 }
-.admonition.announcement .admonition-title{
+
+.admonition.announcement .admonition-title {
     border-bottom: .1rem solid rgba(98, 0, 234, .1);
     background-color: #6200ea;
 }
 
-.admonition.announcement .admonition-title:before{
+.admonition.announcement .admonition-title:before {
     content: "\f0a1";
     font-family: 'FontAwesome';
 }
-
 
 p {
     font-size: 100%;
@@ -169,12 +156,7 @@ li {
 }
 
 
-code {
-    font-size: 18px !important;
-    line-height: 100%;
-}
-
-table tbody { 
+table tbody {
     font-size: 100%;
 }
 
@@ -185,16 +167,19 @@ table th {
 table td {
     font-family: sans-serif;
     font-size: 100%;
-    padding:0 15px;
+    padding: 0 15px;
     line-height: 150%;
 }
+
 table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-table{
+
+table {
     display: block;
     overflow: auto;
 }
+
 .tabbed-set {
     display: flex;
     position: relative;
@@ -210,7 +195,7 @@ table{
 .tabbed-set .highlight {
     background: #ddd;
 }
-  
+
 .tabbed-set .tabbed-content {
     display: none;
     order: 99;
@@ -223,7 +208,7 @@ table{
     order: 99;
     width: 100%;
     margin-bottom: -14px;
-}  
+}
 
 .tabbed-set label {
     width: auto;
@@ -232,30 +217,30 @@ table{
     font-size: 100%;
     cursor: pointer;
 }
-  
+
 .tabbed-set input {
     position: absolute;
     opacity: 0;
 }
-  
+
 .tabbed-set input:nth-child(n+1) {
     color: #333333;
 }
-  
-.tabbed-set input:nth-child(n+1):checked + label {
-      color: #FF5252;
-}
-  
-.tabbed-set input:nth-child(n+1):checked + label + .tabbed-content {
-      display: block;
-}
-  
 
-details > summary{
+.tabbed-set input:nth-child(n+1):checked+label {
+    color: #FF5252;
+}
+
+.tabbed-set input:nth-child(n+1):checked+label+.tabbed-content {
+    display: block;
+}
+
+
+details>summary {
     font-size: 100%
 }
 
-.note p.admonition-title{
+.note p.admonition-title {
     color: white !important;
     background: #555599 !important;
 }
