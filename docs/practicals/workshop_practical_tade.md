@@ -224,15 +224,17 @@ see **code** and **data** directories.  Looking in the data directory by typing 
 
 ### Sample size of each super-population
 
-The first thing we would like to find out about this data is the number of individuals within each global superpopulation.  Type the 
-following command to query the number of European ancestry individuals in the downloaded dataset: 
+The first thing we would like to find out about this data is the
+number of individuals in each super-population.  Type the
+following command to query the number of European ancestry individuals
+in the downloaded dataset:
 
     grep -F "EUR" data/all_phase3.king.psam | wc -l
 
 
 Next, repeat the same command for East Asian, African, South Asian and American super-populations, by inserting the relevant ancestry codes (EAS, AFR, SAS, AMR).
 
-🗒️ Make a note of how many individuals there are from each super-population.
+🗒️ Make a note of how many individuals there are in each super-population.
 
 
 ### Number of genetic variants analysed
@@ -262,7 +264,7 @@ Population-stratified allele frequency results are found in the output file plin
 
 Compare the totals against number of SNPs which have minor allele frequencies
 greater than 0 (and hence are useful for statistical analysis). Do this for all 5
-populations (EAS, EUR, SAS, EUR and AFR), using the code given below:
+populations (EAS, EUR, SAS, EUR and AFR), using the code below:
 
     grep -F "AFR" plink.frq.strat > freq_report.afr
     grep -F "AMR" plink.frq.strat > freq_report.amr
@@ -300,7 +302,7 @@ Having compared the number of SNPs that show variation in each population, answe
 
 ### Allele frequency variation across the super-populations
 
-Here we compare profiles of allele frequency across the five ancestral populations.
+Here we compare the distribution of allele frequency in the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
 per ancestry group (the file "plink.frq.strat"), using R: 
 
@@ -336,16 +338,17 @@ per ancestry group (the file "plink.frq.strat"), using R:
 
 ### Linkage disequilibrium variation across populations
 
-We will now perform pairwise LD comparisons between genome-wide snps in order
-to show cross-populations relationships between genomic distance and LD strength.
-We derive information on pairwise R2 between all SNPs:
+We will now perform pairwise LD comparisons between genome-wide SNPs
+to show how the relationship between genomic distance and LD strength
+varies between populations.  We first derive information on pairwise
+R2 between all SNPs:
 
 
     ./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --within data/pop_info.pheno --r2 --ld-window-r2 0 --ld-window 999999 --ld-window-kb 2500 --threads 30 --out chr1-22.AFR
 
 Repeat this step for all five 1000G populations. Output files containing LD
 info for all pairwise SNPs, have a ‘.ld’ suﬃx Next, create a summary file containing 
-the base-pair distance between each pair and the corresponding r2 value. The
+the base-pair distance between each pair and the corresponding R2 value. The
 following example shows this for AFR and EUR populations only, as just these
 populations will be used in the plot.
 
@@ -357,11 +360,8 @@ populations will be used in the plot.
 
 ### LD decay versus chromosomal distance
 
-To visualise LD behaviour as a function of chromosomal distance we can carry out 
-the following commands from within an R terminal: 
-
-
-
+The following R commamds use this output to display LD as a function
+of genomic distance for the African and European populations:
 
 
 !!! help "R-Code: Visualize LD Behavior"
@@ -424,7 +424,7 @@ the following commands from within an R terminal:
 
 ### Distribution of LD-block length
 The next set of scripts will allow us to visualise the distribution of
-LD block length in 1000G super-populations.
+LD block length in the 1000G super-populations.
 
 
     ./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --blocks no-pheno-req no-small-max-span --blocks-max-kb 250 --within data/pop_info.pheno  --threads 30 --out AFR
@@ -435,7 +435,7 @@ definition implemented by the software Haploview. The default setting
 for the flag --blocks-max-kb only considers pairs of variants that are
 within 200 kilobases of each other. The output file from the above
 command is a .blocks file. Use the same code to generate output for
-EUR, EAS, SAS and AMR populations (as it is not possible to generate
+EAS, EUR, SAS and AMR populations (as it is not possible to generate
 population-specific information using the --within flag).  Then, in R:
 
 
@@ -491,10 +491,16 @@ population-specific information using the --within flag).  Then, in R:
 
 ## Ex 3: PCA 
 
-Principle Component Analysis is a useful technique that allows researchers to visualize high dimensional data in lower space by rotating the axes in such a 
-way that the lower dimensions (or components) maximize the total variance explained.  In statistical genetics this involves "rotating" million-dimensional 
-data - something that is very hard to visualize!  For this reason, we begin with a simpler exercise.  For the following three two dimensional shapes, 
-spend some time identifying the principle components or sketching the line across for which variance is maximized.   Check your answers below: 
+Principle component analysis is a useful technique that allows
+researchers to visualize high dimensional data in lower space by
+rotating the axes in such a way that the lower dimensions (or
+components) maximize the total variance explained.  In statistical
+genetics this involves "rotating" million-dimensional data - something
+that is very hard to visualize!  For this reason, we begin with a
+simpler exercise.  For the following three two dimensional shapes,
+spend some time identifying the principle components or sketching the
+line across for which variance is maximized.  Check your answers
+below:
 
 
 ![Screenshot](images2/basic_pca_shapes.png) 
