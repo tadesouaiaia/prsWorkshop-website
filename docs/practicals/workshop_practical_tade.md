@@ -7,6 +7,7 @@
   3. [A Portability Problem](#ex-1-portability-problem) 
   4. [Population Genetics Basics](#ex-2-population-genetics)
      1. Allele frequencies
+     2. Linkage disequilibrium
   6. [Dimensional Reduction: PCA](#ex-3-pca) 
 
 ---
