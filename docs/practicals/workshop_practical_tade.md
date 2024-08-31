@@ -219,7 +219,7 @@ see **code** and **data** directories.  Looking in the data directory by typing 
   3. 💫: **data/all_phase3.king.psam** (Axillary Phase Data) 
 
 
-<h5>Sample Sizes</h5>
+### Sample size of each super-population
 
 The first thing we would like to find out about this data is the number of individuals within each global superpopulation.  Type the 
 following command to query the number of European ancestry individuals in the downloaded dataset: 
@@ -229,7 +229,7 @@ following command to query the number of European ancestry individuals in the do
 
 Next, repeat the same command for East Asian, African, South Asian and American super-populations, by inserting the relevant ancestry codes (EAS, AFR, SAS, AMR).
 
-🗒️ Make note how many individuals there are from each super-population.
+🗒️ Make a note of how many individuals there are from each super-population.
 
 
 ### Number of genetic variants analysed
@@ -238,12 +238,12 @@ Next, repeat the same command for East Asian, African, South Asian and American 
 in this practical is only a small fraction of these variants. This data gives 
 a reliable approximation for the genomic analyses in this tutorial and importantly,
 reduces the computation time required to complete the tutorial. The following command
-counts the number of genetic variants on chromosomes 1 to chromosome 22 used in our analyses
+counts the number of genetic variants on chromosomes 1-22 used in our analyses
 
     wc -l data/chr1-22.bim
 
 
-### Number of polymorphic markers across populations
+### Number of polymorphic markers in each super-populations
 
 The rate at which a genetic variant occurs in a population is known as its allele
 frequency. Allele frequencies are shaped by evolutionary forces over a long period
@@ -255,13 +255,13 @@ generate allele frequency statistics for each SNP in the five 1000G super-popula
     ./code/plink --bfile data/chr1-22 --snps-only --freq --within data/pop_info.pheno
 
 
-Population-stratified allele frequency results can be found in the output file plink.frq.strat.
+Population-stratified allele frequency results are found in the output file plink.frq.strat.
 
 Compare the totals against number of SNPs which have minor allele frequencies
 greater than 0 (and hence are useful for statistical analysis). Do this for all 5
 populations (EAS, EUR, SAS, EUR and AFR), using the code given below:
 
-    grep -F  "AFR" plink.frq.strat > freq_report.afr
+    grep -F "AFR" plink.frq.strat > freq_report.afr
     grep -F "AMR" plink.frq.strat > freq_report.amr
     grep -F "EUR" plink.frq.strat > freq_report.eur
     grep -F "EAS" plink.frq.strat > freq_report.eas
