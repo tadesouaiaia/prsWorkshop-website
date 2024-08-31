@@ -185,8 +185,8 @@ View the resulting scatterplot and answer the questions below.
 
 We have observed the PRS-portability problem in practice,
 we are going to consider some analysis that can be used to 
-provide a solution. The following exercises use the 1000 Genomes (1000g)
-data which contains individuals from 26 different source populations
+provide a solution. The following exercises use the 1000 Genomes (1000G)
+data which contains individuals from 26 source populations
 from five super-populations, Europe, East Asia, South Asian, Africa and America. 
 
 Recall from the lecture that the primary drivers of the PRS portability problem are 
