@@ -66,7 +66,7 @@ for each copy of the *effect allele*. For example, if the effect
 
      While GWAS sometimes convert from the $\beta$ to the OR when reporting results, most PRS software convert OR back to $\beta$'s ($log_e(OR)$) to allow simple addition of $log_e(OR)$'s.
 
-!!! Question
+!!! Questions
      Column names are not standardised across reported GWAS results, thus it is important to check which column is the effect (coded) allele and which is the non-effect allele. For example, in the height GWAS conducted by the GIANT consortium, the effect allele is in the column Allele1, while Allele2 represents the non-effect allele.
 
 
@@ -468,11 +468,12 @@ Rscript ./Software/PRSice.R \
 	The results shown in the quantile and strata plots here do not show much higher risk in the top quantiles, but this is because our simulated target data are small.
 
 
-### 1.11 Cross-Trait Analysis
+## 1.11 Cross-Trait Analysis
 A popular application of PRS is in performing cross-trait analyses. 
 This allows some interesting analyses such as those performed by Ruderfer et al 2014 (Fig.1.5), which used the bipolar PRS to predict into different clinical dimensions of schizophrenia.
 
-<!-- ![Plot taken from Ruderfer et al. 2014](../../images/sczbp.png) -->
+
+![Plot taken from Ruderfer et al. 2014](../../images/sczbp.png)
 
  In this practical, we will perform cross-trait analyses between CAD and Height, using height as the base and CAD as the target. 
 
