@@ -147,23 +147,27 @@ View the resulting scatterplot and answer the questions below.
 **❓QUESTIONS:**
 
 <details>
-  <summary>In the UK-result, what percent of variance in phenotype is explained by prs?</summary>
-  Approximately 10%. 
+  <summary>In the UK-result, what percent of variance in phenotype is
+  explained by prs?
+<!--      </summary> Approximately 10%.   -->
 </details>
 
 <details>
-  <summary>In the Japan-result, what percent of variance in phenotype is explained by prs?</summary>
-  Approximately 0%. 
+  <summary>In the Japan-result, what percent of variance in phenotype
+  is explained by prs?
+<!--      </summary> Approximately 0%.   -->
 </details>
 
 <details>
-  <summary>Besides a difference in variance explained, do you notice any other differences?</summary>
-  Less variance in PRS, a shift to the left. 
+  <summary>Besides a difference in variance explained, do you notice
+  any other differences?
+<!--      </summary> Less variance in PRS, a shift to the left.   -->
 </details>
 
 <details>
-  <summary>What is the name of the problem that refers to this drop in performance?</summary>
-  The PRS Portability problem. 
+  <summary>What is the name of the problem that refers to this drop in
+  performance?
+<!--      </summary> The PRS Portability problem.   -->
 </details>
 
 <details>
@@ -280,13 +284,15 @@ Having compared the number of SNPs that show variation in each population, answe
 **❓QUESTIONS:**
 
 <details>
-  <summary>Which populations have the largest number (density) of SNPs that can be considered polymorphic?</summary>
-  AFR and AMR. 
+  <summary>Which populations have the largest number (density) of SNPs
+  that can be considered polymorphic?
+<!--      </summary> AFR and AMR.   -->
 </details>
 
 <details>
-  <summary>What do you think is the significance of the observed population order?</summary>
-  Human evolution and migration. 
+  <summary>What do you think is the significance of the observed
+  population order?
+<!--      </summary>  Human evolution and migration.   -->
 </details>
 
 
@@ -322,8 +328,9 @@ per ancestry group (the file "plink.frq.strat"), using R:
 **❓QUESTIONS:**
 
 <details>
-  <summary>How are the allele frequencies in AFR distinguishable from the other global reference groups?</summary>
-  Greater diversity. 
+  <summary>How are the allele frequencies in AFR distinguishable from
+  the other global reference groups?
+<!--   </summary> Greater diversity.   -->
 </details>
 
 
@@ -401,14 +408,16 @@ the following commands from within an R terminal:
 **❓QUESTIONS:**
 
 <details>
-  <summary>What differences do you observe in terms of LD decay between AFR and EUR genomes?</summary> 
-  Greater decay in AFR 
+  <summary>What differences do you observe in terms of LD decay
+  between AFR and EUR genomes?
+<!--      </summary> Greater decay in AFR   -->
 </details>
 
 
 <details>
-  <summary>How is this likely to impact the transferability of PRS performance between the two populations?</summary>
-  Negatively. 
+  <summary>How is this likely to impact the transferability of PRS
+  performance between the two populations?
+<!--      </summary> Negatively.   -->
 </details> 
 
 ---
@@ -468,8 +477,9 @@ population-specific information using the --within flag).  Then, in R:
 
 
 <details>
-  <summary>What are the main features of this plot?  How do you interpret them?</summary> 
-  Open ended 
+  <summary>What are the main features of this plot?  How do you
+  interpret them?
+<!--    </summary> Open ended -->
 </details>
 
 ---
@@ -494,18 +504,21 @@ spend some time identifying the principle components or sketching the line acros
 **❓QUESTIONS:**
 
 <details>
-  <summary>What line represents the principle component for the first shape?</summary> 
-  The line 4/3(x) + y   
+  <summary>What line represents the principle component for the first
+  shape?
+<!--   </summary> The line 4/3(x) + y  -->
 </details>
 
 <details>
-  <summary>What line represents the principle component for the second shape?</summary> 
-  The line x+y. 
+  <summary>What line represents the principle component for the second
+  shape?
+<!--   </summary> The line x+y.  -->
 </details>
 
 <details>
-  <summary>What line represents the principle component for the third shape?</summary> 
-  The original X axis already maximize the variance.  
+  <summary>What line represents the principle component for the third
+  shape?
+<!--   </summary> The original X axis already maximize the variance. -->
 </details>
 
 
@@ -596,6 +609,6 @@ This will generate the principal components that maximize the variance in the da
 
 <details>
   <summary>Why does this occur? What does it tell us about ancestry of this group?
-  </summary> Suggest recent admixture? 
+<!--    </summary> Suggest recent admixture?  -->
 </details>
 
