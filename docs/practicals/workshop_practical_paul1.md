@@ -472,7 +472,8 @@ Rscript ./Software/PRSice.R \
 A popular application of PRS is in performing cross-trait analyses. 
 This allows some interesting analyses such as those performed by Ruderfer et al 2014 (Fig.1.5), which used the bipolar PRS to predict into different clinical dimensions of schizophrenia.
 
-<!-- ![Plot taken from Ruderfer et al. 2014](../../images/sczbp.png) -->
+
+![Plot taken from Ruderfer et al. 2014](../../images/sczbp.png)
 
  In this practical, we will perform cross-trait analyses between CAD and Height, using height as the base and CAD as the target. 
 
