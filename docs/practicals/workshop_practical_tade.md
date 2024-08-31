@@ -187,16 +187,15 @@ View the resulting scatterplot and answer the questions below.
 
 ### 1000 Genomes Data
 
-We have observed the PRS-portability problem in practice,
-we are going to consider some analysis that can be used to 
-provide a solution. The following exercises use the 1000 Genomes (1000G)
-data which contains individuals from 26 source populations
-from five super-populations, Europe, East Asia, South Asian, Africa and America. 
+We have observed the PRS-portability problem in practice.  Recall from
+the lecture that the primary drivers of the PRS portability problem
+are between population difference in allele frequency, linkage
+disequilibrium and effect sizes.  In the next exercises we will use
+1000 Genomes (1000G) data to compare allele frequencies and linkage
+disequilibrium across populations.
 
-Recall from the lecture that the primary drivers of the PRS portability problem are 
-between population difference in allele frequency, linkage disequilibrium and effect sizes. 
-In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
-across populations.
+The 1000G contains individuals from 26 source populations from five
+super-populations, Europe, East Asia, South Asian, Africa and America.
 
 Population structure and population assignment is often accomplished using 
 principal components analysis (PCA). In the final exercise we learn what PCA is and how 
