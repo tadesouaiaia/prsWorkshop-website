@@ -349,7 +349,7 @@ populations will be used in the plot.
 
 
 
-<h5>LD decay versus chromosomal distance</h5>
+### LD decay versus chromosomal distance
 
 To visualise LD behaviour as a function of chromosomal distance we can carry out 
 the following commands from within an R terminal: 
@@ -415,16 +415,20 @@ the following commands from within an R terminal:
 
 
 ### Distribution of LD-block length
-The next set of scripts will allow us to visualise the distribution of LD block length across different 1000Genomes populations.
+The next set of scripts will allow us to visualise the distribution of
+LD block length in 1000G super-populations.
 
 
     ./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --blocks no-pheno-req no-small-max-span --blocks-max-kb 250 --within data/pop_info.pheno  --threads 30 --out AFR
 
 
-The “–block" flag estimates haplotype blocks using the same block definition implemented by the software Haploview. The default setting for the flag --blocks-max-kb
-only considers pairs of variants that are within 200 kilobases of each other. The output file from the above command is a .blocks file. Use the same code to generate output 
-for EUR, EAS, SAS and AMR populations (as it is not possible to generate population-specific information using the --within flag).
-Then, in R:
+The “–block" flag estimates haplotype blocks using the same block
+definition implemented by the software Haploview. The default setting
+for the flag --blocks-max-kb only considers pairs of variants that are
+within 200 kilobases of each other. The output file from the above
+command is a .blocks file. Use the same code to generate output for
+EUR, EAS, SAS and AMR populations (as it is not possible to generate
+population-specific information using the --within flag).  Then, in R:
 
 
 
@@ -594,35 +598,4 @@ This will generate the principal components that maximize the variance in the da
   <summary>Why does this occur? What does it tell us about ancestry of this group?
   </summary> Suggest recent admixture? 
 </details>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
