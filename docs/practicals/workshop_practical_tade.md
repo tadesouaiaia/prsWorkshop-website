@@ -293,7 +293,7 @@ Having compared the number of SNPs that show variation in each population, answe
 
 ---
 
-### Allele frequency variation across populations
+### Allele frequency variation across the super-populations
 
 Here we compare profiles of allele frequency across the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
@@ -414,7 +414,7 @@ the following commands from within an R terminal:
 ---
 
 
-<h5>Distribution of LD-block length</h5>
+### Distribution of LD-block length
 The next set of scripts will allow us to visualise the distribution of LD block length across different 1000Genomes populations.
 
 
