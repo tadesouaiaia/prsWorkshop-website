@@ -88,13 +88,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ex-2-population-genetics">Ex 2: Population Genetics</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-size-of-each-super-population">Sample size of each super-population</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#number-of-genetic-variants-analysed">Number of genetic variants analysed</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#number-of-polymorphic-markers-across-populations">Number of polymorphic markers across populations</a>
+    <li class="toctree-l3"><a class="reference internal" href="#number-of-polymorphic-markers-in-each-super-populations">Number of polymorphic markers in each super-populations</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#allele-frequency-variation-across-populations">Allele frequency variation across populations</a>
+    <li class="toctree-l3"><a class="reference internal" href="#allele-frequency-variation-across-the-super-populations">Allele frequency variation across the super-populations</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#linkage-disequilibrium-variation-across-populations">Linkage disequilibrium variation across populations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ld-decay-versus-chromosomal-distance">LD decay versus chromosomal distance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#distribution-of-ld-block-length">Distribution of LD-block length</a>
     </li>
         </ul>
     </li>
@@ -145,7 +151,11 @@
 <li><a href="#key-learning-outcomes">Key Learning Outcomes</a></li>
 <li><a href="#practical-specific-data">Practical Data</a> </li>
 <li><a href="#ex-1-portability-problem">A Portability Problem</a> </li>
-<li><a href="#ex-2-population-genetics">Population Genetics Basics</a> </li>
+<li><a href="#ex-2-population-genetics">Population Genetics Basics</a><ol>
+<li>Allele frequencies</li>
+<li>Linkage disequilibrium</li>
+</ol>
+</li>
 <li><a href="#ex-3-pca">Dimensional Reduction: PCA</a> </li>
 </ol>
 <hr />
@@ -268,23 +278,27 @@ and PRSice with the genotype-phenotype data from Japan.<br />
 View the resulting scatterplot and answer the questions below.</p>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>In the UK-result, what percent of variance in phenotype is explained by prs?</summary>
-  Approximately 10%. 
+  <summary>In the UK-result, what percent of variance in phenotype is
+  explained by prs?
+<!--      </summary> Approximately 10%.   -->
 </details>
 
 <details>
-  <summary>In the Japan-result, what percent of variance in phenotype is explained by prs?</summary>
-  Approximately 0%. 
+  <summary>In the Japan-result, what percent of variance in phenotype
+  is explained by prs?
+<!--      </summary> Approximately 0%.   -->
 </details>
 
 <details>
-  <summary>Besides a difference in variance explained, do you notice any other differences?</summary>
-  Less variance in PRS, a shift to the left. 
+  <summary>Besides a difference in variance explained, do you notice
+  any other differences?
+<!--      </summary> Less variance in PRS, a shift to the left.   -->
 </details>
 
 <details>
-  <summary>What is the name of the problem that refers to this drop in performance?</summary>
-  The PRS Portability problem. 
+  <summary>What is the name of the problem that refers to this drop in
+  performance?
+<!--      </summary> The PRS Portability problem.   -->
 </details>
 
 <details>
@@ -298,15 +312,14 @@ View the resulting scatterplot and answer the questions below.</p>
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Top</a></a></p>
 <h3 id="1000-genomes-data">1000 Genomes Data</h3>
-<p>We have observed the PRS-portability problem in practice,
-we are going to consider some analysis that can be used to 
-provide a solution. The following exercises use the 1000 Genomes (1000g)
-data which contains individuals from 26 different source populations
-from five super-populations, Europe, East Asia, South Asian, Africa and America. </p>
-<p>Recall from the lecture that the primary drivers of the PRS portability problem are 
-between population difference in allele frequency, linkage disequilibrium and effect sizes. 
-In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
-across populations.</p>
+<p>We have observed the PRS-portability problem in practice.  Recall from
+the lecture that the primary drivers of the PRS portability problem
+are between population difference in allele frequency, linkage
+disequilibrium and effect sizes.  In the next exercises we will use
+1000 Genomes (1000G) data to compare allele frequencies and linkage
+disequilibrium across populations.</p>
+<p>The 1000G contains individuals from 26 source populations from five
+super-populations, Europe, East Asia, South Asian, Africa and America.</p>
 <p>Population structure and population assignment is often accomplished using 
 principal components analysis (PCA). In the final exercise we learn what PCA is and how 
 it can be used to separate population data by recent ancestry.</p>
@@ -322,23 +335,24 @@ see <strong>code</strong> and <strong>data</strong> directories.  Looking in the
 <li>🏷️: <strong>data/pop_info.pheno</strong> (Population specific annotation data) </li>
 <li>💫: <strong>data/all_phase3.king.psam</strong> (Axillary Phase Data) </li>
 </ol>
-<h5>Sample Sizes</h5>
-
-<p>The first thing we would like to find out about this data is the number of individuals within each global superpopulation.  Type the 
-following command to query the number of European ancestry individuals in the downloaded dataset: </p>
+<h3 id="sample-size-of-each-super-population">Sample size of each super-population</h3>
+<p>The first thing we would like to find out about this data is the
+number of individuals in each super-population.  Type the
+following command to query the number of European ancestry individuals
+in the downloaded dataset:</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep -F &quot;EUR&quot; data/all_phase3.king.psam | wc -l
 </code></pre></div>
 <p>Next, repeat the same command for East Asian, African, South Asian and American super-populations, by inserting the relevant ancestry codes (EAS, AFR, SAS, AMR).</p>
-<p>🗒️ Make note how many individuals there are from each super-population.</p>
+<p>🗒️ Make a note of how many individuals there are in each super-population.</p>
 <h3 id="number-of-genetic-variants-analysed">Number of genetic variants analysed</h3>
 <p>1000G data contains over 80 million variants genome-wide. The 1000G data we are using
 in this practical is only a small fraction of these variants. This data gives 
 a reliable approximation for the genomic analyses in this tutorial and importantly,
 reduces the computation time required to complete the tutorial. The following command
-counts the number of genetic variants on chromosomes 1 to chromosome 22 used in our analyses</p>
+counts the number of genetic variants on chromosomes 1-22 used in our analyses</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>wc -l data/chr1-22.bim
 </code></pre></div>
-<h3 id="number-of-polymorphic-markers-across-populations">Number of polymorphic markers across populations</h3>
+<h3 id="number-of-polymorphic-markers-in-each-super-populations">Number of polymorphic markers in each super-populations</h3>
 <p>The rate at which a genetic variant occurs in a population is known as its allele
 frequency. Allele frequencies are shaped by evolutionary forces over a long period
 of time and hence can vary between populations. This has implications for PRS research. The following
@@ -346,11 +360,11 @@ plink command uses the population information in the file pop_info.pheno to
 generate allele frequency statistics for each SNP in the five 1000G super-populations:</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/plink --bfile data/chr1-22 --snps-only --freq --within data/pop_info.pheno
 </code></pre></div>
-<p>Population-stratified allele frequency results can be found in the output file plink.frq.strat.</p>
+<p>Population-stratified allele frequency results are found in the output file plink.frq.strat.</p>
 <p>Compare the totals against number of SNPs which have minor allele frequencies
 greater than 0 (and hence are useful for statistical analysis). Do this for all 5
-populations (EAS, EUR, SAS, EUR and AFR), using the code given below:</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep -F  &quot;AFR&quot; plink.frq.strat &gt; freq_report.afr
+populations (EAS, EUR, SAS, EUR and AFR), using the code below:</p>
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>grep -F &quot;AFR&quot; plink.frq.strat &gt; freq_report.afr
 grep -F &quot;AMR&quot; plink.frq.strat &gt; freq_report.amr
 grep -F &quot;EUR&quot; plink.frq.strat &gt; freq_report.eur
 grep -F &quot;EAS&quot; plink.frq.strat &gt; freq_report.eas
@@ -364,18 +378,20 @@ grep -F &quot;SAS&quot; plink.frq.strat | awk &#39;$6 &gt;0&#39; freq_report.sas
 <p>Having compared the number of SNPs that show variation in each population, answer the following questions: </p>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>Which populations have the largest number (density) of SNPs that can be considered polymorphic?</summary>
-  AFR and AMR. 
+  <summary>Which populations have the largest number (density) of SNPs
+  that can be considered polymorphic?
+<!--      </summary> AFR and AMR.   -->
 </details>
 
 <details>
-  <summary>What do you think is the significance of the observed population order?</summary>
-  Human evolution and migration. 
+  <summary>What do you think is the significance of the observed
+  population order?
+<!--      </summary>  Human evolution and migration.   -->
 </details>
 
 <hr />
-<h3 id="allele-frequency-variation-across-populations">Allele frequency variation across populations</h3>
-<p>Here we compare profiles of allele frequency across the five ancestral populations.
+<h3 id="allele-frequency-variation-across-the-super-populations">Allele frequency variation across the super-populations</h3>
+<p>Here we compare the distribution of allele frequency in the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
 per ancestry group (the file "plink.frq.strat"), using R: </p>
 <div class="admonition help">
@@ -394,28 +410,29 @@ geom_line() + scale_y_continuous(limits = c(0, 12)) + ggtitle(&quot;Distribution
 </div>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>How are the allele frequencies in AFR distinguishable from the other global reference groups?</summary>
-  Greater diversity. 
+  <summary>How are the allele frequencies in AFR distinguishable from
+  the other global reference groups?
+<!--   </summary> Greater diversity.   -->
 </details>
 
 <h3 id="linkage-disequilibrium-variation-across-populations">Linkage disequilibrium variation across populations</h3>
-<p>We will now perform pairwise LD comparisons between genome-wide snps in order
-to show cross-populations relationships between genomic distance and LD strength.
-We derive information on pairwise R2 between all SNPs:</p>
+<p>We will now perform pairwise LD comparisons between genome-wide SNPs
+to show how the relationship between genomic distance and LD strength
+varies between populations.  We first derive information on pairwise
+R2 between all SNPs:</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --within data/pop_info.pheno --r2 --ld-window-r2 0 --ld-window 999999 --ld-window-kb 2500 --threads 30 --out chr1-22.AFR
 </code></pre></div>
 <p>Repeat this step for all five 1000G populations. Output files containing LD
 info for all pairwise SNPs, have a ‘.ld’ suﬃx Next, create a summary file containing 
-the base-pair distance between each pair and the corresponding r2 value. The
+the base-pair distance between each pair and the corresponding R2 value. The
 following example shows this for AFR and EUR populations only, as just these
 populations will be used in the plot.</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>cat chr1-22.AFR.ld | sed 1,1d | awk -F &quot; &quot; &#39;function abs(v) {return v &lt; 0 ? -v : v}BEGIN{OFS=&quot;\t&quot;}{print abs($5-$2),$7}&#39; | sort -k1,1n &gt; chr1-22.AFR.ld.summary
 cat chr1-22.EUR.ld | sed 1,1d | awk -F &quot; &quot; &#39;function abs(v) {return v &lt; 0 ? -v : v}BEGIN{OFS=&quot;\t&quot;}{print abs($5-$2),$7}&#39; | sort -k1,1n &gt; chr1-22.EUR.ld.summary
 </code></pre></div>
-<h5>LD decay versus chromosomal distance</h5>
-
-<p>To visualise LD behaviour as a function of chromosomal distance we can carry out 
-the following commands from within an R terminal: </p>
+<h3 id="ld-decay-versus-chromosomal-distance">LD decay versus chromosomal distance</h3>
+<p>The following R commamds use this output to display LD as a function
+of genomic distance for the African and European populations:</p>
 <div class="admonition help">
 <p class="admonition-title">R-Code: Visualize LD Behavior</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code># need to add additional functionality to be able to 
@@ -456,24 +473,30 @@ ggplot()+
 </div>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>What differences do you observe in terms of LD decay between AFR and EUR genomes?</summary> 
-  Greater decay in AFR 
+  <summary>What differences do you observe in terms of LD decay
+  between AFR and EUR genomes?
+<!--      </summary> Greater decay in AFR   -->
 </details>
 
 <details>
-  <summary>How is this likely to impact the transferability of PRS performance between the two populations?</summary>
-  Negatively. 
+  <summary>How is this likely to impact the transferability of PRS
+  performance between the two populations?
+<!--      </summary> Negatively.   -->
 </details>
 
 <hr />
-<h5>Distribution of LD-block length</h5>
-<p>The next set of scripts will allow us to visualise the distribution of LD block length across different 1000Genomes populations.</p>
+<h3 id="distribution-of-ld-block-length">Distribution of LD-block length</h3>
+<p>The next set of scripts will allow us to visualise the distribution of
+LD block length in the 1000G super-populations.</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>./code/plink --bfile data/chr1-22 --keep-cluster-names AFR --blocks no-pheno-req no-small-max-span --blocks-max-kb 250 --within data/pop_info.pheno  --threads 30 --out AFR
 </code></pre></div>
-<p>The “–block" flag estimates haplotype blocks using the same block definition implemented by the software Haploview. The default setting for the flag --blocks-max-kb
-only considers pairs of variants that are within 200 kilobases of each other. The output file from the above command is a .blocks file. Use the same code to generate output 
-for EUR, EAS, SAS and AMR populations (as it is not possible to generate population-specific information using the --within flag).
-Then, in R:</p>
+<p>The “–block" flag estimates haplotype blocks using the same block
+definition implemented by the software Haploview. The default setting
+for the flag --blocks-max-kb only considers pairs of variants that are
+within 200 kilobases of each other. The output file from the above
+command is a .blocks file. Use the same code to generate output for
+EAS, EUR, SAS and AMR populations (as it is not possible to generate
+population-specific information using the --within flag).  Then, in R:</p>
 <div class="admonition help">
 <p class="admonition-title">R-Code: Load each of the 5 datasets and set column names to lower case.</p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>dfr.afr &lt;- read.delim(&quot;AFR.blocks.det&quot;,sep=&quot;&quot;,header=T,check.names=F,stringsAsFactors=F) 
@@ -503,32 +526,42 @@ fill=c(&quot;black&quot;,&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;,&quo
 </div>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>What are the main features of this plot?  How do you interpret them?</summary> 
-  Open ended 
+  <summary>What are the main features of this plot?  How do you
+  interpret them?
+<!--    </summary> Open ended -->
 </details>
 
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Top</a></a></p>
 <h2 id="ex-3-pca">Ex 3: PCA</h2>
-<p>Principle Component Analysis is a useful technique that allows researchers to visualize high dimensional data in lower space by rotating the axes in such a 
-way that the lower dimensions (or components) maximize the total variance explained.  In statistical genetics this involves "rotating" million-dimensional 
-data - something that is very hard to visualize!  For this reason, we begin with a simpler exercise.  For the following three two dimensional shapes, 
-spend some time identifying the principle components or sketching the line across for which variance is maximized.   Check your answers below: </p>
+<p>Principle component analysis is a useful technique that allows
+researchers to visualize high dimensional data in lower space by
+rotating the axes in such a way that the lower dimensions (or
+components) maximize the total variance explained.  In statistical
+genetics this involves "rotating" million-dimensional data - something
+that is very hard to visualize!  For this reason, we begin with a
+simpler exercise.  For the following three two dimensional shapes,
+spend some time identifying the principle components or sketching the
+line across for which variance is maximized.  Check your answers
+below:</p>
 <p><img alt="Screenshot" src="../images2/basic_pca_shapes.png" /> </p>
 <p><strong>❓QUESTIONS:</strong></p>
 <details>
-  <summary>What line represents the principle component for the first shape?</summary> 
-  The line 4/3(x) + y   
+  <summary>What line represents the principle component for the first
+  shape?
+<!--   </summary> The line 4/3(x) + y  -->
 </details>
 
 <details>
-  <summary>What line represents the principle component for the second shape?</summary> 
-  The line x+y. 
+  <summary>What line represents the principle component for the second
+  shape?
+<!--   </summary> The line x+y.  -->
 </details>
 
 <details>
-  <summary>What line represents the principle component for the third shape?</summary> 
-  The original X axis already maximize the variance.  
+  <summary>What line represents the principle component for the third
+  shape?
+<!--   </summary> The original X axis already maximize the variance. -->
 </details>
 
 <p>Below you can view the shapes in principal component space. </p>
@@ -601,7 +634,7 @@ points(project.pca[,1], project.pca[,3], col=col, pch=20, cex=2.25)
 
 <details>
   <summary>Why does this occur? What does it tell us about ancestry of this group?
-  </summary> Suggest recent admixture? 
+<!--    </summary> Suggest recent admixture?  -->
 </details>
               
             </div>
