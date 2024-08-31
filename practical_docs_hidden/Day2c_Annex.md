@@ -58,9 +58,9 @@ You will find all practical materials in the [following link](https://drive.goog
   - Quantile.R
     
 ---
-> 
-> ‼️ All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
-> 
+
+!!! Note All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
+
 ---
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
@@ -101,8 +101,8 @@ Rscript ./Software/PRSice.R \
 --stat beta \
 --beta \
 --pvalue p_dgc \
---pheno Target_Data/TAR.cad \
---prevalence 0.05 \ 
+--pheno Target_Data/Cardio_CAD.txt \
+--prevalence 0.05 \
 --binary-target T \
 --out Results/CAD.highres.LEER2
 ```
