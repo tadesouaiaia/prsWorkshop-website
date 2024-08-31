@@ -468,7 +468,7 @@ Rscript ./Software/PRSice.R \
 	The results shown in the quantile and strata plots here do not show much higher risk in the top quantiles, but this is because our simulated target data are small.
 
 
-### 1.11 Cross-Trait Analysis
+## 1.11 Cross-Trait Analysis
 A popular application of PRS is in performing cross-trait analyses. 
 This allows some interesting analyses such as those performed by Ruderfer et al 2014 (Fig.1.5), which used the bipolar PRS to predict into different clinical dimensions of schizophrenia.
 
