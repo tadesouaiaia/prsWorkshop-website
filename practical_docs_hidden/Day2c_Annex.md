@@ -36,8 +36,7 @@ You will find all practical materials in the [following link](https://drive.goog
 
  📂: Base_Data
   - GIANT_Height.txt,
-  - cad.add.txt,
-  - cad.add.readme.
+  - Cardio_CAD.txt,
 
  📂: Target_Data
   - TAR.fam
