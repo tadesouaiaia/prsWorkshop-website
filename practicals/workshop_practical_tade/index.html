@@ -74,7 +74,7 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../workshop_practical_paul1/">Day1 (AM)</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Day1 (PM)</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Day1 (PM)</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
     </li>
@@ -298,17 +298,9 @@ View the resulting scatterplot and answer the questions below.</p>
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Top</a></a></p>
 <h3 id="1000-genomes-data">1000 Genomes Data</h3>
-<p>Now that you have observed the PRS-portability problem in practice
+<p>We have observed the PRS-portability problem in practice,
 we are going to consider some analysis that can be used to 
-provide a solution.  Recall from the lecture that population structure
-and population assignment is often accomplished using 
-principal components analysis (PCA) and that the primary population
-differences that drive the portability problem are 
-difference in allele frequency and linkage disequilibrium. 
-In the next exercise we will learn how to analyze and compare 
-data from different populations and quantify linkage disequilibrium. </p>
-<p>In the final exercise we will learn more about PCA and how to apply it. 
-The following exercises use the 1000 Genomes (1000g)
+provide a solution. The following exercises use the 1000 Genomes (1000g)
 data which contains individuals from 26 different source populations
 from five super-populations, Europe, East Asia, South Asian, Africa and America. </p>
 <p>Recall from the lecture that the primary drivers of the PRS portability problem are 
@@ -316,14 +308,13 @@ between population difference in allele frequency, linkage disequilibrium and ef
 In the next exercises we will use 1000G to compare allele frequencies and linkage disequilibrium
 across populations.</p>
 <p>Population structure and population assignment is often accomplished using 
-principal components analysis (PCA). In the final exercise we learn what PCA is and how it can be used to separate population data by recent ancestry.
-Both of these exercises use the 1000 Genomes dataset which contains individuals from 26 different 
-source populations from five super-populations, Europe, East Asia, South Asian, Africa and America. </p>
+principal components analysis (PCA). In the final exercise we learn what PCA is and how 
+it can be used to separate population data by recent ancestry.</p>
 <hr />
 <p><a href="#top"><a href="#table-of-contents">Back to Top</a></a></p>
 <h2 id="ex-2-population-genetics">Ex 2: Population Genetics</h2>
-<p>This exercise of this practical takes place in the folder <strong>exercise2</strong>.  Once inside the folder you should 
-see <strong>code</strong> and <strong>data</strong> directories.  Looking in the data directory by typing the following command will reveal: </p>
+<p>This exercise takes place in the folder <strong>exercise2</strong>.  Once inside the folder you should 
+see <strong>code</strong> and <strong>data</strong> directories.  Looking in the data directory by typing the following command: </p>
 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>ls data/*
 </code></pre></div>
 <ol>
@@ -383,8 +374,6 @@ grep -F &quot;SAS&quot; plink.frq.strat | awk &#39;$6 &gt;0&#39; freq_report.sas
 </details>
 
 <hr />
-<h5>Cross Population Allele Frequency Comparisons</h5>
-
 <h3 id="allele-frequency-variation-across-populations">Allele frequency variation across populations</h3>
 <p>Here we compare profiles of allele frequency across the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
@@ -539,7 +528,7 @@ spend some time identifying the principle components or sketching the line acros
 
 <details>
   <summary>What line represents the principle component for the third shape?</summary> 
-  The original X axis already maximizes variance.  
+  The original X axis already maximize the variance.  
 </details>
 
 <p>Below you can view the shapes in principal component space. </p>
@@ -612,7 +601,7 @@ points(project.pca[,1], project.pca[,3], col=col, pch=20, cex=2.25)
 
 <details>
   <summary>Why does this occur? What does it tell us about ancestry of this group?
-<!-- </summary> Suggest recent admixture? -->
+  </summary> Suggest recent admixture? 
 </details>
               
             </div>
