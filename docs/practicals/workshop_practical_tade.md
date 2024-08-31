@@ -6,7 +6,7 @@
   2. [Practical Data](#practical-specific-data) 
   3. [A Portability Problem](#ex-1-portability-problem) 
   4. [Population Genetics Basics](#ex-2-population-genetics)
-  5.    Allele frequencies
+     1. Allele frequencies
   6. [Dimensional Reduction: PCA](#ex-3-pca) 
 
 ---
