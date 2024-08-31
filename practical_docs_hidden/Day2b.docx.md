@@ -193,7 +193,7 @@ To perform the PRSet analysis, we need to provide the GTF file and the GMT file 
 
 ```
 Rscript ./Software/PRSice.R \
-    --prsice Software/PRSice_linux  \ ----> ATTENTION, the binary file may be different depending on the operative system (linux, mac, windows)
+    --prsice Software/PRSice_mac  \
     --base Base_Data/GIANT_Height.txt \
     --target Target_Data/TAR \
     --A1 Allele1 \
