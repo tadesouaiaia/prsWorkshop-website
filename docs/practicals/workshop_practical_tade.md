@@ -10,6 +10,7 @@
 
 ---
 
+
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
   
@@ -185,7 +186,6 @@ View the resulting scatterplot and answer the questions below.
 
 Now that you have observed the PRS-portability problem in practice
 we are going to consider some analysis that can be used to 
-<<<<<<< HEAD
 provide a solution.  Recall from the lecture that population structure
 and population assignment is often accomplished using 
 principal components analysis (PCA) and that the primary population
@@ -193,9 +193,9 @@ differences that drive the portability problem are
 difference in allele frequency and linkage disequilibrium. 
 In the next exercise we will learn how to analyze and compare 
 data from different populations and quantify linkage disequilibrium. 
-In the final exercise we learn what PCA is and how 
-=======
-provide a solution. The following exercises use the 1000 Genomes (1000g)
+
+In the final exercise we will learn more about PCA and how to apply it. 
+The following exercises use the 1000 Genomes (1000g)
 data which contains individuals from 26 different source populations
 from five super-populations, Europe, East Asia, South Asian, Africa and America. 
 
@@ -205,9 +205,7 @@ In the next exercises we will use 1000G to compare allele frequencies and linkag
 across populations.
 
 Population structure and population assignment is often accomplished using 
-principal components analysis (PCA). In the final exercise we learn what PCA is and how 
->>>>>>> 0c16131a3368c289141780d909212d349546dd22
-it can be used to separate population data by recent ancestry.
+principal components analysis (PCA). In the final exercise we learn what PCA is and how it can be used to separate population data by recent ancestry.
 Both of these exercises use the 1000 Genomes dataset which contains individuals from 26 different 
 source populations from five super-populations, Europe, East Asia, South Asian, Africa and America. 
 
@@ -306,30 +304,12 @@ Having compared the number of SNPs that show variation in each population, answe
 
 ---
 
-<<<<<<< HEAD
 
-<h5>Investigation Missingness</h5>
-
-Genotype missingness, caused by genotyping failure can potentially lead to biased
-allele frequency estimation. Therefore missingness needs to be excluded as a possible
-source of bias when calculating allele frequency differences.
-
-
-    ./code/plink --bfile data/chr1-22 --missing --within data/pop_info.pheno
-
-
-
-The output file plink.lmiss provides a variant-based missing data report). Use the
-following code to query the number of genotyping failures based on the missingness
-information in the NMISS column:
-
-    awk '$4 > 0' plink.lmiss | wc -l
 
 
 <h5>Cross Population Allele Frequency Comparisons</h5>
-=======
+
 ### Allele frequency variation across populations
->>>>>>> 0c16131a3368c289141780d909212d349546dd22
 
 Here we compare profiles of allele frequency across the five ancestral populations.
 To do this we will use the previously-generated output on minor allele frequencies
@@ -537,7 +517,7 @@ spend some time identifying the principle components or sketching the line acros
 
 <details>
   <summary>What line represents the principle component for the third shape?</summary> 
-  The original X axis already maximize the variance.  
+  The original X axis already maximizes variance.  
 </details>
 
 
@@ -628,10 +608,7 @@ This will generate the principal components that maximize the variance in the da
 
 <details>
   <summary>Why does this occur? What does it tell us about ancestry of this group?
-<<<<<<< HEAD
-=======
-  </summary> Suggest recent admixture? 
->>>>>>> 0c16131a3368c289141780d909212d349546dd22
+<!-- </summary> Suggest recent admixture? -->
 </details>
 
 
