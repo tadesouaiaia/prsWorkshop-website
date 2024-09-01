@@ -33,7 +33,7 @@ You will find all practical materials in the [following link](https://drive.goog
 📁: Software
 
 - PRSice.R
-- PRSice_mac
+- PRSice_mac/linux
 
 
 <a id="gene-set-analysis-intro"></a>
@@ -338,7 +338,7 @@ After completing this practical, you should be able to:
 📁: Software
 
 - PRSice.R
-- PRSice_mac
+- PRSice_mac/linux
 - Quantile.R
 
     
