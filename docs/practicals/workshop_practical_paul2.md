@@ -330,7 +330,6 @@ After completing this practical, you should be able to:
 - VAL.height
 - VAL.covariate
     
-
 !!! Warning
      Note All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
 
