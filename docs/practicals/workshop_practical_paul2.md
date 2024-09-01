@@ -30,6 +30,11 @@ You will find all practical materials in the [following link](https://drive.goog
 - Homo_sapiens.GRCh38.109.gtf.gz
 - Sets.gmt
 
+📁: Software
+
+- PRSice.R
+- PRSice_mac
+
 
 <a id="gene-set-analysis-intro"></a>
 ## Introduction to gene set (pathway) PRS analysis
@@ -329,6 +334,13 @@ After completing this practical, you should be able to:
 - VAL.bed
 - VAL.height
 - VAL.covariate
+
+📁: Software
+
+- PRSice.R
+- PRSice_mac
+- Quantile.R
+
     
 !!! Warning
      Note All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
