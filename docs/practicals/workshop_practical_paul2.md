@@ -331,7 +331,7 @@ To perform PRS analyses, summary statistics from Genome-Wide Association Studies
 
 
 
-## Exercise 1 Estimating $R^2$ in case and control studies
+## Exercise 1: Estimating $R^2$ in case and control studies
 Bias in $R^2$ estimation caused by ascertained case/control samples can be adjusted using the equation proposed by **Lee et al (2011)**, which requires the sample prevalence (case/control ratio) and population prevalence as parameters. This function is implemented in PRSice and the adjustment can be performed by providing the population prevalence to the command `--prevalence`.
 
 Residuals of logistic regression is not well defined, and in PRS analyses, Nagelkerke $R^2$  is usually used to represent the model $R^2$ (this is the default of PRSice). However, this $R^2$ does not account for the diﬀerence between sample prevalence (i.e. case-control ratio) and population prevalence, which can lead to bias in the reported $R^2$ (Figure 1.1a). 
@@ -400,7 +400,7 @@ The results are written to the "Results" directory. Examine the results folder a
 
 ---
 
-## Exercise 2 Overfitting caused by model optimisation
+## Exercise 2: Overfitting caused by model optimisation
 
 In PRS analyses, the shrinkage or tuning parameter is usually optimized across a wide range of parametric space (e.g. P -value threshold, proportion of causal SNPs). When both optimisation and association testing are performed on the target data, over-fitted results will be obtained. The accuracy and predictive power of over-fitted results are likely to diminish when replicated in an independent data set.
 
@@ -488,7 +488,7 @@ Rscript ./Software/PRSice.R \
 
 
 ---
-## Exercise 3 Distribution of PRS
+## Exercise 3: Distribution of PRS
 
 Many PRS study publications include quantile plots that show an exponential increase in phenotypic value or / Odd Ratios (OR) among the top quantiles (e.g. an S-shaped quantile plot, e.g. Figure 1.6). 
 
