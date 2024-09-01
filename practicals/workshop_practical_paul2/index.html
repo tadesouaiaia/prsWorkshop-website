@@ -210,7 +210,7 @@
 <hr />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene set PRS analysis, and will then calculate some gene set based PRS using <a href="https://choishingwan.github.io/PRSice/quick_start_prset/">PRSet</a>.</p>
+<p>In this practical, we will go through some of the input requirements and considerations for the analysis of gene set PRS analysis, and will then calculate some gene set based PRS using <a href="https://choishingwan.github.io/PRSice/quick_start_prset/">PRSet</a>.</p>
 </div>
 <hr />
 <p>By aggregating PRS across multiple gene sets (or pathways), these PRS analyses will allow us to determine the genetic contribution made by each biological process in complex traits and diseases. For more information about the rationale and the software that we are going to use, please see the PRSet publication <a href="https://doi.org/10.1371/journal.pgen.1010624">PRSet: Pathway-based polygenic risk score analyses and software</a>. </p>
@@ -269,7 +269,7 @@
 <td style="text-align: center;">...</td>
 </tr>
 <tr>
-<td style="text-align: center;">Set A</td>
+<td style="text-align: center;">Set B</td>
 <td style="text-align: center;">Description</td>
 <td style="text-align: center;">Gene 1</td>
 <td style="text-align: center;">Gene 2</td>
@@ -287,7 +287,8 @@
 <div class="admonition questions">
 <p class="admonition-title">Questions</p>
 <p>❓ How many gene sets are there in the Reference/Sets.gmt file? </p>
-<p>❓ How many genes does the largest gene set contain?</p>
+<p>❓ How many genes does the largest gene set contain?
+ Hint: You can use the command <code>awk '{print $1"\t"NF}' Sets.gmt</code></p>
 </div>
 <hr />
 <p>As GMT format does not contain the chromosomal location for each individual gene, an additional file (General Transfer Format file) is required to provide the chromosomal location such that SNPs can be mapped to genes.</p>
@@ -297,51 +298,6 @@
 <ul>
 <li>Column 9: <strong>attribute</strong>, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times.</li>
 </ul>
-<hr />
-<div class="admonition tips">
-<p class="admonition-title">Tips</p>
-<p>To parse column 9 and split the additional information in separate columns, you can use the following R code:</p>
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><code>library(data.table)
-library(magrittr)
-
-# Function to extract attributes from column 9 in GTF files:
-extract_attribute = function(input, attribute) {
-strsplit(input, split = &quot;;&quot;) %&gt;%
-unlist %&gt;%
-.[grepl(attribute, .)] %&gt;%
-gsub(&quot;\&quot;&quot;, &quot;&quot;, .) %&gt;%
-strsplit(., split = &quot; &quot;) %&gt;%
-unlist %&gt;%
-tail(n = 1) %&gt;%
-return
-}
-
-gtf38 = fread(&quot;./Reference/Homo_sapiens.GRCh38.109.gtf.gz&quot;)
-
-gtf38_parsed = gtf38 %&gt;%
-# Select genes only, based on column 3 (feature) 
-.[V3 == &quot;gene&quot;] %&gt;%
-# Select genes located in autosomes
-.[`#!genebuild-last-updated 2022-11` %in% 1:22] %&gt;%
-# Create colummns with Gene information
-.[, c(&quot;chr&quot;, &quot;Gene_start&quot;, &quot;Gene_end&quot;, &quot;ensemblID&quot;, &quot;Gene_Name&quot;, &quot;Gene_biotype&quot;) := data.table(
-`#!genebuild-last-updated 2022-11`,
-V4,
-V5,
-sapply(V9, extract_attribute, &quot;gene_id&quot;),
-sapply(V9, extract_attribute, &quot;gene_name&quot;),
-sapply(V9, extract_attribute, &quot;gene_biotype&quot;))] %&gt;%
-# Filter the columns of interest
-.[, c(&quot;chr&quot;, &quot;Gene_start&quot;, &quot;Gene_end&quot;, &quot;ensemblID&quot;, &quot;Gene_Name&quot;, &quot;Gene_biotype&quot;)]
-</code></pre></div>
-</div>
-<hr />
-<p><strong>Have a look at the Reference/Homo_sapiens.GRCh38.109.gtf.gz file.</strong></p>
-<div class="admonition questions">
-<p class="admonition-title">Questions</p>
-<p>❓ Based on the column with information about the features, how many instances of feature = "gene" can you find ? </p>
-<p>❓ Based on the column with information about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? </p>
-</div>
 <hr />
 <p><a id="other-inputs"></a></p>
 <h3 id="other-inputs-that-can-be-used-for-gene-set-prs-using-prset">Other inputs that can be used for gene set PRS using PRSet</h3>
