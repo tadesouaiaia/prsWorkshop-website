@@ -48,7 +48,7 @@ During this session, you will learn how to run a gene set (or pathway) based PRS
 
 ---
 !!! Note
-     In this practical, we will go through some of the additional input requirements and considerations for the analysis of gene set PRS analysis, and will then calculate some gene set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
+     In this practical, we will go through some of the input requirements and considerations for the analysis of gene set PRS analysis, and will then calculate some gene set based PRS using [PRSet](https://choishingwan.github.io/PRSice/quick_start_prset/).
 
 ---
 
@@ -84,7 +84,7 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
 | | | | | |
 |:---:|:---:|:---:|:---:|:---:|
 |Set A| Description | Gene 1 | Gene 2 | ...
-|Set A| Description | Gene 1 | Gene 2 | ...
+|Set B| Description | Gene 1 | Gene 2 | ...
 
 ---
 !!! Tips
@@ -97,6 +97,7 @@ MSigDB oﬀers an excellent source of gene sets, including the hallmark genes, g
      ❓ How many gene sets are there in the Reference/Sets.gmt file? 
      
      ❓ How many genes does the largest gene set contain?
+     Hint: You can use the command `awk '{print $1"\t"NF}' Sets.gmt`
 
 ---
 
@@ -109,55 +110,6 @@ Two columns in the GTF file that might be of particular interest are:
   
 - Column 9: **attribute**, which contains a semicolon-separated list of tag-value pairs (separated by a space), providing additional information about each feature. A key can be repeated multiple times.
 
----
-!!! Tips
-     To parse column 9 and split the additional information in separate columns, you can use the following R code:
-     
-     ``` {r}
-
-     library(data.table)
-     library(magrittr)
-
-     # Function to extract attributes from column 9 in GTF files:
-     extract_attribute = function(input, attribute) {
-     strsplit(input, split = ";") %>%
-     unlist %>%
-     .[grepl(attribute, .)] %>%
-     gsub("\"", "", .) %>%
-     strsplit(., split = " ") %>%
-     unlist %>%
-     tail(n = 1) %>%
-     return
-     }
-
-     gtf38 = fread("./Reference/Homo_sapiens.GRCh38.109.gtf.gz")
-
-     gtf38_parsed = gtf38 %>%
-     # Select genes only, based on column 3 (feature) 
-     .[V3 == "gene"] %>%
-     # Select genes located in autosomes
-     .[`#!genebuild-last-updated 2022-11` %in% 1:22] %>%
-     # Create colummns with Gene information
-     .[, c("chr", "Gene_start", "Gene_end", "ensemblID", "Gene_Name", "Gene_biotype") := data.table(
-     `#!genebuild-last-updated 2022-11`,
-     V4,
-     V5,
-     sapply(V9, extract_attribute, "gene_id"),
-     sapply(V9, extract_attribute, "gene_name"),
-     sapply(V9, extract_attribute, "gene_biotype"))] %>%
-     # Filter the columns of interest
-     .[, c("chr", "Gene_start", "Gene_end", "ensemblID", "Gene_Name", "Gene_biotype")]
-
-     ```
-
----
-
-**Have a look at the Reference/Homo_sapiens.GRCh38.109.gtf.gz file.**
-
-!!! Questions     
-     ❓ Based on the column with information about the features, how many instances of feature = "gene" can you find ? 
-
-     ❓ Based on the column with information about the attributes, how many protein-coding genes are there in the Reference/Homo_sapiens.GRCh38.109.gtf.gz file? 
 
 ---
 
