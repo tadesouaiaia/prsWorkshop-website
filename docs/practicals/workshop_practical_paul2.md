@@ -63,12 +63,8 @@ Summary statistics from GWAS, as well as individual level genotype and phenotype
 
 In this session, the following Base and Target data is used. Base data is publicly available. All Target data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
 
-|**Data Set**|**Description**|**Download Link**|
-|:---:|:---:|:---:|
-| Base from the [GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
-| Simulated Target Data | Individual-level phenotype and genotype files | Data folder |
 
-Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database**. Note that PRSet also takes as input **BED and SNP files**. 
+Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the **Molecular Signatures Database** (in `Reference/`). Note that PRSet also takes as input **BED and SNP files**. 
 
 |**Data Set**|**Description**|**Download Link**|
 |:---:|:---:|:---:|
@@ -304,27 +300,36 @@ PRSet default option is to no not perform p-value thresholding. It will simply c
 
 ## Advanced Polygenic Risk Score Analyses
 
-## Annex 
-
 
 ## Key Learning Outcomes
 After completing this practical, you should be able to:
      
-1. know how to adjust for ascertainment bias in case-control analysis
+1. Know how to adjust for ascertainment bias in case-control analysis
 2. Know how over-fitting aﬀects PRS results and how to handle it 
-3. understand distribution of PRS
+3. Understand distribution of PRS
 
-## Resources you will be using 
-To perform PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) are required. In this workshop, the following summary statistics are used:
+## Data Structure
+ Relevant materials that you should find at the start of the practical are:
 
-|**Phenotype**|**Provider**|**Description**|**Download Link**|
-|:---:|:---:|:---:|:---:|
-|Height|[GIANT Consortium](https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files)|GWAS of height on 253,288 individuals| [Link](https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz)|
-|Coronary artery disease (CAD)|[CARDIoGRAMplusC4D Consortium](http://www.cardiogramplusc4d.org/)|GWAS on 60,801 CAD cases and 123,504 controls| [Link](http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip)|
+ 📂: Base_Data
 
+- GIANT_Height.txt
+- Cardio_CAD.txt
 
+ 📂: Target_Data
+
+- TAR.fam
+- TAR.bim
+- TAR.bed
+- TAR.height
+- TAR.cad
+- TAR.covariate
+- VAL.fam
+- VAL.bim
+- VAL.bed
+- VAL.height
+- VAL.covariate
     
-
 
 !!! Warning
      Note All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
