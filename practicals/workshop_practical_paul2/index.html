@@ -118,21 +118,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#advanced-polygenic-risk-score-analyses">Advanced Polygenic Risk Score Analyses</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#annex">Annex</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#key-learning-outcomes_1">Key Learning Outcomes</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resources-you-will-be-using">Resources you will be using</a>
+    <li class="toctree-l2"><a class="reference internal" href="#data-structure_1">Data Structure</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-1-estimating-r2-in-case-and-control-studies">Exercise 1 Estimating \(R^2\) in case and control studies</a>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise-1-estimating-r2-in-case-and-control-studies">Exercise 1: Estimating \(R^2\) in case and control studies</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-2-overfitting-caused-by-model-optimisation">Exercise 2 Overfitting caused by model optimisation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise-2-overfitting-caused-by-model-optimisation">Exercise 2: Overfitting caused by model optimisation</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#out-of-sample-validation">Out of Sample Validation</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#exercise-3-distribution-of-prs">Exercise 3 Distribution of PRS</a>
+    <li class="toctree-l2"><a class="reference internal" href="#exercise-3-distribution-of-prs">Exercise 3: Distribution of PRS</a>
     </li>
     </ul>
                   </li>
@@ -222,28 +220,7 @@
 <h2 id="inputs-required-for-gene-set-prs-analysis">Inputs required for gene-set PRS analysis</h2>
 <p>Summary statistics from GWAS, as well as individual level genotype and phenotype data are required to perform gene set PRS analyses. </p>
 <p>In this session, the following Base and Target data is used. Base data is publicly available. All Target data in this worshop are <strong>simulated</strong>. They have no specific biological meaning and are for demonstration purposes only. </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;"><strong>Data Set</strong></th>
-<th style="text-align: center;"><strong>Description</strong></th>
-<th style="text-align: center;"><strong>Download Link</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">Base from the <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files">GIANT Consortium</a></td>
-<td style="text-align: center;">GWAS of height on 253,288 individuals</td>
-<td style="text-align: center;"><a href="https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz">Link</a></td>
-</tr>
-<tr>
-<td style="text-align: center;">Simulated Target Data</td>
-<td style="text-align: center;">Individual-level phenotype and genotype files</td>
-<td style="text-align: center;">Data folder</td>
-</tr>
-</tbody>
-</table>
-<p>Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the <strong>Molecular Signatures Database</strong>. Note that PRSet also takes as input <strong>BED and SNP files</strong>. </p>
+<p>Additionally, to perform gene set PRS analyses, information about the gene sets for which we want to calculate the PRSs are required. In this tutorial, we will use as input gene-sets from the <strong>Molecular Signatures Database</strong> (in <code>Reference/</code>). Note that PRSet also takes as input <strong>BED and SNP files</strong>. </p>
 <table>
 <thead>
 <tr>
@@ -484,45 +461,39 @@ reducing the signal:</p>
 </div>
 <hr />
 <h2 id="advanced-polygenic-risk-score-analyses">Advanced Polygenic Risk Score Analyses</h2>
-<h2 id="annex">Annex</h2>
 <h2 id="key-learning-outcomes_1">Key Learning Outcomes</h2>
 <p>After completing this practical, you should be able to:</p>
 <ol>
-<li>know how to adjust for ascertainment bias in case-control analysis</li>
+<li>Know how to adjust for ascertainment bias in case-control analysis</li>
 <li>Know how over-fitting aﬀects PRS results and how to handle it </li>
-<li>understand distribution of PRS</li>
+<li>Understand distribution of PRS</li>
 </ol>
-<h2 id="resources-you-will-be-using">Resources you will be using</h2>
-<p>To perform PRS analyses, summary statistics from Genome-Wide Association Studies (GWAS) are required. In this workshop, the following summary statistics are used:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;"><strong>Phenotype</strong></th>
-<th style="text-align: center;"><strong>Provider</strong></th>
-<th style="text-align: center;"><strong>Description</strong></th>
-<th style="text-align: center;"><strong>Download Link</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">Height</td>
-<td style="text-align: center;"><a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files">GIANT Consortium</a></td>
-<td style="text-align: center;">GWAS of height on 253,288 individuals</td>
-<td style="text-align: center;"><a href="https://portals.broadinstitute.org/collaboration/giant/images/0/01/GIANT_HEIGHT_Wood_et_al_2014_publicrelease_HapMapCeuFreq.txt.gz">Link</a></td>
-</tr>
-<tr>
-<td style="text-align: center;">Coronary artery disease (CAD)</td>
-<td style="text-align: center;"><a href="http://www.cardiogramplusc4d.org/">CARDIoGRAMplusC4D Consortium</a></td>
-<td style="text-align: center;">GWAS on 60,801 CAD cases and 123,504 controls</td>
-<td style="text-align: center;"><a href="http://www.cardiogramplusc4d.org/media/cardiogramplusc4d-consortium/data-downloads/cad.additive.Oct2015.pub.zip">Link</a></td>
-</tr>
-</tbody>
-</table>
+<h2 id="data-structure_1">Data Structure</h2>
+<p>Relevant materials that you should find at the start of the practical are:</p>
+<p>📂: Base_Data</p>
+<ul>
+<li>GIANT_Height.txt</li>
+<li>Cardio_CAD.txt</li>
+</ul>
+<p>📂: Target_Data</p>
+<ul>
+<li>TAR.fam</li>
+<li>TAR.bim</li>
+<li>TAR.bed</li>
+<li>TAR.height</li>
+<li>TAR.cad</li>
+<li>TAR.covariate</li>
+<li>VAL.fam</li>
+<li>VAL.bim</li>
+<li>VAL.bed</li>
+<li>VAL.height</li>
+<li>VAL.covariate</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note All target phenotype data in this worshop are <strong>simulated</strong>. They have no specific biological meaning and are for demonstration purposes only. </p>
 </div>
-<h2 id="exercise-1-estimating-r2-in-case-and-control-studies">Exercise 1 Estimating <span class="arithmatex">\(R^2\)</span> in case and control studies</h2>
+<h2 id="exercise-1-estimating-r2-in-case-and-control-studies">Exercise 1: Estimating <span class="arithmatex">\(R^2\)</span> in case and control studies</h2>
 <p>Bias in <span class="arithmatex">\(R^2\)</span> estimation caused by ascertained case/control samples can be adjusted using the equation proposed by <strong>Lee et al (2011)</strong>, which requires the sample prevalence (case/control ratio) and population prevalence as parameters. This function is implemented in PRSice and the adjustment can be performed by providing the population prevalence to the command <code>--prevalence</code>.</p>
 <p>Residuals of logistic regression is not well defined, and in PRS analyses, Nagelkerke <span class="arithmatex">\(R^2\)</span>  is usually used to represent the model <span class="arithmatex">\(R^2\)</span> (this is the default of PRSice). However, this <span class="arithmatex">\(R^2\)</span> does not account for the diﬀerence between sample prevalence (i.e. case-control ratio) and population prevalence, which can lead to bias in the reported <span class="arithmatex">\(R^2\)</span> (Figure 1.1a). </p>
 <p><strong>Figure 1.1: Performance of diﬀerent <span class="arithmatex">\(R^2\)</span> when the study contains equal portion of cases and controls</strong></p>
@@ -571,7 +542,7 @@ prevalence (case/control ratio) and population prevalence as parameters. This fu
 <p>❓ Would you expect a diﬀerence between the Nagelkerke <span class="arithmatex">\(R^2\)</span>  and the Lee adjusted <span class="arithmatex">\(R^2\)</span>  if the case/control ratio in the target sample reflects the disease prevalence in the population?</p>
 </div>
 <hr />
-<h2 id="exercise-2-overfitting-caused-by-model-optimisation">Exercise 2 Overfitting caused by model optimisation</h2>
+<h2 id="exercise-2-overfitting-caused-by-model-optimisation">Exercise 2: Overfitting caused by model optimisation</h2>
 <p>In PRS analyses, the shrinkage or tuning parameter is usually optimized across a wide range of parametric space (e.g. P -value threshold, proportion of causal SNPs). When both optimisation and association testing are performed on the target data, over-fitted results will be obtained. The accuracy and predictive power of over-fitted results are likely to diminish when replicated in an independent data set.</p>
 <p>A simple solution is to perform permutation to obtain an empirical P -value for the association model, which is implemented in PRSice. Briefly, permutation is performed as follows:</p>
 <ol>
@@ -644,7 +615,7 @@ where <span class="arithmatex">\(I(.)\)</span> is the indicator function. </p>
 <p>❓ How does the PRS R2 and P -value for the validation data set compare to the analysis on the TAR target data? Is this what you would expect? Why?</p>
 </div>
 <hr />
-<h2 id="exercise-3-distribution-of-prs">Exercise 3 Distribution of PRS</h2>
+<h2 id="exercise-3-distribution-of-prs">Exercise 3: Distribution of PRS</h2>
 <p>Many PRS study publications include quantile plots that show an exponential increase in phenotypic value or / Odd Ratios (OR) among the top quantiles (e.g. an S-shaped quantile plot, e.g. Figure 1.6). </p>
 <p><strong>Figure 1.5: An example of density plot for PRS</strong>
 <img alt="Figure 1.5" src="../../images/images020.png" /></p>
