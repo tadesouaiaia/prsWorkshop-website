@@ -9,9 +9,25 @@
 
 
 
-# PRS Japan Workshop is Almost Here!: Aug 31, 2024 
+# PRS Japan Workshop has finished (September 1st, 2024).
 
-**Download the [workshop practical data!](https://drive.google.com/drive/folders/1izXdmftuqwJTBLYYiu8CHnwWDeLRMWRc?usp=drive_link)** 
+**Please help us by clicking [here to complete our anonymous post-workshop survey!](https://docs.google.com/forms/d/e/1FAIpQLSeRXuDPGSS7Ykc4OzbRKPt1Vealx2JPsy2RUqLZ1lLHOXZNkg/viewform)**
+
+**Workship lecture slides [can be downloaded here!](https://drive.google.com/drive/folders/1Y1mY1z5hdoxyx0yAX7Vaj7iIQUS5-iAf?usp=drive_link)**
+
+For additional questions, don't hesitate to email the speakers:
+
+    1. Yuki Okada    - Director [yuki-okada at m.u-tokyo.ac.jp]
+    2. Paul O'Reilly - Day 1&2  [paul.oreilly at mssm.edu] 
+    3. Tade Souaiaia - Day 1    [tade.souaiaia at downstate.edu]
+    4. Clive Hoggart - Day 2    [clive.hoggart at mssm.edu]
+
+
+---
+
+
+Download [workshop practical data!](https://drive.google.com/drive/folders/1izXdmftuqwJTBLYYiu8CHnwWDeLRMWRc?usp=drive_link)
+
 
 Attendees should complete the [pre-workshop checklist!](prep_list.md)
 
