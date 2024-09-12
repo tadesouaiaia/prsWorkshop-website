@@ -36,8 +36,7 @@ You will find all practical materials in the [following link](https://drive.goog
 
  📂: Base_Data
   - GIANT_Height.txt,
-  - cad.add.txt,
-  - cad.add.readme.
+  - Cardio_CAD.txt,
 
  📂: Target_Data
   - TAR.fam
@@ -58,9 +57,10 @@ You will find all practical materials in the [following link](https://drive.goog
   - Quantile.R
     
 ---
-> 
-> ‼️ All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
-> 
+
+!!! Warning
+  Note All target phenotype data in this worshop are **simulated**. They have no specific biological meaning and are for demonstration purposes only. 
+
 ---
 <a href="#top">[Back to Top](#table-of-contents)</a>
 
@@ -90,8 +90,8 @@ Now, account for the ascertainment of the case/control sample by including the p
 
 ```
 Rscript ./Software/PRSice.R \
---prsice Software/PRSice_linux \
---base  Base_Data/cad.add.txt \
+--prsice Software/PRSice_mac \
+--base  Base_Data/Cardio_CAD.txt  \
 --target Target_Data/TAR \
 --snp markername \
 --A1 effect_allele \
@@ -102,7 +102,7 @@ Rscript ./Software/PRSice.R \
 --beta \
 --pvalue p_dgc \
 --pheno Target_Data/TAR.cad \
---prevalence 0.05 \ 
+--prevalence 0.05 \
 --binary-target T \
 --out Results/CAD.highres.LEER2
 ```
@@ -169,7 +169,7 @@ You will have to specify the number of permutation (N ) to perform by providing 
 
 ```
 Rscript ./Software/PRSice.R \
-    --prsice Software/PRSice_linux \
+    --prsice Software/PRSice_mac \
     --base  Base_Data/GIANT_Height.txt \
     --target Target_Data/TAR \
     --snp MarkerName \
@@ -223,7 +223,7 @@ The best way to avoid having results that are over-fit is to perform validation 
 
 ```
 Rscript ./Software/PRSice.R \
-    --prsice Software/PRSice_linux \
+    --prsice Software/PRSice_mac \
     --base  Base_Data/GIANT_Height.txt \
     --target Target_Data/VAL \
     --snp MarkerName \
